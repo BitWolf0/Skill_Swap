@@ -1,0 +1,37 @@
+git config user.name "user user"
+git config user.email "test@test.com" for one 
+git config --global user.name "user user"
+git config --global user.email "test@test.com" for one 
+
+git init /// for initializing config files .git
+
+
+git status / see commits or working tree
+
+git add "filename" or . for all
+
+
+U : Untracked : git not tracking any changes
+A : ready to be commited 
+M : modified
+git commit -m "message include changes" / save bunch of saves in a version 
+
+git log -v : to see logs / to see commit list
+
+git checkout "commit code from git log " / returning to the commit presenting in the checkout
+
+extentions : 
+gitlens
+git history
+ 
+Branches : 
+git checkout -b "name of new brunch without quotes"
+
+git merge c (from a branch sec to main branch "master")
+
+git fetch : to see if there any commits you dont have
+
+git pull to pull commits from origin/main branch
+
+git clone (url)
+
