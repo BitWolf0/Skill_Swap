@@ -1,0 +1,73 @@
+CREATE DATABASE IF NOT EXISTS ismo_skillswap;
+USE ismo_skillswap;
+
+-- 1. Table des Filières (pour le filtrage OF8)
+CREATE TABLE filieres (
+    id_filiere INT PRIMARY KEY AUTO_INCREMENT,
+    nom_filiere VARCHAR(100) NOT NULL -- ex: DEV101, ID101
+);
+
+-- 2. Table des Utilisateurs (Stagiaires, Mentors, Formateurs, Admins)
+CREATE TABLE utilisateurs (
+    id_user INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL, -- Hachage recommandé [cite: 77]
+    role ENUM('stagiaire', 'mentor', 'formateur', 'admin') DEFAULT 'stagiaire',
+    score_reputation INT DEFAULT 0,
+    id_filiere INT,
+    FOREIGN KEY (id_filiere) REFERENCES filieres(id_filiere)
+);
+
+-- 3. Table des Compétences (Catalogue général)
+CREATE TABLE competences (
+    id_competence INT PRIMARY KEY AUTO_INCREMENT,
+    nom_competence VARCHAR(100) NOT NULL, -- ex: PHP, React, Merise
+    categorie VARCHAR(50) -- ex: Développement, Design, Réseaux
+);
+
+-- 4. Table de liaison : Profil de Compétences (Stagiaire <-> Compétence)
+CREATE TABLE posseder_competence (
+    id_user INT,
+    id_competence INT,
+    niveau_estime ENUM('débutant', 'intermédiaire', 'expert'),
+    est_validee BOOLEAN DEFAULT FALSE, -- Validation par le formateur 
+    id_formateur_validateur INT, 
+    PRIMARY KEY (id_user, id_competence),
+    FOREIGN KEY (id_user) REFERENCES utilisateurs(id_user),
+    FOREIGN KEY (id_competence) REFERENCES competences(id_competence),
+    FOREIGN KEY (id_formateur_validateur) REFERENCES utilisateurs(id_user)
+);
+
+-- 5. Table des Demandes d'Aide (Marketplace d'entraide)
+CREATE TABLE demandes_aide (
+    id_demande INT PRIMARY KEY AUTO_INCREMENT,
+    titre VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('ouvert', 'en_cours', 'résolu') DEFAULT 'ouvert',
+    id_auteur INT, -- Le stagiaire qui demande de l'aide [cite: 53]
+    id_mentor INT, -- Le mentor qui accepte d'aider [cite: 53]
+    note_mentor INT CHECK (note_mentor BETWEEN 1 AND 5), -- Notation [cite: 46]
+    FOREIGN KEY (id_auteur) REFERENCES utilisateurs(id_user),
+    FOREIGN KEY (id_mentor) REFERENCES utilisateurs(id_user)
+);
+
+-- 6. Table des Badges (Gamification)
+CREATE TABLE badges (
+    id_badge INT PRIMARY KEY AUTO_INCREMENT,
+    nom_badge VARCHAR(100) NOT NULL,
+    image_path VARCHAR(255),
+    points_requis INT
+);
+
+-- 7. Table de liaison : Obtention des Badges
+CREATE TABLE gagner_badge (
+    id_user INT,
+    id_badge INT,
+    date_obtention DATE,
+    PRIMARY KEY (id_user, id_badge),
+    FOREIGN KEY (id_user) REFERENCES utilisateurs(id_user),
+    FOREIGN KEY (id_badge) REFERENCES badges(id_badge)
+);

@@ -1,0 +1,78 @@
+-- Création de la base de données
+CREATE DATABASE IF NOT EXISTS ismo_skillswap2 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ismo_skillswap;
+
+-- 1. Table des Filières (Pour le filtrage OF8) [cite: 46, 62]
+CREATE TABLE filieres (
+    id_filiere INT PRIMARY KEY AUTO_INCREMENT,
+    nom_filiere VARCHAR(100) NOT NULL -- ex: DEV, ID, etc.
+);
+
+-- 2. Table Utilisateurs (Stagiaire, Mentor, Formateur, Admin) [cite: 48, 51]
+CREATE TABLE utilisateurs (
+    id_user INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL, -- Hachage obligatoire pour la sécurité 
+    role ENUM('stagiaire', 'mentor', 'formateur', 'admin') DEFAULT 'stagiaire', -- [cite: 48, 51]
+    points_reputation INT DEFAULT 0, -- Pour la Gamification [cite: 44, 60]
+    id_filiere INT,
+    compte_actif BOOLEAN DEFAULT TRUE, -- Pour que l'Admin puisse suspendre le compte [cite: 51]
+    date_inscription DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_filiere) REFERENCES filieres(id_filiere) ON DELETE SET NULL
+);
+
+-- 3. Table des Compétences (Le catalogue) 
+CREATE TABLE competences (
+    id_competence INT PRIMARY KEY AUTO_INCREMENT,
+    nom_competence VARCHAR(100) NOT NULL,
+    description_competence TEXT
+);
+
+-- 4. Profil de Compétences (Lien Stagiaire-Compétence avec Validation) [cite: 42, 56]
+CREATE TABLE declarations_competences (
+    id_user INT,
+    id_competence INT,
+    niveau_estime ENUM('débutant', 'intermédiaire', 'expert') NOT NULL, -- 
+    est_validee BOOLEAN DEFAULT FALSE, -- Validation par le Formateur [cite: 42, 56]
+    id_formateur_validateur INT, -- Le formateur qui a fait la validation [cite: 48, 56]
+    date_declaration DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_user, id_competence),
+    FOREIGN KEY (id_user) REFERENCES utilisateurs(id_user) ON DELETE CASCADE,
+    FOREIGN KEY (id_competence) REFERENCES competences(id_competence) ON DELETE CASCADE,
+    FOREIGN KEY (id_formateur_validateur) REFERENCES utilisateurs(id_user)
+);
+
+-- 5. Marketplace d'Entraide (Demandes d'aide) [cite: 40, 52]
+CREATE TABLE demandes_aide (
+    id_demande INT PRIMARY KEY AUTO_INCREMENT,
+    titre VARCHAR(255) NOT NULL, -- [cite: 46]
+    description TEXT NOT NULL,
+    date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('ouvert', 'en_cours', 'résolu') DEFAULT 'ouvert', -- [cite: 54]
+    id_auteur INT NOT NULL, -- Le stagiaire qui demande [cite: 53]
+    id_mentor INT, -- Le stagiaire/mentor qui aide [cite: 53]
+    note_mentor INT CHECK (note_mentor BETWEEN 1 AND 5), -- Système de notation [cite: 44, 46]
+    FOREIGN KEY (id_auteur) REFERENCES utilisateurs(id_user) ON DELETE CASCADE,
+    FOREIGN KEY (id_mentor) REFERENCES utilisateurs(id_user) ON DELETE SET NULL
+);
+
+-- 6. Système de Badges (Gamification) [cite: 44, 59]
+CREATE TABLE badges (
+    id_badge INT PRIMARY KEY AUTO_INCREMENT,
+    nom_badge VARCHAR(100) NOT NULL,
+    description_badge TEXT,
+    image_badge VARCHAR(255), -- Chemin vers l'icône
+    points_requis INT DEFAULT 0 -- [cite: 60]
+);
+
+-- 7. Attribution des Badges (Géré par Formateur/Admin) [cite: 51, 60]
+CREATE TABLE utilisateur_badges (
+    id_user INT,
+    id_badge INT,
+    date_obtention DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_user, id_badge),
+    FOREIGN KEY (id_user) REFERENCES utilisateurs(id_user) ON DELETE CASCADE,
+    FOREIGN KEY (id_badge) REFERENCES badges(id_badge) ON DELETE CASCADE
+);
