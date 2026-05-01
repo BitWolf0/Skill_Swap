@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISMO-SkillSwap — Mes compétences</title>
+  <meta name="description" content="Suivez votre progression et déclarez de nouvelles compétences sur ISMO-SkillSwap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/mes_competances.css" />
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+    <div class="sidebar-brand">
+      <div class="brand-icon-wrap" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="9" fill="#2563EB"/>
+          <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="3" fill="#fff"/>
+        </svg>
+      </div>
+      <span class="brand-text">ISMO<span>-SkillSwap</span></span>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Menu principal">
+      <ul role="list">
+        <li>
+          <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </span>
+            <span class="nav-label">Tableau de bord</span>
+          </a>
+        </li>
+        <li>
+          <a href="mes_demandes.html" class="nav-item" id="nav-requests">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </span>
+            <span class="nav-label">Mes Demandes</span>
+          </a>
+        </li>
+        <li>
+          <a href="mes_competances.html" class="nav-item active" id="nav-skills" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </span>
+            <span class="nav-label">Mes Compétences</span>
+          </a>
+        </li>
+        <li>
+          <a href="passeport_pdf.html" class="nav-item" id="nav-passport">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                <line x1="12" y1="6" x2="16" y2="6"/><line x1="12" y1="10" x2="16" y2="10"/>
+              </svg>
+            </span>
+            <span class="nav-label">Passeport PDF</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-item" id="nav-mentor">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <span class="nav-label">Devenir Mentor</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user-mini">
+        <div class="mini-avatar" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="mini-info">
+          <span class="mini-name">Sophie Martin</span>
+          <span class="mini-role">Stagiaire</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <div class="main-wrapper">
+    <header class="topbar" role="banner">
+      <button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <input type="search" id="search-input" class="search-input" placeholder="Rechercher une compétence..." aria-label="Rechercher une compétence" />
+      </div>
+
+      <div class="topbar-right">
+        <button class="icon-btn notif-btn" id="btn-notif" aria-label="Notifications" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notif-dot" aria-label="Nouvelles notifications"></span>
+        </button>
+
+        <button class="profile-btn" id="btn-profile" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Menu profil">
+          <div class="profile-info">
+            <span class="profile-name">Sophie Martin</span>
+            <span class="profile-score">Score: 85</span>
+          </div>
+          <div class="profile-avatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+        </button>
+
+        <div class="profile-dropdown" id="profile-dropdown" role="menu" aria-label="Options du profil" hidden>
+          <div class="dropdown-header">
+            <div class="dropdown-avatar" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="dropdown-user-info">
+              <span class="dropdown-name">Sophie Martin</span>
+              <span class="dropdown-rep">Réputation: 85</span>
+            </div>
+          </div>
+          <ul class="dropdown-menu" role="none">
+            <li role="none"><a href="#" class="dropdown-item" role="menuitem">Mon profil</a></li>
+            <li role="none"><a href="#" class="dropdown-item" role="menuitem">Mes badges</a></li>
+            <li role="none"><a href="#" class="dropdown-item" role="menuitem">Notifications</a></li>
+            <li role="none"><a href="#" class="dropdown-item" role="menuitem">Paramètres</a></li>
+          </ul>
+          <div class="dropdown-divider"></div>
+          <a href="login.html" class="dropdown-item dropdown-logout" role="menuitem">Déconnexion</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-area competences-page" id="main-content">
+      <section class="content-main full-width" aria-label="Contenu principal">
+        <div class="page-head">
+          <div class="page-title-wrap">
+            <h1 class="page-title">Mes compétences</h1>
+            <p class="page-sub">Suivez votre progression et déclarez de nouvelles compétences</p>
+          </div>
+          <button class="btn-declare" id="btn-declare" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Déclarer une compétence
+          </button>
+        </div>
+
+        <div class="skills-grid" role="list">
+          <article class="skill-card" role="listitem">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <span class="skill-icon ic-blue" aria-hidden="true">✦</span>
+                <div>
+                  <h3>React</h3>
+                  <p>Intermédiaire</p>
+                </div>
+              </div>
+              <span class="status status-valid">Validée</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-head"><span>Progression</span><span>65%</span></div>
+              <div class="progress-track"><div class="bar bar-blue" style="width: 65%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card" role="listitem">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <span class="skill-icon ic-orange" aria-hidden="true">✦</span>
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Avancé</p>
+                </div>
+              </div>
+              <span class="status status-valid">Validée</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-head"><span>Progression</span><span>80%</span></div>
+              <div class="progress-track"><div class="bar bar-orange" style="width: 80%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card" role="listitem">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <span class="skill-icon ic-green" aria-hidden="true">✦</span>
+                <div>
+                  <h3>SQL</h3>
+                  <p>Débutant</p>
+                </div>
+              </div>
+              <span class="status status-valid">Validée</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-head"><span>Progression</span><span>35%</span></div>
+              <div class="progress-track"><div class="bar bar-green" style="width: 35%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card" role="listitem">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <span class="skill-icon ic-violet" aria-hidden="true">✦</span>
+                <div>
+                  <h3>Python</h3>
+                  <p>Débutant</p>
+                </div>
+              </div>
+              <span class="status status-wait">En attente</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-head"><span>Progression</span><span>25%</span></div>
+              <div class="progress-track"><div class="bar bar-violet" style="width: 25%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card skill-card-wide" role="listitem">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <span class="skill-icon ic-pink" aria-hidden="true">✦</span>
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermédiaire</p>
+                </div>
+              </div>
+              <span class="status status-valid">Validée</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-head"><span>Progression</span><span>55%</span></div>
+              <div class="progress-track"><div class="bar bar-pink" style="width: 55%"></div></div>
+            </div>
+          </article>
+        </div>
+
+        <section class="objective-card" aria-label="Objectif mensuel">
+          <div class="objective-title-wrap">
+            <span class="objective-icon" aria-hidden="true">↗</span>
+            <div>
+              <h2>Objectif mensuel</h2>
+              <p>3 nouvelles compétences à valider</p>
+            </div>
+          </div>
+          <div class="objective-track">
+            <div class="objective-fill" style="width: 33%"></div>
+          </div>
+          <p class="objective-foot">1/3 compétences validées ce mois</p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* 
+   mes_demandes.css
+   Specific styles for the "Mes demandes d'aide" page
+*/
+
+/* Full width layout for main content */
+.full-width {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Page head adjustments */
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* Adjust card list to full width */
+.large-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* Premium styling for large cards */
+.large-card {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.large-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.large-card .request-card-content {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.large-card .request-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+.large-card .request-desc {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+}
+.large-card .request-tags {
+  display: flex;
+  gap: 12px;
+}

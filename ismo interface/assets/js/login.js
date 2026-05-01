@@ -2,6 +2,13 @@
    ISMO-SkillSwap — app.js
    ═══════════════════════════════════════════════════════════════ */
 
+const THEME_COLORS = {
+  red500: '#EF4444',
+  orange500: '#F97316',
+  green500: '#22C55E',
+  green600: '#16A34A',
+};
+
 /* ── PARTICLE BACKGROUND ─────────────────────────────────────── */
 (function initParticles() {
   const canvas = document.getElementById('particles-canvas');
@@ -180,12 +187,12 @@ if (signupPw) {
     const label = document.getElementById('strength-label');
 
     const levels = [
-      { pct: '0%',   color: '#EF4444', text: '' },
-      { pct: '25%',  color: '#EF4444', text: 'Très faible' },
-      { pct: '45%',  color: '#F97316', text: 'Faible' },
-      { pct: '65%',  color: '#F59E0B', text: 'Moyen' },
-      { pct: '82%',  color: '#10B981', text: 'Fort' },
-      { pct: '100%', color: '#059669', text: 'Très fort' },
+      { pct: '0%',   color: THEME_COLORS.red500, text: '' },
+      { pct: '25%',  color: THEME_COLORS.red500, text: 'Très faible' },
+      { pct: '45%',  color: THEME_COLORS.orange500, text: 'Faible' },
+      { pct: '65%',  color: THEME_COLORS.orange500, text: 'Moyen' },
+      { pct: '82%',  color: THEME_COLORS.green500, text: 'Fort' },
+      { pct: '100%', color: THEME_COLORS.green600, text: 'Très fort' },
     ];
 
     const lvl = levels[score] || levels[0];
@@ -342,8 +349,12 @@ function showToast(message, type = 'info', duration = 4000) {
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
 
-  const icons = { success: '✅', error: '❌', info: 'ℹ️' };
-  toast.innerHTML = `<span class="toast-icon">${icons[type] || icons.info}</span><span>${message}</span>`;
+  const icons = {
+    success: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+    error: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    info: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+  };
+  toast.innerHTML = `<span class="toast-icon" aria-hidden="true">${icons[type] || icons.info}</span><span>${message}</span>`;
 
   container.appendChild(toast);
 
