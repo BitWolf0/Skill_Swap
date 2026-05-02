@@ -187,3 +187,43 @@
         text-align: center;
     }
 }
+
+/* ── WIDGETS ───────────────────────────────────────────── */
+.widget {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 16px;
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 14px;
+}
+
+.widget-title {
+    font-size: .92rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.widget-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--blue-600);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.widget-icon svg {
+    width: 18px;
+    height: 18px;
+}
