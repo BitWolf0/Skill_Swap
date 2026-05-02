@@ -1,0 +1,143 @@
+/* notification.css - Styles for notifications page */
+
+.notification-page {
+    grid-template-columns: 1fr 280px;
+}
+
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notification-item {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.notification-item:hover {
+    background: var(--gray-50);
+}
+
+.notification-item.unread {
+    background: var(--blue-50);
+    border-color: var(--blue-100);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, .1);
+}
+
+.notif-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    min-width: 40px;
+    text-align: center;
+    line-height: 1;
+}
+
+.notif-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notif-content h3 {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 4px 0;
+}
+
+.notif-content p {
+    font-size: .85rem;
+    color: var(--gray-600);
+    margin: 0 0 8px 0;
+}
+
+.notif-time {
+    display: block;
+    font-size: .75rem;
+    color: var(--gray-400);
+}
+
+.btn-close {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: var(--gray-400);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color var(--transition);
+}
+
+.btn-close:hover {
+    color: var(--gray-700);
+}
+
+.widget .pref-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pref-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+}
+
+.pref-item:hover {
+    background: var(--gray-50);
+}
+
+.pref-item input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.pref-item span {
+    font-size: .9rem;
+    color: var(--gray-700);
+}
+
+.widget .stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget .stats-list li {
+    padding: 12px;
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+    font-size: .9rem;
+    color: var(--gray-700);
+    margin-bottom: 10px;
+}
+
+.widget .stats-list strong {
+    color: var(--blue-600);
+    font-weight: 700;
+}
+
+@media (max-width: 1080px) {
+    .notification-page {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .notification-item {
+        padding: 12px;
+    }
+}

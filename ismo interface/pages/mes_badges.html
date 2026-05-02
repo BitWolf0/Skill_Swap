@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISMO-SkillSwap — Mes badges</title>
+    <meta name="description" content="Consultez tous vos badges et récompenses ISMO-SkillSwap." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/mes_badges.css" />
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+        <div class="sidebar-brand">
+            <div class="brand-icon-wrap" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="9" fill="#2563EB" />
+                    <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <circle cx="16" cy="16" r="3" fill="#fff" />
+                </svg>
+            </div>
+            <span class="brand-text">ISMO<span>-SkillSwap</span></span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <ul role="list">
+                <li>
+                    <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" rx="1" />
+                                <rect x="14" y="3" width="7" height="7" rx="1" />
+                                <rect x="3" y="14" width="7" height="7" rx="1" />
+                                <rect x="14" y="14" width="7" height="7" rx="1" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Tableau de bord</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mes_demandes.html" class="nav-item" id="nav-requests">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Mes Demandes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mes_competances.html" class="nav-item" id="nav-skills">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Mes Compétences</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="passeport_pdf.html" class="nav-item" id="nav-passport">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                <line x1="12" y1="6" x2="16" y2="6" />
+                                <line x1="12" y1="10" x2="16" y2="10" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Passeport PDF</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mentor_apply.html" class="nav-item" id="nav-mentor">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Devenir Mentor</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-user-mini">
+                <div class="mini-avatar" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </div>
+                <div class="mini-info">
+                    <span class="mini-name">Sophie Martin</span>
+                    <span class="mini-role">Stagiaire</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <div class="main-wrapper">
+        <header class="topbar" role="banner">
+            <button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="search-wrap">
+                <span class="search-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </span>
+                <input type="search" id="search-input" class="search-input" placeholder="Rechercher un badge..."
+                    aria-label="Rechercher un badge" />
+            </div>
+
+            <div class="topbar-right">
+                <button class="icon-btn notif-btn" id="btn-notif" aria-label="Notifications" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg>
+                    <span class="notif-dot" aria-label="Nouvelles notifications"></span>
+                </button>
+
+                <button class="profile-btn" id="btn-profile" type="button" aria-haspopup="true" aria-expanded="false"
+                    aria-label="Menu profil">
+                    <div class="profile-info">
+                        <span class="profile-name">Sophie Martin</span>
+                        <span class="profile-score">Score: 85</span>
+                    </div>
+                    <div class="profile-avatar" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </button>
+
+                <div class="profile-dropdown" id="profile-dropdown" role="menu" aria-label="Options du profil" hidden>
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div class="dropdown-user-info">
+                            <span class="dropdown-name">Sophie Martin</span>
+                            <span class="dropdown-rep">Réputation: 85</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu" role="none">
+                        <li role="none"><a href="profile.html" class="dropdown-item" role="menuitem">Mon profil</a></li>
+                        <li role="none"><a href="mes_badges.html" class="dropdown-item" role="menuitem">Mes badges</a>
+                        </li>
+                        <li role="none"><a href="notification.html" class="dropdown-item"
+                                role="menuitem">Notifications</a></li>
+                        <li role="none"><a href="parametres.html" class="dropdown-item" role="menuitem">Paramètres</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown-divider"></div>
+                    <a href="login.html" class="dropdown-item dropdown-logout" role="menuitem">Déconnexion</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-area badges-page" id="main-content">
+            <section class="content-main full-width" aria-label="Mes badges">
+                <div class="page-head">
+                    <div>
+                        <h1 class="page-title">Mes badges</h1>
+                        <p class="page-sub">Découvrez vos récompenses et débloquez-en de nouvelles</p>
+                    </div>
+                </div>
+
+                <div class="badge-section">
+                    <h2 class="section-title">Badges obtenus <span class="count">(4)</span></h2>
+                    <div class="badges-grid">
+                        <div class="badge-item obtained">
+                            <div class="badge-icon">🏅</div>
+                            <h3>Contributeur</h3>
+                            <p>5 aides apportées</p>
+                            <span class="date">Obtenu le 15 mars 2025</span>
+                        </div>
+                        <div class="badge-item obtained">
+                            <div class="badge-icon">⭐</div>
+                            <h3>Réputé</h3>
+                            <p>Score de 85+</p>
+                            <span class="date">Obtenu le 22 avril 2025</span>
+                        </div>
+                        <div class="badge-item obtained">
+                            <div class="badge-icon">📚</div>
+                            <h3>Apprenant</h3>
+                            <p>8 compétences validées</p>
+                            <span class="date">Obtenu le 10 avril 2025</span>
+                        </div>
+                        <div class="badge-item obtained">
+                            <div class="badge-icon">🎯</div>
+                            <h3>Objectif atteint</h3>
+                            <p>Premier mois complet</p>
+                            <span class="date">Obtenu le 2 mai 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="badge-section">
+                    <h2 class="section-title">Badges à débloquer</h2>
+                    <div class="badges-grid">
+                        <div class="badge-item locked">
+                            <div class="badge-icon locked-icon">🔒</div>
+                            <h3>Expert</h3>
+                            <p>15 aides apportées</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 73%"></div>
+                            </div>
+                            <span class="progress-text">11/15</span>
+                        </div>
+                        <div class="badge-item locked">
+                            <div class="badge-icon locked-icon">🔒</div>
+                            <h3>Mentor reconnu</h3>
+                            <p>50 aides validées</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 24%"></div>
+                            </div>
+                            <span class="progress-text">12/50</span>
+                        </div>
+                        <div class="badge-item locked">
+                            <div class="badge-icon locked-icon">🔒</div>
+                            <h3>Compétent</h3>
+                            <p>15 compétences validées</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 53%"></div>
+                            </div>
+                            <span class="progress-text">8/15</span>
+                        </div>
+                        <div class="badge-item locked">
+                            <div class="badge-icon locked-icon">🔒</div>
+                            <h3>Persévérant</h3>
+                            <p>100 jours consécutifs</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%"></div>
+                            </div>
+                            <span class="progress-text">9/100</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="content-sidebar" aria-label="Informations badges">
+                <div class="widget">
+                    <div class="widget-header">
+                        <span class="widget-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6" />
+                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                            </svg>
+                        </span>
+                        <h2 class="widget-title">Votre collection</h2>
+                    </div>
+                    <ul class="stats-list">
+                        <li><strong>4</strong> badges obtenus</li>
+                        <li><strong>4</strong> badges en cours</li>
+                        <li><strong>8</strong> badges disponibles</li>
+                    </ul>
+                    <p class="widget-hint">Continuez vos efforts pour débloquer de nouveaux badges!</p>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">
+                        <span class="widget-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                                <polyline points="13 2 13 9 20 9" />
+                            </svg>
+                        </span>
+                        <h2 class="widget-title">Plus proche</h2>
+                    </div>
+                    <div class="closest-badge">
+                        <div class="badge-large">🏅</div>
+                        <h3>Expert</h3>
+                        <p>4 aides de plus à apporter</p>
+                        <button class="btn-see-more">En savoir plus</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/mes_badges.js"></script>
+</body>
+
+</html>

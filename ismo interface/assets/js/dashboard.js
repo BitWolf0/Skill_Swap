@@ -8,19 +8,19 @@
 /* ──────────────────────────────────────────────
    DOM References
 ────────────────────────────────────────────── */
-const profileBtn      = document.getElementById('btn-profile');
+const profileBtn = document.getElementById('btn-profile');
 const profileDropdown = document.getElementById('profile-dropdown');
-const btnPublish      = document.getElementById('btn-publish');
-const btnPassportPdf  = document.getElementById('btn-passport-pdf');
-const toastContainer  = document.getElementById('toast-container');
-const navItems        = document.querySelectorAll('.nav-item');
-const searchInput     = document.getElementById('search-input');
-const progressFill    = document.getElementById('progress-fill');
+const btnPublish = document.getElementById('btn-publish');
+const btnPassportPdf = document.getElementById('btn-passport-pdf');
+const toastContainer = document.getElementById('toast-container');
+const navItems = document.querySelectorAll('.nav-item');
+const searchInput = document.getElementById('search-input');
+const progressFill = document.getElementById('progress-fill');
 
 // Mobile sidebar elements
-const sidebar         = document.getElementById('sidebar');
-const btnMenu         = document.getElementById('btn-menu');
-const sidebarOverlay  = document.getElementById('sidebar-overlay');
+const sidebar = document.getElementById('sidebar');
+const btnMenu = document.getElementById('btn-menu');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
 
 /* ──────────────────────────────────────────────
    Profile Dropdown Toggle
@@ -211,8 +211,11 @@ function showToast(message, type = 'info', duration = 3000) {
 ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   animateProgressBar();
-  // Welcome toast
-  setTimeout(() => {
-    showToast('Bienvenue, Sophie ! ✨', 'success', 4000);
-  }, 600);
+  // Welcome toast - only show on first visit
+  if (!localStorage.getItem('welcomeShown')) {
+    setTimeout(() => {
+      showToast('Bienvenue, Sophie ! ✨', 'success', 4000);
+    }, 600);
+    localStorage.setItem('welcomeShown', 'true');
+  }
 });

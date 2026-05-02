@@ -1,0 +1,220 @@
+/*
+  mentor_apply.css
+  Page-specific styles for the mentor application page
+*/
+
+.mentor-page {
+    grid-template-columns: 1.15fr 0.85fr;
+}
+
+.criteria-card,
+.skills-card,
+.motivation-card,
+.widget-mentor-advantages,
+.mentor-stats,
+.widget-note {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 22px;
+}
+
+.criteria-header,
+.card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.criteria-header h2,
+.card-title-row h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.card-sub,
+.field-label,
+.note-title {
+    font-size: .92rem;
+    color: var(--gray-500);
+}
+
+.criteria-list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.criteria-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    background: var(--gray-50);
+    color: var(--gray-700);
+}
+
+.criteria-item.valid {
+    background: rgba(34, 197, 94, .08);
+    border-color: rgba(34, 197, 94, .16);
+}
+
+.criteria-item strong {
+    color: var(--green-600);
+    font-weight: 700;
+}
+
+.criteria-footer {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border: 1px solid var(--blue-100);
+    border-radius: var(--radius-md);
+    background: var(--blue-50);
+}
+
+.criteria-status {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--blue-700);
+    margin-bottom: 6px;
+}
+
+.mentor-skills-grid {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    color: var(--gray-700);
+    font-weight: 600;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.skill-pill:hover {
+    transform: translateY(-1px);
+}
+
+.skill-pill.active {
+    background: var(--blue-600);
+    border-color: var(--blue-600);
+    color: var(--white);
+}
+
+.motivation-card textarea {
+    width: 100%;
+    min-height: 170px;
+    resize: vertical;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    color: var(--gray-900);
+    font-family: inherit;
+    font-size: .95rem;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn-apply {
+    background: var(--green-500);
+    box-shadow: 0 4px 14px rgba(34, 197, 94, .25);
+}
+
+.btn-apply:hover {
+    background: var(--green-600);
+}
+
+.widget-mentor-advantages .advantage-list,
+.widget-note p {
+    margin: 0;
+}
+
+.advantage-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.advantage-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--gray-50);
+    color: var(--gray-700);
+}
+
+.advantage-list li::before {
+    content: '✔';
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue-100);
+    color: var(--blue-700);
+    font-size: .85rem;
+}
+
+.mentor-stats .mentor-chart-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: .9rem;
+    color: var(--gray-700);
+}
+
+.mentor-stats .progress-track {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--gray-100);
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.mentor-stats .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue-600), var(--blue-500));
+}
+
+.widget-note {
+    background: rgba(255, 244, 229, .9);
+    border-color: #FDECE6;
+}
+
+.widget-note .note-title {
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1080px) {
+    .mentor-page {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,219 @@
+/* parametres.css - Styles for settings page */
+
+.parametres-page {
+    grid-template-columns: 1fr 280px;
+}
+
+.settings-section {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--blue-600);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item.danger {
+    background: rgba(239, 68, 68, .02);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(239, 68, 68, .1);
+    margin-bottom: 12px;
+}
+
+.setting-info h3 {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 4px 0;
+}
+
+.setting-info p {
+    font-size: .85rem;
+    color: var(--gray-500);
+    margin: 0;
+}
+
+.setting-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.setting-value {
+    color: var(--gray-700);
+    font-size: .9rem;
+    margin-right: 8px;
+}
+
+.btn-edit,
+.btn-secondary,
+.btn-danger {
+    padding: 8px 16px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--gray-700);
+    font-weight: 600;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.btn-edit:hover,
+.btn-secondary:hover {
+    background: var(--gray-50);
+    border-color: var(--gray-300);
+}
+
+.btn-danger {
+    background: rgba(239, 68, 68, .1);
+    color: var(--red-500);
+    border-color: rgba(239, 68, 68, .2);
+}
+
+.btn-danger:hover {
+    background: rgba(239, 68, 68, .2);
+    border-color: var(--red-500);
+}
+
+.toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 26px;
+    background: var(--gray-300);
+    border-radius: 999px;
+    position: relative;
+    transition: background var(--transition);
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: var(--white);
+    border-radius: 999px;
+    top: 2px;
+    left: 2px;
+    transition: left var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.toggle input:checked+.toggle-switch {
+    background: var(--blue-600);
+}
+
+.toggle input:checked+.toggle-switch::after {
+    left: 26px;
+}
+
+.select-input {
+    padding: 8px 12px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--gray-900);
+    font-size: .9rem;
+    cursor: pointer;
+    transition: border-color var(--transition);
+}
+
+.select-input:hover,
+.select-input:focus {
+    border-color: var(--blue-600);
+    outline: none;
+}
+
+.widget .help-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget .help-list li {
+    margin-bottom: 10px;
+}
+
+.widget .help-list a {
+    color: var(--blue-600);
+    font-weight: 500;
+    font-size: .9rem;
+    transition: color var(--transition);
+}
+
+.widget .help-list a:hover {
+    color: var(--blue-700);
+}
+
+.version-text {
+    color: var(--gray-700);
+    font-size: .9rem;
+    margin-bottom: 12px;
+}
+
+.btn-check-update {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--blue-50);
+    color: var(--blue-600);
+    border: 1px solid var(--blue-200);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.btn-check-update:hover {
+    background: var(--blue-100);
+    border-color: var(--blue-300);
+}
+
+@media (max-width: 1080px) {
+    .parametres-page {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .setting-action {
+        width: 100%;
+    }
+}
