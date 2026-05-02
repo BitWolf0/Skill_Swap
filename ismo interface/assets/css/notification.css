@@ -28,7 +28,7 @@
 .notification-item.unread {
     background: var(--blue-50);
     border-color: var(--blue-100);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, .1);
+    box-shadow: 0 2px 8px rgba(var(--blue-600-rgb), .1);
 }
 
 .notif-icon {

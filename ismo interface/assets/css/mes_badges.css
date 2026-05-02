@@ -50,7 +50,7 @@
 
 .badge-item.obtained {
     border-color: var(--blue-100);
-    background: rgba(59, 130, 246, .02);
+    background: rgba(var(--blue-500-rgb), .08);
 }
 
 .badge-item.locked {

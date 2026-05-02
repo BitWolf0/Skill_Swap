@@ -140,6 +140,7 @@
 
 .widget .activity-list li,
 .widget .stats-list li {
+    background-color: rgb(0, 116, 218);
     padding: 12px;
     border-radius: var(--radius-sm);
     background: var(--gray-50);
