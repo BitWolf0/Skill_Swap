@@ -849,6 +849,8 @@ code {
 }
 
 .widget {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
   border-radius: var(--radius-md);
   padding: 18px;
   box-shadow: var(--shadow-sm);
@@ -864,7 +866,7 @@ code {
 .widget-title {
   font-size: .92rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--gray-900);
 }
 
 .widget-icon {

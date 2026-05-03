@@ -134,6 +134,35 @@
     margin-bottom: 12px;
 }
 
+.widget {
+    padding: 20px;
+}
+
+.widget .stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget .stats-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    font-size: .95rem;
+}
+
+.widget .stats-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.widget-hint {
+    margin-top: 14px;
+    color: var(--gray-500);
+    font-size: .88rem;
+    line-height: 1.6;
+}
+
 .btn-see-more {
     padding: 8px 16px;
     background: var(--blue-600);
