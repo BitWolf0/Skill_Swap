@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ISMO-SkillSwap — Mes badges</title>
-    <meta name="description" content="Consultez tous vos badges et récompenses ISMO-SkillSwap." />
+    <title>ISMO-SkillSwap — Marketplace d'aide</title>
+    <meta name="description" content="Découvrez les demandes d'aide et partagez votre expertise ISMO-SkillSwap." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/dashboard.css" />
-    <link rel="stylesheet" href="../assets/css/mes_badges.css" />
+    <link rel="stylesheet" href="../assets/css/marketplace.css" />
 </head>
 
 <body>
@@ -45,6 +45,7 @@
                         <span class="nav-label">Tableau de bord</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="mes_demandes.html" class="nav-item" id="nav-requests">
                         <span class="nav-icon" aria-hidden="true">
@@ -56,8 +57,9 @@
                         <span class="nav-label">Mes Demandes</span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="marketplace.html" class="nav-item" id="nav-marketplace">
+                    <a href="marketplace.html" class="nav-item active" id="nav-marketplace">
                         <span class="nav-icon" aria-hidden="true">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -69,8 +71,9 @@
                         <span class="nav-label">Marketplace</span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="mes_badges.html" class="nav-item active" id="nav-badges" aria-current="page">
+                    <a href="mes_badges.html" class="nav-item" id="nav-badges">
                         <span class="nav-icon" aria-hidden="true">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -81,6 +84,7 @@
                         <span class="nav-label">Mes Badges</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="mentor_apply.html" class="nav-item" id="nav-mentor">
                         <span class="nav-icon" aria-hidden="true">
@@ -136,8 +140,9 @@
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     </svg>
                 </span>
-                <input type="search" id="search-input" class="search-input" placeholder="Rechercher un badge..."
-                    aria-label="Rechercher un badge" />
+                <input type="search" id="search-input" class="search-input"
+                    placeholder="Rechercher une demande d'aide..." aria-label="Rechercher une demande" />
+                <kbd class="search-kbd">⌘K</kbd>
             </div>
 
             <div class="topbar-right">
@@ -157,8 +162,8 @@
                         <span class="profile-score">Score: 85</span>
                     </div>
                     <div class="profile-avatar" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
                         </svg>
@@ -179,6 +184,7 @@
                             <span class="dropdown-rep">Réputation: 85</span>
                         </div>
                     </div>
+
                     <ul class="dropdown-menu" role="none">
                         <li role="none"><a href="profile.html" class="dropdown-item" role="menuitem">Mon profil</a></li>
                         <li role="none"><a href="mes_badges.html" class="dropdown-item" role="menuitem">Mes badges</a>
@@ -188,112 +194,107 @@
                         <li role="none"><a href="parametres.html" class="dropdown-item" role="menuitem">Paramètres</a>
                         </li>
                     </ul>
+
                     <div class="dropdown-divider"></div>
+
                     <a href="login.html" class="dropdown-item dropdown-logout" role="menuitem">Déconnexion</a>
                 </div>
             </div>
         </header>
 
-        <main class="content-area badges-page" id="main-content">
-            <section class="content-main full-width" aria-label="Mes badges">
+        <main class="content-area marketplace-page" id="main-content">
+            <section class="content-main" aria-label="Marketplace d'aide">
                 <div class="page-head">
-                    <div>
-                        <h1 class="page-title">Mes badges</h1>
-                        <p class="page-sub">Découvrez vos récompenses et débloquez-en de nouvelles</p>
+                    <div class="page-title-wrap">
+                        <h1 class="page-title">Marketplace d'aide</h1>
+                        <p class="page-sub">Découvrez les demandes d'aide et partagez votre expertise</p>
                     </div>
                 </div>
 
-                <div class="badge-section">
-                    <h2 class="section-title">Badges obtenus <span class="count">(4)</span></h2>
-                    <div class="badges-grid">
-                        <div class="badge-item obtained">
-                            <div class="badge-icon">🏅</div>
-                            <h3>Contributeur</h3>
-                            <p>5 aides apportées</p>
-                            <span class="date">Obtenu le 15 mars 2025</span>
-                        </div>
-                        <div class="badge-item obtained">
-                            <div class="badge-icon">⭐</div>
-                            <h3>Réputé</h3>
-                            <p>Score de 85+</p>
-                            <span class="date">Obtenu le 22 avril 2025</span>
-                        </div>
-                        <div class="badge-item obtained">
-                            <div class="badge-icon">📚</div>
-                            <h3>Apprenant</h3>
-                            <p>8 compétences validées</p>
-                            <span class="date">Obtenu le 10 avril 2025</span>
-                        </div>
-                        <div class="badge-item obtained">
-                            <div class="badge-icon">🎯</div>
-                            <h3>Objectif atteint</h3>
-                            <p>Premier mois complet</p>
-                            <span class="date">Obtenu le 2 mai 2025</span>
-                        </div>
-                    </div>
+                <div class="marketplace-filters">
+                    <button class="filter-btn active">Toutes les compétences</button>
+                    <button class="filter-btn">Frontend</button>
+                    <button class="filter-btn">Backend</button>
+                    <button class="filter-btn">Mobile</button>
+                    <button class="filter-btn">DevOps</button>
                 </div>
 
-                <div class="badge-section">
-                    <h2 class="section-title">Badges à débloquer</h2>
-                    <div class="badges-grid">
-                        <div class="badge-item locked">
-                            <div class="badge-icon locked-icon">🔒</div>
-                            <h3>Expert</h3>
-                            <p>15 aides apportées</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 73%"></div>
-                            </div>
-                            <span class="progress-text">11/15</span>
+                <div class="help-requests">
+                    <div class="request-card">
+                        <div class="request-header">
+                            <h3>Comprendre les Promesses en JavaScript</h3>
+                            <span class="request-status urgent">Urgent</span>
                         </div>
-                        <div class="badge-item locked">
-                            <div class="badge-icon locked-icon">🔒</div>
-                            <h3>Mentor reconnu</h3>
-                            <p>50 aides validées</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 24%"></div>
-                            </div>
-                            <span class="progress-text">12/50</span>
+                        <p class="request-description">Besoin d'explications sur async/await</p>
+                        <div class="request-meta">
+                            <span class="skill-badge javascript">JavaScript</span>
+                            <span class="request-time">⏱ 30 min</span>
                         </div>
-                        <div class="badge-item locked">
-                            <div class="badge-icon locked-icon">🔒</div>
-                            <h3>Compétent</h3>
-                            <p>15 compétences validées</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 53%"></div>
-                            </div>
-                            <span class="progress-text">8/15</span>
+                        <button class="btn-help">Proposer mon aide</button>
+                    </div>
+
+                    <div class="request-card">
+                        <div class="request-header">
+                            <h3>Design Pattern MVC</h3>
+                            <span class="request-status pending">En attente</span>
                         </div>
-                        <div class="badge-item locked">
-                            <div class="badge-icon locked-icon">🔒</div>
-                            <h3>Persévérant</h3>
-                            <p>100 jours consécutifs</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 9%"></div>
-                            </div>
-                            <span class="progress-text">9/100</span>
+                        <p class="request-description">Comment structurer mon projet Laravel ?</p>
+                        <div class="request-meta">
+                            <span class="skill-badge php">PHP</span>
+                            <span class="request-time">⏱ 1h</span>
+                            <span class="request-responses">2 réponses</span>
                         </div>
+                        <button class="btn-help">Proposer mon aide</button>
+                    </div>
+
+                    <div class="request-card">
+                        <div class="request-header">
+                            <h3>Requête API REST</h3>
+                            <span class="request-status urgent">Urgent</span>
+                        </div>
+                        <p class="request-description">Problème avec les en-têtes CORS</p>
+                        <div class="request-meta">
+                            <span class="skill-badge api">API</span>
+                            <span class="request-time">⏱ 2h</span>
+                            <span class="request-responses">1 réponse</span>
+                        </div>
+                        <button class="btn-help">Proposer mon aide</button>
+                    </div>
+
+                    <div class="request-card">
+                        <div class="request-header">
+                            <h3>Optimisation requête SQL complexe</h3>
+                            <span class="request-status active">En attente</span>
+                        </div>
+                        <p class="request-description">Ma requête avec plusieurs jointures est très lente</p>
+                        <div class="request-meta">
+                            <span class="skill-badge sql">SQL</span>
+                            <span class="request-time">⏱ 2h</span>
+                        </div>
+                        <button class="btn-help">Proposer mon aide</button>
                     </div>
                 </div>
             </section>
 
-            <aside class="content-sidebar" aria-label="Informations badges">
+            <aside class="content-sidebar" aria-label="Statistiques">
                 <div class="widget">
                     <div class="widget-header">
                         <span class="widget-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="6" />
-                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                                <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
+                                <line x1="12" y1="12" x2="20" y2="7.5"></line>
+                                <line x1="12" y1="12" x2="12" y2="21"></line>
+                                <line x1="12" y1="12" x2="4" y2="7.5"></line>
                             </svg>
                         </span>
-                        <h2 class="widget-title">Votre collection</h2>
+                        <h2 class="widget-title">Vos statistiques</h2>
                     </div>
                     <ul class="stats-list">
-                        <li><strong>4</strong> badges obtenus</li>
-                        <li><strong>4</strong> badges en cours</li>
-                        <li><strong>8</strong> badges disponibles</li>
+                        <li><strong>24</strong> aides fournies</li>
+                        <li><strong>4.8</strong> note moyenne</li>
+                        <li><strong>12</strong> badges obtenus</li>
                     </ul>
-                    <p class="widget-hint">Continuez vos efforts pour débloquer de nouveaux badges!</p>
                 </div>
 
                 <div class="widget">
@@ -301,18 +302,17 @@
                         <span class="widget-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                                <polyline points="13 2 13 9 20 9" />
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                                <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
                         </span>
-                        <h2 class="widget-title">Plus proche</h2>
+                        <h2 class="widget-title">Demandes populaires</h2>
                     </div>
-                    <div class="closest-badge">
-                        <div class="badge-large">🏅</div>
-                        <h3>Expert</h3>
-                        <p>4 aides de plus à apporter</p>
-                        <button class="btn-see-more">En savoir plus</button>
-                    </div>
+                    <ul class="popular-list">
+                        <li>React <span class="count">24</span></li>
+                        <li>JavaScript <span class="count">18</span></li>
+                        <li>SQL <span class="count">15</span></li>
+                    </ul>
                 </div>
             </aside>
         </main>
@@ -321,7 +321,7 @@
     <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
     <script src="../assets/js/dashboard.js"></script>
-    <script src="../assets/js/mes_badges.js"></script>
+    <script src="../assets/js/marketplace.js"></script>
 </body>
 
 </html>
