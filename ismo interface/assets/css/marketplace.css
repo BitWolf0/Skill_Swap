@@ -152,6 +152,144 @@
     background: var(--blue-700);
 }
 
+/* ──────────────────────────────────────────────────────────
+   WIDGET CUSTOMIZATION — STATISTICS & POPULAR ITEMS
+────────────────────────────────────────────────────────── */
+
+/* Stats Box Container */
+.stats-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+/* Individual Stat Item */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 14px;
+    background: linear-gradient(135deg, var(--blue-50) 0%, rgba(219, 234, 254, 0.5) 100%);
+    border: 1.5px solid var(--blue-100);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue-600), transparent);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.stat-item:hover {
+    background: linear-gradient(135deg, var(--blue-100) 0%, rgba(219, 234, 254, 0.8) 100%);
+    border-color: var(--blue-300);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.15);
+    transform: translateY(-2px);
+}
+
+.stat-item:hover::before {
+    opacity: 1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--blue-600);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.stat-label {
+    display: block;
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* Popular List */
+.popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popular-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background: linear-gradient(90deg, var(--gray-50) 0%, transparent 100%);
+    border-left: 3px solid var(--blue-600);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    transition: all var(--transition);
+    position: relative;
+}
+
+.popular-list li:hover {
+    background: linear-gradient(90deg, var(--blue-50) 0%, transparent 100%);
+    border-left-color: var(--blue-700);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+    padding-left: 18px;
+}
+
+.popular-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--blue-600), var(--blue-400));
+    border-radius: 0;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.popular-list li:hover::before {
+    opacity: 1;
+}
+
+.popular-list li > :first-child {
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    flex: 1;
+}
+
+.count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 24px;
+    padding: 0 8px;
+    background: var(--blue-600);
+    color: var(--white);
+    border-radius: 6px;
+    font-size: .75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: all var(--transition);
+}
+
+.popular-list li:hover .count {
+    background: var(--blue-700);
+}
+
 @media (max-width: 1080px) {
     .marketplace-page {
         grid-template-columns: 1fr;
