@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ISMO-SkillSwap — Mes badges</title>
+	<meta name="description" content="Consultez vos badges, suivez votre progression et débloquez les prochaines récompenses ISMO-SkillSwap." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="../assets/css/dashboard.css" />
+	<link rel="stylesheet" href="../assets/css/mes_badges_mentor.css" />
+</head>
+
+<body>
+	<aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+		<div class="sidebar-brand">
+			<div class="brand-icon-wrap" aria-hidden="true">
+				<svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+					<rect width="32" height="32" rx="9" fill="#2563EB" />
+					<path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+					<circle cx="16" cy="16" r="3" fill="#fff" />
+				</svg>
+			</div>
+			<span class="brand-text">ISMO<span>-SkillSwap</span></span>
+		</div>
+
+		<nav class="sidebar-nav" aria-label="Menu principal">
+			<ul role="list">
+				<li>
+					<a href="dashboard.html" class="nav-item" id="nav-dashboard">
+						<span class="nav-icon" aria-hidden="true">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="3" width="7" height="7" rx="1" />
+								<rect x="14" y="3" width="7" height="7" rx="1" />
+								<rect x="3" y="14" width="7" height="7" rx="1" />
+								<rect x="14" y="14" width="7" height="7" rx="1" />
+							</svg>
+						</span>
+						<span class="nav-label">Tableau de bord</span>
+					</a>
+				</li>
+				<li>
+					<a href="mes_demandes.html" class="nav-item" id="nav-requests">
+						<span class="nav-icon" aria-hidden="true">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+							</svg>
+						</span>
+						<span class="nav-label">Mes Demandes</span>
+					</a>
+				</li>
+				<li>
+					<a href="marketplace.html" class="nav-item" id="nav-marketplace">
+						<span class="nav-icon" aria-hidden="true">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="9" cy="21" r="1" />
+								<circle cx="20" cy="21" r="1" />
+								<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+							</svg>
+						</span>
+						<span class="nav-label">Marketplace</span>
+					</a>
+				</li>
+				<li>
+					<a href="mes_badges.html" class="nav-item active" id="nav-badges" aria-current="page">
+						<span class="nav-icon" aria-hidden="true">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="8" r="6" />
+								<path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+							</svg>
+						</span>
+						<span class="nav-label">Mes Badges</span>
+					</a>
+				</li>
+				<li>
+					<a href="mes_competance.html" class="nav-item" id="nav-competences">
+						<span class="nav-icon" aria-hidden="true">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 2L15.09 8.26H21.77L17.73 12.7L19.85 18.94L12 14.46L4.15 18.94L6.27 12.7L2.23 8.26H8.91L12 2Z" />
+							</svg>
+						</span>
+						<span class="nav-label">Mes Compétences</span>
+					</a>
+				</li>
+
+			</ul>
+		</nav>
+
+		<div class="sidebar-footer">
+			<div class="sidebar-user-mini">
+				<div class="mini-avatar" aria-hidden="true">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+						<circle cx="12" cy="7" r="4" />
+					</svg>
+				</div>
+				<div class="mini-info">
+					<span class="mini-name">Pierre Dubois</span>
+					<span class="mini-role">Mentor</span>
+				</div>
+			</div>
+		</div>
+	</aside>
+
+	<div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+	<div class="main-wrapper">
+		<header class="topbar" role="banner">
+			<button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+
+			<div class="search-wrap">
+				<span class="search-icon" aria-hidden="true">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="11" cy="11" r="8" />
+						<line x1="21" y1="21" x2="16.65" y2="16.65" />
+					</svg>
+				</span>
+				<input type="search" id="search-input" class="search-input" placeholder="Rechercher une compétence..." aria-label="Rechercher une compétence" />
+				<kbd class="search-kbd">⌘K</kbd>
+			</div>
+
+			<div class="topbar-right">
+				<button class="icon-btn notif-btn" id="btn-notif" aria-label="Notifications" type="button">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+						<path d="M13.73 21a2 2 0 0 1-3.46 0" />
+					</svg>
+					<span class="notif-dot" aria-label="Nouvelles notifications"></span>
+				</button>
+
+				<button class="profile-btn" id="btn-profile" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Menu profil">
+					<div class="profile-info">
+						<span class="profile-name">Pierre Dubois</span>
+						<span class="profile-score">Score: 142</span>
+					</div>
+					<div class="profile-avatar" aria-hidden="true">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+							<circle cx="12" cy="7" r="4" />
+						</svg>
+					</div>
+				</button>
+
+				<div class="profile-dropdown" id="profile-dropdown" role="menu" aria-label="Options du profil" hidden>
+					<div class="dropdown-header">
+						<div class="dropdown-avatar" aria-hidden="true">
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+								<circle cx="12" cy="7" r="4" />
+							</svg>
+						</div>
+						<div class="dropdown-user-info">
+							<span class="dropdown-name">Pierre Dubois</span>
+							<span class="dropdown-rep">Réputation: 142</span>
+						</div>
+					</div>
+
+					<ul class="dropdown-menu" role="none">
+						<li role="none"><a href="profile.html" class="dropdown-item" role="menuitem">Mon profil</a></li>
+						<li role="none"><a href="mes_badges.html" class="dropdown-item" role="menuitem">Mes badges</a></li>
+						<li role="none"><a href="notification.html" class="dropdown-item" role="menuitem">Notifications</a></li>
+						<li role="none"><a href="parametres.html" class="dropdown-item" role="menuitem">Paramètres</a></li>
+					</ul>
+
+					<div class="dropdown-divider"></div>
+
+					<a href="login.html" class="dropdown-item dropdown-logout" role="menuitem">Déconnexion</a>
+				</div>
+			</div>
+		</header>
+
+		<main class="content-area badges-page" id="main-content">
+			<section class="content-main badges-hero" aria-label="Collection de badges">
+				<div class="page-head">
+					<div class="page-title-wrap">
+						<h1 class="page-title">Collection de badges</h1>
+						<p class="page-sub">Débloquez des badges en validant des compétences et en aidant la communauté</p>
+					</div>
+				</div>
+
+				<div class="stats-grid" aria-label="Résumé de progression">
+					<article class="stat-card stat-card--blue">
+						<span class="stat-icon" aria-hidden="true">
+							<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="8" r="5.5" />
+								<path d="M9.5 13.5L8 22l4-2.4 4 2.4-1.5-8.5" />
+							</svg>
+						</span>
+						<div>
+							<span class="stat-value">6</span>
+							<span class="stat-label">Badges obtenus</span>
+						</div>
+					</article>
+
+					<article class="stat-card stat-card--green">
+						<span class="stat-icon" aria-hidden="true">
+							<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M3 17l6-6 4 4 8-8" />
+								<path d="M14 7h7v7" />
+							</svg>
+						</span>
+						<div>
+							<span class="stat-value">155</span>
+							<span class="stat-label">Points de badge</span>
+						</div>
+					</article>
+
+					<article class="stat-card stat-card--orange">
+						<span class="stat-icon" aria-hidden="true">
+							<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="4" y="11" width="16" height="10" rx="2" />
+								<path d="M8 11V8a4 4 0 0 1 8 0v3" />
+							</svg>
+						</span>
+						<div>
+							<span class="stat-value">4</span>
+							<span class="stat-label">Badges à débloquer</span>
+						</div>
+					</article>
+
+					<article class="stat-card stat-card--purple">
+						<span class="stat-icon" aria-hidden="true">
+							<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="9" />
+								<path d="M8 12.2l2.8 2.8L16.5 9.3" />
+							</svg>
+						</span>
+						<div>
+							<span class="stat-value">60%</span>
+							<span class="stat-label">Complétion</span>
+						</div>
+					</article>
+				</div>
+
+				<div class="filter-strip" aria-label="Filtres badges">
+					<button class="filter-chip active" type="button" data-filter="all" aria-pressed="true">Tous</button>
+					<button class="filter-chip" type="button" data-filter="frontend" aria-pressed="false">Frontend</button>
+					<button class="filter-chip" type="button" data-filter="backend" aria-pressed="false">Backend</button>
+					<button class="filter-chip" type="button" data-filter="tools" aria-pressed="false">Outils</button>
+					<button class="filter-chip" type="button" data-filter="social" aria-pressed="false">Social</button>
+					<button class="filter-chip" type="button" data-filter="polyvalence" aria-pressed="false">Polyvalence</button>
+				</div>
+
+				<section class="badges-section" aria-label="Badges obtenus">
+					<div class="section-head">
+						<h2 class="section-title">Badges obtenus <span class="section-count">(6)</span></h2>
+					</div>
+
+					<div class="badge-grid">
+						<article class="badge-card obtained is-obtained rarity-common" data-category="frontend" tabindex="0">
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">⚛️</div>
+								<span class="points-pill">+10 pts</span>
+							</div>
+							<h3 class="badge-title">React Débutant</h3>
+							<p class="badge-description">Première compétence React validée</p>
+							<div class="badge-footer">
+								<span class="badge-tag">Frontend</span>
+								<span class="badge-date">15 Mars 2026</span>
+							</div>
+						</article>
+
+						<article class="badge-card obtained is-obtained rarity-uncommon" data-category="backend" tabindex="0">
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">🗄️</div>
+								<span class="points-pill">+10 pts</span>
+							</div>
+							<h3 class="badge-title">SQL Bases</h3>
+							<p class="badge-description">Maîtrise des requêtes SQL de base</p>
+							<div class="badge-footer">
+								<span class="badge-tag">Backend</span>
+								<span class="badge-date">10 Mars 2026</span>
+							</div>
+						</article>
+
+						<article class="badge-card obtained is-obtained rarity-rare" data-category="social" tabindex="0">
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">🤝</div>
+								<span class="points-pill">+25 pts</span>
+							</div>
+							<h3 class="badge-title">Entraide +5</h3>
+							<p class="badge-description">5 aides apportées à la communauté</p>
+							<div class="badge-footer">
+								<span class="badge-tag">Social</span>
+								<span class="badge-date">20 Mars 2026</span>
+							</div>
+						</article>
+
+						<article class="badge-card obtained is-obtained rarity-epic" data-category="tools" tabindex="0">
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">📚</div>
+								<span class="points-pill">+50 pts</span>
+							</div>
+							<h3 class="badge-title">Git Maître</h3>
+							<p class="badge-description">Expert en gestion de versions</p>
+							<div class="badge-footer">
+								<span class="badge-tag">Outils</span>
+								<span class="badge-date">5 Avril 2026</span>
+							</div>
+						</article>
+
+						<article class="badge-card obtained is-obtained rarity-legendary" data-category="frontend" tabindex="0">
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">💛</div>
+								<span class="points-pill">+50 pts</span>
+							</div>
+							<h3 class="badge-title">JavaScript Expert</h3>
+							<p class="badge-description">Compétence JavaScript niveau expert</p>
+							<div class="badge-footer">
+								<span class="badge-tag">Frontend</span>
+								<span class="badge-date">1 Avril 2026</span>
+							</div>
+						</article>
+
+						<article class="badge-card obtained is-obtained rarity-uncommon" data-category="backend" tabindex="0">
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">🐍</div>
+								<span class="points-pill">+10 pts</span>
+							</div>
+							<h3 class="badge-title">Python Débutant</h3>
+							<p class="badge-description">Premiers pas en Python</p>
+							<div class="badge-footer">
+								<span class="badge-tag">Backend</span>
+								<span class="badge-date">25 Mars 2026</span>
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<section class="badges-section" aria-label="Badges à débloquer">
+					<div class="section-head">
+						<h2 class="section-title">Badges à débloquer <span class="section-count">(4)</span></h2>
+					</div>
+
+					<div class="badge-grid">
+						<article class="badge-card locked is-locked rarity-epic" data-category="frontend" tabindex="0">
+							<svg class="badge-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="4" y="10" width="16" height="10" rx="2" />
+								<path d="M8 10V7a4 4 0 0 1 8 0v3" />
+							</svg>
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">⚛️</div>
+								<span class="points-pill">+100 pts</span>
+							</div>
+							<h3 class="badge-title">React Expert</h3>
+							<p class="badge-description">10 compétences React validées</p>
+							<div class="badge-progress-line">
+								<span>7/10 compétences React</span>
+								<span>70%</span>
+							</div>
+							<div class="progress-track" aria-hidden="true">
+								<div class="progress-fill" data-progress="70%"></div>
+							</div>
+							<div class="badge-footer">
+								<span class="badge-tag">Frontend</span>
+								<span class="badge-goal">+100 pts</span>
+							</div>
+						</article>
+
+						<article class="badge-card locked is-locked rarity-uncommon" data-category="social" tabindex="0">
+							<svg class="badge-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="4" y="10" width="16" height="10" rx="2" />
+								<path d="M8 10V7a4 4 0 0 1 8 0v3" />
+							</svg>
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">✨</div>
+								<span class="points-pill">+100 pts</span>
+							</div>
+							<h3 class="badge-title">Entraide +20</h3>
+							<p class="badge-description">20 aides apportées à la communauté</p>
+							<div class="badge-progress-line">
+								<span>12/20 aides données</span>
+								<span>60%</span>
+							</div>
+							<div class="progress-track" aria-hidden="true">
+								<div class="progress-fill" data-progress="60%"></div>
+							</div>
+							<div class="badge-footer">
+								<span class="badge-tag">Social</span>
+								<span class="badge-goal">+100 pts</span>
+							</div>
+						</article>
+
+						<article class="badge-card locked is-locked rarity-legendary" data-category="polyvalence" tabindex="0">
+							<svg class="badge-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="4" y="10" width="16" height="10" rx="2" />
+								<path d="M8 10V7a4 4 0 0 1 8 0v3" />
+							</svg>
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">🚀</div>
+								<span class="points-pill">+200 pts</span>
+							</div>
+							<h3 class="badge-title">Full Stack</h3>
+							<p class="badge-description">Compétences validées en Frontend et Backend</p>
+							<div class="badge-progress-line">
+								<span>3/5 catégories maîtrisées</span>
+								<span>40%</span>
+							</div>
+							<div class="progress-track" aria-hidden="true">
+								<div class="progress-fill" data-progress="40%"></div>
+							</div>
+							<div class="badge-footer">
+								<span class="badge-tag">Polyvalence</span>
+								<span class="badge-goal">+200 pts</span>
+							</div>
+						</article>
+
+						<article class="badge-card locked is-locked rarity-epic" data-category="social" tabindex="0">
+							<svg class="badge-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="4" y="10" width="16" height="10" rx="2" />
+								<path d="M8 10V7a4 4 0 0 1 8 0v3" />
+							</svg>
+							<div class="badge-card-top">
+								<div class="badge-figure" aria-hidden="true">👨‍🏫</div>
+								<span class="points-pill">+150 pts</span>
+							</div>
+							<h3 class="badge-title">Mentor Confirmé</h3>
+							<p class="badge-description">Note moyenne de 4.5+ sur 50 aides</p>
+							<div class="badge-progress-line">
+								<span>Devenir mentor</span>
+								<span>0%</span>
+							</div>
+							<div class="progress-track" aria-hidden="true">
+								<div class="progress-fill" data-progress="0%"></div>
+							</div>
+							<div class="badge-footer">
+								<span class="badge-tag">Social</span>
+								<span class="badge-goal">+150 pts</span>
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<section class="badges-legend" aria-label="Légende des raretés">
+					<div>
+						<h2 class="legend-title">Légende des raretés</h2>
+						<div class="legend-list">
+							<span class="legend-item legend-common"><span class="legend-dot"></span>Commun</span>
+							<span class="legend-item legend-uncommon"><span class="legend-dot"></span>Peu commun</span>
+							<span class="legend-item legend-rare"><span class="legend-dot"></span>Rare</span>
+							<span class="legend-item legend-epic"><span class="legend-dot"></span>Épique</span>
+							<span class="legend-item legend-legendary"><span class="legend-dot"></span>Légendaire</span>
+						</div>
+					</div>
+
+					<div class="legend-badge" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M12 2C8 2 5 5 5 9c0 3.2 2 6.1 5 7.4V22l2-1.4L14 22v-5.6c3-1.3 5-4.2 5-7.4 0-4-3-7-7-7z" />
+						</svg>
+					</div>
+				</section>
+			</section>
+		</main>
+	</div>
+
+	<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+	<script src="../assets/js/dashboard.js"></script>
+	<script src="../assets/js/mes_badges_mentor.js"></script>
+</body>
+
+</html>

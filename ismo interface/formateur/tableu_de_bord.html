@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - ISMO-SkillSwap</title>
+    <link rel="stylesheet" href="../assets/css/tableu_de_bord.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+            <div class="sidebar-brand">
+                <div class="brand-icon-wrap" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="9" fill="#2563EB" />
+                        <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
+                            stroke-linecap="round" />
+                        <circle cx="16" cy="16" r="3" fill="#fff" />
+                    </svg>
+                </div>
+                <span class="brand-text">ISMO<span>-SkillSwap</span></span>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+                <ul role="list">
+                    <li>
+                        <a href="tableu_de_bord.html" class="nav-item active" id="nav-dashboard" aria-current="page">
+                            <span class="nav-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                                </svg>
+                            </span>
+                            <span class="nav-label">Tableau de bord</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#validation" class="nav-item" id="nav-validation">
+                            <span class="nav-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="nav-label">Validation</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#statistics" class="nav-item" id="nav-statistics">
+                            <span class="nav-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="2" x2="12" y2="22"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-label">Statistiques</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#catalog" class="nav-item" id="nav-catalog">
+                            <span class="nav-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-label">Catalogue</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user-mini">
+                    <div class="mini-avatar" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                    <div class="mini-info">
+                        <span class="mini-name">Marie Leclerc</span>
+                        <span class="mini-role">Formateur</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <input type="text" class="search-bar" placeholder="Rechercher une compétence...">
+                <div class="topbar-right">
+                    <button class="notification-btn">
+                        <span class="badge">1</span>
+                        🔔
+                    </button>
+                    <div class="user-profile">
+                        <span>Marie Leclerc</span>
+                        <div class="avatar">ML</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-wrapper">
+                <div class="main-section">
+                    <!-- Validation Queue -->
+                    <section class="section validation-section">
+                        <h2>File d'attente de validation</h2>
+                        <p class="subtitle">Validez les compétences déclarées par les stagiaires</p>
+
+                        <div class="validation-items">
+                            <div class="validation-card">
+                                <div class="card-header">
+                                    <h3>Marie Dupont</h3>
+                                    <span class="time-badge">Il y a 1h</span>
+                                </div>
+                                <p class="skill-tag">React - Hooks</p>
+                                <p class="skill-description">Projet TODO List avec useState et useEffect</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-success">✓ Valider</button>
+                                    <button class="btn btn-danger">✗ Refuser</button>
+                                </div>
+                            </div>
+
+                            <div class="validation-card">
+                                <div class="card-header">
+                                    <h3>Thomas Martin</h3>
+                                    <span class="time-badge">Il y a 2h</span>
+                                </div>
+                                <p class="skill-tag">SQL - Jointures</p>
+                                <p class="skill-description">Exercice de requêtes complexes</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-success">✓ Valider</button>
+                                    <button class="btn btn-danger">✗ Refuser</button>
+                                </div>
+                            </div>
+
+                            <div class="validation-card">
+                                <div class="card-header">
+                                    <h3>Sophie Bernard</h3>
+                                    <span class="time-badge">Il y a 3h</span>
+                                </div>
+                                <p class="skill-tag">Git - Branches</p>
+                                <p class="skill-description">Démonstration merge et rebase</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-success">✓ Valider</button>
+                                    <button class="btn btn-danger">✗ Refuser</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Trainer Workspace -->
+                    <section class="section trainer-workspace">
+                        <h3>Espace de travail Formateur</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">En attente</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Validés aujourd'hui</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">45</div>
+                                <div class="stat-label">Cette semaine</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Tasks Section -->
+                    <section class="section tasks-section">
+                        <h3>Tâches à traiter</h3>
+                        <div class="tasks-list">
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-title">Validation React Hooks</span>
+                                <span class="task-assignee">Marie Dupont</span>
+                                <span class="task-priority urgent">Urgent</span>
+                                <span class="task-time">Il y a 1h</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-title">Examen SQL avancé</span>
+                                <span class="task-assignee">Thomas Martin</span>
+                                <span class="task-priority medium">Moyen</span>
+                                <span class="task-time">Il y a 2h</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-title">Révision projet Git</span>
+                                <span class="task-assignee">Sophie Bernard</span>
+                                <span class="task-priority easy">Facile</span>
+                                <span class="task-time">Il y a 3h</span>
+                            </div>
+                        </div>
+                        <button class="btn-view-all">Voir toutes les tâches</button>
+                    </section>
+                </div>
+
+                <!-- Right Sidebar -->
+                <aside class="right-sidebar">
+                    <!-- Badge Management -->
+                    <section class="widget badges-widget">
+                        <h3>🏆 Gestion Badges</h3>
+                        <div class="badge-actions">
+                            <button class="badge-action-btn">📍 Créer un badge</button>
+                            <button class="badge-action-btn">🎁 Attribuer un badge</button>
+                            <button class="badge-action-btn">👁️ Voir tous les badges</button>
+                        </div>
+                    </section>
+
+                    <!-- Top Competencies -->
+                    <section class="widget top-competencies">
+                        <h3>📊 Top Compétences</h3>
+                        <div class="competency-item">
+                            <div class="competency-name">React</div>
+                            <div class="competency-count">45 demandes</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%; background-color: #3B82F6;"></div>
+                            </div>
+                        </div>
+                        <div class="competency-item">
+                            <div class="competency-name">JavaScript</div>
+                            <div class="competency-count">38 demandes</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 84%; background-color: #F59E0B;"></div>
+                            </div>
+                        </div>
+                        <div class="competency-item">
+                            <div class="competency-name">SQL</div>
+                            <div class="competency-count">32 demandes</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 71%; background-color: #10B981;"></div>
+                            </div>
+                        </div>
+                        <div class="competency-item">
+                            <div class="competency-name">Python</div>
+                            <div class="competency-count">28 demandes</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 62%; background-color: #8B5CF6;"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Activity History -->
+                    <section class="widget activity-history">
+                        <h3>📅 Historique d'activité</h3>
+                        <div class="activity-items">
+                            <div class="activity-item">
+                                <div class="activity-icon">✓</div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Compétence validée</p>
+                                    <p class="activity-detail">Marie Dupont - React Hooks</p>
+                                    <p class="activity-time">Il y a 30min</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🏆</div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Badge attribué</p>
+                                    <p class="activity-detail">SQL Expert - Lucas Petit</p>
+                                    <p class="activity-time">Il y a 2h</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">✓</div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Validation effectuée</p>
+                                    <p class="activity-detail">Thomas Martin - Git</p>
+                                    <p class="activity-time">Il y a 1j</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">📚</div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Formation donnée</p>
+                                    <p class="activity-detail">JavaScript Avancé - 12 stagiaires</p>
+                                    <p class="activity-time">Il y a 3j</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/tableu_de_bord.js"></script>
+</body>
+</html>
