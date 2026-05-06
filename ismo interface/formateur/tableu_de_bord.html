@@ -1,102 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de Bord - ISMO-SkillSwap</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link rel="stylesheet" href="../assets/css/tableu_de_bord.css">
 </head>
+
 <body>
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
-            <div class="sidebar-brand">
-                <div class="brand-icon-wrap" aria-hidden="true">
-                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                        <rect width="32" height="32" rx="9" fill="#2563EB" />
-                        <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
-                            stroke-linecap="round" />
-                        <circle cx="16" cy="16" r="3" fill="#fff" />
+        <div class="sidebar-brand">
+            <div class="brand-icon-wrap" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="9" fill="#2563EB" />
+                    <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <circle cx="16" cy="16" r="3" fill="#fff" />
+                </svg>
+            </div>
+            <span class="brand-text">ISMO<span>-SkillSwap</span></span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <ul role="list">
+                <li>
+                    <a href="tableu_de_bord.html" class="nav-item active" id="nav-dashboard" aria-current="page">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" rx="1" />
+                                <rect x="14" y="3" width="7" height="7" rx="1" />
+                                <rect x="3" y="14" width="7" height="7" rx="1" />
+                                <rect x="14" y="14" width="7" height="7" rx="1" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Tableau de bord</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#validation" class="nav-item" id="nav-validation">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </span>
+                        <span class="nav-label">Validation</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#statistics" class="nav-item" id="nav-statistics">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="2" x2="12" y2="22"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </span>
+                        <span class="nav-label">Statistiques</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#catalog" class="nav-item" id="nav-catalog">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </span>
+                        <span class="nav-label">Catalogue</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-user-mini">
+                <div class="mini-avatar" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
                     </svg>
                 </div>
-                <span class="brand-text">ISMO<span>-SkillSwap</span></span>
-            </div>
-
-            <nav class="sidebar-nav" aria-label="Menu principal">
-                <ul role="list">
-                    <li>
-                        <a href="tableu_de_bord.html" class="nav-item active" id="nav-dashboard" aria-current="page">
-                            <span class="nav-icon" aria-hidden="true">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="7" height="7" rx="1" />
-                                    <rect x="14" y="3" width="7" height="7" rx="1" />
-                                    <rect x="3" y="14" width="7" height="7" rx="1" />
-                                    <rect x="14" y="14" width="7" height="7" rx="1" />
-                                </svg>
-                            </span>
-                            <span class="nav-label">Tableau de bord</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#validation" class="nav-item" id="nav-validation">
-                            <span class="nav-icon" aria-hidden="true">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </span>
-                            <span class="nav-label">Validation</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#statistics" class="nav-item" id="nav-statistics">
-                            <span class="nav-icon" aria-hidden="true">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="12" y1="2" x2="12" y2="22"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
-                            </span>
-                            <span class="nav-label">Statistiques</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#catalog" class="nav-item" id="nav-catalog">
-                            <span class="nav-icon" aria-hidden="true">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </span>
-                            <span class="nav-label">Catalogue</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="sidebar-user-mini">
-                    <div class="mini-avatar" aria-hidden="true">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                            <circle cx="12" cy="7" r="4" />
-                        </svg>
-                    </div>
-                    <div class="mini-info">
-                        <span class="mini-name">Marie Leclerc</span>
-                        <span class="mini-role">Formateur</span>
-                    </div>
+                <div class="mini-info">
+                    <span class="mini-name">Marie Leclerc</span>
+                    <span class="mini-role">Formateur</span>
                 </div>
             </div>
+        </div>
     </aside>
 
     <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
@@ -142,8 +145,8 @@
                         <span class="profile-score">Formateur</span>
                     </div>
                     <div class="profile-avatar" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
                         </svg>
@@ -382,4 +385,5 @@
     <script src="../assets/js/dashboard.js"></script>
     <script src="../assets/js/tableu_de_bord.js"></script>
 </body>
+
 </html>
