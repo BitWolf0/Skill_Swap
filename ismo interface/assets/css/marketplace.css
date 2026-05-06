@@ -37,16 +37,16 @@
 .help-requests {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .request-card {
     background: var(--white);
     border: 1px solid var(--gray-100);
     border-radius: var(--radius-md);
-    padding: 20px;
+    padding: 18px 20px;
     box-shadow: var(--shadow-sm);
-    transition: box-shadow var(--transition), border-color var(--transition);
+    transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .request-card:hover {
@@ -274,25 +274,88 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 32px;
-    height: 24px;
-    padding: 0 8px;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
     background: var(--blue-600);
     color: var(--white);
-    border-radius: 6px;
-    font-size: .75rem;
+    border-radius: 8px;
+    font-size: .85rem;
     font-weight: 700;
-    flex-shrink: 0;
+    line-height: 1;
+    overflow: hidden;
     transition: all var(--transition);
 }
 
 .popular-list li:hover .count {
     background: var(--blue-700);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* Widget Styling */
+.widget {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--blue-100);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.widget-title {
+    font-size: .975rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.3px;
+}
+
+.widget-icon {
+    display: flex;
+    align-items: center;
+    color: var(--blue-600);
 }
 
 @media (max-width: 1080px) {
     .marketplace-page {
         grid-template-columns: 1fr;
+    }
+
+    .content-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 820px) {
+    .marketplace-page {
+        grid-template-columns: 1fr;
+    }
+
+    .content-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .request-card {
+        padding: 16px;
     }
 }
 
@@ -304,5 +367,25 @@
     .filter-btn {
         flex: 1;
         min-width: calc(50% - 6px);
+        padding: 9px 12px;
+        font-size: .85rem;
+    }
+
+    .request-card {
+        padding: 14px;
+    }
+
+    .request-header h3 {
+        font-size: .95rem;
+    }
+
+    .skill-badge {
+        padding: 3px 8px;
+        font-size: .75rem;
+    }
+
+    .btn-help {
+        padding: 10px 14px;
+        font-size: .85rem;
     }
 }
