@@ -1,0 +1,429 @@
+/* ============================================================
+   ISMO-SkillSwap — Validation des compétences CSS
+   ============================================================ */
+
+/* ── Validation Content ───────────────────────────────────── */
+.validation-content {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.validation-header {
+  margin-bottom: 24px;
+}
+
+.validation-header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.validation-subtitle {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+}
+
+/* ── Stats Section ────────────────────────────────────────── */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-item {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.stat-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-200);
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #3B82F6;
+}
+
+.stat-number:nth-child(1) {
+  color: #F97316;
+}
+
+.stat-item:nth-child(2) .stat-number {
+  color: #06B6D4;
+}
+
+.stat-item:nth-child(3) .stat-number {
+  color: #3B82F6;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+/* ── Filters Section ──────────────────────────────────────── */
+.filters-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.filter-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--gray-500);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.filter-select {
+  padding: 10px 12px 10px 36px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  font-family: inherit;
+  min-width: 200px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 20px;
+  padding-right: 32px;
+}
+
+.filter-select:first-child {
+  padding-left: 36px;
+}
+
+.filter-select:hover {
+  border-color: var(--blue-400);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--blue-600);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ── Validation Cards ─────────────────────────────────────── */
+.validation-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.validation-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.validation-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-300);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.person-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.person-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.skill-tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tag-primary {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.tag-warning {
+  background: #FED7AA;
+  color: #92400E;
+}
+
+.tag-danger {
+  background: #FECACA;
+  color: #7F1D1D;
+}
+
+.card-date {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.skill-description {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.card-files {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.files-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.files-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.file-item {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+  padding-top: 12px;
+}
+
+.btn-detail {
+  padding: 10px 16px;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn-detail:hover {
+  background: var(--gray-200);
+  border-color: var(--gray-400);
+}
+
+.btn {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-success {
+  flex: 1;
+  background-color: #10B981;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-success:hover {
+  background-color: #059669;
+  transition: background-color 200ms ease;
+}
+
+.btn-danger {
+  flex: 1;
+  background-color: #DC2626;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-danger:hover {
+  background-color: #B91C1C;
+  transition: background-color 200ms ease;
+}
+
+/* ── Responsive Design ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .validation-content {
+    padding: 16px;
+  }
+
+  .validation-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .filters-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-select {
+    min-width: 100%;
+  }
+
+  .card-top {
+    flex-direction: column;
+  }
+
+  .card-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .card-top {
+    padding-bottom: 12px;
+  }
+
+  .person-info {
+    width: 100%;
+  }
+
+  .card-date {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .validation-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .skill-tags {
+    flex-wrap: wrap;
+  }
+
+  .card-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btn-detail {
+    width: 100%;
+  }
+}

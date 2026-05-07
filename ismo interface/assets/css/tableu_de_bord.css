@@ -458,7 +458,7 @@ button {
 
 .validation-items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 18px;
   margin-top: 20px;
 }
@@ -545,23 +545,43 @@ button {
 }
 
 .btn-success {
-  background-color: var(--green-500);
+  background-color: #10B981;
   color: white;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-success:hover {
-  background-color: var(--green-600);
-  box-shadow: 0 2px 8px rgba(34, 197, 94, .2);
+  background-color: #059669;
 }
 
 .btn-danger {
-  background-color: var(--red-500);
+  background-color: #DC2626;
   color: white;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-danger:hover {
-  background-color: #DC2626;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, .2);
+  background-color: #B91C1C;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -812,14 +832,14 @@ button {
 
 /* Badge Widget */
 .badges-widget {
-  background: linear-gradient(135deg, #7C3AED, #6D28D9) !important;
-  border: none;
+  background: linear-gradient(135deg, #F5F3FF, #FAF5FF) !important;
+  border: 2px solid #7C3AED;
   box-shadow: var(--shadow-md);
-  color: var(--white);
+  color: #6D28D9;
 }
 
 .badges-widget h3 {
-  color: var(--white);
+  color: #6D28D9;
 }
 
 .badge-actions {
@@ -832,22 +852,25 @@ button {
 
 .badge-action-btn {
   padding: 10px 14px;
-  background-color: rgba(255, 255, 255, 0.14);
+  background-color: #7C3AED;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #7C3AED;
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: .8rem;
   cursor: pointer;
   transition: all var(--transition);
   font-family: inherit;
-  backdrop-filter: blur(4px);
 }
 
 .badge-action-btn:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
+  background-color: #6D28D9;
+  border-color: #6D28D9;
   transform: translateY(-2px);
+}
+
+.badges-widget:hover {
+  border-color: #7C3AED;
 }
 
 /* Top Competencies */
