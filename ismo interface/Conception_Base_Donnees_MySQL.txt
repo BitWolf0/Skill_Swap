@@ -1,0 +1,755 @@
+===============================================================================
+                ISMO-SKILLSWAP: CONCEPTION BASE DE DONNEES MYSQL
+                          Schéma Relationnel Complet
+===============================================================================
+
+DATE: 8 mai 2026
+VERSION: 1.0
+LANGAGE: MySQL 8.0+
+ENCODING: UTF-8 (utf8mb4)
+CHARSET: utf8mb4_unicode_ci
+
+===============================================================================
+                            1. TABLES PRINCIPALES
+===============================================================================
+
+---
+TABLE: users (Utilisateurs)
+DESCRIPTION: Stocke tous les utilisateurs de la plateforme
+---
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    profile_picture_url VARCHAR(255) NOT NULL,
+    bio TEXT,
+    reputation_score INT DEFAULT 0,
+    skill_points INT DEFAULT 0,
+    role ENUM('stagiaire', 'mentor', 'formateur', 'admin') DEFAULT 'stagiaire',
+    status ENUM('active', 'inactive', 'suspended', 'deleted') DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    last_login TIMESTAMP NULL,
+    
+    INDEX idx_email (email),
+    INDEX idx_username (username),
+    INDEX idx_role (role),
+    INDEX idx_status (status)
+);
+
+---
+TABLE: user_profiles (Profils utilisateurs détaillés)
+DESCRIPTION: Informations détaillées et préférences utilisateur
+---
+CREATE TABLE user_profiles (
+    profile_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL UNIQUE,
+    date_of_birth DATE,
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    city VARCHAR(100),
+    country VARCHAR(100),
+    company_or_school VARCHAR(255),
+    department VARCHAR(100),
+    experience_years INT,
+    availability ENUM('full_time', 'part_time', 'weekends', 'flexible') DEFAULT 'flexible',
+    preferred_language VARCHAR(10) DEFAULT 'fr',
+    notification_preferences JSON,
+    social_links JSON,
+    verified_email BOOLEAN DEFAULT FALSE,
+    verified_phone BOOLEAN DEFAULT FALSE,
+    two_factor_enabled BOOLEAN DEFAULT FALSE,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_city (city),
+    INDEX idx_country (country)
+);
+
+---
+TABLE: skills (Compétences disponibles)
+DESCRIPTION: Liste des compétences/domaines disponibles dans la plateforme
+---
+CREATE TABLE skills (
+    skill_id INT PRIMARY KEY AUTO_INCREMENT,
+    skill_name VARCHAR(150) NOT NULL UNIQUE,
+    skill_category VARCHAR(100),
+    description TEXT,
+    icon_url VARCHAR(255),
+    is_verified BOOLEAN DEFAULT TRUE,
+    usage_count INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    INDEX idx_category (skill_category),
+    INDEX idx_skill_name (skill_name)
+);
+
+---
+TABLE: user_skills (Compétences des utilisateurs)
+DESCRIPTION: Relie les utilisateurs à leurs compétences avec niveau et statut
+---
+CREATE TABLE user_skills (
+    user_skill_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    skill_id INT NOT NULL,
+    proficiency_level ENUM('beginner', 'intermediate', 'advanced', 'expert') DEFAULT 'beginner',
+    years_of_experience INT DEFAULT 0,
+    is_willing_to_teach BOOLEAN DEFAULT FALSE,
+    endorsements_count INT DEFAULT 0,
+    verification_status ENUM('pending', 'verified', 'rejected') DEFAULT 'pending',
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE RESTRICT,
+    UNIQUE KEY unique_user_skill (user_id, skill_id),
+    INDEX idx_proficiency (proficiency_level),
+    INDEX idx_willing_to_teach (is_willing_to_teach)
+);
+
+---
+TABLE: badges (Badges/Récompenses)
+DESCRIPTION: Définition des badges disponibles
+---
+CREATE TABLE badges (
+    badge_id INT PRIMARY KEY AUTO_INCREMENT,
+    badge_name VARCHAR(100) NOT NULL,
+    badge_description TEXT,
+    icon_url VARCHAR(255),
+    badge_category VARCHAR(50),
+    points_value INT DEFAULT 0,
+    requirement_description VARCHAR(255),
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    INDEX idx_category (badge_category)
+);
+
+---
+TABLE: user_badges (Badges attribués aux utilisateurs)
+DESCRIPTION: Enregistre les badges gagnés par chaque utilisateur
+---
+CREATE TABLE user_badges (
+    user_badge_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    badge_id INT NOT NULL,
+    earned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    earned_reason VARCHAR(255),
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (badge_id) REFERENCES badges(badge_id) ON DELETE RESTRICT,
+    UNIQUE KEY unique_user_badge (user_id, badge_id),
+    INDEX idx_earned_at (earned_at)
+);
+
+===============================================================================
+                         2. TABLES DE MENTORAT ET AIDE
+===============================================================================
+
+---
+TABLE: mentor_applications (Applications pour devenir mentor)
+DESCRIPTION: Candidatures des utilisateurs pour devenir mentor
+---
+CREATE TABLE mentor_applications (
+    application_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    status ENUM('pending', 'approved', 'rejected', 'withdrawn') DEFAULT 'pending',
+    application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    motivation_text TEXT,
+    experience_summary TEXT,
+    specialties_proposed TEXT,
+    maximum_mentees INT DEFAULT 5,
+    reviewed_by_admin INT,
+    review_notes TEXT,
+    reviewed_at TIMESTAMP NULL,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (reviewed_by_admin) REFERENCES users(user_id) ON DELETE SET NULL,
+    INDEX idx_status (status),
+    INDEX idx_user_id (user_id),
+    INDEX idx_application_date (application_date)
+);
+
+---
+TABLE: help_requests (Demandes d'aide)
+DESCRIPTION: Demandes d'aide/mentorat créées par les stagiaires
+---
+CREATE TABLE help_requests (
+    request_id INT PRIMARY KEY AUTO_INCREMENT,
+    requestor_id INT NOT NULL,
+    skill_id INT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    description TEXT NOT NULL,
+    urgency_level ENUM('low', 'medium', 'high', 'urgent') DEFAULT 'medium',
+    status ENUM('open', 'in_progress', 'completed', 'closed', 'archived') DEFAULT 'open',
+    requested_mentor_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deadline_date DATETIME,
+    completion_date DATETIME NULL,
+    
+    FOREIGN KEY (requestor_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE RESTRICT,
+    FOREIGN KEY (requested_mentor_id) REFERENCES users(user_id) ON DELETE SET NULL,
+    INDEX idx_status (status),
+    INDEX idx_skill_id (skill_id),
+    INDEX idx_requestor_id (requestor_id),
+    INDEX idx_created_at (created_at)
+);
+
+---
+TABLE: help_responses (Réponses aux demandes d'aide)
+DESCRIPTION: Mentors répondant aux demandes d'aide
+---
+CREATE TABLE help_responses (
+    response_id INT PRIMARY KEY AUTO_INCREMENT,
+    request_id INT NOT NULL,
+    responder_id INT NOT NULL,
+    response_text TEXT,
+    estimated_availability_hours INT,
+    response_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    accepted_by_requestor BOOLEAN DEFAULT NULL,
+    accepted_at TIMESTAMP NULL,
+    
+    FOREIGN KEY (request_id) REFERENCES help_requests(request_id) ON DELETE CASCADE,
+    FOREIGN KEY (responder_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_request_id (request_id),
+    INDEX idx_responder_id (responder_id)
+);
+
+---
+TABLE: mentor_relationships (Relations mentor-stagiaire)
+DESCRIPTION: Relie les mentors à leurs stagiaires
+---
+CREATE TABLE mentor_relationships (
+    relationship_id INT PRIMARY KEY AUTO_INCREMENT,
+    mentor_id INT NOT NULL,
+    stagiaire_id INT NOT NULL,
+    skill_id INT,
+    relationship_status ENUM('active', 'paused', 'completed', 'ended') DEFAULT 'active',
+    start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_date DATETIME NULL,
+    session_count INT DEFAULT 0,
+    last_session_date DATETIME NULL,
+    
+    FOREIGN KEY (mentor_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (stagiaire_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE SET NULL,
+    UNIQUE KEY unique_mentor_stagiaire (mentor_id, stagiaire_id, skill_id),
+    INDEX idx_status (relationship_status)
+);
+
+---
+TABLE: mentoring_sessions (Sessions de mentorat)
+DESCRIPTION: Enregistre les sessions de mentorat
+---
+CREATE TABLE mentoring_sessions (
+    session_id INT PRIMARY KEY AUTO_INCREMENT,
+    relationship_id INT NOT NULL,
+    mentor_id INT NOT NULL,
+    stagiaire_id INT NOT NULL,
+    session_date DATETIME NOT NULL,
+    duration_minutes INT,
+    topic VARCHAR(200),
+    notes TEXT,
+    feedback_from_stagiaire TEXT,
+    feedback_from_mentor TEXT,
+    rating_by_stagiaire INT,
+    rating_by_mentor INT,
+    session_status ENUM('scheduled', 'completed', 'cancelled', 'no_show') DEFAULT 'scheduled',
+    
+    FOREIGN KEY (relationship_id) REFERENCES mentor_relationships(relationship_id) ON DELETE CASCADE,
+    FOREIGN KEY (mentor_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (stagiaire_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_session_date (session_date),
+    INDEX idx_status (session_status)
+);
+
+===============================================================================
+                        3. TABLES DE MARKETPLACE
+===============================================================================
+
+---
+TABLE: marketplace_listings (Annonces du marketplace)
+DESCRIPTION: Offres de compétences/services dans le marketplace
+---
+CREATE TABLE marketplace_listings (
+    listing_id INT PRIMARY KEY AUTO_INCREMENT,
+    seller_id INT NOT NULL,
+    skill_id INT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    description TEXT,
+    offered_service_type ENUM('mentoring', 'help_request', 'project_collaboration', 'course') DEFAULT 'mentoring',
+    price_or_points INT DEFAULT 0,
+    is_free BOOLEAN DEFAULT TRUE,
+    availability_status ENUM('available', 'unavailable', 'archived') DEFAULT 'available',
+    views_count INT DEFAULT 0,
+    interest_count INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (seller_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE RESTRICT,
+    INDEX idx_seller_id (seller_id),
+    INDEX idx_skill_id (skill_id),
+    INDEX idx_status (availability_status),
+    INDEX idx_created_at (created_at)
+);
+
+---
+TABLE: marketplace_interactions (Interactions utilisateur-annonces)
+DESCRIPTION: Enregistre les intérêts et interactions avec les annonces
+---
+CREATE TABLE marketplace_interactions (
+    interaction_id INT PRIMARY KEY AUTO_INCREMENT,
+    listing_id INT NOT NULL,
+    user_id INT NOT NULL,
+    interaction_type ENUM('viewed', 'liked', 'saved', 'contacted', 'purchased') DEFAULT 'viewed',
+    interaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (listing_id) REFERENCES marketplace_listings(listing_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_listing_id (listing_id),
+    INDEX idx_user_id (user_id)
+);
+
+===============================================================================
+                       4. TABLES DE COMMUNICATION
+===============================================================================
+
+---
+TABLE: notifications (Notifications)
+DESCRIPTION: Notifications système et utilisateur
+---
+CREATE TABLE notifications (
+    notification_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    notification_type VARCHAR(50),
+    title VARCHAR(200),
+    message TEXT,
+    reference_id INT,
+    reference_type VARCHAR(50),
+    is_read BOOLEAN DEFAULT FALSE,
+    read_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_user_id (user_id),
+    INDEX idx_is_read (is_read),
+    INDEX idx_created_at (created_at)
+);
+
+---
+TABLE: messages (Messages/Conversations)
+DESCRIPTION: Messages directs entre utilisateurs
+---
+CREATE TABLE messages (
+    message_id INT PRIMARY KEY AUTO_INCREMENT,
+    sender_id INT NOT NULL,
+    recipient_id INT NOT NULL,
+    message_text TEXT NOT NULL,
+    message_type ENUM('text', 'image', 'file', 'system') DEFAULT 'text',
+    file_url VARCHAR(255),
+    is_read BOOLEAN DEFAULT FALSE,
+    read_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (sender_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipient_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_sender_id (sender_id),
+    INDEX idx_recipient_id (recipient_id),
+    INDEX idx_created_at (created_at)
+);
+
+---
+TABLE: comments (Commentaires)
+DESCRIPTION: Commentaires sur les profils, projets, etc.
+---
+CREATE TABLE comments (
+    comment_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    target_type VARCHAR(50),
+    target_id INT NOT NULL,
+    comment_text TEXT NOT NULL,
+    is_verified_mentor BOOLEAN DEFAULT FALSE,
+    likes_count INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_target (target_type, target_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_created_at (created_at)
+);
+
+===============================================================================
+                    5. TABLES DE VALIDATION ET MODÉRATION
+===============================================================================
+
+---
+TABLE: mentor_validations (Validations de mentor)
+DESCRIPTION: Validation des compétences par les formateurs
+---
+CREATE TABLE mentor_validations (
+    validation_id INT PRIMARY KEY AUTO_INCREMENT,
+    mentor_id INT NOT NULL,
+    skill_id INT NOT NULL,
+    validator_formateur_id INT NOT NULL,
+    validation_status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+    comments TEXT,
+    validated_at TIMESTAMP NULL,
+    valid_until_date DATE,
+    
+    FOREIGN KEY (mentor_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE CASCADE,
+    FOREIGN KEY (validator_formateur_id) REFERENCES users(user_id) ON DELETE RESTRICT,
+    UNIQUE KEY unique_mentor_skill_validation (mentor_id, skill_id),
+    INDEX idx_status (validation_status)
+);
+
+---
+TABLE: moderation_reports (Signalements pour modération)
+DESCRIPTION: Signalements d'utilisateurs ou de contenu abusif
+---
+CREATE TABLE moderation_reports (
+    report_id INT PRIMARY KEY AUTO_INCREMENT,
+    reported_by_user_id INT NOT NULL,
+    reported_user_id INT,
+    reported_content_type VARCHAR(50),
+    reported_content_id INT,
+    report_reason VARCHAR(255) NOT NULL,
+    report_description TEXT,
+    report_status ENUM('pending', 'under_review', 'resolved', 'dismissed', 'escalated') DEFAULT 'pending',
+    severity_level ENUM('low', 'medium', 'high', 'critical') DEFAULT 'medium',
+    moderation_notes TEXT,
+    reviewed_by_admin_id INT,
+    action_taken VARCHAR(100),
+    reviewed_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (reported_by_user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (reported_user_id) REFERENCES users(user_id) ON DELETE SET NULL,
+    FOREIGN KEY (reviewed_by_admin_id) REFERENCES users(user_id) ON DELETE SET NULL,
+    INDEX idx_status (report_status),
+    INDEX idx_severity (severity_level),
+    INDEX idx_created_at (created_at)
+);
+
+---
+TABLE: blocked_users (Utilisateurs bloqués/bannis)
+DESCRIPTION: Liste des utilisateurs bloqués ou bannis
+---
+CREATE TABLE blocked_users (
+    block_id INT PRIMARY KEY AUTO_INCREMENT,
+    blocked_user_id INT NOT NULL,
+    blocked_by_admin_id INT NOT NULL,
+    block_reason VARCHAR(255),
+    block_type ENUM('temporary', 'permanent') DEFAULT 'temporary',
+    blocked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    unblock_date DATETIME NULL,
+    
+    FOREIGN KEY (blocked_user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (blocked_by_admin_id) REFERENCES users(user_id) ON DELETE RESTRICT,
+    INDEX idx_blocked_user_id (blocked_user_id),
+    INDEX idx_block_type (block_type)
+);
+
+===============================================================================
+                         6. TABLES DE STATISTIQUES
+===============================================================================
+
+---
+TABLE: user_statistics (Statistiques des utilisateurs)
+DESCRIPTION: Statistiques globales par utilisateur
+---
+CREATE TABLE user_statistics (
+    stat_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL UNIQUE,
+    total_mentoring_hours INT DEFAULT 0,
+    total_help_requests_created INT DEFAULT 0,
+    total_help_requests_fulfilled INT DEFAULT 0,
+    total_mentees INT DEFAULT 0,
+    total_sessions_participated INT DEFAULT 0,
+    average_rating DECIMAL(3, 2) DEFAULT 0.00,
+    badges_earned_count INT DEFAULT 0,
+    skills_verified_count INT DEFAULT 0,
+    last_activity_date DATETIME,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+---
+TABLE: platform_statistics (Statistiques de la plateforme)
+DESCRIPTION: Statistiques globales de la plateforme
+---
+CREATE TABLE platform_statistics (
+    stat_id INT PRIMARY KEY AUTO_INCREMENT,
+    stat_date DATE NOT NULL,
+    total_users INT DEFAULT 0,
+    active_users INT DEFAULT 0,
+    total_mentors INT DEFAULT 0,
+    total_formateurs INT DEFAULT 0,
+    total_admins INT DEFAULT 0,
+    total_skills_registered INT DEFAULT 0,
+    total_mentor_relationships INT DEFAULT 0,
+    total_help_requests INT DEFAULT 0,
+    total_completed_sessions INT DEFAULT 0,
+    total_badges_awarded INT DEFAULT 0,
+    marketplace_listings_count INT DEFAULT 0,
+    average_user_reputation DECIMAL(5, 2) DEFAULT 0.00,
+    
+    UNIQUE KEY unique_date (stat_date)
+);
+
+===============================================================================
+                        7. TABLES DE CONFIGURATION
+===============================================================================
+
+---
+TABLE: system_settings (Paramètres système)
+DESCRIPTION: Configuration générale de la plateforme
+---
+CREATE TABLE system_settings (
+    setting_id INT PRIMARY KEY AUTO_INCREMENT,
+    setting_key VARCHAR(100) UNIQUE NOT NULL,
+    setting_value TEXT,
+    setting_description VARCHAR(255),
+    setting_type ENUM('string', 'integer', 'boolean', 'json') DEFAULT 'string',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+---
+TABLE: audit_logs (Journaux d'audit)
+DESCRIPTION: Enregistrement des actions importantes sur la plateforme
+---
+CREATE TABLE audit_logs (
+    log_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    action_type VARCHAR(100) NOT NULL,
+    action_description TEXT,
+    affected_table VARCHAR(50),
+    affected_record_id INT,
+    old_value JSON,
+    new_value JSON,
+    ip_address VARCHAR(45),
+    user_agent TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL,
+    INDEX idx_user_id (user_id),
+    INDEX idx_action_type (action_type),
+    INDEX idx_created_at (created_at)
+);
+
+---
+TABLE: user_activity_logs (Historique d'activité utilisateur)
+DESCRIPTION: Historique détaillé de l'activité de chaque utilisateur
+---
+CREATE TABLE user_activity_logs (
+    activity_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    activity_type VARCHAR(100),
+    activity_description VARCHAR(255),
+    page_or_feature VARCHAR(100),
+    ip_address VARCHAR(45),
+    user_agent TEXT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_user_id (user_id),
+    INDEX idx_activity_type (activity_type),
+    INDEX idx_timestamp (timestamp)
+);
+
+===============================================================================
+                          8. CONTRAINTES ET INDEXES
+===============================================================================
+
+-- Index supplémentaires pour performance
+CREATE INDEX idx_users_reputation ON users(reputation_score);
+CREATE INDEX idx_users_skill_points ON users(skill_points);
+CREATE INDEX idx_help_requests_deadline ON help_requests(deadline_date);
+CREATE INDEX idx_mentor_relationships_active ON mentor_relationships(relationship_status);
+CREATE INDEX idx_marketplace_views ON marketplace_listings(views_count);
+CREATE INDEX idx_comments_likes ON comments(likes_count);
+
+===============================================================================
+                      9. RELATIONS ET INTÉGRITÉ
+===============================================================================
+
+RELATIONS PRINCIPALES:
+
+1. users → user_profiles
+   Un utilisateur → Un profil (1:1)
+
+2. users → user_skills
+   Un utilisateur → Plusieurs compétences (1:N)
+   Plusieurs utilisateurs → Une compétence (N:1)
+
+3. users → user_badges
+   Un utilisateur → Plusieurs badges (1:N)
+   Plusieurs utilisateurs → Un badge (N:1)
+
+4. users → mentor_applications
+   Un utilisateur → Une ou plusieurs candidatures mentor (1:N)
+
+5. users → help_requests
+   Un stagiaire → Plusieurs demandes (1:N)
+
+6. users → mentor_relationships
+   Un mentor → Plusieurs stagiaires (1:N)
+   Un stagiaire → Plusieurs mentors (N:M)
+
+7. help_requests → help_responses
+   Une demande → Plusieurs réponses (1:N)
+
+8. mentor_relationships → mentoring_sessions
+   Une relation → Plusieurs sessions (1:N)
+
+9. users → marketplace_listings
+   Un vendeur → Plusieurs annonces (1:N)
+
+10. users → notifications
+    Un utilisateur → Plusieurs notifications (1:N)
+
+11. users → messages (N:N via deux FK)
+    Conversation entre deux utilisateurs
+
+12. users → moderation_reports
+    Un signaleur → Plusieurs rapports (1:N)
+    Un utilisateur signalé → Plusieurs rapports (1:N)
+
+===============================================================================
+                    10. RÈGLES DE VALIDATION DE DONNÉES
+===============================================================================
+
+-- Valeurs par défaut et validations:
+
+ROLE UTILISATEUR:
+- stagiaire: Utilisateur demandeur d'aide/apprentissage
+- mentor: Utilisateur offrant du mentorat (approuvé)
+- formateur: Formateur validant les compétences des mentors
+- admin: Administrateur de la plateforme
+
+STATUS UTILISATEUR:
+- active: Compte actif et utilisable
+- inactive: Compte désactivé (volontaire)
+- suspended: Compte suspendu (sanctions)
+- deleted: Compte supprimé
+
+PROFICIENCY LEVEL (Niveau de compétence):
+- beginner: Débutant
+- intermediate: Intermédiaire
+- advanced: Avancé
+- expert: Expert
+
+URGENCY LEVEL (Niveau d'urgence):
+- low: Faible
+- medium: Moyen
+- high: Élevé
+- urgent: Urgent
+
+===============================================================================
+                    11. RECOMMANDATIONS PERFORMANCE
+===============================================================================
+
+1. MAINTENANCE RÉGULIÈRE:
+   - Defragmenter tables: OPTIMIZE TABLE
+   - Analyser tables: ANALYZE TABLE
+   - Vérifier intégrité: CHECK TABLE
+
+2. SAUVEGARDE:
+   - Sauvegardes quotidiennes recommandées
+   - Stratégie: Complète + Incremental
+
+3. PARTITIONING:
+   - Partitionner audit_logs par date
+   - Partitionner user_activity_logs par date
+
+4. INDEXES SUPPLÉMENTAIRES À CONSIDÉRER:
+   - Composites sur (user_id, status)
+   - Full-text index sur description fields
+
+5. POOL DE CONNEXION:
+   - Max connections: 200-500 selon charge
+   - Connection timeout: 28800 secondes
+
+===============================================================================
+                    12. SCRIPT DE CRÉATION COMPLETE
+===============================================================================
+
+-- Créer la base de données
+CREATE DATABASE IF NOT EXISTS ismo_skillswap 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci;
+
+-- Utiliser la base
+USE ismo_skillswap;
+
+-- [Insérer ici tous les CREATE TABLE ci-dessus]
+
+-- Vérifier la création
+SHOW TABLES;
+SELECT COUNT(*) FROM information_schema.TABLES 
+WHERE TABLE_SCHEMA = 'ismo_skillswap';
+
+===============================================================================
+                    13. DONNÉES D'INITIALISATION SUGGÉRÉES
+===============================================================================
+
+CATEGORIES DE COMPÉTENCES À INITIALISER:
+
+1. Programmation et Développement
+   - Python, JavaScript, Java, PHP, C++, C#, Ruby, etc.
+
+2. Design et Créativité
+   - UX/UI Design, Graphic Design, Web Design, etc.
+
+3. Marketing et Communication
+   - Digital Marketing, SEO, Social Media, Content Writing, etc.
+
+4. Langues
+   - Anglais, Espagnol, Allemand, Chinois, Japonais, etc.
+
+5. Affaires et Gestion
+   - Project Management, Leadership, Business Strategy, etc.
+
+6. Données et Analytics
+   - Data Analysis, Business Intelligence, Machine Learning, etc.
+
+7. Outils et Logiciels
+   - Excel, Figma, Adobe Creative Suite, etc.
+
+BADGES À INITIALISER:
+
+1. Badges d'accomplissement
+   - First Mentor, Skill Master, Helping Hand, etc.
+
+2. Badges de participation
+   - Active Member, Community Contributor, etc.
+
+3. Badges de validation
+   - Verified Mentor, Expert Badge, etc.
+
+===============================================================================
+                        14. NOTES IMPORTANTES
+===============================================================================
+
+- Toutes les dates/heures doivent être en UTC
+- Les mots de passe doivent être hashs (bcrypt minimum)
+- Les emails et usernames sont insensibles à la casse
+- La colonne reputation_score doit rester >= 0
+- Une photo de profil est OBLIGATOIRE pour chaque utilisateur
+- Les relationships mentor/stagiaire sont limitées à 1 par couple
+- Les sessions de mentorat ne peuvent pas être dans le passé
+- Les notifications doivent être archivées après 90 jours
+- Les logs d'audit doivent être conservés 2 ans minimum
+
+===============================================================================
+                            FIN DU DOCUMENT
+===============================================================================
+Version: 1.0
+Dernier mise à jour: 8 mai 2026
+Équipe: ISMO-SkillSwap Development Team
