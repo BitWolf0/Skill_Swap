@@ -24,7 +24,7 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     first_name VARCHAR(100),
     last_name VARCHAR(100),
-    profile_picture_url VARCHAR(255) NOT NULL,
+    profile_picture_url VARCHAR(255) NOT NULL DEFAULT '/assets/images/default_avatar.svg',
     bio TEXT,
     reputation_score INT DEFAULT 0,
     skill_points INT DEFAULT 0,
@@ -741,7 +741,7 @@ BADGES À INITIALISER:
 - Les mots de passe doivent être hashs (bcrypt minimum)
 - Les emails et usernames sont insensibles à la casse
 - La colonne reputation_score doit rester >= 0
-- Une photo de profil est OBLIGATOIRE pour chaque utilisateur
+ - Si l'utilisateur ne fournit pas de photo, `profile_picture_url` utilisera la valeur par défaut `/assets/images/default_avatar.svg`
 - Les relationships mentor/stagiaire sont limitées à 1 par couple
 - Les sessions de mentorat ne peuvent pas être dans le passé
 - Les notifications doivent être archivées après 90 jours
