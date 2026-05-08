@@ -1,29 +1,24 @@
 # ISMO-SkillSwap: Roadmap des Corrections
 
+## ✅ DÉJÀ RÉSOLU
+- [x] `assets/js/mes_demandes.js` existe désormais et est chargé par `pages_stagiere/mes_demandes.html`.
+
 ## 🔴 PRIORITÉ HAUTE : Fonctionnalités Cassées
-- [ ] **Fichier Manquant :** Créer `assets/js/mes_demandes.js` (actuellement appelé dans `pages_stagiere/mes_demandes.html` mais inexistant).
-- [ ] **Liens Admin Cassés :** Dans `admin_pages/`, les liens vers `moderation.html` et `statistiques.html` pointent vers des fichiers inexistants. 
-    - *Action :* Soit créer ces pages, soit désactiver les liens dans le sidebar.
-- [ ] **Navigation Mentor Cassée :** Dans `pages_mentor/`, les liens vers le "Tableau de bord", "Mes Demandes" et "Mes Compétences" sont cassés car ils cherchent des fichiers dans le dossier local.
-    - *Correction :* Changer `href="dashboard.html"` en `href="../pages_stagiere/dashboard.html"` (et pareil pour les autres).
-- [ ] **Liens Internes Formateur :** Corriger les ancres `#` restantes dans `formateur_pages/`.
-    - `statistique.html` : `#catalog` → `catalogue.html`
-    - `tableu_de_bord.html` : `#validation` → `validation_demande.html` et `#statistics` → `statistique.html`
-    - `validation_demande.html` : `#statistics` → `statistique.html` et `#catalog` → `catalogue.html`
+- [ ] **Navigation Mentor Cassée :** Dans `pages_mentor/*.html`, les liens du sidebar pointent vers des fichiers qui n’existent pas dans ce dossier (`dashboard.html`, `mes_demandes.html`, `mes_competances.html`, `profile.html`, `parametres.html`, `login.html`).
+    - *Action :* soit les rediriger vers `../pages_stagiere/*.html`, soit créer des pages mentor dédiées.
+- [ ] **Cohérence Admin :** Le menu admin est fonctionnel avec `moderation.html`, mais la page statistiques s’appelle `statisque_adm.html`.
+    - *Action :* conserver ce nom si assumé, ou renommer en `statistiques.html` et mettre à jour les liens.
 
 ## 🟡 PRIORITÉ MOYENNE : Cohérence & Orthographe
-- [ ] **Correction du mot "Tableau" :** 
+- [ ] **Correction du mot "Tableau" :**
     - Renommer `formateur_pages/tableu_de_bord.html` → `tableau_de_bord.html`.
     - Renommer `assets/css/tableu_de_bord.css` → `tableau_de_bord.css`.
     - Renommer `assets/js/tableu_de_bord.js` → `tableau_de_bord.js`.
-    - *Note : Ne pas oublier de mettre à jour tous les <link> et <script> qui pointent vers ces fichiers.*
+    - *Note :* mettre à jour tous les `<link>` et `<script>` concernés.
 - [ ] **Orthographe "Stagiaire" :** Renommer le dossier `pages_stagiere` → `pages_stagiaire` (optionnel mais recommandé).
-- [ ] **Singulier/Pluriel :** Dans `pages_mentor/*.html`, changer le lien `mes_competance.html` en `mes_competances.html` pour correspondre au fichier réel.
+- [ ] **Normaliser les noms mentor :** Harmoniser les liens et fichiers entre `mes_badges.html`, `mes_aides.html`, `mes_demandes.html` et `mes_competances.html` selon la convention retenue.
 
 ## 🟢 PRIORITÉ BASSE : Nettoyage & Design
 - [ ] **Unification de la langue :** Décider si les noms de fichiers doivent être 100% Français ou 100% Anglais (actuellement un mélange comme `mentor_apply.html` vs `mes_demandes.html`).
-- [ ] **Remplacer les `#` :** Dans les menus "Mon profil", "Paramètres" et "Déconnexion", remplacer les `#` par les liens réels vers `profile.html`, `parametres.html` et `login.html`.
-- [ ] **Vérification Responsive :** Tester l'affichage sur mobile car certains sidebars ont des structures légèrement différentes.
-
----
-*Généré par Gemini CLI le 8 Mai 2026*
+- [ ] **Remplacer les `#` restants :** Dans les menus "Mon profil", "Paramètres" et "Déconnexion", remplacer les `#` ou cibles temporaires par les liens réels vers `profile.html`, `parametres.html` et `login.html` quand la page correspondante existe.
+- [ ] **Vérification Responsive :** Tester l’affichage sur mobile car certains sidebars ont des structures légèrement différentes.
