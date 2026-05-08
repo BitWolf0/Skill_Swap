@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tableau de bord administrateur - ISMO-SkillSwap</title>
+  <meta name="description"
+    content="Tableau de bord administrateur ISMO-SkillSwap : gérez les comptes, modérez les contenus et consultez les statistiques." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+      <div class="brand-icon-wrap" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="9" fill="#2563EB" />
+          <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
+            stroke-linecap="round" />
+          <circle cx="16" cy="16" r="3" fill="#fff" />
+        </svg>
+      </div>
+      <span class="brand-text">ISMO<span>-SkillSwap</span></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav" aria-label="Menu principal">
+      <ul role="list">
+
+        <li>
+          <a href="tableau_de_bord.html" class="nav-item active" id="nav-dashboard" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            </span>
+            <span class="nav-label">Tableau de bord</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="gestion_comptes.html" class="nav-item" id="nav-accounts">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <span class="nav-label">Gestion comptes</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="moderation.html" class="nav-item" id="nav-moderation">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </span>
+            <span class="nav-label">Modération</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="statistiques.html" class="nav-item" id="nav-statistics">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="2" x2="12" y2="22"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </span>
+            <span class="nav-label">Statistiques</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Sidebar footer -->
+    <div class="sidebar-footer">
+      <div class="sidebar-user-mini">
+        <div class="mini-avatar" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </div>
+        <div class="mini-info">
+          <span class="mini-name">Admin ISMO</span>
+          <span class="mini-role">Administrateur</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Overlay for mobile sidebar -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       MAIN WRAPPER
+  ══════════════════════════════════════════ -->
+  <div class="main-wrapper">
+
+    <!-- ── HEADER ── -->
+    <header class="topbar" role="banner">
+
+      <!-- Mobile Menu Button -->
+      <button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </span>
+        <input type="search" id="search-input" class="search-input" placeholder="Rechercher un utilisateur..."
+          aria-label="Rechercher un utilisateur" />
+        <kbd class="search-kbd">⌘K</kbd>
+      </div>
+
+      <!-- Right actions -->
+      <div class="topbar-right">
+
+        <!-- Notification bell -->
+        <button class="icon-btn notif-btn" id="btn-notif" aria-label="Notifications" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+          <span class="notif-dot" aria-label="Nouvelles notifications"></span>
+        </button>
+
+        <!-- Profile button -->
+        <button class="profile-btn" id="btn-profile" type="button" aria-haspopup="true" aria-expanded="false"
+          aria-label="Menu profil">
+          <div class="profile-info">
+            <span class="profile-name">Admin ISMO</span>
+            <span class="profile-score">Administrateur</span>
+          </div>
+          <div class="profile-avatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+        </button>
+
+        <!-- ── PROFILE DROPDOWN ── -->
+        <div class="profile-dropdown" id="profile-dropdown" role="menu" aria-label="Options du profil" hidden>
+
+          <!-- Dropdown header -->
+          <div class="dropdown-header">
+            <div class="dropdown-avatar" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="dropdown-user-info">
+              <span class="dropdown-name">Admin ISMO</span>
+              <span class="dropdown-rep">Administrateur</span>
+            </div>
+          </div>
+
+          <!-- Dropdown menu items -->
+          <ul class="dropdown-menu" role="none">
+            <li role="none">
+              <a href="parametres.html" class="dropdown-item" role="menuitem" id="dd-settings">
+                <span class="dd-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                  </svg>
+                </span>
+                Paramètres
+              </a>
+            </li>
+          </ul>
+
+          <div class="dropdown-divider"></div>
+
+          <!-- Logout -->
+          <a href="../pages_stagiere/login.html" class="dropdown-item dropdown-logout" role="menuitem" id="dd-logout">
+            <span class="dd-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+            </span>
+            Déconnexion
+          </a>
+
+        </div><!-- /.profile-dropdown -->
+
+      </div><!-- /.topbar-right -->
+    </header>
+
+    <!-- ── CONTENT AREA ── -->
+    <main class="content-area" id="main-content">
+
+      <!-- Left / Centre column -->
+      <section class="content-main" aria-label="Contenu principal">
+
+        <!-- Page title + action -->
+        <div class="page-head">
+          <div class="page-title-wrap">
+            <h1 class="page-title">Tableau de bord administrateur</h1>
+            <p class="page-sub">Gérez les comptes et modérez le contenu</p>
+          </div>
+        </div>
+
+        <!-- Quick stats row — ALWAYS ON TOP -->
+        <div class="quick-stats" aria-label="Statistiques rapides">
+          <div class="qstat-card" id="qstat-users">
+            <div class="qstat-icon qstat-blue" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="qstat-info">
+              <span class="qstat-value">342</span>
+              <span class="qstat-label">Utilisateurs actifs</span>
+            </div>
+          </div>
+          <div class="qstat-card" id="qstat-resolution">
+            <div class="qstat-icon qstat-green" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="qstat-info">
+              <span class="qstat-value">87%</span>
+              <span class="qstat-label">Taux de résolution</span>
+            </div>
+          </div>
+          <div class="qstat-card" id="qstat-pending">
+            <div class="qstat-icon qstat-orange" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="qstat-info">
+              <span class="qstat-value">12</span>
+              <span class="qstat-label">Validations en attente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two column layout for pending requests and moderation -->
+        <div class="admin-content-grid">
+
+          <!-- Left: Comptes en attente de validation -->
+          <section class="admin-panel" aria-label="Comptes en attente de validation">
+            <h2 class="section-label">Comptes en attente de validation</h2>
+            <div class="validation-list" role="list">
+
+              <!-- Account 1 -->
+              <article class="validation-card" role="listitem">
+                <div class="validation-card-header">
+                  <div class="validation-user-info">
+                    <span class="validation-user-name">Lucas Petit</span>
+                    <span class="validation-user-email">lucas.petit@example.com</span>
+                  </div>
+                  <span class="validation-timestamp">Il y a 2h</span>
+                </div>
+                <div class="validation-user-type">
+                  <span class="badge badge-blue">Stagiaire</span>
+                </div>
+                <div class="validation-actions">
+                  <button class="btn btn-success" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Valider
+                  </button>
+                  <button class="btn btn-danger" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="15" y1="9" x2="9" y2="15"></line>
+                      <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                    Refuser
+                  </button>
+                </div>
+              </article>
+
+              <!-- Account 2 -->
+              <article class="validation-card" role="listitem">
+                <div class="validation-card-header">
+                  <div class="validation-user-info">
+                    <span class="validation-user-name">Emma Rousseau</span>
+                    <span class="validation-user-email">emma.rousseau@example.com</span>
+                  </div>
+                  <span class="validation-timestamp">Il y a 5h</span>
+                </div>
+                <div class="validation-user-type">
+                  <span class="badge badge-purple">Formateur</span>
+                </div>
+                <div class="validation-actions">
+                  <button class="btn btn-success" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Valider
+                  </button>
+                  <button class="btn btn-danger" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="15" y1="9" x2="9" y2="15"></line>
+                      <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                    Refuser
+                  </button>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <!-- Right: Modération - Contenus signalés -->
+          <aside class="admin-panel" aria-label="Contenus signalés">
+            <div class="admin-panel-header">
+              <h2 class="section-label">Modération - Contenus signalés</h2>
+            </div>
+
+            <div class="moderation-list" role="list">
+
+              <!-- Alert 1 -->
+              <article class="moderation-alert" role="listitem">
+                <div class="alert-badge alert-warning" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3.05h16.94a2 2 0 0 0 1.71-3.05L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <div class="alert-title">
+                    <span class="alert-type">Demande</span>
+                    <span class="alert-time">Il y a 1h</span>
+                  </div>
+                  <p class="alert-text">Contenu inapproprié dans une demande d'aide</p>
+                  <p class="alert-from">Signalé par Jean Martin</p>
+                </div>
+                <div class="alert-actions">
+                  <button class="btn-small btn-gray" type="button">Examiner</button>
+                  <button class="btn-small btn-danger" type="button">Supprimer</button>
+                </div>
+              </article>
+
+              <!-- Alert 2 -->
+              <article class="moderation-alert" role="listitem">
+                <div class="alert-badge alert-error" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <div class="alert-title">
+                    <span class="alert-type">Commentaire</span>
+                    <span class="alert-time">Il y a 3h</span>
+                  </div>
+                  <p class="alert-text">Spam détecté dans les réponses</p>
+                  <p class="alert-from">Signalé par Marie Durand</p>
+                </div>
+                <div class="alert-actions">
+                  <button class="btn-small btn-gray" type="button">Examiner</button>
+                  <button class="btn-small btn-danger" type="button">Supprimer</button>
+                </div>
+              </article>
+
+            </div>
+          </aside>
+
+        </div><!-- /.admin-content-grid -->
+
+        <!-- Admin Workspace Section -->
+        <div class="admin-workspace" aria-label="Espace de travail admin">
+          <h2 class="section-label">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 7v10c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2z" />
+              <path d="M14 7v10c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2z" />
+            </svg>
+            Espace de travail Admin
+          </h2>
+          <div class="workspace-stats">
+            <div class="workspace-stat">
+              <span class="stat-label">Comptes en attente</span>
+              <span class="stat-value">5</span>
+            </div>
+            <div class="workspace-stat">
+              <span class="stat-label">Signalements</span>
+              <span class="stat-value">3</span>
+            </div>
+            <div class="workspace-stat">
+              <span class="stat-label">Résolu aujourd'hui</span>
+              <span class="stat-value">18</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tasks to handle -->
+        <section class="admin-tasks" aria-label="Tâches à traiter">
+          <h2 class="section-label">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <input type="checkbox" disabled />
+            </svg>
+            Tâches à traiter
+          </h2>
+          <ul class="tasks-list" role="list">
+            <li class="task-item" role="listitem">
+              <input type="checkbox" class="task-checkbox" id="task-1" />
+              <label for="task-1" class="task-label">
+                <span class="task-badge task-urgent">Urgent</span>
+                Validation compte formateur
+                <span class="task-time">Il y a 30min</span>
+              </label>
+            </li>
+            <li class="task-item" role="listitem">
+              <input type="checkbox" class="task-checkbox" id="task-2" />
+              <label for="task-2" class="task-label">
+                <span class="task-badge task-moyen">Moyen</span>
+                Spam détecté dans les responses
+                <span class="task-time">Il y a 1h</span>
+              </label>
+            </li>
+            <li class="task-item" role="listitem">
+              <input type="checkbox" class="task-checkbox" id="task-3" />
+              <label for="task-3" class="task-label">
+                <span class="task-badge task-moyen">Moyen</span>
+                Export statistiques
+                <span class="task-time">Aujourd'hui</span>
+              </label>
+            </li>
+          </ul>
+        </section>
+
+      </section><!-- /.content-main -->
+
+      <!-- Right column — Quick actions -->
+      <aside class="content-sidebar" aria-label="Actions rapides">
+
+        <!-- Quick actions widget -->
+        <div class="widget widget-actions" id="widget-actions">
+          <div class="widget-header">
+            <span class="widget-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
+            <h2 class="widget-title">Actions Rapides</h2>
+          </div>
+          <ul class="actions-list" role="list">
+            <li>
+              <button class="action-btn" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                </svg>
+                Créer rapport
+              </button>
+            </li>
+            <li>
+              <button class="action-btn" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                Envoyer message
+              </button>
+            </li>
+            <li>
+              <button class="action-btn" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                  <polyline points="17 21 17 13 7 13 7 21" />
+                  <polyline points="7 3 7 8 15 8" />
+                </svg>
+                Export statistiques
+              </button>
+            </li>
+            <li>
+              <button class="action-btn" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Ajouter modérateur
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Activity widget -->
+        <div class="widget widget-activity" id="widget-activity">
+          <div class="widget-header">
+            <span class="widget-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </span>
+            <h2 class="widget-title">Historique d'activité</h2>
+          </div>
+          <ul class="activity-list" role="list">
+            <li class="activity-item" role="listitem">
+              <div class="activity-icon activity-validate" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-action">Compte validé</span>
+                <span class="activity-user">Lucas Petit - Stagiaire</span>
+              </div>
+              <span class="activity-time">Il y a 1h</span>
+            </li>
+            <li class="activity-item" role="listitem">
+              <div class="activity-icon activity-delete" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 4 21 4"></polyline>
+                  <path d="M19 4v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4m3 0V2h8v2M10 9v6m4-6v6" />
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-action">Contenu supprimé</span>
+                <span class="activity-user">Demande inappropriée</span>
+              </div>
+              <span class="activity-time">Il y a 3h</span>
+            </li>
+            <li class="activity-item" role="listitem">
+              <div class="activity-icon activity-message" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-action">Permission accordée</span>
+                <span class="activity-user">Emma Rousseau - Formateur</span>
+              </div>
+              <span class="activity-time">Il y a 5h</span>
+            </li>
+            <li class="activity-item" role="listitem">
+              <div class="activity-icon activity-newsletter" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-action">Newsletter envoyée</span>
+                <span class="activity-user">342 utilisateurs actifs</span>
+              </div>
+              <span class="activity-time">Il y a 2j</span>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </main>
+
+  </div><!-- /.main-wrapper -->
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- JS (if needed for interactivity - typically in separate file)    -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <script src="../assets/js/dashboard.js" defer></script>
+
+</body>
+
+</html>
