@@ -1,0 +1,149 @@
+/* nouvelle_demande.css - Styles for help request submission page */
+
+.request-form-page {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+}
+
+.request-form-card,
+.request-tips-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.request-form-card {
+    padding: 28px;
+}
+
+.request-form-card .page-title {
+    margin-bottom: 6px;
+}
+
+.request-form-card .page-sub {
+    margin-bottom: 22px;
+}
+
+.request-form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-field {
+    display: grid;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--gray-900);
+    padding: 12px 14px;
+    font: inherit;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-field textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--blue-600);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: .92rem;
+}
+
+.btn-primary {
+    background: var(--blue-600);
+    color: var(--white);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, .18);
+}
+
+.btn-secondary-outline {
+    border: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    background: var(--white);
+}
+
+.request-tips-card {
+    padding: 24px;
+}
+
+.tips-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.tip-item {
+    padding: 14px;
+    border-radius: var(--radius-md);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+}
+
+.tip-item h3 {
+    font-size: .92rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--gray-900);
+}
+
+.tip-item p {
+    font-size: .85rem;
+    color: var(--gray-600);
+}
+
+@media (max-width: 1080px) {
+    .request-form-page {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .request-form-card {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

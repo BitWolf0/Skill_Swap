@@ -157,8 +157,7 @@
         const createNewBtn = document.querySelector('[data-action="create-request"]');
         if (createNewBtn) {
             createNewBtn.addEventListener('click', function () {
-                console.log('[mes_demandes.js] Create new request');
-                // TODO: Redirect to request creation form or open modal
+                window.location.href = 'nouvelle_demande.html';
             });
         }
     }

@@ -109,7 +109,7 @@ navItems.forEach(item => {
    Publish Button
 ────────────────────────────────────────────── */
 btnPublish?.addEventListener('click', () => {
-  showToast('Formulaire de demande bientôt disponible !', 'info');
+  window.location.href = 'nouvelle_demande.html';
 });
 
 /* ──────────────────────────────────────────────

@@ -296,7 +296,7 @@
             <h1 class="page-title">Mes demandes d'aide</h1>
             <p class="page-sub">Gérez toutes vos demandes en un seul endroit</p>
           </div>
-          <button class="btn-publish" id="btn-publish" type="button">
+          <button class="btn-publish" id="btn-publish" type="button" data-action="create-request">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="12" y1="5" x2="12" y2="19" />
@@ -465,7 +465,15 @@
                 <span class="passport-item-name">Entraide</span>
                 <span class="passport-item-desc">5 aides validées</span>
               </div>
-              <span class="passport-level pl-orange">+5 🏅</span>
+              <span class="passport-level pl-orange">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 2h10v5a5 5 0 0 1-10 0V2z" />
+                  <path d="M9 17l-2 5 5-2 5 2-2-5" />
+                  <path d="M12 12v5" />
+                </svg>
+                +5
+              </span>
             </li>
           </ul>
           <button class="btn-passport-pdf" id="btn-passport-pdf" type="button">

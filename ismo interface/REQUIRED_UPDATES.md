@@ -2,6 +2,7 @@
 
 **Generated:** 2026-05-07 22:12:02 
 **Updated 1 :** 2026-05-08 23:12:21 (Modifications Applied)
+**Updated 2 :** 2026-05-09 00:00:00 (Frontend log refreshed; API items intentionally left out)
 
 ---
 
@@ -14,6 +15,14 @@
 4. ✅ Updated database schema with default profile picture path
 5. ✅ Verified filename consistency across all folders
 6. ✅ Fixed additional href="#" links in login and parametres pages
+7. ✅ Fixed stagiaire profile edit button wiring and default avatar rendering
+8. ✅ Reworked `pages_stagiere/parametres.html` layout into a full-width settings page with footer-style help block
+9. ✅ Added mentor redirect stubs for `dashboard.html`, `mes_demandes.html`, and `mes_competances.html`
+10. ✅ Normalized the formateur catalogue profile dropdown labels
+11. ✅ Removed sidebar underline styling for shared navigation links
+12. ✅ Restyled `pages_stagiere/passeport_pdf.html` to match the shared dashboard language
+13. ✅ Replaced remaining emoji markers in stagiaire pages with SVG icons
+14. ✅ Created `pages_stagiere/nouvelle_demande.html` for help-request submission
 
 **Files Modified:** 7 HTML files + 1 new JS file + 1 new SVG file
 
@@ -28,6 +37,11 @@
     - `Notifications` → `../pages_stagiere/notification.html`
     - `Déconnexion` → `../pages_stagiere/login.html`
   - Also fixed login.html forgot password link and terms/privacy links.
+
+- ✅ **FIXED** Shared sidebar link styling
+  - File: `assets/css/dashboard.css`
+  - Issue: sidebar links could still inherit underlines in some browsers/pages.
+  - **Applied Fix:** Added a shared `text-decoration: none` reset for sidebar nav links.
 
 - ✅ **CREATED** Missing JavaScript file
   - File: `assets/js/mes_demandes.js` was referenced in `pages_stagiere/mes_demandes.html` but missing.
@@ -47,85 +61,59 @@
     - ✅ Updated documentation notes
     - **Remaining (frontend/backend):** Implement registration/profile forms to use default avatar when user doesn't upload one; server-side validation for upload handling.
 
+- ✅ **FIXED** Stagiaire profile editor wiring
+  - Files: `pages_stagiere/profile.html`, `assets/js/profile.js`, `assets/css/profile.css`
+  - **Applied Fix:** The profile edit button now uses the expected id and routes to `pages_stagiere/parametres.html`.
+  - **Applied Fix:** Profile avatar blocks now render the default avatar image with rounded-rectangle framing.
+
+- ✅ **FIXED** Settings page layout
+  - File: `pages_stagiere/parametres.html`
+  - **Applied Fix:** Removed the version widget, kept the help widget as a footer-style block, and stretched the main settings section to full width.
+
+- ✅ **FIXED** Mentor route stubs
+  - Files: `pages_mentor/dashboard.html`, `pages_mentor/mes_demandes.html`, `pages_mentor/mes_competances.html`
+  - **Applied Fix:** Each file now redirects to the matching stagiaire page as requested.
+
+- ✅ **FIXED** Formateur catalogue labels
+  - File: `formateur_pages/catalogue.html`
+  - **Applied Fix:** Normalized the profile dropdown labels to use the correct accented French labels.
+
+- ✅ **FIXED** Passeport PDF styling
+  - Files: `pages_stagiere/passeport_pdf.html`, `assets/css/passeport_pdf.css`
+  - **Applied Fix:** Restyled the passport view with broader spacing, stronger card hierarchy, and dashboard-consistent panels.
+
+- ✅ **FIXED** Emoji-to-SVG sweep for stagiaire pages
+  - Files: `pages_stagiere/dashboard.html`, `pages_stagiere/mes_demandes.html`, `pages_stagiere/mes_badges.html`, `pages_stagiere/notification.html`, `pages_stagiere/passeport_pdf.html`
+  - **Applied Fix:** Replaced the remaining visible emoji markers with inline SVG icons.
+
+- ✅ **FIXED** Help-request submission form
+  - Files: `pages_stagiere/nouvelle_demande.html`, `assets/css/nouvelle_demande.css`, `assets/js/dashboard.js`, `assets/js/mes_demandes.js`
+  - **Applied Fix:** Added a dedicated request form page and wired the existing publish/create actions to it.
+
 - ✅ **VERIFIED** Admin pages / links 
   - Files: `pages_admin/tableau_de_bord.html`, `pages_admin/statisque_adm.html` (misspelled "statistique"), `pages_admin/moderation.html`, `pages_admin/gestion_comptes.html`
   - **Status:** All pages exist; tested navigation links
-  - **Minor Issue:** Filename typo `statisque_adm.html` should be `statistique_adm.html` (missing 't')
-  - **Recommendation:** Rename for consistency or leave as-is if it's a legacy choice
+  - **Minor Issue:** Filename typo `statisque_adm.html` remains a legacy inconsistency, but the links already point to it correctly.
 
 - ✅ **VERIFIED** Filename inconsistencies 
   - `tableu_de_bord` vs `tableau_de_bord` — Misspelled French word for "dashboard"
   - `mes_competance` vs `mes_competances` — Singular vs plural inconsistency
   - **Verification Result:** 
-    - All references in pages_stagiere and pages_mentor point to correct plural form `mes_competances.html` ✓
+    - All stagiaire references point to the correct plural form `mes_competances.html` ✓
+    - Mentor routes now redirect to the stagiaire pages instead of depending on duplicate mentor implementations ✓
     - formateur_pages references to `tableu_de_bord.js` are consistent (misspelled but consistent in folder)
     - No broken cross-folder references found
     - **Recommendation:** Rename `tableu_de_bord.*` files to `tableau_de_bord.*` in future refactoring for spelling correctness
 
 ---
 
-## ⏭️ Remaining Tasks (API-Related — Skipped Per Request)
-
-The following items are backend/API-related and were **NOT applied** (as requested):
-
-- Full backend API (if not present) to support these flows:
-  - Authentication (login/register, password reset, email verification).
-  - User profile: upload profile picture, update profile fields, change password.
-  - Skills: CRUD for `skills`, user skill linking (`user_skills`).
-  - Mentorship: `mentor_applications`, `mentor_relationships`, `mentoring_sessions` endpoints.
-  - Help requests & responses: create/list/respond/close help requests.
-  - Marketplace: listings CRUD, interactions (like/save/contact/purchase).
-  - Notifications & messages: push/persist notifications and private messaging.
-  - Moderation: report creation, admin review endpoints, block/unblock user actions.
-
-- File upload handling
-  - Implement server-side handling for profile pictures and listing images (validate, resize, store, serve). Consider local storage + signed URLs or cloud (S3, Azure Blob) for production.
-
-- Database migrations & seeds
-  - Add migration scripts that create the schema defined in `Conception_Base_Donnees_MySQL.txt` and seed core `skills`, `badges`, and admin user.
-
-- Server-side input validation & security
-  - Password hashing (bcrypt or Argon2) and rate limiting.
-  - Email verification flow and optional 2FA.
-  - Sanitize user inputs and files to prevent XSS/CSRF/file injection.
-
-- Moderation tools & audit trail
-  - Admin UI to review `moderation_reports`, take actions, and log actions to `audit_logs`.
-
----
-
-## Functionality to Create (backend & frontend)
-
-- Full backend API (if not present) to support these flows:
-  - Authentication (login/register, password reset, email verification).
-  - User profile: upload profile picture, update profile fields, change password.
-  - Skills: CRUD for `skills`, user skill linking (`user_skills`).
-  - Mentorship: `mentor_applications`, `mentor_relationships`, `mentoring_sessions` endpoints.
-  - Help requests & responses: create/list/respond/close help requests.
-  - Marketplace: listings CRUD, interactions (like/save/contact/purchase).
-  - Notifications & messages: push/persist notifications and private messaging.
-  - Moderation: report creation, admin review endpoints, block/unblock user actions.
-
-- File upload handling
-  - Implement server-side handling for profile pictures and listing images (validate, resize, store, serve). Consider local storage + signed URLs or cloud (S3, Azure Blob) for production.
-
-- Database migrations & seeds
-  - Add migration scripts that create the schema defined in `Conception_Base_Donnees_MySQL.txt` and seed core `skills`, `badges`, and admin user.
-
-- Server-side input validation & security
-  - Password hashing (bcrypt or Argon2) and rate limiting.
-  - Email verification flow and optional 2FA.
-  - Sanitize user inputs and files to prevent XSS/CSRF/file injection.
-
-- Moderation tools & audit trail
-  - Admin UI to review `moderation_reports`, take actions, and log actions to `audit_logs`.
-
----
-
 ## Medium Priority (UX, consistency, maintainability)
 
-- Update links in `pages_mentor/*` that currently point to `mes_competances.html` — confirm correct relative path.
-- Add missing `mes_demandes.js` or rewire functionality to existing scripts.
+- Check whether the mentor redirect stubs should stay as redirects or become dedicated mentor pages later.
+- Finish the site-wide emoji-to-SVG pass in the remaining pages that still use emoji characters.
+- Review `pages_stagiere/passeport_pdf.html` and restyle it to match the other stagiaire pages.
+- Review `pages_mentor/*` visual styling and hover states so borders stay soft instead of snapping to black.
+- Add the missing request-submission forms under `pages_stagiere/`.
 - Centralize shared scripts/styles: ensure `dashboard.js` and `dashboard.css` provide common behaviors; reduce duplication.
 - Add client-side validation for forms: login, register, mentor_apply, help_request forms.
 - Improve error displays and disabled states for form submissions.
@@ -157,26 +145,16 @@ The following items are backend/API-related and were **NOT applied** (as request
   - `assets/js/tableu_de_bord.js` → `tableau_de_bord.js` (or update the reference in HTML)
   - `mes_competances.html` / `mes_competance.html` inconsistency across `pages_mentor` and `pages_stagiere`
 
-- Ensure registration/profile forms:
-  - Require profile picture upload and validate on server.
-
-- Create backend endpoints (suggested routes):
-  - `POST /api/auth/register` (with profile pic upload)
-  - `POST /api/auth/login`
-  - `POST /api/users/:id/skills`
-  - `GET /api/help-requests`, `POST /api/help-requests`, `POST /api/help-requests/:id/respond`
-  - `GET/POST /api/marketplace/*`
-  - `POST /api/moderation/reports` and admin review endpoints
+- Remaining UI work:
+  - `pages_mentor/*` still needs a visual hover polish pass.
 
 ---
 
 ## Suggested next steps I can take for you
 
-- Apply the high-priority HTML fixes (replace `href="#"` and anchor placeholders) across files.
-- Create a stub `assets/js/mes_demandes.js` implementing minimal UI behavior.
-- Add a small backend scaffold (Express + Sequelize or PHP + PDO) and migration SQL from `Conception_Base_Donnees_MySQL.txt`.
-
-Tell me which of the next steps you'd like me to do now and I will proceed.
+1. Restyle `pages_stagiere/passeport_pdf.html` to match the shared dashboard design.
+2. Finish replacing the remaining emoji characters with SVG icons.
+3. Create the request-submission forms in `pages_stagiere/`.
 
 
 
