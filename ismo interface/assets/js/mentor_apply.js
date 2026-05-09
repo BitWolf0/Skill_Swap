@@ -44,9 +44,8 @@ btnApply?.addEventListener('click', () => {
     btnApply.textContent = 'Candidature en cours...';
 
     setTimeout(() => {
-        btnApply.disabled = false;
-        btnApply.textContent = 'Soumettre ma candidature';
-    }, 2500);
+        window.location.href = 'dashboard.html';
+    }, 2000);
 });
 
 updateSelectedCount();

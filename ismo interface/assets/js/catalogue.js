@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const addSkillBtn = document.querySelector('.btn-add-skill');
     if (addSkillBtn) {
         addSkillBtn.addEventListener('click', function() {
-            alert('Functionality to add a new skill will be implemented soon!');
+            showToast('Fonctionnalité à venir : Ajout de compétence', 'info');
+            // TODO: Open add skill form modal
         });
     }
 

@@ -313,7 +313,7 @@ if (signupForm) {
     btn.classList.remove('loading');
     btn.disabled = false;
 
-    showToast('Compte créé avec succès ! Bienvenue sur ISMO-SkillSwap 🚀', 'success');
+    showToast('Compte créé avec succès ! Bienvenue sur ISMO-SkillSwap', 'success');
     signupForm.reset();
     document.getElementById('strength-fill').style.width = '0%';
     document.getElementById('strength-label').textContent = '';

@@ -391,4 +391,47 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+/**
+ * Initialize badge management functionality
+ */
+function initializeBadgeManagement() {
+    const badgeActionBtns = document.querySelectorAll('.badge-action-btn');
+    
+    badgeActionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const actionText = this.textContent.trim();
+            handleBadgeAction(actionText);
+        });
+    });
+}
+
+/**
+ * Handle badge management actions
+ */
+function handleBadgeAction(action) {
+    switch(action.toLowerCase()) {
+        case 'créer un badge':
+            showToast('Fonctionnalité à venir : Création de badge', 'info');
+            // TODO: Open badge creation modal
+            break;
+        case 'attribuer un badge':
+            showToast('Fonctionnalité à venir : Attribution de badge', 'info');
+            // TODO: Open badge assignment modal
+            break;
+        case 'voir tous les badges':
+            showToast('Fonctionnalité à venir : Vue de tous les badges', 'info');
+            // TODO: Navigate to badges list page
+            break;
+        default:
+            showToast('Action de badge reconnue', 'info');
+    }
+}
+
+// Initialize badge management on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeBadgeManagement);
+} else {
+    initializeBadgeManagement();
+}
+
 console.log('Dashboard initialized successfully');
