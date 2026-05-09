@@ -1,14 +1,13 @@
 // profile.js - Profile page interactivity
 
 document.addEventListener('DOMContentLoaded', function () {
-    const btnEditProfile = document.getElementById('btnEditProfile');
+    const btnEditProfile = document.getElementById('btn-edit-profile') || document.getElementById('btnEditProfile');
     const btnFollowProfile = document.getElementById('btnFollowProfile');
     const btnShareProfile = document.getElementById('btnShareProfile');
 
     if (btnEditProfile) {
         btnEditProfile.addEventListener('click', function () {
-            showToast('Redirecting to edit profile...', 'info');
-            // In a real app, would navigate to profile edit page
+            window.location.href = 'parametres.html';
         });
     }
 
