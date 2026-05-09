@@ -172,3 +172,10 @@
 - pages_admin : Statistique on the side bar must be pointed into pages_admin/statisque_adm.html
 - pages_admin/statisque_adm.html : styles must be fixed 
 - api keys ignore them for the moment till i tell you to implement them
+- pages_stagiaire/mes_competances.html : declarer une competance should be working 
+- pages_stagiaire/mentor_apply.html : when the user click on soummetre ma condidature after the post should return him into dashboard
+- pages_stagiaire/dashboard.html : publier une demande d'aide should refer to the current folder dont send the user to the dashboard page of stagieres pages
+- formateur_pages/catalogue.html : ajouter une competance should be working 
+- formateur_pages/tableau_de_bord.html : gestion des badges (creer une badge, attribuer un badge, voir tous les badges) should be working 
+- pages_admin/gestion_comptes.html : creer un compte should be working 
+- pages_admin/moderation.html : les actions de moderation rapides les options should be working (message en masse, regles de moderation, historique)
