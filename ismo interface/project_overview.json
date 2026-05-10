@@ -1,0 +1,182 @@
+{
+  "project_name": "ISMO-SkillSwap",
+  "description": "A multi-role skill-swap platform interface with stagiaire, mentor, formateur, and admin areas built from static HTML, CSS, and JavaScript files.",
+  "workspace_type": "frontend_static_site",
+  "technology_stack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "file_audit": {
+    "status": "verified",
+    "scope": "Visible project files in the workspace tree",
+    "checked_groups": [
+      "root documentation files",
+      "assets/css",
+      "assets/js",
+      "assets/images",
+      "pages_stagiaire",
+      "pages_mentor",
+      "pages_admin",
+      "formateur_pages"
+    ],
+    "notes": [
+      "The interface folders are present and consistent.",
+      "The previously missing assets/js/mes_demandes.js file now exists.",
+      "The default avatar asset exists at assets/images/default_avatar.svg."
+    ]
+  },
+  "main_folders": {
+    "assets": {
+      "css": "Shared and page-specific stylesheets.",
+      "js": "Shared and page-specific client-side behavior.",
+      "images": "Static image assets used across the interface."
+    },
+    "pages_stagiaire": "Stagiaire-facing pages such as dashboard, login, profile, notifications, requests, and settings.",
+    "pages_mentor": "Mentor-facing pages such as dashboard, marketplace, requests, badges, and help pages.",
+    "pages_admin": "Administrative pages for account management, moderation, dashboard, and statistics.",
+    "formateur_pages": "Trainer/formateur pages for catalogue, dashboard, validation, and statistics."
+  },
+  "file_inventory": {
+    "root_files": [
+      "Conception_Base_Donnees_MySQL.txt",
+      "DESIGN_SYSTEM.md",
+      "LINK_ANALYSIS_REPORT.md",
+      "NAVIGATION_STRUCTURE.md",
+      "QUICK_FIX_GUIDE.md",
+      "REQUIRED_UPDATES.md",
+      "TODO",
+      "need_fix.md",
+      "project_overview.json"
+    ],
+    "counts": {
+      "root_files": 9,
+      "assets_css": 18,
+      "assets_js": 17,
+      "assets_images": 1,
+      "pages_stagiaire": 11,
+      "pages_mentor": 6,
+      "pages_admin": 4,
+      "formateur_pages": 4
+    },
+    "assets_css_files": [
+      "catalogue.css",
+      "dashboard.css",
+      "login.css",
+      "marketplace.css",
+      "mentor_apply.css",
+      "mes_aides.css",
+      "mes_badges.css",
+      "mes_badges_mentor.css",
+      "mes_competances.css",
+      "mes_demandes.css",
+      "notification.css",
+      "nouvelle_demande.css",
+      "parametres.css",
+      "passeport_pdf.css",
+      "profile.css",
+      "statistique.css",
+      "tableau_de_bord.css",
+      "validation_demande.css"
+    ],
+    "assets_js_files": [
+      "catalogue.js",
+      "dashboard.js",
+      "gestion_comptes.js",
+      "login.js",
+      "marketplace.js",
+      "mentor_apply.js",
+      "mes_aides.js",
+      "mes_badges.js",
+      "mes_badges_mentor.js",
+      "mes_competances.js",
+      "mes_demandes.js",
+      "moderation.js",
+      "notification.js",
+      "parametres.js",
+      "passeport_pdf.js",
+      "profile.js",
+      "tableau_de_bord.js"
+    ],
+    "assets_images_files": [
+      "default_avatar.svg"
+    ]
+  },
+  "primary_page_groups": [
+    {
+      "role": "stagiaire",
+      "pages": [
+        "dashboard.html",
+        "login.html",
+        "mentor_apply.html",
+        "mes_badges.html",
+        "mes_competances.html",
+        "mes_demandes.html",
+        "notification.html",
+        "nouvelle_demande.html",
+        "parametres.html",
+        "passeport_pdf.html",
+        "profile.html"
+      ]
+    },
+    {
+      "role": "mentor",
+      "pages": [
+        "dashboard.html",
+        "marketplace.html",
+        "mes_aides.html",
+        "mes_badges.html",
+        "mes_competances.html",
+        "mes_demandes.html"
+      ]
+    },
+    {
+      "role": "formateur",
+      "pages": [
+        "catalogue.html",
+        "statistique.html",
+        "tableau_de_bord.html",
+        "validation_demande.html"
+      ]
+    },
+    {
+      "role": "admin",
+      "pages": [
+        "gestion_comptes.html",
+        "moderation.html",
+        "statistique_adm.html",
+        "tableau_de_bord.html"
+      ]
+    }
+  ],
+  "shared_design_system": {
+    "layout_pattern": "sidebar plus topbar plus main content",
+    "colors": "Blue-based palette with neutral grays for borders, backgrounds, and text.",
+    "typography": "Inter as the primary font, with consistent sizing across pages.",
+    "ui_tokens": [
+      "border radius scale",
+      "shadow scale",
+      "spacing scale",
+      "transition timing"
+    ]
+  },
+  "current_status": {
+    "implemented": [
+      "Shared assets exist for the main page groups.",
+      "Many cross-page navigation links have been normalized.",
+      "A missing mes_demandes.js file has already been created.",
+      "A default avatar asset is available for profile images."
+    ],
+    "known_follow_up_work": [
+      "Restyle pages_mentor pages for softer hover states and consistency.",
+      "Replace remaining emoji icons with SVGs.",
+      "Finish request-submission and badge-management interactions.",
+      "Verify the formateur and admin links point to the intended pages.",
+      "Keep API key work deferred until requested."
+    ]
+  },
+  "important_notes": [
+    "The interface is currently organized as static front-end pages rather than a full backend application.",
+    "Several pages use shared dashboard styles and scripts to reduce duplication."
+  ]
+}
