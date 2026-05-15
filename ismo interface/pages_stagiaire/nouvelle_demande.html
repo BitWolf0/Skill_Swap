@@ -108,53 +108,46 @@
                 <form class="request-form" id="request-form" novalidate>
                     <div class="form-grid">
                         <div class="form-field">
-                            <label for="request-title">Titre de la demande</label>
-                            <input id="request-title" name="title" type="text"
-                                placeholder="Ex: Problème avec React useEffect" required />
+                            <label for="titre">Titre de la demande</label>
+                            <input id="titre" name="titre" type="text"
+                                placeholder="Ex: Probleme avec React useEffect" required />
+                            <span class="field-error" id="error-titre" role="alert"></span>
                         </div>
                         <div class="form-field">
-                            <label for="request-skill">Compétence liée</label>
-                            <select id="request-skill" name="skill" required>
-                                <option value="">Choisir une compétence</option>
+                            <label for="competence">Comp&eacute;tence liee</label>
+                            <select id="competence" name="competence" required>
+                                <option value="">Choisir une comp&eacute;tence</option>
                                 <option>React</option>
                                 <option>SQL</option>
                                 <option>JavaScript</option>
                                 <option>CSS</option>
                                 <option>Git</option>
                             </select>
+                            <span class="field-error" id="error-competence" role="alert"></span>
                         </div>
                         <div class="form-field">
-                            <label for="request-category">Catégorie</label>
-                            <select id="request-category" name="category" required>
-                                <option value="">Sélectionner</option>
-                                <option>Frontend</option>
-                                <option>Backend</option>
-                                <option>Base de données</option>
-                                <option>Outils</option>
-                            </select>
-                        </div>
-                        <div class="form-field">
-                            <label for="request-priority">Priorité</label>
-                            <select id="request-priority" name="priority" required>
-                                <option value="">Sélectionner</option>
+                            <label for="urgence">Urgence</label>
+                            <select id="urgence" name="urgence" required>
+                                <option value="">Selectionner</option>
                                 <option>Faible</option>
                                 <option selected>Moyenne</option>
                                 <option>Haute</option>
                             </select>
+                            <span class="field-error" id="error-urgence" role="alert"></span>
+                        </div>
+                        <div class="form-field">
+                            <label for="mentor">Mentor prefere</label>
+                            <input id="mentor" name="mentor" type="text" placeholder="Nom du mentor (optionnel)" />
+                            <span class="field-error" id="error-mentor" role="alert"></span>
                         </div>
                     </div>
 
                     <div class="form-field">
-                        <label for="request-details">Détails</label>
-                        <textarea id="request-details" name="details"
-                            placeholder="Expliquez le problème, ce que vous avez déjà essayé, et le résultat attendu..."
+                        <label for="description">D&eacute;tails</label>
+                        <textarea id="description" name="description"
+                            placeholder="Expliquez le probleme, ce que vous avez deja essaye et le resultat attendu..."
                             required></textarea>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="request-attachments">Liens ou fichiers utiles</label>
-                        <input id="request-attachments" name="attachments" type="text"
-                            placeholder="Lien GitHub, capture d'écran, document partagé..." />
+                        <span class="field-error" id="error-description" role="alert"></span>
                     </div>
 
                     <div class="form-actions">
@@ -193,12 +186,7 @@
 
     <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
     <script src="../assets/js/dashboard.js"></script>
-    <script>
-        document.getElementById('request-form')?.addEventListener('submit', function (event) {
-            event.preventDefault();
-            window.location.href = 'mes_demandes.html';
-        });
-    </script>
+    <script src="../assets/js/nouvelle_demande.js"></script>
 </body>
 
 </html>

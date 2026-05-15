@@ -182,12 +182,27 @@
     color: #b45309;
 }
 
+.skill-level.intermediaire {
+    background: #fef3c7;
+    color: #b45309;
+}
+
 .skill-level.débutant {
     background: #dbeafe;
     color: #1e40af;
 }
 
+.skill-level.debutant {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
 .skill-level.avancé {
+    background: #fecaca;
+    color: #7f1d1d;
+}
+
+.skill-level.avance {
     background: #fecaca;
     color: #7f1d1d;
 }
