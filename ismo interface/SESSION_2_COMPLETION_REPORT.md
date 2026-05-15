@@ -249,24 +249,32 @@ Main Wrapper
 ## Remaining Tasks for Future Sessions
 
 ### High Priority
+- [ ] **Create `pages_stagiaire/inscription.html`** — registration page still missing entirely; none exists for any role
+- [ ] **Add login → inscription link** — "Pas encore de compte ?" on `login.html` has no target page
+- [ ] **Decide mentor sidebar navigation strategy** — sidebar links in `pages_mentor/*` currently cross-reference `../pages_stagiaire/` pages; decide whether to create dedicated mentor pages or keep shared pages
 - [ ] Test form submission end-to-end with backend
 - [ ] Verify email links work (password reset, account verification)
 - [ ] Test 2FA toggle functionality
-- [ ] Create inscri ption/signup page if separate from login
 
 ### Medium Priority
-- [ ] Add missing JS files if referenced but not present
-  - `assets/js/catalogue_admin.js` (admin skill management)
-  - `assets/js/inscription.js` (if signup is separate)
 - [ ] Test all role-specific dashboards for consistency
 - [ ] Verify profile image upload functionality
 - [ ] Test notification system
+- [ ] **Mentor rating system (OF3)** — no UI exists for rating mentors after request resolution
+- [ ] **Restyle `passeport_pdf.html`** — needs to match dashboard design system
+- [ ] **`parametres.html` layout fixes** (stagiaire version) — remove version div, move help to footer, full-width content
 
 ### Low Priority
-- [ ] Add search functionality to help center
+- [ ] Add search functionality to help center (client-side filter in `aide.html`)
 - [ ] Create admin statistics dashboard visualizations
 - [ ] Add PDF generation for digital passport
 - [ ] Create additional help articles as needed
+- [ ] Replace emoji icons with SVG icons across statistics pages
+- [ ] Add responsive/mobile CSS (hamburger menu, media queries)
+- [ ] Accessibility pass (aria-labels, aria-expanded, role="alert")
+- [ ] Sidebar link decoration cleanup (`text-decoration: none`)
+
+> **Note:** JS files previously listed as missing (`catalogue_admin.js`, `inscription.js`, `statistique.js`, `recherche.js`, `classement.js`) and HTML pages previously listed as missing (`recherche.html`, `classement.html`, mentor/formateur/admin `parametres.html`, mentor `notification.html`, admin `catalogue_admin.html`) have been verified as present. The `claude_TODO_frontend.md` needs updating to reflect current state.
 
 ---
 
