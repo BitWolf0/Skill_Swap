@@ -119,6 +119,20 @@ window.addEventListener('load', () => {
   }, 400);
 });
 
+// Auto-open signup tab when requested via hash or query param
+(() => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const show = params.get('show');
+    if (window.location.hash === '#signup' || show === 'signup') {
+      // Defer to ensure DOM is ready
+      setTimeout(() => switchTab('signup'), 80);
+    }
+  } catch (e) {
+    // ignore
+  }
+})();
+
 
 /* ── TAB SWITCHER ────────────────────────────────────────────── */
 function switchTab(tab) {

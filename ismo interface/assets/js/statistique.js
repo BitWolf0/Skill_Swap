@@ -1,3 +1,40 @@
+/* statistique.js - lightweight interactive behaviors for statistics pages */
+(function () {
+  'use strict';
+
+  function initPeriodFilter() {
+    const selects = document.querySelectorAll('.period-filter');
+    selects.forEach(s => s.addEventListener('change', onPeriodChange));
+  }
+
+  function onPeriodChange(e) {
+    const val = e.target.value;
+    // For now simulate metric changes depending on period
+    const multiplier = val === 'Cette semaine' ? 0.6 : val === 'Ce mois' ? 0.9 : 1.0;
+    document.querySelectorAll('.metric-number').forEach(el => {
+      const base = parseFloat(el.getAttribute('data-base') || el.textContent.replace(/[^0-9.]/g, '')) || 0;
+      const n = Math.round(base * multiplier);
+      el.textContent = n.toLocaleString();
+    });
+  }
+
+  function initProgressBars() {
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+      const w = bar.style.width || '0%';
+      bar.style.transition = 'width 600ms ease';
+      // keep existing width
+      setTimeout(() => bar.style.width = w, 120);
+    });
+  }
+
+  function init() {
+    initPeriodFilter();
+    initProgressBars();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
 /* statistique.js - Simple stats binding and chart rendering */
 
 'use strict';
