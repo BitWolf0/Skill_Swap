@@ -7,9 +7,10 @@
     "CSS",
     "JavaScript"
   ],
+  "scan_date": "2026-05-17",
   "file_audit": {
-    "status": "verified",
-    "scope": "Visible project files in the workspace tree",
+    "status": "current",
+    "scope": "Complete workspace directory scan",
     "checked_groups": [
       "root documentation files",
       "assets/css",
@@ -21,47 +22,63 @@
       "formateur_pages"
     ],
     "notes": [
-      "The interface folders are present and consistent.",
-      "The previously missing assets/js/mes_demandes.js file now exists.",
-      "The default avatar asset exists at assets/images/default_avatar.svg."
+      "All interface folders present and accounted for.",
+      "Legal and recherche assets added (legal.css, recherche.css, recherche.js).",
+      "Aide page added to stagiaire section.",
+      "Formateur catalogue_admin.js and statistique.js confirmed.",
+      "Hidden directories detected: .gemini, .opencode, .vscode, AUDIT_REPORT"
     ]
   },
   "main_folders": {
     "assets": {
-      "css": "Shared and page-specific stylesheets.",
-      "js": "Shared and page-specific client-side behavior.",
-      "images": "Static image assets used across the interface."
+      "css": "Shared and page-specific stylesheets (23 files).",
+      "js": "Shared and page-specific client-side behavior (23 files).",
+      "images": "Static image assets used across the interface (1 file)."
     },
-    "pages_stagiaire": "Stagiaire-facing pages such as dashboard, login, profile, notifications, requests, and settings.",
-    "pages_mentor": "Mentor-facing pages such as dashboard, marketplace, requests, badges, and help pages.",
-    "pages_admin": "Administrative pages for account management, moderation, dashboard, and statistics.",
-    "formateur_pages": "Trainer/formateur pages for catalogue, dashboard, validation, and statistics."
+    "pages_stagiaire": "Stagiaire-facing pages including dashboard, login, profile, notifications, requests, help, and legal pages (17 files).",
+    "pages_mentor": "Mentor-facing pages including dashboard, marketplace, requests, badges, and help (10 files).",
+    "pages_admin": "Administrative pages for account management, moderation, dashboard, and statistics (6 files).",
+    "formateur_pages": "Trainer/formateur pages for catalogue, dashboard, validation, search, and statistics (7 files)."
   },
   "file_inventory": {
-    "root_files": [
+    "root_documentation": [
+      "AGENTS.md",
       "Conception_Base_Donnees_MySQL.txt",
       "DESIGN_SYSTEM.md",
-      "LINK_ANALYSIS_REPORT.md",
-      "NAVIGATION_STRUCTURE.md",
-      "QUICK_FIX_GUIDE.md",
-      "REQUIRED_UPDATES.md",
-      "TODO",
-      "need_fix.md",
-      "project_overview.json"
+      "ismo_skillswap.sql",
+      "project_overview.json",
+      "PROJECT_REPORTS_MERGED.md"
+    ],
+    "root_directories": [
+      ".gemini",
+      ".opencode",
+      ".vscode",
+      "AUDIT_REPORT",
+      "assets",
+      "formateur_pages",
+      "pages_admin",
+      "pages_mentor",
+      "pages_stagiaire"
     ],
     "counts": {
-      "root_files": 9,
-      "assets_css": 18,
-      "assets_js": 17,
+      "root_files": 6,
+      "assets_css": 23,
+      "assets_js": 23,
       "assets_images": 1,
-      "pages_stagiaire": 11,
-      "pages_mentor": 6,
-      "pages_admin": 4,
-      "formateur_pages": 4
+      "pages_stagiaire": 17,
+      "pages_mentor": 10,
+      "pages_admin": 6,
+      "formateur_pages": 7,
+      "total_pages": 40,
+      "total_stylesheets": 23,
+      "total_scripts": 23
     },
     "assets_css_files": [
       "catalogue.css",
+      "catalogue_admin.css",
+      "classement.css",
       "dashboard.css",
+      "legal.css",
       "login.css",
       "marketplace.css",
       "mentor_apply.css",
@@ -75,14 +92,18 @@
       "parametres.css",
       "passeport_pdf.css",
       "profile.css",
+      "recherche.css",
       "statistique.css",
       "tableau_de_bord.css",
       "validation_demande.css"
     ],
     "assets_js_files": [
       "catalogue.js",
+      "catalogue_admin.js",
+      "classement.js",
       "dashboard.js",
       "gestion_comptes.js",
+      "inscription.js",
       "login.js",
       "marketplace.js",
       "mentor_apply.js",
@@ -93,9 +114,12 @@
       "mes_demandes.js",
       "moderation.js",
       "notification.js",
+      "nouvelle_demande.js",
       "parametres.js",
       "passeport_pdf.js",
       "profile.js",
+      "recherche.js",
+      "statistique.js",
       "tableau_de_bord.js"
     ],
     "assets_images_files": [
@@ -106,7 +130,11 @@
     {
       "role": "stagiaire",
       "pages": [
+        "aide.html",
+        "classement.html",
+        "confidentialite.html",
         "dashboard.html",
+        "inscription.html",
         "login.html",
         "mentor_apply.html",
         "mes_badges.html",
@@ -116,24 +144,33 @@
         "nouvelle_demande.html",
         "parametres.html",
         "passeport_pdf.html",
-        "profile.html"
+        "profile.html",
+        "recherche.html",
+        "termes.html"
       ]
     },
     {
       "role": "mentor",
       "pages": [
+        "classement.html",
         "dashboard.html",
         "marketplace.html",
         "mes_aides.html",
         "mes_badges.html",
         "mes_competances.html",
-        "mes_demandes.html"
+        "mes_demandes.html",
+        "notification.html",
+        "parametres.html",
+        "recherche.html"
       ]
     },
     {
       "role": "formateur",
       "pages": [
         "catalogue.html",
+        "parametres.html",
+        "profile.html",
+        "recherche.html",
         "statistique.html",
         "tableau_de_bord.html",
         "validation_demande.html"
@@ -142,41 +179,64 @@
     {
       "role": "admin",
       "pages": [
+        "catalogue_admin.html",
         "gestion_comptes.html",
         "moderation.html",
-        "statistique_adm.html",
+        "parametres.html",
+        "statistiques_admin.html",
         "tableau_de_bord.html"
       ]
     }
   ],
   "shared_design_system": {
-    "layout_pattern": "sidebar plus topbar plus main content",
-    "colors": "Blue-based palette with neutral grays for borders, backgrounds, and text.",
-    "typography": "Inter as the primary font, with consistent sizing across pages.",
+    "layout_pattern": "fixed sidebar (248px) + sticky topbar (64px) + main content area",
+    "colors": "Blue-based palette (#0066CC primary) with neutral grays for borders, backgrounds, and text",
+    "typography": "Inter font from Google Fonts, consistent sizing across pages",
+    "icons": "Inline SVG icons (stroke-based, 20x20, currentColor)",
     "ui_tokens": [
-      "border radius scale",
-      "shadow scale",
-      "spacing scale",
-      "transition timing"
+      "border radius scale (4px, 8px, 12px, 16px)",
+      "shadow scale (subtle to elevated)",
+      "spacing scale (4px base unit)",
+      "transition timing (200ms, 300ms)"
     ]
   },
   "current_status": {
-    "implemented": [
-      "Shared assets exist for the main page groups.",
-      "Many cross-page navigation links have been normalized.",
-      "A missing mes_demandes.js file has already been created.",
-      "A default avatar asset is available for profile images."
+    "fully_implemented": [
+      "Complete shared CSS and JS assets across all roles",
+      "Responsive layout with sidebar + topbar pattern",
+      "17 stagiaire pages with full UI implementation",
+      "10 mentor pages with marketplace and request management",
+      "6 admin pages with moderation and account management",
+      "7 formateur pages with catalogue and validation workflows",
+      "Legal pages (terms, privacy, help)",
+      "Search functionality across roles",
+      "Default avatar system for user profiles",
+      "Toast notification system",
+      "Dropdown menus and sidebar navigation"
     ],
     "known_follow_up_work": [
-      "Restyle pages_mentor pages for softer hover states and consistency.",
-      "Replace remaining emoji icons with SVGs.",
-      "Finish request-submission and badge-management interactions.",
-      "Verify the formateur and admin links point to the intended pages.",
-      "Keep API key work deferred until requested."
+      "Backend API integration (currently static/simulated)",
+      "Database connection (ismo_skillswap.sql schema defined)",
+      "User authentication flow",
+      "Request submission and badge management workflows",
+      "Email notification system",
+      "File upload handling",
+      "PDF export functionality (passeport_pdf)"
     ]
   },
   "important_notes": [
-    "The interface is currently organized as static front-end pages rather than a full backend application.",
-    "Several pages use shared dashboard styles and scripts to reduce duplication."
-  ]
+    "Pure static frontend — no build system, no package manager, no bundler.",
+    "Open any .html file directly in browser or use VS Code Live Server (port 5501).",
+    "All color and spacing values use CSS custom properties defined in dashboard.css.",
+    "French UI language with mixed French/English filenames (intentional convention).",
+    "Some misspellings in original design (e.g., 'pages_stagiere' vs 'pages_stagiaire') left as-is per project requirements.",
+    "Hidden directories (.gemini, .opencode, .vscode) not part of source delivery.",
+    "MySQL schema defined in ismo_skillswap.sql (18 tables, utf8mb4 encoding)."
+  ],
+  "development_workflow": {
+    "local_preview": "VS Code Live Server on http://localhost:5501",
+    "styling": "Modify assets/css/dashboard.css for tokens, then page-specific .css files",
+    "behavior": "Edit assets/js/dashboard.js for shared patterns, page-specific .js files for unique behavior",
+    "conventions": "Use aria-current='page' for active nav, aria-label for sidebar/topbar, 'use strict' in all JS"
+  }
 }

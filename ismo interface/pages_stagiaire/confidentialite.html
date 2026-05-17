@@ -18,19 +18,21 @@
 
   <div class="main-wrapper">
     <header class="topbar" role="banner">
-      <button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="search-wrap" style="display: none;"></div>
+      <div class="topbar-brand">
+        <div class="topbar-logo" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="9" fill="#2563EB" />
+            <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
+              stroke-linecap="round" />
+            <circle cx="16" cy="16" r="3" fill="#fff" />
+          </svg>
+        </div>
+        <span class="topbar-name">ISMO<span class="topbar-name-accent">-SkillSwap</span></span>
+      </div>
 
       <div class="topbar-right">
-        <a href="login.html" class="btn-secondary" style="padding: 8px 16px; border-radius: 6px;">Connexion</a>
+        <a href="login.html" class="btn-secondary topbar-btn-login"
+          style="padding: 8px 16px; border-radius: 6px;">Connexion</a>
       </div>
     </header>
 
@@ -52,7 +54,8 @@
           <h2 style="margin-top: 0; font-size: 1.1rem; color: var(--gray-900)">Résumé</h2>
           <p class="muted">ISMO-SkillSwap collecte les informations suivantes:</p>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">1. Donnees collectees</h2>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">1. Donnees
+            collectees</h2>
           <p>ISMO-SkillSwap collecte les informations suivantes:</p>
           <ul class="legal-list">
             <li>• Informations d'inscription: nom, email, mot de passe hash, role</li>
@@ -61,7 +64,8 @@
             <li>• Donnees techniques: adresse IP, type de navigateur, pages visitees</li>
           </ul>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">2. Utilisation des donnees</h2>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">2. Utilisation des
+            donnees</h2>
           <p>Vos donnees sont utilisees pour:</p>
           <ul class="legal-list">
             <li>• Fournir et ameliorer les services de la plateforme</li>
@@ -71,7 +75,8 @@
             <li>• Maintenir la securite et prevenir les abus</li>
           </ul>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">3. Partage des donnees</h2>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">3. Partage des
+            donnees</h2>
           <p>Nous ne vendons jamais vos donnees personnelles. Nous pouvons partager des donnees:</p>
           <ul class="legal-list">
             <li>• Avec les autres utilisateurs (nom, competences, badges)</li>
@@ -79,7 +84,8 @@
             <li>• Selon les exigences legales</li>
           </ul>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">4. Securite des donnees</h2>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">4. Securite des
+            donnees</h2>
           <p>Nous utilisons des mesures de securite standard pour proteger vos donnees:</p>
           <ul class="legal-list">
             <li>• Chiffrement SSL/TLS pour les transmissions</li>
@@ -88,7 +94,8 @@
             <li>• Sauvegardes regulieres</li>
           </ul>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">5. Cookies et suivi</h2>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">5. Cookies et suivi
+          </h2>
           <p>ISMO-SkillSwap utilise des cookies pour ameliorer votre experience:</p>
           <ul class="legal-list">
             <li>• Cookies de session pour maintenir votre connexion</li>
@@ -96,7 +103,8 @@
             <li>• Cookies analytiques pour comprendre l'utilisation</li>
           </ul>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">6. Droits de l'utilisateur</h2>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">6. Droits de
+            l'utilisateur</h2>
           <p>Vous avez le droit de:</p>
           <ul class="legal-list">
             <li>• Acceder a vos donnees personnelles</li>
@@ -105,17 +113,22 @@
             <li>• Demander la suppression de votre compte</li>
           </ul>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">7. Conservation des donnees</h2>
-          <p>Vos donnees sont conservees pendant la duree de votre compte. Apres la suppression, elles sont supprimees dans un delai de 30 jours, sauf si la loi exige leur conservation.</p>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">7. Conservation des
+            donnees</h2>
+          <p>Vos donnees sont conservees pendant la duree de votre compte. Apres la suppression, elles sont supprimees
+            dans un delai de 30 jours, sauf si la loi exige leur conservation.</p>
 
-          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">8. Modifications</h2>
-          <p>Nous pouvons mettre a jour cette politique a tout moment. Les modifications seront communiquees aux utilisateurs.</p>
+          <h2 style="margin-top: 28px; font-size: 1.2rem; font-weight: 700; color: var(--gray-900);">8. Modifications
+          </h2>
+          <p>Nous pouvons mettre a jour cette politique a tout moment. Les modifications seront communiquees aux
+            utilisateurs.</p>
 
           <div style="margin-top: 24px; display:flex; gap:12px; align-items:center;">
             <div style="flex:1; padding: 16px; background: var(--blue-50); border-radius: 8px;">
-              <p style="margin:0"><strong>Questions sur vos donnees?</strong> <span class="muted">Contactez notre deleguee a la protection des donnees</span></p>
+              <p style="margin:0"><strong>Questions sur vos donnees?</strong> <span class="muted">Contactez notre
+                  deleguee a la protection des donnees</span></p>
             </div>
-            <a href="mailto:privacy@ismo-skillswap.com" class="btn btn-primary">Envoyer un message</a>
+            <a href="mailto:raiessmohamed14@gmail.com" class="btn btn-primary">Envoyer un message</a>
           </div>
         </div>
       </section>

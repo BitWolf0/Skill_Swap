@@ -111,6 +111,41 @@ code {
   left: 0;
   z-index: 100;
   background: var(--white);
+  transition: transform var(--transition);
+  padding-top: var(--topbar-h);
+}
+
+.main-wrapper {
+  transition: margin-left var(--transition);
+}
+
+@media (min-width: 821px) {
+  .sidebar:not(.open) {
+    transform: translateX(-100%);
+  }
+
+  .sidebar:not(.open) ~ .main-wrapper {
+    margin-left: 0;
+  }
+
+  .sidebar.open ~ .main-wrapper {
+    margin-left: var(--sidebar-w);
+  }
+
+  .sidebar.open ~ .main-wrapper .sidebar-brand {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-w);
+    height: var(--topbar-h);
+    z-index: 102;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+
 }
 
 .accounts-page .content-area {
@@ -129,7 +164,6 @@ code {
   right: 0;
   bottom: 0;
   background: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(2px);
   z-index: 95;
   opacity: 0;
   pointer-events: none;
@@ -141,13 +175,15 @@ code {
   pointer-events: auto;
 }
 
-/* Brand */
+/* Brand / Logo (inside topbar) */
 .sidebar-brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 20px 20px 16px;
-  border-bottom: 1px solid var(--gray-100);
+  padding: 0 18px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 102;
 }
 
 .brand-icon-wrap {
@@ -330,7 +366,6 @@ code {
    MAIN WRAPPER
 ───────────────────────────────────────────────────────────── */
 .main-wrapper {
-  margin-left: var(--sidebar-w);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -350,13 +385,13 @@ code {
   gap: 16px;
   position: sticky;
   top: 0;
-  z-index: 90;
+  z-index: 105;
   box-shadow: var(--shadow-sm);
 }
 
-/* Mobile Menu Button */
+/* Menu Button */
 .btn-menu {
-  display: none;
+  display: flex;
 }
 
 /* Search */
@@ -1302,14 +1337,14 @@ code {
     --sidebar-w: 0px;
   }
 
-  .btn-menu {
-    display: flex;
-  }
-
   .sidebar {
     transform: translateX(-100%);
     width: 260px;
     box-shadow: var(--shadow-lg);
+  }
+
+  .topbar {
+    z-index: 105 !important;
   }
 
   .sidebar.open {

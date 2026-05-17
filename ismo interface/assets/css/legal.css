@@ -1,5 +1,191 @@
 /* legal.css - Simple legal/help page styling */
 
+/* ──────────────────────────────────────────────────────── */
+/* FULL PAGE & BODY SETUP                                   */
+/* ──────────────────────────────────────────────────────── */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.main-wrapper {
+    width: 100%;
+    margin-left: 0 !important;
+    overflow-x: hidden;
+}
+
+/* ──────────────────────────────────────────────────────── */
+/* TOPBAR WITH LOGO & RESPONSIVE DESIGN (FULL WIDTH)       */
+/* ──────────────────────────────────────────────────────── */
+
+/* Override topbar to take full width */
+.topbar {
+    width: 100%;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* Topbar Brand Section */
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.topbar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.topbar-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+}
+
+.topbar-name-accent {
+    color: var(--blue-600);
+    font-weight: 600;
+}
+
+/* Topbar Login Button */
+.topbar-btn-login {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue-600) !important;
+    color: var(--white) !important;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.topbar-btn-login:hover {
+    background: var(--blue-700) !important;
+    transform: translateY(-1px);
+}
+
+.topbar-btn-login:active {
+    transform: translateY(0);
+}
+
+/* Topbar responsive adjustments */
+@media (max-width: 1024px) {
+    .topbar {
+        padding: 0 24px;
+        gap: 16px;
+    }
+
+    .topbar-brand {
+        gap: 10px;
+    }
+
+    .topbar-name {
+        font-size: 0.95rem;
+    }
+
+    .topbar-logo svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        padding: 0 18px;
+        gap: 14px;
+        height: 56px;
+    }
+
+    .topbar-brand {
+        gap: 8px;
+    }
+
+    .topbar-name {
+        font-size: 0.9rem;
+        letter-spacing: -0.25px;
+    }
+
+    .topbar-logo svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .topbar-btn-login {
+        padding: 7px 14px !important;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        padding: 0 14px;
+        gap: 10px;
+        height: 52px;
+    }
+
+    .topbar-brand {
+        gap: 6px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .topbar-name {
+        font-size: 0.85rem;
+        letter-spacing: -0.2px;
+    }
+
+    .topbar-name-accent {
+        display: none;
+    }
+
+    .topbar-logo svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .topbar-btn-login {
+        padding: 6px 12px !important;
+        font-size: 0.8rem;
+        border-radius: 4px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .topbar {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .topbar-btn-login {
+        padding: 6px 10px !important;
+        font-size: 0.75rem;
+    }
+}
+
+/* ──────────────────────────────────────────────────────── */
+
 .legal-page {
     grid-template-columns: 1fr;
 }

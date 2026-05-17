@@ -64,8 +64,10 @@ document.addEventListener('keydown', (e) => {
 ────────────────────────────────────────────── */
 function openSidebar() {
   sidebar?.classList.add('open');
-  sidebarOverlay?.classList.add('show');
-  document.body.style.overflow = 'hidden'; // Prevent scrolling under sidebar
+  if (window.innerWidth <= 820) {
+    sidebarOverlay?.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 function closeSidebar() {
@@ -74,7 +76,11 @@ function closeSidebar() {
   document.body.style.overflow = '';
 }
 
-btnMenu?.addEventListener('click', openSidebar);
+btnMenu?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = sidebar?.classList.contains('open');
+  isOpen ? closeSidebar() : openSidebar();
+});
 sidebarOverlay?.addEventListener('click', closeSidebar);
 
 // Close sidebar on Escape key
@@ -210,6 +216,11 @@ function showToast(message, type = 'info', duration = 3000) {
    Initialisation
 ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Sidebar starts open on desktop
+  if (window.innerWidth > 820) {
+    sidebar?.classList.add('open');
+  }
+
   animateProgressBar();
   // Welcome toast - only show on first visit
   if (!localStorage.getItem('welcomeShown')) {

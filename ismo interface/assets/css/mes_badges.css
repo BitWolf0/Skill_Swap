@@ -179,6 +179,12 @@
     background: var(--blue-700);
 }
 
+@media (max-width: 1200px) {
+    .badges-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 1080px) {
     .badges-page {
         grid-template-columns: 1fr;
@@ -187,16 +193,135 @@
     .badges-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .badge-section {
+        padding: 24px 20px;
+    }
 }
 
 @media (max-width: 768px) {
     .badges-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .badge-section {
+        padding: 20px 16px;
+    }
+
+    .badge-item {
+        padding: 16px 12px;
+    }
+
+    .badge-item h3 {
+        font-size: .9rem;
+    }
+
+    .badge-item p {
+        font-size: .75rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+    .badge-large {
+        font-size: 2.5rem;
+    }
+
+    .widget {
+        padding: 16px;
     }
 }
 
 @media (max-width: 480px) {
     .badges-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .badge-section {
+        padding: 16px 12px;
+        border-radius: var(--radius-sm);
+    }
+
+    .badge-item {
+        padding: 14px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+        text-align: left;
+    }
+
+    .badge-item .badge-icon {
+        flex: 0 0 auto;
+        margin-bottom: 0;
+    }
+
+    .badge-item h3 {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+        font-size: .85rem;
+    }
+
+    .badge-item p {
+        flex: 0 0 100%;
+        font-size: .75rem;
+    }
+
+    .badge-item.obtained .date {
+        flex: 0 0 100%;
+        margin-top: 0;
+        font-size: .7rem;
+    }
+
+    .badge-item.locked {
+        text-align: left;
+    }
+
+    .badge-item.locked .progress-bar {
+        flex: 0 0 100%;
+        margin: 4px 0 4px;
+    }
+
+    .badge-item.locked .progress-text {
+        flex: 0 0 auto;
+        font-size: .7rem;
+    }
+
+    .section-title {
+        font-size: .95rem;
+        margin-bottom: 12px;
+    }
+
+    .page-title {
+        font-size: 1.2rem;
+    }
+
+    .page-sub {
+        font-size: .8rem;
+    }
+
+    .badge-large {
+        font-size: 2rem;
+    }
+
+    .closest-badge {
+        padding: 12px;
+    }
+
+    .closest-badge h3 {
+        font-size: .9rem;
+    }
+
+    .closest-badge p {
+        font-size: .8rem;
+    }
+
+    .widget .stats-list li {
+        font-size: .85rem;
+        padding: 10px 0;
     }
 }
