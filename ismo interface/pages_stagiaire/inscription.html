@@ -4,10 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inscription — ISMO-SkillSwap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/login.css" />
   <meta http-equiv="refresh" content="0;url=login.html?show=signup" />
 </head>
 <body>
-  <p>Redirection vers la page d'inscription… <a href="login.html?show=signup">Si la redirection ne fonctionne pas, cliquez ici.</a></p>
+  <div class="main-wrapper">
+    <header class="topbar" role="banner">
+      <button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="search-wrap" style="display: none;"></div>
+
+      <div class="topbar-right">
+        <a href="login.html" class="btn-secondary" style="padding: 8px 16px; border-radius: 6px;">Connexion</a>
+      </div>
+    </header>
+
+    <main class="content-area" id="main-content">
+      <section class="page-hero" aria-hidden="true">
+        <div class="hero-inner">
+          <div>
+            <h1>Bienvenue sur ISMO‑SkillSwap</h1>
+            <p class="muted" style="margin-top:6px">Créez un compte pour échanger des compétences</p>
+          </div>
+          <div>
+            <a href="login.html?show=signup" class="btn btn-primary">S'inscrire</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-main" style="max-width: 900px; margin: 24px auto;">
+        <div class="hero-card" style="text-align: center;">
+          <h2 style="margin-top: 0;">Redirection vers l'inscription</h2>
+          <p class="muted" style="margin-top:12px;">Vous allez être redirigé vers la page d'inscription.</p>
+          <p style="margin-top:18px;"><a href="login.html?show=signup" class="btn btn-primary">Si la redirection ne fonctionne pas, cliquez ici.</a></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/dashboard.js"></script>
   <script>window.location.replace('login.html?show=signup');</script>
 </body>
 </html>
