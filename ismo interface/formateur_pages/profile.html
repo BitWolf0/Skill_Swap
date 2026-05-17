@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISMO-SkillSwap — Mon profil</title>
+    <meta name="description" content="Consultez votre profil formateur ISMO-SkillSwap." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/profile.css" />
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+        <div class="sidebar-brand">
+            <div class="brand-icon-wrap" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="9" fill="#2563EB" />
+                    <path d="M8 16C8 11.582 11.582 8 16 8s8 3.582 8 8-3.582 8-8 8" stroke="#fff" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <circle cx="16" cy="16" r="3" fill="#fff" />
+                </svg>
+            </div>
+            <span class="brand-text">ISMO<span>-SkillSwap</span></span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <ul role="list">
+                <li>
+                    <a href="tableau_de_bord.html" class="nav-item" id="nav-dashboard">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" rx="1" />
+                                <rect x="14" y="3" width="7" height="7" rx="1" />
+                                <rect x="3" y="14" width="7" height="7" rx="1" />
+                                <rect x="14" y="14" width="7" height="7" rx="1" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Tableau de bord</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="validation_demande.html" class="nav-item" id="nav-validation">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </span>
+                        <span class="nav-label">Validation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="statistique.html" class="nav-item" id="nav-statistics">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="2" x2="12" y2="22"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </span>
+                        <span class="nav-label">Statistiques</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="catalogue.html" class="nav-item" id="nav-catalog">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </span>
+                        <span class="nav-label">Catalogue</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-user-mini">
+                <div class="mini-avatar" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </div>
+                <div class="mini-info">
+                    <span class="mini-name">Marie Leclerc</span>
+                    <span class="mini-role">Formateur</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <div class="main-wrapper">
+        <header class="topbar" role="banner">
+            <button class="icon-btn btn-menu" id="btn-menu" aria-label="Ouvrir le menu" type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="search-wrap">
+                <span class="search-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </span>
+                <input type="search" id="search-input" class="search-input" placeholder="Rechercher une compétence..."
+                    aria-label="Rechercher une compétence" />
+            </div>
+
+            <div class="topbar-right">
+                <button class="icon-btn notif-btn" id="btn-notif" aria-label="Notifications" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg>
+                    <span class="notif-dot" aria-label="Nouvelles notifications"></span>
+                </button>
+
+                <button class="profile-btn" id="btn-profile" type="button" aria-haspopup="true" aria-expanded="false"
+                    aria-label="Menu profil">
+                    <div class="profile-info">
+                        <span class="profile-name">Marie Leclerc</span>
+                        <span class="profile-score">Formateur</span>
+                    </div>
+                    <div class="profile-avatar" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </button>
+
+                <div class="profile-dropdown" id="profile-dropdown" role="menu" aria-label="Options du profil" hidden>
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div class="dropdown-user-info">
+                            <span class="dropdown-name">Marie Leclerc</span>
+                            <span class="dropdown-rep">Formateur</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu" role="none">
+                        <li role="none"><a href="profile.html" class="dropdown-item" role="menuitem">Mon profil</a></li>
+                        <li role="none"><a href="parametres.html" class="dropdown-item" role="menuitem">Parametres</a></li>
+                    </ul>
+                    <div class="dropdown-divider"></div>
+                    <a href="../pages_stagiaire/login.html" class="dropdown-item dropdown-logout" role="menuitem">Deconnexion</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-area profile-page" id="main-content">
+            <section class="content-main" aria-label="Profil formateur">
+                <div class="page-head">
+                    <div>
+                        <h1 class="page-title">Mon profil</h1>
+                        <p class="page-sub">Consultez et gérez vos informations personnelles</p>
+                    </div>
+                    <button class="btn-publish" id="btn-edit-profile" type="button">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+                        </svg>
+                        Modifier le profil
+                    </button>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar-large avatar-image" aria-hidden="true">
+                            <img src="../assets/images/default_avatar.svg" alt="" />
+                        </div>
+                        <div class="profile-info-block">
+                            <h2>Marie Leclerc</h2>
+                            <p class="role">Formateur</p>
+                            <p class="member-since">Membre depuis 8 mois</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-row">
+                            <label>Prénom</label>
+                            <span>Marie</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Nom</label>
+                            <span>Leclerc</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Adresse e-mail</label>
+                            <span>marie.leclerc@ismo.fr</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Téléphone</label>
+                            <span>+33 6 98 76 54 32</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Statut</label>
+                            <span class="badge badge-active">Formateur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l2.9 6.1 6.7.6-5 4.4 1.5 6.5-6.1-3.6-6.1 3.6 1.5-6.5-5-4.4 6.7-.6L12 2z" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="stat-value">127</p>
+                            <p class="stat-label">Validations effectuées</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="stat-value">68</p>
+                            <p class="stat-label">Stagiaires suivis</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 2h10v5a5 5 0 0 1-10 0V2z" />
+                                <path d="M9 17l-2 5 5-2 5 2-2-5" />
+                                <path d="M12 12v5" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="stat-value">45</p>
+                            <p class="stat-label">Badges attribués</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="stat-value">87%</p>
+                            <p class="stat-label">Taux d'approbation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio-card">
+                    <h3>Biographie</h3>
+                    <p>Formatrice expérimentée en développement web, spécialisée dans les technologies frontend et les bases de données. Passionnée par l'accompagnement des stagiaires et la validation de leurs compétences.</p>
+                </div>
+            </section>
+
+            <aside class="content-sidebar" aria-label="Informations supplémentaires">
+                <div class="widget">
+                    <div class="widget-header">
+                        <span class="widget-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                                <path d="M12 6v6l4 2.4" />
+                            </svg>
+                        </span>
+                        <h2 class="widget-title">Activité récente</h2>
+                    </div>
+                    <ul class="activity-list" role="list">
+                        <li>Validation React Hooks - Marie Dupont</li>
+                        <li>Badge SQL Expert attribué</li>
+                        <li>Nouvelle compétence ajoutée au catalogue</li>
+                        <li>Formation JavaScript Avancé donnée</li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">
+                        <span class="widget-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 8v8m-4-4h8" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                        </span>
+                        <h2 class="widget-title">Paramètres rapides</h2>
+                    </div>
+                    <button class="quick-button">Modifier l'e-mail</button>
+                    <button class="quick-button">Changer le mot de passe</button>
+                    <button class="quick-button">Gérer les préférences</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/profile.js"></script>
+</body>
+
+</html>

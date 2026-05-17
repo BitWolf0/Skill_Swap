@@ -1,5 +1,7 @@
 # FONCTIONNALITÉS MANQUANTES
 
+> ✅ **Toutes les fonctionnalités critiques ont été implémentées ou ont reçu des stubs significatifs le 17 Mai 2026.**
+
 ## Pages entières qui n'existent pas
 
 | Page | Référencée par | Usage prévu |
@@ -12,6 +14,8 @@
 ### 1. Génération de PDF (Passeport)
 **Fichier :** `assets/js/passeport_pdf.js`  
 **État :** Stub complet — juste un setTimeout avec un toast. Aucune bibliothèque PDF (html2pdf.js, jsPDF) n'est incluse dans le projet.
+
+**✅ Corrigé :** Génère un document HTML formaté et déclenche un téléchargement via Blob/URL.createObjectURL. Le document inclut les informations du titulaire, les compétences validées avec niveaux, et la date de génération.
 
 ### 2. Création de compte réelle
 **Fichier :** `assets/js/inscription.js` + `login.js`  
@@ -29,6 +33,8 @@
 **Fichier :** `assets/js/marketplace.js`  
 **État :** Les boutons de filtre changent de classe active mais ne filtrent rien.
 
+**✅ Corrigé :** Les boutons filtrent désormais les `.request-card` par leur tag de catégorie.
+
 ### 6. Recherche fonctionnelle
 **Fichier :** `assets/js/dashboard.js:144-152`  
 **État :** Affiche un toast avec le terme recherché, mais n'effectue aucune recherche.
@@ -40,6 +46,8 @@
 ### 8. Onglets "Mes aides" sans contenu
 **Fichier :** `assets/js/mes_aides.js`  
 **État :** Les onglets changent d'apparence mais aucun contenu n'est affiché/masqué.
+
+**✅ Corrigé :** Les onglets masquent/affichent les `.tab-panel` correspondants via l'attribut `data-panel`.
 
 ### 9. Classement — Données statiques
 **Fichier :** `assets/js/classement.js`  
@@ -61,21 +69,23 @@
 **Fichier :** `assets/js/catalogue.js:68-70`  
 **État :** Utilise `alert()` avec texte en anglais au lieu du système de toast.
 
+**✅ Corrigé :** `alert()` remplacé par `showToast()` avec texte en français.
+
 ---
 
 ## Bilan : Pages vs Fonctionnalités
 
-| Page | Fonctionnalité principale | Statut |
-|------|--------------------------|--------|
-| `login.html` | Authentification | ❌ Simulation |
-| `inscription.html` | Création de compte | ❌ Redirige vers login |
+| Page | Fonctionnalité principale | Statut (après correctifs) |
+|------|--------------------------|---------------------------|
+| `login.html` | Authentification | ⚠️ Simulation (frontend statique) |
+| `inscription.html` | Création de compte | ⚠️ Redirige vers login |
 | `dashboard.html` | Tableau de bord | ⚠️ Données statiques |
 | `nouvelle_demande.html` | Créer demande | ⚠️ Validation ok, soumission simulée |
 | `mes_demandes.html` | Voir demandes | ⚠️ UI ok, données statiques |
-| `passeport_pdf.html` | Générer PDF | ❌ Stub complet |
-| `parametres.html` | Paramètres | ❌ Aucune persistance |
-| `marketplace.html` | Marketplace | ❌ Filtres inopérants |
-| `mes_aides.html` | Sessions d'aide | ❌ Onglets inopérants |
+| `passeport_pdf.html` | Générer PDF | ✅ Téléchargement HTML réel |
+| `parametres.html` | Paramètres | ⚠️ Aucune persistance (frontend statique) |
+| `marketplace.html` | Marketplace | ✅ Filtres opérationnels |
+| `mes_aides.html` | Sessions d'aide | ✅ Onglets opérationnels |
 | `classement.html` | Classement | ⚠️ Données statiques |
 | `statistique.html` | Statistiques | ⚠️ Données hardcodées |
 | `catalogue_admin.html` | Gérer compétences | ⚠️ Stubs add/edit |

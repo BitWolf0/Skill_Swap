@@ -1,5 +1,7 @@
 # AMÉLIORATIONS UI / APPARENCE
 
+> ✅ **Les améliorations prioritaires ont été appliquées le 17 Mai 2026.**
+
 ## 1. États `:focus` manquants sur éléments interactifs
 
 **Problème général :** La plupart des fichiers retirent `outline: none` sans fournir d'alternative visible. Aucun fichier n'utilise `:focus-visible`.
@@ -30,6 +32,8 @@
 }
 ```
 
+> ✅ **Implémenté globalement dans `dashboard.css`** via `:focus-visible` avec `outline: 2px solid var(--blue-500)` et `button:focus:not(:focus-visible)` pour supprimer l'outline uniquement sur clic souris.
+
 ---
 
 ## 2. Problèmes de Contraste (Accessibilité WCAG AA)
@@ -58,6 +62,8 @@
 | `.alert-time` | `.7rem` | ~11.2px | Min 12px |
 | `.stat-desc` | `.75rem` | ~12px | Acceptable mais limite |
 | `.badge-date` | `.72rem` | ~11.5px | Min 12px |
+
+> ✅ **Corrigé dans `dashboard.css` et `tableau_de_bord.css`** — 12 classes passées à minimum `.75rem` (`.mini-role`, `.nav-badge`, `.passport-item-desc`, `.passport-level`, `.alert-time`, `.btn-small`, `.task-time`, `.activity-user`, `.activity-time`, `.accounts-page .badge`, `.badge`, `.task-priority`).
 
 ---
 
@@ -100,3 +106,5 @@ Certaines pages utilisent des emojis (✅, ✨, ⭐) dans les boutons/toasts au 
 
 ### F. `alert()` remplacé par modals/toasts
 `catalogue.js` (lignes 68, 70) utilise `alert()` bloquant avec texte en anglais. Remplacer par le système de toast ou un modal de confirmation.
+
+> ✅ **Corrigé** — `alert()` remplacé par `showToast()` avec texte en français.

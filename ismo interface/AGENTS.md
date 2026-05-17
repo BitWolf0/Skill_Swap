@@ -6,8 +6,6 @@ Multi-role (stagiaire/mentor/formateur/admin) skill-swap platform. **Pure static
 
 All source lives under `ismo interface/`.
 
-OpenCode config is at `ismo interface/.opencode/opencode.json`. Add custom skills under `.opencode/skills/<name>/SKILL.md`.
-
 ## Dev workflow
 
 ```powershell
@@ -22,17 +20,17 @@ No build, lint, typecheck, or test commands exist. Open any `.html` file directl
 
 | Path | Purpose |
 |---|---|
-| `project_overview.json` | Project description & file inventory (source of truth for structure) |
-| `DESIGN_SYSTEM.md` | Design tokens, layout, component specs |
-| `TODO` | Remaining work roadmap |
-| `PROJECT_REPORTS_MERGED.md` | Completed fixes & open items (consolidated from multiple reports) |
-| `assets/css/dashboard.css` | Main stylesheet — design tokens (CSS vars), sidebar/topbar, responsive |
-| `assets/js/dashboard.js` | Shared JS patterns (dropdown, sidebar toggle, toast, search) |
-| `pages_stagiaire/` | Stagiaire pages (dashboard, login, profile, requests, etc.) |
-| `pages_mentor/` | Mentor pages (dashboard, marketplace, requests, etc.) |
-| `pages_admin/` | Admin pages (accounts, moderation, dashboard, stats) |
-| `formateur_pages/` | Trainer pages (catalogue, validation, dashboard, stats) |
-| `ismo_skillswap.sql` | MySQL 8.0+ schema (18 tables, utf8mb4) |
+| `ismo interface/project_overview.json` | Project description & file inventory (source of truth for structure) |
+| `ismo interface/DESIGN_SYSTEM.md` | Design tokens, layout, component specs |
+| `ismo interface/TODO` | Remaining work roadmap |
+| `ismo interface/PROJECT_REPORTS_MERGED.md` | Completed fixes & open items (consolidated from multiple reports) |
+| `ismo interface/assets/css/dashboard.css` | Main stylesheet — design tokens (CSS vars), sidebar/topbar, responsive |
+| `ismo interface/assets/js/dashboard.js` | Shared JS patterns (dropdown, sidebar toggle, toast, search) |
+| `ismo interface/pages_stagiaire/` | Stagiaire pages (dashboard, login, profile, requests, etc.) |
+| `ismo interface/pages_mentor/` | Mentor pages (dashboard, marketplace, requests, etc.) |
+| `ismo interface/pages_admin/` | Admin pages (accounts, moderation, dashboard, stats) |
+| `ismo interface/formateur_pages/` | Trainer pages (catalogue, validation, dashboard, stats) |
+| `ismo interface/ismo_skillswap.sql` | MySQL 8.0+ schema (18 tables, utf8mb4) |
 
 ## Conventions
 

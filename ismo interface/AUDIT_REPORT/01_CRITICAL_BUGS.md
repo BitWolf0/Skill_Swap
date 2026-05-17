@@ -1,5 +1,7 @@
 # CRITICAL BUGS — Bloquant / Casse le fonctionnement
 
+> ✅ **Tous les bugs ont été corrigés le 17 Mai 2026.**
+
 ## 1. SyntaxError potentielle dans `mentor_apply.js`
 
 **Fichier :** `assets/js/mentor_apply.js:40`
@@ -17,6 +19,8 @@
 : 'Candidature envoyée avec succès ! N\u2019oubliez pas d\u2019ajouter une motivation pour augmenter vos chances.';
 ```
 Ou utiliser des guillemets anglais (") pour la chaîne externe.
+
+**✅ Statut :** Déjà corrigé (apostrophes courbes Unicode déjà présentes dans le fichier).
 
 ---
 
@@ -44,6 +48,8 @@ tabBtn.addEventListener('click', function () {
 
 **Fix :** Ajouter la logique pour cacher tous les `data-panel` et montrer celui correspondant au `data-tab` cliqué.
 
+**✅ Statut :** Corrigé — les onglets masquent/affichent les panneaux via `data-panel`.
+
 ---
 
 ## 4. `marketplace.js` — Les filtres ne filtrent rien
@@ -62,6 +68,8 @@ filterBtns.forEach(btn => {
 
 **Problème :** Les boutons de filtre changent de classe active mais aucun tri/filtrage des cartes de marché n'est implémenté. Même problème que les onglets de `mes_aides.js`.
 
+**✅ Statut :** Corrigé — les boutons filtrent désormais les cartes par tag.
+
 ---
 
 ## 5. `passeport_pdf.js` — Aucun téléchargement réel
@@ -79,6 +87,8 @@ btnDownload?.addEventListener('click', () => {
 
 **Problème :** Aucun PDF n'est généré ni téléchargé. C'est un timeout avec un toast. La fonctionnalité principale de la page est absente.
 
+**✅ Statut :** Corrigé — génère un document HTML formaté et déclenche un téléchargement via Blob/URL.createObjectURL.
+
 ---
 
 ## 6. `mes_demandes.js` — Appel API qui échoue toujours
@@ -92,6 +102,8 @@ const response = await fetch('/api/ratings', { ... });
 **Problème :** C'est le SEUL appel `fetch()` de tout le projet. Comme c'est un frontend statique sans backend, cette requête échoue TOUJOURS. Le catch handler gère élégamment en mode simulation, mais cette ligne donne l'impression qu'un backend existe.
 
 **Fix :** Soit supprimer complètement (laisser la simulation), soit commenter avec une TODO pour quand le backend sera prêt.
+
+**✅ Statut :** Corrigé — appel API `fetch('/api/ratings')` supprimé, remplacé par simulation simple.
 
 ---
 
@@ -111,6 +123,8 @@ Les classes suivantes sont DÉFINIES DEUX FOIS dans le même fichier avec des va
 
 **Problème :** La 2ème définition écrase la 1ère (ordre source). Les sections "admin accounts" et "main dashboard" ont des styles différents pour les mêmes classes. Cela peut casser le layout des pages qui utilisent ces classes.
 
+**✅ Statut :** Corrigé — les 5 classes dupliquées (`.badge`, `.quick-stats`, `.qstat-card`, `.page-title`, `.page-sub`) sont maintenant préfixées par `.accounts-page`.
+
 ---
 
 ## 8. `tableau_de_bord.js` — `handleBadgeAction()` appelle `showToast()` non défini
@@ -124,3 +138,5 @@ function handleBadgeAction(action) {
 ```
 
 **Problème :** Cette fonction est auto-initialisée dans son propre DOMContentLoaded. Elle dépend de `dashboard.js` chargé AVANT. Si l'ordre de chargement des scripts change, les actions de badge plantent.
+
+**✅ Statut :** Corrigé — `dashboard.js` est systématiquement chargé avant les scripts page dans tous les HTML.

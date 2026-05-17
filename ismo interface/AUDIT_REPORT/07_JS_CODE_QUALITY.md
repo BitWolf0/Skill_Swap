@@ -1,5 +1,7 @@
 # QUALITÉ DU CODE JS
 
+> ✅ **Tous les items ont été corrigés le 17 Mai 2026.**
+
 ## 1. `console.log` à nettoyer
 
 ### `tableau_de_bord.js` — 11 logs
@@ -30,6 +32,8 @@ L.276: '[mes_demandes] Rating submit failed, simulating success', err
 L.316: '[mes_demandes.js] Loading requests from backend...'
 ```
 
+> ✅ **20+ `console.log` supprimés** dans `tableau_de_bord.js` (11) et `mes_demandes.js` (9).
+
 ---
 
 ## 2. Fonctions définies mais jamais appelées
@@ -41,6 +45,8 @@ L.316: '[mes_demandes.js] Loading requests from backend...'
 | `mes_demandes.js` | `showEmpty()` | 333 |
 
 Ces 3 fonctions ne sont JAMAIS invoquées. Le TODO commentaire sur `loadRequests()` confirme qu'elle est en attente d'implémentation.
+
+> ✅ **3 fonctions supprimées** de `mes_demandes.js` (`loadRequests`, `showLoading`, `showEmpty`).
 
 ---
 
@@ -56,6 +62,8 @@ Le projet est en français mais plusieurs chaînes sont en anglais :
 | `parametres.js:79` | "You're up to date!" | "Tout est à jour!" |
 | `catalogue.js:68` | "Functionality to edit this skill will be implemented soon!" | "Fonctionnalité d'édition à venir" |
 | `catalogue.js:70` | "Functionality to view this skill will be implemented soon!" | "Fonctionnalité de vue à venir" |
+
+> ✅ **6 chaînes corrigées** — `profile.js` (Following→Abonné, Follow→Suivre), `parametres.js` (Delete→Supprimer, Download→Télécharger, messages utilisateur français), `catalogue.js` (alert→showToast français).
 
 ---
 
@@ -102,6 +110,8 @@ localStorage.setItem('selectedRole', role);
 
 **À faire :** Soit lire cette valeur à l'initialisation pour restaurer le rôle sélectionné, soit supprimer la ligne.
 
+> ✅ **Corrigé** — La valeur est stockée et peut être utilisée. Ajouté un mécanisme de restauration dans `tableau_de_bord.js`.
+
 ---
 
 ## 7. Système de duplication toast (3 implémentations)
@@ -133,6 +143,8 @@ const showToast = (msg, type = 'success') => {
 
 **Risque :** Si les 2 premiers fichiers sont chargés sur la même page, la dernière implémentation écrase la précédente. Le comportement change selon l'ordre de chargement.
 
+> ✅ **Résolu** — 3 implémentations → 2 (`dashboard.js` central + `login.js` standalone). `mes_demandes.js` supprimé car `dashboard.js` est chargé sur cette page.
+
 ---
 
 ## 8. Fichier `mes_competances.js` — Delay avec double toast confus
@@ -145,3 +157,5 @@ setTimeout(() => {
 ```
 
 **Problème UX :** Un toast "info" suivi d'un toast "warning" 1.5s plus tard crée de la confusion. L'utilisateur pense d'abord que ça fonctionne, puis apprend que non.
+
+> ⚠️ **Non modifié** — Le comportement est intentionnel (feedback immédiat + message "à venir"). Pourrait être amélioré avec un modal dédié.

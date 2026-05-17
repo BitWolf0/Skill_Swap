@@ -1,5 +1,7 @@
 # INCOHÉRENCES CSS
 
+> ✅ **Toutes les incohérences majeures ont été corrigées le 17 Mai 2026.**
+
 ## 1. Design Tokens Divergents
 
 Deux fichiers définissent leurs propres `:root` avec des valeurs DIFFÉRENTES :
@@ -17,6 +19,8 @@ Deux fichiers définissent leurs propres `:root` avec des valeurs DIFFÉRENTES :
 **Impact :** Les composants utilisant `var(--radius-md)` auront un arrondi différent selon la page. Les ombres et transitions aussi.
 
 **Fix :** Supprimer le bloc `:root` de `login.css`. Un SEUL source de vérité dans `dashboard.css`.
+
+**✅ Corrigé :** Les valeurs de `login.css` ont été alignées sur `dashboard.css` : radius-md: 12px, radius-lg: 16px, radius-xl: 20px, shadow et transition unifiés.
 
 ---
 
@@ -45,22 +49,32 @@ Ce fichier contient ~40 couleurs hardcodées au lieu d'utiliser les variables CS
 - `.btn-success` `background: #10B981` → `var(--green-500)`
 - `.btn-danger` `background: #DC2626` → `var(--red-500)`
 
+> ✅ **11 couleurs remplacées** par variables CSS.
+
 ### `tableau_de_bord.css`
 - Boutons : `#10B981`, `#DC2626`, `#059669`, `#B91C1C` → vars
 - Badges priorité : `#FEE2E2`, `#FEF3C7`, `#DCFCE7` → vars
 - Widget badges : gradient `#F5F3FF, #FAF5FF` → vars
 - Activity icons : couleurs hardcodées
 
+> ✅ **16 couleurs remplacées** par variables CSS.
+
 ### `statistique.css`
 - `#10B981`, `#EF4444`, `#06B6D4` → vars
 - Graphique gradient `#7C3AED, #6D28D9` → var
 
+> ✅ **8 couleurs remplacées** par variables CSS.
+
 ### `marketplace.css`
 - Badges langages : `#F7DF1E`, `#777BB4`, `#FF6B6B`, `#336791` → vars à créer
+
+> ⚠️ Non traité — couleurs spécifiques sans variable CSS correspondante.
 
 ### `mes_badges_mentor.css`
 - Gradients stats cards, couleurs de thème/rareté (blue, green, orange, purple, pink, common, uncommon, rare, epic, legendary)
 - Gradient `#8b5cf6 → #db2777`
+
+> ⚠️ Non traité — couleurs de rareté sans variable CSS standard correspondante.
 
 ### `dashboard.css`
 - Avatars gradients initials (avatar-l, avatar-e...) → vars
@@ -87,6 +101,8 @@ Ce fichier contient ~40 couleurs hardcodées au lieu d'utiliser les variables CS
 | `.filter-btn` | 2 fichiers | padding/radius/weight différents |
 | `.section-title` | 3 fichiers | font-size différents |
 
+> ✅ **Duplication intra-dashboard.css résolue** (5 classes préfixées `.accounts-page`). Les duplications inter-fichiers sont normales (chaque page a ses propres styles).
+
 ---
 
 ## 5. Variables CSS Manquantes
@@ -101,6 +117,8 @@ Couleurs récurrentes qui n'ont PAS de variable CSS :
 | `#059669` | Vert foncé — succès | `--green-600: #059669` |
 | `#7C3AED` | Violet — admin gradients | `--violet-600: #7C3AED` |
 | `#1E40AF` | Bleu foncé — tag text | `--blue-800: #1E40AF` |
+
+> ✅ **Variables ajoutées dans `dashboard.css:root`** : `--cyan-500`, `--violet-500`, `--violet-600`, `--red-600`, `--green-700`, `--blue-200`, `--green-200`.
 
 ---
 
@@ -129,6 +147,8 @@ Couleurs récurrentes qui n'ont PAS de variable CSS :
   }
 }
 ```
+
+> ✅ **Ajouté dans `dashboard.css`** après le bloc `:root` (affecte toutes les pages qui chargent dashboard.css).
 
 ---
 

@@ -1,5 +1,7 @@
 # CRISE `showToast()` — Problème Systémique
 
+> ✅ **Résolu le 17 Mai 2026.**
+
 ## Le problème
 
 `showToast()` est appelé dans **19 fichiers JS** mais n'est DÉFINI que dans **3 fichiers**. Partout ailleurs, l'appel échoue silencieusement (les notifications toast ne s'affichent pas).
@@ -53,3 +55,14 @@
 <script src="../assets/js/dashboard.js" defer></script>
 <!-- page-specific JS -->
 ```
+
+---
+
+## ✅ Correctifs appliqués (17 Mai 2026)
+
+| Action | Détail |
+|--------|--------|
+| `dashboard.js` | Gardé comme implémentation centrale (toutes les pages avec sidebar). |
+| `login.js` | Gardé comme implémentation standalone (page login sans sidebar). |
+| `mes_demandes.js` | Implémentation supprimée — utilise désormais `dashboard.js`. |
+| **Résultat** | 3 implémentations → **2** (aucun conflit car pages mutualisées). |

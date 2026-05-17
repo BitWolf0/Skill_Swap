@@ -1,5 +1,7 @@
 # PROBLÈMES DE SÉCURITÉ POTENTIELS
 
+> ✅ **Les risques immédiats ont été corrigés le 17 Mai 2026.**
+
 ## 1. XSS potentiel dans `showNotification()` (tableau_de_bord.js)
 
 **Fichier :** `assets/js/tableau_de_bord.js:222-226`
@@ -23,6 +25,8 @@ notif.textContent = ''; // ou utiliser createTextNode
 // puis ajouter les éléments avec textContent
 ```
 
+> ✅ **Corrigé** — `showNotification()` utilise désormais `createElement` + `textContent` au lieu de `innerHTML`.
+
 ---
 
 ## 2. innerHTML avec données hardcodées (classement.js)
@@ -36,6 +40,8 @@ body.innerHTML = mentors.map(mentor => `<tr>...</tr>`).join('');
 **Problème :** Actuellement safe car `mentors` est un tableau hardcodé. Mais si un jour les données viennent d'une API, c'est XSS.
 
 **Fix :** Utiliser `document.createElement('tr')` et `textContent` pour les valeurs plutôt que `innerHTML`.
+
+> ⚠️ **Non modifié** — Les données sont hardcodées (statiques). Risque nul tant que les données ne viennent pas d'une API. À migrer si dynamisation future.
 
 ---
 
@@ -57,6 +63,8 @@ if (navigator.clipboard) {
     // Fallback: sélectionner un input caché + document.execCommand('copy')
 }
 ```
+
+> ✅ **Corrigé** — Fallback `execCommand('copy')` ajouté dans `profile.js`.
 
 ---
 
