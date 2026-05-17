@@ -218,3 +218,51 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 768px) {
+    .criteria-header,
+    .card-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .criteria-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .mentor-skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .motivation-card textarea {
+        min-height: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .criteria-card,
+    .skills-card,
+    .motivation-card,
+    .widget-mentor-advantages,
+    .mentor-stats,
+    .widget-note {
+        padding: 16px;
+    }
+
+    .criteria-header h2,
+    .card-title-row h2 {
+        font-size: 1rem;
+    }
+
+    .skill-pill {
+        padding: 10px 12px;
+        font-size: .85rem;
+    }
+
+    .btn-apply {
+        width: 100%;
+        justify-content: center;
+    }
+}

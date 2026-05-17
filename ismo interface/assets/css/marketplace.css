@@ -389,3 +389,40 @@
         font-size: .85rem;
     }
 }
+
+@media (max-width: 480px) {
+    .request-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .request-status {
+        align-self: flex-start;
+    }
+
+    .request-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .marketplace-filters {
+        flex-direction: column;
+    }
+
+    .filter-btn {
+        flex: 1;
+        min-width: 100%;
+    }
+
+    .widget {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+    }
+
+    .popular-list li {
+        padding: 10px 12px;
+    }
+}

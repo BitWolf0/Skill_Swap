@@ -82,8 +82,9 @@
 }
 
 .tab-button.active {
-    background: var(--blue-500);
+    background: linear-gradient(135deg, #7C3AED, #6D28D9);
     color: var(--white);
+    box-shadow: 0 10px 24px rgba(109, 40, 217, 0.24);
 }
 
 /* Skills Container */
@@ -306,7 +307,7 @@
 
 /* Catalogue Statistics Section */
 .catalogue-stats {
-    background: linear-gradient(135deg, var(--violet-600) 0%, #5B21B6 100%);
+    background: linear-gradient(135deg, #7C3AED, #6D28D9);
     border-radius: var(--radius-md);
     padding: 32px;
     margin: 0 32px 32px 32px;
