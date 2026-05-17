@@ -28,7 +28,7 @@ Priority ordering is suggested (High → Medium → Low).
   - Registration page `pages_stagiaire/inscription.html` created (redirects to `login.html?show=signup`).
   - Search page and engine exist: `pages_stagiaire/recherche.html`, `assets/js/recherche.js`, `assets/css/recherche.css`.
   - Leaderboard / classement pages implemented: `pages_stagiaire/classement.html` + `assets/js/classement.js`.
-  - Mentor rating UI & flow still pending (modal + `assets/js/mes_demandes.js` integration to submit ratings).
+  - Mentor rating UI & flow: added client-side modal and `assets/js/mes_demandes.js` integration (client-side submission with graceful fallback). 
   - Statistics JS implemented: `assets/js/statistique.js` (lightweight interactions; charts placeholders).
 
 - Medium

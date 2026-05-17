@@ -58,3 +58,171 @@
   display: flex;
   gap: 12px;
 }
+
+/* Request card right area (badge + actions) */
+.request-card-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Rate button */
+.btn-rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+  border: none;
+  box-shadow: 0 6px 18px rgba(var(--blue-600-rgb,37,99,235), 0.18);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+.btn-rate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(var(--blue-600-rgb,37,99,235), 0.22);
+}
+
+.btn-rate:active { transform: translateY(0); }
+
+.btn-rate:focus {
+  outline: none;
+  box-shadow: 0 10px 26px rgba(var(--blue-600-rgb,37,99,235), 0.22), 0 0 0 6px rgba(37,99,235,0.08);
+}
+
+/* Modal (rating) — consistent with site modals */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.modal-panel {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  max-width: 560px;
+  width: 94%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+  z-index: 1210;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-100);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.modal-header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--gray-500);
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 6px 0 14px;
+}
+
+/* Comment field styling */
+.modal-body label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  font-weight: 600;
+}
+
+#rating-comment,
+.modal-body textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  background: var(--gray-50);
+  font-size: 0.95rem;
+  color: var(--gray-800);
+  line-height: 1.4;
+  resize: vertical;
+  transition: box-shadow var(--transition), border-color var(--transition), background var(--transition);
+}
+
+#rating-comment::placeholder {
+  color: var(--gray-400);
+}
+
+#rating-comment:focus,
+.modal-body textarea:focus {
+  outline: none;
+  border-color: var(--blue-600);
+  background: var(--white);
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.06);
+}
+
+.modal-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid var(--gray-100);
+  margin-top: 12px;
+}
+
+.rating-stars { display:flex; gap:6px; }
+.rating-stars .star { font-size:1.6rem; color:var(--gray-300); background:transparent; border:none; cursor:pointer; padding:6px; border-radius:8px; }
+.rating-stars .star:hover { background:var(--gray-50); color:var(--orange-500); }
+.rating-stars .star.active { color: var(--orange-500); background: rgba(var(--blue-600-rgb,37,99,235), 0.04); }
+
+/* Mentor info in modal */
+.rating-mentor-info { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.rating-avatar { width:56px; height:56px; border-radius:12px; object-fit:cover; background:var(--gray-50); padding:6px; }
+.rating-meta { display:flex; flex-direction:column; }
+.rating-mentor-name { font-weight:700; color:var(--gray-900); }
+.rating-mentor-filiere { font-size:0.85rem; color:var(--gray-500); }
+
+/* Modal footer buttons — prevent full-width .btn-primary from expanding */
+.modal-footer .btn { padding:8px 14px; }
+.modal-footer .btn-primary { width: auto; height: auto; padding:8px 14px; border-radius:var(--radius-md); }
+.modal-footer .btn-secondary { background: var(--white); border:1px solid var(--gray-200); color:var(--gray-700); }
+
+/* Prevent body scrolling when modal open (JS toggles aria-hidden) */
+body.modal-open { overflow: hidden; }
+

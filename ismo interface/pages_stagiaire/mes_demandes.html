@@ -398,6 +398,12 @@
               </div>
               <div class="request-card-right">
                 <span class="badge badge-done">Résolu</span>
+                <button class="btn-rate" type="button" aria-label="Noter le mentor" title="Noter le mentor">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <span>Noter</span>
+                </button>
               </div>
             </div>
           </article>
@@ -523,6 +529,41 @@
 
   <script src="../assets/js/dashboard.js"></script>
   <script src="../assets/js/mes_demandes.js"></script>
+
+  <!-- Rating Modal -->
+  <div class="modal" id="rating-modal" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+    <div class="modal-backdrop" id="rating-backdrop"></div>
+    <div class="modal-panel" role="document" aria-labelledby="rating-title">
+      <header class="modal-header">
+        <h2 id="rating-title">Noter le mentor</h2>
+        <button class="modal-close" id="rating-close" aria-label="Fermer">✕</button>
+      </header>
+      <div class="modal-body">
+        <div class="rating-mentor-info">
+          <img src="../assets/images/default_avatar.svg" alt="" class="rating-avatar" />
+          <div class="rating-meta">
+            <div class="rating-mentor-name" id="rating-mentor-name">Mentor</div>
+            <div class="rating-mentor-filiere" id="rating-mentor-filiere">Filière</div>
+          </div>
+        </div>
+
+        <div class="rating-stars" id="rating-stars" role="radiogroup" aria-label="Note">
+          <button class="star" data-value="1" aria-checked="false">★</button>
+          <button class="star" data-value="2" aria-checked="false">★</button>
+          <button class="star" data-value="3" aria-checked="false">★</button>
+          <button class="star" data-value="4" aria-checked="false">★</button>
+          <button class="star" data-value="5" aria-checked="false">★</button>
+        </div>
+
+        <label for="rating-comment">Commentaire (optionnel)</label>
+        <textarea id="rating-comment" rows="4" placeholder="Votre retour..."></textarea>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn btn-secondary" id="rating-cancel">Annuler</button>
+        <button class="btn btn-primary" id="rating-submit">Envoyer la note</button>
+      </footer>
+    </div>
+  </div>
 </body>
 
 </html>
