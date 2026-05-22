@@ -1,8 +1,4 @@
--- ============================================================
---  ISMO-SKILLSWAP v2 — MySQL 8.0+
---  Optimisé : indexes utiles, pas de sur-ingenierie
---  Encodage : utf8mb4_unicode_ci
--- ============================================================
+
 
 CREATE DATABASE IF NOT EXISTS ismo_skillswap
     CHARACTER SET utf8mb4
@@ -11,7 +7,7 @@ CREATE DATABASE IF NOT EXISTS ismo_skillswap
 USE ismo_skillswap;
 
 -- ============================================================
---  1. CŒUR
+--  1. COUR
 -- ============================================================
 
 CREATE TABLE users (
@@ -231,7 +227,7 @@ CREATE TABLE mentoring_sessions (
 );
 
 -- ============================================================
---  4. AVIS (remplace followers — plus utile, plus rapide)
+--  4. AVIS 
 -- ============================================================
 
 CREATE TABLE reviews (

@@ -1,7 +1,4 @@
--- ============================================================
---  ISMO-SKILLSWAP — Base de données MySQL 8.0+
---  Version : 1.0  |  Encodage : utf8mb4_unicode_ci
--- ============================================================
+
 
 CREATE DATABASE IF NOT EXISTS ismo_skillswap
     CHARACTER SET utf8mb4
