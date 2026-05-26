@@ -16,6 +16,7 @@ This file consolidates multiple audit and TODO reports, records what was already
 - Replaced many inline emojis with SVG icons on stagiaire pages.
 - Created `pages_stagiaire/nouvelle_demande.html` and related CSS hooks; wired publish action to existing scripts.
 - Fixed profile editor wiring (`pages_stagiaire/profile.html`, `assets/js/profile.js`).
+- Consolidated the database into `ismo_skillswap_v3.sql` with a minimal table set and derived views.
 
 These completed items were reported in `REQUIRED_UPDATES.md` and validated by inspecting the workspace files.
 
@@ -25,49 +26,42 @@ These completed items were reported in `REQUIRED_UPDATES.md` and validated by in
 Priority ordering is suggested (High → Medium → Low).
 
 - High
-  - Registration page `pages_stagiaire/inscription.html` created (redirects to `login.html?show=signup`).
-  - Search page and engine exist: `pages_stagiaire/recherche.html`, `assets/js/recherche.js`, `assets/css/recherche.css`.
-  - Leaderboard / classement pages implemented: `pages_stagiaire/classement.html` + `assets/js/classement.js`.
-  - Mentor rating UI & flow: added client-side modal and `assets/js/mes_demandes.js` integration (client-side submission with graceful fallback). 
-  - Statistics JS implemented: `assets/js/statistique.js` (lightweight interactions; charts placeholders).
+  - Real backend/API integration is still missing.
+  - Authentication and registration remain frontend-only simulations.
+  - Support pages are inconsistent: `pages_stagiaire/conditions.html` is still missing.
 
 - Medium
-  - Admin skill catalogue CRUD UI/JS (`assets/js/catalogue_admin.js`) and any missing admin pages.
-  - Responsive/hamburger menu polish across all pages (ensure `<meta viewport>` present and mobile breakpoints in key CSS files).
-  - Fix remaining visual inconsistencies in `pages_mentor/*` (hover border colors and card styles) — visual polish in their page-specific CSS files.
-  - Accessibility pass: add `aria-*` attributes where missing, `role="alert"` for forms, and visible focus states.
+  - `assets/css/catalogue.css` still contains hardcoded colors.
+  - `assets/css/marketplace.css` still uses unnormalized language badge colors.
+  - `assets/js/classement.js` still uses `innerHTML` and should be hardened if it ever receives dynamic data.
+  - Notification, badge, and settings persistence still need backend wiring.
 
 - Low / Nice-to-have
-  - Rename misspelled files in a focused refactor (recommend doing in a single commit): `tableu_de_bord` → `tableau_de_bord`, `statisque_adm` → `statistique_adm` (optional, non-blocking).
   - Add automated tests, CI, and README with dev setup instructions.
+  - Add a production CSP once dynamic content is introduced.
 
 ---
 
 **C. Action items taken now**
-- Consolidated all report files into this single file `PROJECT_REPORTS_MERGED.md`.
-- Removed the original report files to reduce duplication (see list below).
+- Consolidated the remaining open items into the lean audit files.
+- Retired the fully resolved audit reports to reduce duplication.
 
-Deleted files:
-- LINK_ANALYSIS_REPORT.md
-- MISSING_FEATURES_GUIDE.md
-- NAVIGATION_STRUCTURE.md
-- need_fix.md
-- needchange.md
-- QUICK_FIX_GUIDE.md
-- REQUIRED_UPDATES.md
-- SESSION_2_COMPLETION_REPORT.md
-- claude_TODO_frontend.md
-- claude_TODO_backend.md
-
-If you prefer to keep an archive instead of deleting, I can move these into a `reports/archived/` folder instead.
+Retired files:
+- `AUDIT_REPORT/00_SOMMAIRE.md`
+- `AUDIT_REPORT/01_CRITICAL_BUGS.md`
+- `AUDIT_REPORT/02_BROKEN_LINKS.md`
+- `AUDIT_REPORT/04_SHOWTOAST_CRISIS.md`
+- `AUDIT_REPORT/06_UI_POLISH.md`
+- `AUDIT_REPORT/07_JS_CODE_QUALITY.md`
+- `AUDIT_REPORT/08_SQL_SCHEMA.md`
+- `AUDIT_REPORT/10_TODO_TRACKING.md`
 
 ---
 
 **D. Next recommended steps (I can implement)**
-1. Implement Mentor rating modal + integrate with `assets/js/mes_demandes.js` (high priority).
-2. Admin catalogue CRUD UI/JS (`assets/js/catalogue_admin.js`) and missing admin behaviors.
-3. Run a visual pass to polish `pages_mentor/*` and `pages_admin/*` styles and hover states.
-4. Accessibility pass: add ARIA where missing and ensure visible focus states.
+1. Wire a real backend/API for authentication, requests, notifications, and admin moderation.
+2. Normalize the remaining CSS token gaps in `catalogue.css` and `marketplace.css`.
+3. Harden dynamic rendering paths before any API-backed data is introduced.
 
 Reply with which of the Next steps you'd like me to implement first and I will proceed.
 
