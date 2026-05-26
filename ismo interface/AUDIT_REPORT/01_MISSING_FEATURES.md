@@ -1,7 +1,7 @@
 # FONCTIONNALITÉS ENCORE À TRAITER
 
 ## Pages manquantes ou à clarifier
-- `pages_stagiaire/conditions.html` est toujours référencée mais n'existe pas.
+✅ **FIXED (26 May 2026)**: `pages_stagiaire/conditions.html` - Created with full legal content, sidebar, topbar, search integration
 
 ## Fonctionnalités encore non persistées
 - Création de compte réelle et authentification réelle.

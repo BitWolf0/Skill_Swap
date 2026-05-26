@@ -112,20 +112,20 @@
 }
 
 .skill-badge.javascript {
-    background: #F7DF1E;
+    background: var(--js-yellow);
     color: #333;
 }
 
 .skill-badge.php {
-    background: #777BB4;
+    background: var(--php-purple);
 }
 
 .skill-badge.api {
-    background: #FF6B6B;
+    background: var(--api-red);
 }
 
 .skill-badge.sql {
-    background: #336791;
+    background: var(--sql-blue);
 }
 
 .request-time,

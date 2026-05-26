@@ -21,9 +21,28 @@
   --green-500: #22C55E;
   --green-600: #16A34A;
   --green-100: #DCFCE7;
+  --green-900: #065F46;
   --pink-500: #EC4899;
   --red-500: #EF4444;
   --red-50: #FEF2F2;
+  --red-200: #FECACA;
+  --red-900: #7F1D1D;
+  --purple-100: #F3E8FF;
+  --purple-200: #E9D5FF;
+  --purple-700: #5B21B6;
+  --purple-800: #6B21A8;
+  --amber-100: #FEF3C7;
+  --amber-300: #FCD34D;
+  --amber-700: #B45309;
+  --amber-800: #92400E;
+  --yellow-100: #FEF3C7;
+  --yellow-300: #FCD34D;
+  --yellow-700: #B45309;
+  --yellow-800: #92400E;
+  --js-yellow: #F7DF1E;
+  --php-purple: #777BB4;
+  --api-red: #FF6B6B;
+  --sql-blue: #336791;
 
   --gray-50: #F8FAFC;
   --gray-100: #F1F5F9;

@@ -127,9 +127,9 @@
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: #e9d5ff;
+    background: var(--purple-200);
     border-radius: 8px;
-    color: #6b21a8;
+    color: var(--purple-800);
 }
 
 .skill-card[data-filter="frontend"] .skill-icon {
@@ -138,8 +138,8 @@
 }
 
 .skill-card[data-filter="backend"] .skill-icon {
-    background: #d1fae5;
-    color: #065f46;
+    background: var(--green-100);
+    color: var(--green-900);
 }
 
 .skill-card[data-filter="database"] .skill-icon {
@@ -153,8 +153,8 @@
 }
 
 .skill-card[data-filter="tools"] .skill-icon {
-    background: #f3e8ff;
-    color: #5b21b6;
+    background: var(--purple-100);
+    color: var(--purple-700);
 }
 
 .skill-title-section {
@@ -180,8 +180,8 @@
 
 .skill-level.intermédiaire,
 .skill-level.intermediaire {
-    background: #fef3c7;
-    color: #b45309;
+    background: var(--amber-100);
+    color: var(--amber-700);
 }
 
 .skill-level.débutant,
@@ -192,8 +192,8 @@
 
 .skill-level.avancé,
 .skill-level.avance {
-    background: #fecaca;
-    color: #7f1d1d;
+    background: var(--red-200);
+    color: var(--red-900);
 }
 
 /* Card Actions */
@@ -290,13 +290,13 @@
 
 .badge {
     display: inline-block;
-    background: #fef3c7;
-    color: #92400e;
+    background: var(--amber-100);
+    color: var(--amber-800);
     padding: 6px 12px;
     border-radius: 14px;
     font-size: 12px;
     font-weight: 600;
-    border: 1px solid #fcd34d;
+    border: 1px solid var(--amber-300);
 }
 
 .students-count {
