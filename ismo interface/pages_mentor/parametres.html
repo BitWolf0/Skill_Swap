@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISMO-SkillSwap — Parametres</title>
-  <meta name="description" content="Gerez vos parametres ISMO-SkillSwap." />
+    <title>ISMO-SkillSwap — Paramètres</title>
+    <meta name="description" content="Gérez vos paramètres ISMO-SkillSwap." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -33,7 +33,7 @@
           </a>
         </li>
         <li>
-          <a href="../pages_stagiaire/mes_demandes.html" class="nav-item" id="nav-requests">
+          <a href="mes_demandes.html" class="nav-item" id="nav-requests">
             <span class="nav-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -41,6 +41,20 @@
               </svg>
             </span>
             <span class="nav-label">Mes Demandes</span>
+          </a>
+        </li>
+        <li>
+          <a href="mes_aides.html" class="nav-item" id="nav-aides">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <span class="nav-label">Mes Aides</span>
           </a>
         </li>
         <li>
@@ -69,7 +83,7 @@
           </a>
         </li>
         <li>
-          <a href="../pages_stagiaire/mes_competances.html" class="nav-item" id="nav-competences">
+          <a href="mes_competances.html" class="nav-item" id="nav-competences">
             <span class="nav-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -144,8 +158,8 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
         </span>
-        <input type="search" id="search-input" class="search-input" placeholder="Rechercher un parametre..."
-          aria-label="Rechercher un parametre" />
+        <input type="search" id="search-input" class="search-input" placeholder="Rechercher un paramètre..."
+          aria-label="Rechercher un paramètre" />
       </div>
 
       <div class="topbar-right">
@@ -176,14 +190,14 @@
             </div>
             <div class="dropdown-user-info">
               <span class="dropdown-name">Pierre Dubois</span>
-              <span class="dropdown-rep">Reputation: 142</span>
+              <span class="dropdown-rep">Réputation: 142</span>
             </div>
           </div>
           <ul class="dropdown-menu" role="none">
             <li role="none"><a href="../pages_stagiaire/profile.html" class="dropdown-item" role="menuitem">Mon profil</a></li>
             <li role="none"><a href="mes_badges.html" class="dropdown-item" role="menuitem">Mes badges</a></li>
             <li role="none"><a href="notification.html" class="dropdown-item" role="menuitem">Notifications</a></li>
-            <li role="none"><a href="parametres.html" class="dropdown-item" role="menuitem">Parametres</a></li>
+            <li role="none"><a href="parametres.html" class="dropdown-item" role="menuitem">Paramètres</a></li>
           </ul>
           <div class="dropdown-divider"></div>
           <a href="../pages_stagiaire/login.html" class="dropdown-item dropdown-logout" role="menuitem">Deconnexion</a>
@@ -195,8 +209,8 @@
       <section class="content-main full-width" aria-label="Parametres">
         <div class="page-head">
           <div>
-            <h1 class="page-title">Parametres</h1>
-            <p class="page-sub">Configurez votre compte mentor</p>
+            <h1 class="page-title">Paramètres</h1>
+            <p class="page-sub">Configurez votre compte et vos préférences</p>
           </div>
         </div>
 
@@ -205,7 +219,7 @@
           <div class="setting-item">
             <div class="setting-info">
               <h3>E-mail</h3>
-              <p>Adresse associee a votre compte</p>
+              <p>Adresse associée à votre compte</p>
             </div>
             <div class="setting-action">
               <span class="setting-value">pierre.dubois@ismo.fr</span>
@@ -215,10 +229,22 @@
           <div class="setting-item">
             <div class="setting-info">
               <h3>Mot de passe</h3>
-              <p>Changez votre mot de passe</p>
+              <p>Changez votre mot de passe pour sécuriser votre compte</p>
             </div>
             <div class="setting-action">
               <button class="btn-edit">Changer</button>
+            </div>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Authentification à deux facteurs</h3>
+              <p>Renforcez la sécurité de votre compte</p>
+            </div>
+            <div class="setting-action">
+              <label class="toggle">
+                <input type="checkbox" />
+                <span class="toggle-switch"></span>
+              </label>
             </div>
           </div>
         </div>
@@ -228,13 +254,89 @@
           <div class="setting-item">
             <div class="setting-info">
               <h3>Notifications par e-mail</h3>
-              <p>Recevez les mises a jour importantes</p>
+              <p>Recevez les mises à jour importantes par e-mail</p>
             </div>
             <div class="setting-action">
               <label class="toggle">
                 <input type="checkbox" checked />
                 <span class="toggle-switch"></span>
               </label>
+            </div>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Alertes des demandes</h3>
+              <p>Soyez averti quand on répond à vos demandes</p>
+            </div>
+            <div class="setting-action">
+              <label class="toggle">
+                <input type="checkbox" checked />
+                <span class="toggle-switch"></span>
+              </label>
+            </div>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Suggestions de contenu</h3>
+              <p>Recevez des suggestions basées sur vos intérêts</p>
+            </div>
+            <div class="setting-action">
+              <label class="toggle">
+                <input type="checkbox" />
+                <span class="toggle-switch"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h2 class="section-title">Préférences</h2>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Thème</h3>
+              <p>Choisissez l'apparence de l'application</p>
+            </div>
+            <div class="setting-action">
+              <select class="select-input">
+                <option>Mode clair</option>
+                <option selected>Mode automatique</option>
+                <option>Mode sombre</option>
+              </select>
+            </div>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Langue</h3>
+              <p>Sélectionnez votre langue préférée</p>
+            </div>
+            <div class="setting-action">
+              <select class="select-input">
+                <option selected>Français</option>
+                <option>English</option>
+                <option>Deutsch</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h2 class="section-title">Données</h2>
+          <div class="setting-item danger">
+            <div class="setting-info">
+              <h3>Télécharger mes données</h3>
+              <p>Récupérez une copie de toutes vos données personnelles</p>
+            </div>
+            <div class="setting-action">
+              <button class="btn-secondary">Télécharger</button>
+            </div>
+          </div>
+          <div class="setting-item danger">
+            <div class="setting-info">
+              <h3>Supprimer mon compte</h3>
+              <p>Cette action est irréversible et supprimera tous vos données</p>
+            </div>
+            <div class="setting-action">
+              <button class="btn-danger">Supprimer</button>
             </div>
           </div>
         </div>
@@ -256,7 +358,7 @@
         <li><a href="../pages_stagiaire/aide.html" class="link">Centre d'aide</a></li>
         <li><a href="../pages_stagiaire/support.html" class="link">Contactez le support</a></li>
         <li><a href="../pages_stagiaire/conditions.html" class="link">Conditions d'utilisation</a></li>
-        <li><a href="../pages_stagiaire/confidentialite.html" class="link">Politique de confidentialite</a></li>
+        <li><a href="../pages_stagiaire/confidentialite.html" class="link">Politique de confidentialité</a></li>
       </ul>
     </footer>
   </div>

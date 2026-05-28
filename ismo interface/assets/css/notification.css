@@ -1,7 +1,7 @@
 /* notification.css - Styles for notifications page */
 
 .notification-page {
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 1fr;
 }
 
 .notifications-list {

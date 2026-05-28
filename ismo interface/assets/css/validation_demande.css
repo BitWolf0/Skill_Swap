@@ -2,6 +2,16 @@
    ISMO-SkillSwap — Validation des compétences CSS
    ============================================================ */
 
+/* ── Global Override: Prevent Black Borders & Outlines ────── */
+* {
+  outline-color: transparent !important;
+}
+
+*:focus,
+*:focus-within {
+  outline: none !important;
+}
+
 /* ── Validation Content ───────────────────────────────────── */
 .validation-content {
   flex: 1;

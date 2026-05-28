@@ -566,6 +566,41 @@ code {
   display: block;
 }
 
+/* Primary login button in topbar */
+.topbar-btn-login-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--blue-600);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, .25);
+}
+
+.topbar-btn-login-primary:hover {
+  background: var(--blue-700);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, .4);
+  transform: translateY(-2px);
+}
+
+.topbar-btn-login-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, .25);
+}
+
+.topbar-btn-login-primary .btn-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ─────────────────────────────────────────────────────────────
    PROFILE DROPDOWN
 ───────────────────────────────────────────────────────────── */
