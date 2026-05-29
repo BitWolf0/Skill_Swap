@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISMO-SkillSwap — Mes aides en cours</title>
+  <title>ISMO-SkillSwap — Messagerie</title>
   <meta name="description"
-    content="Suivez vos sessions de mentorat et vos aides apportées ISMO-SkillSwap." />
+    content="Vos conversations et messages ISMO-SkillSwap." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/dashboard.css" />
-  <link rel="stylesheet" href="../assets/css/mes_aides.css" /></head>
+  <link rel="stylesheet" href="../assets/css/messagerie.css" /></head>
 
 <body>
 
@@ -52,7 +52,7 @@
             </li>
 
             <li>
-                <a href="mes_aides.html" class="nav-item active" id="nav-aides" aria-current="page">
+                <a href="mes_aides.html" class="nav-item" id="nav-aides">
                     <span class="nav-icon" aria-hidden="true">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -305,126 +305,67 @@
     </header>
 
     <!-- ── CONTENT AREA ── -->
-    <main class="content-area mes-aides-page" id="main-content">
+    <main class="content-area messagerie-page" id="main-content">
 
       <!-- Left / Centre column -->
-      <section class="content-main" aria-label="Mes aides en cours">
+      <section class="content-main" aria-label="Messagerie">
 
         <!-- Page title -->
         <div class="page-head">
           <div class="page-title-wrap">
-            <h1 class="page-title">Mes aides en cours</h1>
-            <p class="page-sub">Suivez vos sessions de mentorat et vos aides apportées</p>
+            <h1 class="page-title">Messagerie</h1>
+            <p class="page-sub">Consultez et gérez toutes vos conversations</p>
           </div>
         </div>
 
-        <div class="aides-tabs">
-          <button class="tab-btn active" data-tab="toutes">Toutes (4)</button>
-          <button class="tab-btn" data-tab="en-cours">En cours (1)</button>
-          <button class="tab-btn" data-tab="terminees">Terminées (2)</button>
-        </div>
-
-        <div class="aides-list">
-          <div class="aide-card">
-            <div class="aide-header">
-              <div class="aide-info">
-                <h3>Comprendre les Promesses en JavaScript</h3>
-                <p class="aide-user">Stagiaire: <strong>Marie Dupont</strong></p>
-              </div>
-              <span class="aide-status ongoing">En cours</span>
-            </div>
-            <div class="aide-meta">
-              <span class="skill-badge javascript">JavaScript</span>
-              <span class="aide-time">⏱ Démarré le 2026-05-02 14:30</span>
-              <span class="aide-messages">💬 8 messages</span>
-            </div>
-            <a href="conversation.html?id=1" class="btn-continue">Continuer la conversation</a>
-            <button class="btn-secondary">Marquer comme résolu</button>
-          </div>
-
-          <div class="aide-card">
-            <div class="aide-header">
-              <div class="aide-info">
-                <h3>Problème avec les hooks React</h3>
-                <p class="aide-user">Stagiaire: <strong>Thomas Martin</strong></p>
-              </div>
-              <span class="aide-status completed">Terminée</span>
-            </div>
-            <div class="aide-meta">
-              <span class="skill-badge react">React</span>
-              <span class="aide-time">⏱ Terminé le 2026-05-03 09:15</span>
-              <span class="aide-messages">💬 12 messages</span>
-              <span class="aide-rating">⭐ 5/5</span>
-            </div>
-            <a href="conversation.html?id=2" class="btn-secondary">Voir l'historique</a>
-          </div>
-
-          <div class="aide-card">
-            <div class="aide-header">
-              <div class="aide-info">
-                <h3>Optimisation requête SQL</h3>
-                <p class="aide-user">Stagiaire: <strong>Sophie Bernard</strong></p>
-              </div>
-              <span class="aide-status completed">Terminée</span>
-            </div>
-            <div class="aide-meta">
-              <span class="skill-badge sql">SQL</span>
-              <span class="aide-time">⏱ Terminé le 2026-05-02 11:30</span>
-              <span class="aide-messages">💬 6 messages</span>
-              <span class="aide-rating">⭐ 4/5</span>
-            </div>
-            <a href="conversation.html?id=3" class="btn-secondary">Voir l'historique</a>
-          </div>
-
-          <div class="aide-card">
-            <div class="aide-header">
-              <div class="aide-info">
-                <h3>Git - Résolution de conflits</h3>
-                <p class="aide-user">Stagiaire: <strong>Lucas Petit</strong></p>
-              </div>
-              <span class="aide-status pending">En attente</span>
-            </div>
-            <div class="aide-meta">
-              <span class="skill-badge git">Git</span>
-              <span class="aide-time">⏱ Démarré le 2026-05-03 15:00</span>
-              <span class="aide-messages">💬 2 messages</span>
-            </div>
-            <a href="conversation.html?id=4" class="btn-continue">Continuer la conversation</a>
-            <a href="conversation.html?id=4" class="btn-secondary">Répondre</a>
+        <!-- Search + filter -->
+        <div class="inbox-toolbar">
+          <div class="inbox-search-wrap">
+            <span class="search-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </span>
+            <input type="text" id="inbox-search" placeholder="Rechercher une conversation..." aria-label="Rechercher une conversation" />
           </div>
         </div>
+
+        <!-- Conversation list -->
+        <div class="conv-list" id="conv-list-container"></div>
+
       </section><!-- /.content-main -->
 
       <!-- Right column — Widgets -->
-      <aside class="content-sidebar" aria-label="Statistiques des aides">
+      <aside class="content-sidebar" aria-label="Statistiques">
 
         <div class="widget">
           <div class="widget-header">
             <span class="widget-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="6" />
-                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
             </span>
-            <h2 class="widget-title">Statistiques</h2>
+            <h2 class="widget-title">Activité</h2>
           </div>
           <div class="stats-box">
             <div class="stat-item">
-              <span class="stat-value">2</span>
-              <span class="stat-label">Aides terminées</span>
+              <span class="stat-value">5</span>
+              <span class="stat-label">Conversations</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">1</span>
+              <span class="stat-value">3</span>
+              <span class="stat-label">Non lues</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">2</span>
               <span class="stat-label">En cours</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">4.7</span>
-              <span class="stat-label">Note moyenne</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value">92%</span>
-              <span class="stat-label">Taux d'aide complétée</span>
+              <span class="stat-value">~15 min</span>
+              <span class="stat-label">Temps de réponse</span>
             </div>
           </div>
         </div>
@@ -432,42 +373,16 @@
         <div class="widget">
           <div class="widget-header">
             <span class="widget-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L15.09 8.26H22L17.55 12.25L19.64 18.5L12 14.01L4.36 18.5L6.45 12.25L2 8.26H8.91L12 2Z" />
               </svg>
             </span>
-            <h2 class="widget-title">Mentors actifs</h2>
+            <h2 class="widget-title">Conseil</h2>
           </div>
-          <ul class="mentors-list">
-            <li>
-              <div class="mentor-avatar">J</div>
-              <div>
-                <p class="mentor-name">Julie Bernard</p>
-                <p class="mentor-aides">38 aides</p>
-              </div>
-              <span class="mentor-rating">⭐ 4.8</span>
-            </li>
-            <li>
-              <div class="mentor-avatar">M</div>
-              <div>
-                <p class="mentor-name">Marc Laurent</p>
-                <p class="mentor-aides">32 aides</p>
-              </div>
-              <span class="mentor-rating">⭐ 4.7</span>
-            </li>
-            <li>
-              <div class="mentor-avatar">A</div>
-              <div>
-                <p class="mentor-name">Alice Martin</p>
-                <p class="mentor-aides">28 aides</p>
-              </div>
-              <span class="mentor-rating">⭐ 4.9</span>
-            </li>
-          </ul>
+          <p style="font-size:.85rem;color:var(--gray-500);line-height:1.5;">
+            Répondre rapidement aux stagiaires améliore votre réputation et augmente vos chances d'être recommandé.
+          </p>
         </div>
 
       </aside><!-- /.content-sidebar -->
@@ -481,7 +396,7 @@
 
   <script src="../assets/js/dashboard.js"></script>
   <script src="../assets/js/search-modal.js"></script>
-  <script src="../assets/js/mes_aides.js"></script>
+  <script src="../assets/js/messagerie.js"></script>
 </body>
 
 </html>

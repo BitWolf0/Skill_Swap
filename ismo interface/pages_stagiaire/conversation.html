@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISMO-SkillSwap — Mes demandes</title>
+  <title>ISMO-SkillSwap — Conversation</title>
   <meta name="description"
-    content="Votre tableau de bord ISMO-SkillSwap : gérez vos demandes, compétences et passeport numérique." />
+    content="Conversation avec un mentor ISMO-SkillSwap." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/dashboard.css" />
-  <link rel="stylesheet" href="../assets/css/mes_demandes.css" /></head>
+  <link rel="stylesheet" href="../assets/css/messagerie.css" /></head>
 
 <body>
 
@@ -42,7 +42,7 @@
         </li>
 
         <li>
-          <a href="mes_demandes.html" class="nav-item active" id="nav-requests" aria-current="page">
+          <a href="mes_demandes.html" class="nav-item" id="nav-requests">
             <span class="nav-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -50,7 +50,18 @@
               </svg>
             </span>
             <span class="nav-label">Mes Demandes</span>
-            <span class="nav-badge">3</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="messagerie.html" class="nav-item active" id="nav-messages" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </span>
+            <span class="nav-label">Messagerie</span>
           </a>
         </li>
 
@@ -295,138 +306,65 @@
     </header>
 
     <!-- ── CONTENT AREA ── -->
-    <main class="content-area" id="main-content">
+    <main class="content-area conv-page" id="main-content">
 
       <!-- Left / Centre column -->
-      <section class="content-main" aria-label="Contenu principal">
+      <section class="content-main" aria-label="Conversation">
 
-        <!-- Page title + action -->
-        <div class="page-head">
-          <div class="page-title-wrap">
-            <h1 class="page-title">Mes demandes d'aide</h1>
-            <p class="page-sub">Gérez toutes vos demandes en un seul endroit</p>
-          </div>
-          <button class="btn-publish" id="btn-publish" type="button" data-action="create-request">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
+        <!-- Conversation header -->
+        <div class="conv-header">
+          <a href="messagerie.html" class="btn-back" aria-label="Retour à la messagerie">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
             </svg>
-            Nouvelle demande
-          </button>
+          </a>
+          <div class="conv-header-info">
+            <h1 class="conv-header-title" id="conv-header-title">Conversation</h1>
+            <p class="conv-header-sub" id="conv-header-sub">Chargement...</p>
+          </div>
         </div>
 
-        <!-- Request cards -->
-        <div class="requests-list large-cards" role="list">
-
-          <!-- Card 1 -->
-          <article class="request-card large-card" role="listitem" id="request-1">
-            <div class="request-card-content">
-              <div class="request-card-left">
-                <h3 class="request-title">Aide sur les composants React</h3>
-                <p class="request-desc">Je ne comprends pas comment utiliser useEffect correctement</p>
-                <div class="request-tags">
-                  <span class="tag tag-blue">React</span>
-                  <span class="tag tag-gray">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Il y a 2h
-                  </span>
-                  <span class="tag tag-gray">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                    3 réponses
-                  </span>
-                </div>
-              </div>
-              <div class="request-card-right">
-                <span class="badge badge-pending">En attente</span>
-              </div>
+        <!-- Messages area -->
+        <div class="messages-area" id="messages-container">
+          <div class="empty-state">
+            <div class="empty-state-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
             </div>
-          </article>
+            <div class="empty-state-title">Chargement...</div>
+          </div>
+        </div>
 
-          <!-- Card 2 -->
-          <article class="request-card large-card" role="listitem" id="request-2">
-            <div class="request-card-content">
-              <div class="request-card-left">
-                <h3 class="request-title">Requête SQL complexe</h3>
-                <p class="request-desc">Besoin d'aide pour optimiser une jointure</p>
-                <div class="request-tags">
-                  <span class="tag tag-green">SQL</span>
-                  <span class="tag tag-gray">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Il y a 1j
-                  </span>
-                  <span class="tag tag-gray">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                    1 réponse
-                  </span>
-                </div>
-              </div>
-              <div class="request-card-right">
-                <span class="badge badge-active">En cours</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="request-card large-card" role="listitem" id="request-3">
-            <div class="request-card-content">
-              <div class="request-card-left">
-                <h3 class="request-title">Problème de CSS Grid</h3>
-                <p class="request-desc">Layout qui ne fonctionne pas sur mobile</p>
-                <div class="request-tags">
-                  <span class="tag tag-pink">CSS</span>
-                  <span class="tag tag-gray">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Il y a 3j
-                  </span>
-                  <span class="tag tag-gray">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                    5 réponses
-                  </span>
-                </div>
-              </div>
-              <div class="request-card-right">
-                <span class="badge badge-done">Résolu</span>
-                <button class="btn-rate" type="button" aria-label="Noter le mentor" title="Noter le mentor">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  <span>Noter</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-        </div><!-- /.requests-list -->
+        <!-- Message input -->
+        <div class="msg-input-area">
+          <button class="btn-attach" type="button" aria-label="Joindre un fichier">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+            </svg>
+          </button>
+          <div class="msg-input-wrap">
+            <textarea id="msg-input" rows="1" placeholder="Écrivez votre message..." aria-label="Écrire un message"></textarea>
+          </div>
+          <button class="btn-send" id="btn-send" type="button" aria-label="Envoyer le message">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
 
       </section><!-- /.content-main -->
 
       <!-- Right column — Widgets -->
-      <aside class="content-sidebar" aria-label="Widgets">
+      <aside class="content-sidebar" aria-label="Détails de la demande">
 
-        <!-- Passport widget -->
-        <div class="widget widget-passport" id="widget-passport">
+        <div class="widget">
           <div class="widget-header">
             <span class="widget-icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -435,96 +373,50 @@
                 <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
               </svg>
             </span>
-            <h2 class="widget-title">Mon Passeport</h2>
+            <h2 class="widget-title">Participant</h2>
           </div>
-          <ul class="passport-list" role="list">
-            <li class="passport-item" data-skill="react">
-              <div class="passport-item-icon pi-blue" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
+          <div class="participant-list">
+            <div class="participant-item">
+              <div class="participant-avatar blue" id="sidebar-participant-avatar">
+                <span id="sidebar-participant-initials">?</span>
               </div>
-              <div class="passport-item-body">
-                <span class="passport-item-name">React</span>
-                <span class="passport-item-desc">Composants &amp; Hooks</span>
+              <div class="participant-info">
+                <span class="participant-name" id="sidebar-participant-name">—</span>
+                <span class="participant-role" id="sidebar-participant-role">—</span>
               </div>
-              <span class="passport-level pl-blue">Débutant</span>
-            </li>
-            <li class="passport-item" data-skill="sql">
-              <div class="passport-item-icon pi-green" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="12" cy="5" rx="9" ry="3" />
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                </svg>
-              </div>
-              <div class="passport-item-body">
-                <span class="passport-item-name">SQL</span>
-                <span class="passport-item-desc">Requêtes &amp; Jointures</span>
-              </div>
-              <span class="passport-level pl-green">Bases</span>
-            </li>
-            <li class="passport-item" data-skill="entraide">
-              <div class="passport-item-icon pi-orange" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              </div>
-              <div class="passport-item-body">
-                <span class="passport-item-name">Entraide</span>
-                <span class="passport-item-desc">5 aides validées</span>
-              </div>
-              <span class="passport-level pl-orange">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M7 2h10v5a5 5 0 0 1-10 0V2z" />
-                  <path d="M9 17l-2 5 5-2 5 2-2-5" />
-                  <path d="M12 12v5" />
-                </svg>
-                +5
-              </span>
-            </li>
-          </ul>
-          <button class="btn-passport-pdf" id="btn-passport-pdf" type="button">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Télécharger PDF
-          </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Progression widget -->
-        <div class="widget widget-progress" id="widget-progress">
+        <div class="widget">
           <div class="widget-header">
-            <span class="widget-icon widget-icon-green" aria-hidden="true">
+            <span class="widget-icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10" />
-                <line x1="12" y1="20" x2="12" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="14" />
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
               </svg>
             </span>
-            <h2 class="widget-title">Progression</h2>
+            <h2 class="widget-title">Actions</h2>
           </div>
-          <div class="progress-info">
-            <span class="progress-label">Compétences validées</span>
-            <span class="progress-count">8/15</span>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <button class="btn-publish" type="button" style="width:100%;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="18 15 12 9 6 15" />
+              </svg>
+              Voir la demande
+            </button>
+            <button class="btn-gray" type="button" style="width:100%;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              Marquer comme résolu
+            </button>
           </div>
-          <div class="progress-track" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"
-            aria-label="53% des compétences validées">
-            <div class="progress-fill" id="progress-fill" style="width: 53%"></div>
-          </div>
-          <p class="progress-hint">Encore 7 compétences pour compléter votre profil !</p>
         </div>
 
       </aside><!-- /.content-sidebar -->
@@ -538,42 +430,7 @@
 
   <script src="../assets/js/dashboard.js"></script>
   <script src="../assets/js/search-modal.js"></script>
-  <script src="../assets/js/mes_demandes.js"></script>
-
-  <!-- Rating Modal -->
-  <div class="modal" id="rating-modal" role="dialog" aria-modal="true" aria-hidden="true" hidden>
-    <div class="modal-backdrop" id="rating-backdrop"></div>
-    <div class="modal-panel" role="document" aria-labelledby="rating-title">
-      <header class="modal-header">
-        <h2 id="rating-title">Noter le mentor</h2>
-        <button class="modal-close" id="rating-close" aria-label="Fermer">✕</button>
-      </header>
-      <div class="modal-body">
-        <div class="rating-mentor-info">
-          <img src="../assets/images/default_avatar.svg" alt="" class="rating-avatar" />
-          <div class="rating-meta">
-            <div class="rating-mentor-name" id="rating-mentor-name">Mentor</div>
-            <div class="rating-mentor-filiere" id="rating-mentor-filiere">Filière</div>
-          </div>
-        </div>
-
-        <div class="rating-stars" id="rating-stars" role="radiogroup" aria-label="Note">
-          <button class="star" data-value="1" aria-checked="false">★</button>
-          <button class="star" data-value="2" aria-checked="false">★</button>
-          <button class="star" data-value="3" aria-checked="false">★</button>
-          <button class="star" data-value="4" aria-checked="false">★</button>
-          <button class="star" data-value="5" aria-checked="false">★</button>
-        </div>
-
-        <label for="rating-comment">Commentaire (optionnel)</label>
-        <textarea id="rating-comment" rows="4" placeholder="Votre retour..."></textarea>
-      </div>
-      <footer class="modal-footer">
-        <button class="btn btn-secondary" id="rating-cancel">Annuler</button>
-        <button class="btn btn-primary" id="rating-submit">Envoyer la note</button>
-      </footer>
-    </div>
-  </div>
+  <script src="../assets/js/messagerie.js"></script>
 </body>
 
 </html>
