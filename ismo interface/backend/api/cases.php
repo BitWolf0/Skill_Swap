@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ISMO-SkillSwap — Service Cases API (support & moderation)
  * GET  /api/cases.php                — list cases
@@ -11,6 +12,7 @@ require_once __DIR__ . '/../config.php';
 requireAuth();
 requireCsrf();
 
+$db = Database::getInstance();
 $userId = (int)$_SESSION['user_id'];
 $method = $_SERVER['REQUEST_METHOD'];
 $action = $_GET['action'] ?? '';
@@ -41,20 +43,20 @@ switch ($method) {
         $caseType = $_GET['type'] ?? '';
 
         if ($caseId) {
-            $stmt = $db->prepare('SELECT sc.*, CONCAT(u.first_name, " ", u.last_name) as created_by_name FROM service_cases sc JOIN users u ON sc.created_by_user_id = u.user_id WHERE sc.case_id = ?');
+            $stmt = $db->prepare('SELECT sc.*, CONCAT(u.prenom, " ", u.nom) as created_by_name FROM service_cases sc JOIN utilisateurs u ON sc.created_by_user_id = u.id WHERE sc.case_id = ?');
             $stmt->execute([$caseId]);
             $case = $stmt->fetch();
             if (!$case) jsonResponse(['error' => 'Cas non trouvé'], 404);
 
             // Get replies
-            $replies = $db->prepare('SELECT cr.*, CONCAT(u.first_name, " ", u.last_name) as user_name FROM case_replies cr JOIN users u ON cr.user_id = u.user_id WHERE cr.case_id = ? ORDER BY cr.created_at ASC');
+            $replies = $db->prepare('SELECT cr.*, CONCAT(u.prenom, " ", u.nom) as user_name FROM case_replies cr JOIN utilisateurs u ON cr.user_id = u.id WHERE cr.case_id = ? ORDER BY cr.created_at ASC');
             $replies->execute([$caseId]);
             $case['replies'] = $replies->fetchAll();
 
             jsonResponse($case);
         }
 
-        $sql = 'SELECT sc.*, CONCAT(u.first_name, " ", u.last_name) as created_by_name FROM service_cases sc JOIN users u ON sc.created_by_user_id = u.user_id WHERE 1=1';
+        $sql = 'SELECT sc.*, CONCAT(u.prenom, " ", u.nom) as created_by_name FROM service_cases sc JOIN utilisateurs u ON sc.created_by_user_id = u.id WHERE 1=1';
         $params = [];
 
         if ($caseType) {

@@ -31,22 +31,15 @@ function initializeNavigation() {
  * Handle section changes
  */
 function handleSectionChange(section) {
-    console.log('Section changed to:', section);
-    
     // Here you can implement logic to show/hide different sections
-    // For now, just log the action
     switch(section) {
         case 'dashboard':
-            console.log('Loading dashboard');
             break;
         case 'validation':
-            console.log('Loading validation');
             break;
         case 'statistics':
-            console.log('Loading statistics');
             break;
         case 'catalog':
-            console.log('Loading catalog');
             break;
     }
 }
@@ -88,7 +81,6 @@ function initializeValidationActions() {
  */
 function handleValidation(name, skill, isApproved) {
     const action = isApproved ? 'approved' : 'refused';
-    console.log(`Validation ${action} for ${name} - ${skill}`);
     
     // Here you would make an API call to save the validation
     // For now, just show a notification
@@ -157,7 +149,6 @@ function initializeViewAllButton() {
     
     if (viewAllBtn) {
         viewAllBtn.addEventListener('click', function() {
-            console.log('View all tasks clicked');
             // Navigate to full tasks page or expand section
             // This could be implemented based on your routing system
         });
@@ -172,7 +163,6 @@ function initializeNotification() {
     
     if (notificationBtn) {
         notificationBtn.addEventListener('click', function() {
-            console.log('Notification icon clicked');
             // This would typically open a notification panel or redirect to notifications page
         });
     }
@@ -326,9 +316,6 @@ function showNotification(title, message, type = 'info') {
  * Enhanced interaction logging
  */
 function logInteraction(action, details = {}) {
-    const timestamp = new Date().toLocaleTimeString();
-    console.log(`[${timestamp}] ${action}`, details);
-    
     // This could be sent to analytics or logged server-side
 }
 
@@ -401,4 +388,4 @@ if (document.readyState === 'loading') {
     initializeBadgeManagement();
 }
 
-console.log('Dashboard initialized successfully');
+

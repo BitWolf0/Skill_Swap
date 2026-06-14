@@ -12,6 +12,7 @@
   --blue-900: #1E3A8A;
   --blue-50: #EFF6FF;
   --blue-100: #DBEAFE;
+  --blue-400: #60A5FA;
   --blue-500-rgb: 59, 130, 246;
   --blue-600-rgb: 37, 99, 235;
   --red-500-rgb: 239, 68, 68;
@@ -2582,6 +2583,17 @@ code {
 
 .filter-btn:active {
   background: var(--gray-100);
+}
+
+.filter-btn.active {
+  background: var(--blue-600);
+  color: var(--white);
+  border-color: var(--blue-600);
+}
+
+.filter-btn.active:hover {
+  background: var(--blue-700);
+  border-color: var(--blue-700);
 }
 
 /* ─── ACCOUNTS TABLE ─── */

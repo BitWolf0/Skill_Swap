@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ISMO-SkillSwap v4 — Shared Helper Functions
  */
@@ -89,7 +90,7 @@ function redirect(string $url, ?string $message = null, string $type = 'info'): 
  * Sanitize output string
  */
 function h(mixed $value): string {
-    return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+    return htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
 /**

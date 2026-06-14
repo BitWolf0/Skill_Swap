@@ -228,13 +228,13 @@ async function loadNotifs() {
         if (!n.is_read) {
           try {
             await fetch('backend/api/notifications.php?id=' + n.notification_id, { method: 'PUT', headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' } });
-          } catch {}
+          } catch (e) { console.warn('Mark read failed', e); }
         }
         notifPanel.hidden = true;
       });
       notifList.appendChild(item);
     }
-  } catch {}
+  } catch (e) { console.warn('Load notifs failed', e); }
 }
 
 notifBtn?.addEventListener('click', async function(e) {
@@ -253,7 +253,7 @@ markAllBtn?.addEventListener('click', async function(e) {
     const dot = document.querySelector('.notif-dot');
     if (dot) dot.style.display = 'none';
     await loadNotifs();
-  } catch {}
+  } catch (e) { console.warn('Mark all read failed', e); }
 });
 
 document.addEventListener('click', function() {

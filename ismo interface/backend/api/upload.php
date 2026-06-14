@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 require_once __DIR__ . '/../config.php';
 requireAuth();
 requireCsrf();
@@ -12,17 +13,21 @@ if (!$file || $file['error'] !== UPLOAD_ERR_OK) {
     jsonResponse(['error' => 'Aucun fichier ou erreur d\'upload'], 400);
 }
 
-$allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-if (!in_array($file['type'], $allowed)) {
+$detectedType = @getimagesize($file['tmp_name']);
+if (!$detectedType) {
+    jsonResponse(['error' => 'Fichier invalide ou corrompu'], 400);
+}
+$allowedTypes = [IMAGETYPE_JPEG => 'jpg', IMAGETYPE_PNG => 'png', IMAGETYPE_GIF => 'gif', IMAGETYPE_WEBP => 'webp'];
+if (!isset($allowedTypes[$detectedType[2]])) {
     jsonResponse(['error' => 'Format autorisé : JPG, PNG, GIF, WebP'], 400);
 }
+$ext = $allowedTypes[$detectedType[2]];
 
 $maxSize = 2 * 1024 * 1024;
 if ($file['size'] > $maxSize) {
     jsonResponse(['error' => 'Image trop volumineuse (max 2 Mo)'], 400);
 }
 
-$ext = pathinfo($file['name'], PATHINFO_EXTENSION) ?: 'jpg';
 $filename = 'avatar_' . $_SESSION['user_id'] . '_' . time() . '.' . $ext;
 $uploadDir = __DIR__ . '/../../uploads/avatars/';
 $dest = $uploadDir . $filename;

@@ -4,9 +4,11 @@
  * Tests page load times, database performance, and functionality
  */
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+if (PHP_SAPI === 'cli') {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
 
 // Include config
 require_once dirname(__DIR__) . '/backend/config.php';

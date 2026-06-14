@@ -1,0 +1,11 @@
+# Bloquer l'exécution de scripts
+php_flag engine off
+Options -Indexes
+
+# Autoriser uniquement les fichiers images statiques
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|php8|phps|pl|cgi|py|rb|sh|bash|exe|com|bat|cmd)$">
+    Deny from all
+</FilesMatch>
+
+# Forcer le téléchargement et non l'exécution
+SetHandler default-handler

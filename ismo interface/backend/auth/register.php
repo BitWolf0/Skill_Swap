@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(['error' => 'Méthode non autorisée'], 405);
 }
 
+requireCsrf();
+
 $nom      = trim($_POST['nom'] ?? '');
 $prenom   = trim($_POST['prenom'] ?? '');
 $email    = trim($_POST['email'] ?? '');

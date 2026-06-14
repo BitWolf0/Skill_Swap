@@ -54,11 +54,12 @@
     width: 100%;
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-md);
-    background: var(--white);
+    background: var(--gray-50);
     color: var(--gray-900);
     padding: 12px 14px;
     font: inherit;
-    transition: border-color var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .form-field textarea {
@@ -71,6 +72,7 @@
 .form-field textarea:focus {
     outline: none;
     border-color: var(--blue-600);
+    background: var(--white);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
 }
 

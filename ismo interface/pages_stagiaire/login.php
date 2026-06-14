@@ -122,6 +122,7 @@ if (isLoggedIn()) {
             <div style="background:#FEF3C7;border:1px solid #F59E0B;color:#92400E;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;text-align:center;" role="alert">Session expirée. Veuillez vous reconnecter.</div>
           <?php endif; ?>
           <form id="login-form" method="post" action="../backend/auth/login.php" novalidate>
+            <?= csrfField() ?>
             <div class="input-group">
               <label for="login-email">Adresse e-mail</label>
               <div class="input-wrapper">
@@ -161,6 +162,7 @@ if (isLoggedIn()) {
             <p>Rejoignez des centaines d'étudiants qui s'entraident chaque jour.</p>
           </div>
           <form id="signup-form" method="post" action="../backend/auth/register.php" novalidate>
+            <?= csrfField() ?>
             <div class="name-row">
               <div class="input-group">
                 <label for="signup-prenom">Prénom</label>

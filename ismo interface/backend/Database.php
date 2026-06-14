@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ISMO-SkillSwap v4 — Database Connection (PDO Singleton)
  * 

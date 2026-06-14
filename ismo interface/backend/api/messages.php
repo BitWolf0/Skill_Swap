@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ISMO-SkillSwap — Messaging API
  * GET  /api/messages.php                — list user's conversations
@@ -29,6 +30,10 @@ switch ($method) {
         }
 
         if ($convId) {
+            $isParticipant = $db->prepare('SELECT 1 FROM conversation_participants WHERE conversation_id = ? AND user_id = ?');
+            $isParticipant->execute([$convId, $userId]);
+            if (!$isParticipant->fetch()) jsonResponse(['error' => 'Conversation introuvable'], 404);
+
             $stmt = $db->prepare('SELECT * FROM messages WHERE conversation_id = ? ORDER BY created_at ASC');
             $stmt->execute([$convId]);
             $messages = $stmt->fetchAll();
@@ -40,9 +45,9 @@ switch ($method) {
                ->execute([$convId, $userId]);
 
             $partStmt = $db->prepare('
-                SELECT u.user_id, u.first_name, u.last_name, u.role, u.profile_picture_url
+                SELECT u.id AS user_id, u.prenom AS first_name, u.nom AS last_name, u.role, u.photo AS profile_picture_url
                 FROM conversation_participants cp
-                JOIN users u ON cp.user_id = u.user_id
+                JOIN utilisateurs u ON cp.user_id = u.id
                 WHERE cp.conversation_id = ?
             ');
             $partStmt->execute([$convId]);
@@ -75,20 +80,20 @@ switch ($method) {
                     WHERE m.conversation_id = c.conversation_id AND m.sender_id != ? AND m.is_read = 0
                 ) AS unread,
                 (
-                    SELECT u.first_name FROM conversation_participants cp2
-                    JOIN users u ON cp2.user_id = u.user_id
+                    SELECT u.prenom FROM conversation_participants cp2
+                    JOIN utilisateurs u ON cp2.user_id = u.id
                     WHERE cp2.conversation_id = c.conversation_id AND cp2.user_id != ?
                     LIMIT 1
                 ) AS other_first_name,
                 (
-                    SELECT u.last_name FROM conversation_participants cp2
-                    JOIN users u ON cp2.user_id = u.user_id
+                    SELECT u.nom FROM conversation_participants cp2
+                    JOIN utilisateurs u ON cp2.user_id = u.id
                     WHERE cp2.conversation_id = c.conversation_id AND cp2.user_id != ?
                     LIMIT 1
                 ) AS other_last_name,
                 (
                     SELECT u.role FROM conversation_participants cp2
-                    JOIN users u ON cp2.user_id = u.user_id
+                    JOIN utilisateurs u ON cp2.user_id = u.id
                     WHERE cp2.conversation_id = c.conversation_id AND cp2.user_id != ?
                     LIMIT 1
                 ) AS other_role
@@ -156,7 +161,7 @@ switch ($method) {
                 $relatedPostId = $postId;
             }
 
-            $check = $db->prepare("SELECT user_id FROM users WHERE user_id = ? AND status = 'active'");
+            $check = $db->prepare("SELECT id FROM utilisateurs WHERE id = ? AND est_actif = 1");
             $check->execute([$recipientId]);
             if (!$check->fetch()) jsonResponse(['error' => 'Destinataire invalide'], 404);
 
@@ -203,7 +208,7 @@ switch ($method) {
                 jsonResponse(['success' => true, 'conversation_id' => $newConvId], 201);
             } catch (Exception $e) {
                 $db->rollBack();
-                jsonResponse(['error' => 'Erreur lors de la création: ' . $e->getMessage()], 500);
+                jsonResponse(['error' => 'Erreur lors de la création'], 500);
             }
         }
 

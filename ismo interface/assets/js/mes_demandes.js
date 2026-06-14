@@ -51,7 +51,6 @@
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const requestId = this.closest('.request-item')?.dataset.requestId;
-                console.log('[mes_demandes.js] View responses for request:', requestId);
                 // TODO: Implement backend call to fetch and display responses
             });
         });
@@ -62,7 +61,6 @@
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const requestId = this.closest('.request-item')?.dataset.requestId;
-                console.log('[mes_demandes.js] Edit request:', requestId);
                 // TODO: Implement edit modal or redirect to edit page
             });
         });
@@ -73,7 +71,6 @@
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const requestId = this.closest('.request-item')?.dataset.requestId;
-                console.log('[mes_demandes.js] Close request:', requestId);
                 if (confirm('Êtes-vous sûr de vouloir fermer cette demande?')) {
                     // TODO: Implement backend call to close request
                     // On success: removeItem or mark as closed
@@ -87,7 +84,6 @@
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const requestId = this.closest('.request-item')?.dataset.requestId;
-                console.log('[mes_demandes.js] Delete request:', requestId);
                 if (confirm('Êtes-vous sûr de vouloir supprimer cette demande?')) {
                     // TODO: Implement backend call to delete request
                 }
@@ -193,7 +189,6 @@
 
             // simulate POST — keep graceful if backend missing
             const payload = { requestId: currentRequestId, rating: selectedValue, comment };
-            console.log('[mes_demandes] Submitting rating', payload);
 
             // Try to POST if endpoint exists, fallback to simulated success
             (async function send() {
@@ -246,7 +241,6 @@
      * Load requests from backend (placeholder)
      */
     function loadRequests() {
-        console.log('[mes_demandes.js] Loading requests from backend...');
         // TODO: Implement fetch call to GET /api/help-requests
     }
 

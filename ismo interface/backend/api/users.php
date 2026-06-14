@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 require_once __DIR__ . '/../config.php';
 requireAuth();
 requireCsrf();
@@ -102,7 +103,7 @@ switch ($method) {
             $db->prepare('UPDATE utilisateurs SET ' . implode(', ', $fields) . ' WHERE id = ?')
                ->execute($params);
         } catch (\PDOException $e) {
-            jsonResponse(['error' => 'Erreur SQL: ' . $e->getMessage()], 500);
+            jsonResponse(['error' => 'Erreur lors de la mise à jour'], 500);
         }
 
         jsonResponse(['success' => true, 'message' => 'Profil mis à jour']);

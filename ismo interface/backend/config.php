@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ISMO-SkillSwap v4 — Application Configuration
  */
@@ -6,7 +7,8 @@ define('APP_RUNNING', true);
 
 // Secure session configuration
 $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-        || (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
+        || (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+        || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
 session_set_cookie_params([
     'lifetime' => 86400, // 24h cookie lifetime
     'path'     => '/',
