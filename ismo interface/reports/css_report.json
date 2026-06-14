@@ -1,0 +1,255 @@
+{
+  "title": "ISMO-SkillSwap CSS Analysis Report",
+  "timestamp": "2026-06-01T15:51:50.177230",
+  "total_files": 22,
+  "files": {
+    "catalogue.css": {
+      "size_kb": 12.5,
+      "lines": 742,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 5,
+        "duplicate_selectors": 3,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "catalogue_admin.css": {
+      "size_kb": 10.07,
+      "lines": 587,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 3,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "classement.css": {
+      "size_kb": 8.07,
+      "lines": 470,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "dashboard.css": {
+      "size_kb": 65.2,
+      "lines": 3165,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 73,
+        "duplicate_selectors": 10,
+        "font_issues": 2
+      },
+      "status": "NEEDS_FIX"
+    },
+    "info.css": {
+      "size_kb": 5.42,
+      "lines": 295,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 6,
+        "duplicate_selectors": 0,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "login.css": {
+      "size_kb": 22.26,
+      "lines": 897,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 29,
+        "duplicate_selectors": 4,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "marketplace.css": {
+      "size_kb": 13.23,
+      "lines": 741,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 1,
+        "duplicate_selectors": 4,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "mentor_apply.css": {
+      "size_kb": 9.96,
+      "lines": 579,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 1,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "mes_aides.css": {
+      "size_kb": 11.82,
+      "lines": 674,
+      "issues": {
+        "empty_rules": 1,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "mes_badges.css": {
+      "size_kb": 10.31,
+      "lines": 638,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 3,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "mes_competances.css": {
+      "size_kb": 9.34,
+      "lines": 543,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 3,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "mes_demandes.css": {
+      "size_kb": 11.69,
+      "lines": 594,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 3,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "messagerie.css": {
+      "size_kb": 14.46,
+      "lines": 790,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 0,
+        "font_issues": 0
+      },
+      "status": "OK"
+    },
+    "notification.css": {
+      "size_kb": 7.61,
+      "lines": 454,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "nouvelle_demande.css": {
+      "size_kb": 2.45,
+      "lines": 149,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 0,
+        "font_issues": 0
+      },
+      "status": "OK"
+    },
+    "parametres.css": {
+      "size_kb": 10.09,
+      "lines": 589,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "passeport_pdf.css": {
+      "size_kb": 4.63,
+      "lines": 265,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 1,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "profile.css": {
+      "size_kb": 9.38,
+      "lines": 553,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "recherche.css": {
+      "size_kb": 11.49,
+      "lines": 631,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 0,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "statistique.css": {
+      "size_kb": 14.18,
+      "lines": 820,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 5,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    },
+    "tableau_de_bord.css": {
+      "size_kb": 21.13,
+      "lines": 1222,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 39,
+        "duplicate_selectors": 2,
+        "font_issues": 1
+      },
+      "status": "NEEDS_FIX"
+    },
+    "validation_demande.css": {
+      "size_kb": 13.05,
+      "lines": 750,
+      "issues": {
+        "empty_rules": 0,
+        "hex_colors_found": 8,
+        "duplicate_selectors": 2,
+        "font_issues": 0
+      },
+      "status": "NEEDS_FIX"
+    }
+  },
+  "summary": {
+    "total_size_kb": 298.33,
+    "total_lines": 16148,
+    "total_issues_found": 226,
+    "files_needing_fixes": 20
+  }
+}

@@ -90,6 +90,6 @@ signupForm?.addEventListener('submit', (event) => {
     setAlert('Compte cree avec succes. Redirection...', 'success');
 
     setTimeout(() => {
-        window.location.href = 'login.html';
+        window.location.href = 'login.php';
     }, 1200);
 });

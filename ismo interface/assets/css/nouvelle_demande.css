@@ -1,6 +1,7 @@
 /* nouvelle_demande.css - Styles for help request submission page */
 
 .request-form-page {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) 320px;
     gap: 24px;
 }

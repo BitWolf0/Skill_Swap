@@ -12,76 +12,9 @@
     // ══════════════════════════════════════════════════════════════════════════
 
     document.addEventListener('DOMContentLoaded', function () {
-        console.log('[mes_demandes.js] Initializing...');
-
-        // Initialize search functionality
-        initSearchAndFilter();
-
-        // Initialize request list interactions
         initRequestInteractions();
-
-        // Initialize action buttons
         initActionButtons();
-
-        console.log('[mes_demandes.js] Ready');
     });
-
-    // ══════════════════════════════════════════════════════════════════════════
-    // SEARCH & FILTER
-    // ══════════════════════════════════════════════════════════════════════════
-
-    function initSearchAndFilter() {
-        const searchInput = document.getElementById('search-input');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-
-        if (!searchInput) return;
-
-        // Search input listener
-        searchInput.addEventListener('input', function (e) {
-            const query = e.target.value.toLowerCase();
-                const requestItems = document.querySelectorAll('.request-item, .request-card');
-
-            requestItems.forEach(function (item) {
-                const title = item.querySelector('.request-title')?.textContent.toLowerCase() || '';
-                const description = item.querySelector('.request-desc')?.textContent.toLowerCase() || '';
-
-                if (title.includes(query) || description.includes(query)) {
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-
-        // Filter buttons
-        if (filterBtns.length > 0) {
-            filterBtns.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    // Toggle active state
-                    filterBtns.forEach(function (b) {
-                        b.classList.remove('active');
-                    });
-                    this.classList.add('active');
-
-                    const filter = this.dataset.filter;
-                    const requestItems = document.querySelectorAll('.request-item, .request-card');
-
-                    requestItems.forEach(function (item) {
-                        let status = item.dataset.status;
-                        if (!status) {
-                            const badge = item.querySelector('.badge');
-                            status = badge ? badge.textContent.trim().toLowerCase() : '';
-                        }
-                        if (filter === 'all' || status === filter) {
-                            item.style.display = '';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        }
-    }
 
     // ══════════════════════════════════════════════════════════════════════════
     // REQUEST INTERACTIONS
@@ -165,7 +98,7 @@
         const createNewBtn = document.querySelector('[data-action="create-request"]');
         if (createNewBtn) {
             createNewBtn.addEventListener('click', function () {
-                window.location.href = 'nouvelle_demande.html';
+                window.location.href = 'nouvelle_demande.php';
             });
         }
     }
@@ -267,7 +200,7 @@
                 try {
                     const resp = await fetch('/api/ratings', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' },
                         body: JSON.stringify(payload)
                     });
                     if (!resp.ok) throw new Error('network');

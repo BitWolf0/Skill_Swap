@@ -1,0 +1,1190 @@
+{
+  "title": "ISMO-SkillSwap Style Audit Report",
+  "total_pages_audited": 53,
+  "pages_with_issues": 53,
+  "issues": {
+    "pages_stagiaire/termes.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 8 inline styles - use CSS classes instead",
+        "count": 8,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/mes_competances.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/conditions.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 8 inline styles - use CSS classes instead",
+        "count": 8,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/login.php": [
+      {
+        "type": "SECURITY_META_TAG",
+        "severity": "HIGH",
+        "message": "X-Frame-Options should be set via HTTP header, not meta tag",
+        "header": "X-Frame-Options",
+        "action": "REMOVE"
+      },
+      {
+        "type": "SECURITY_META_TAG",
+        "severity": "HIGH",
+        "message": "X-Content-Type-Options should be set via HTTP header",
+        "header": "X-Content-Type-Options",
+        "action": "REMOVE"
+      },
+      {
+        "type": "SECURITY_META_TAG",
+        "severity": "HIGH",
+        "message": "Referrer-Policy should be set via HTTP header",
+        "header": "Referrer-Policy",
+        "action": "REMOVE"
+      },
+      {
+        "type": "SECURITY_META_TAG",
+        "severity": "HIGH",
+        "message": "Permissions-Policy should be set via HTTP header",
+        "header": "Permissions-Policy",
+        "action": "REMOVE"
+      },
+      {
+        "type": "HARDCODED_COLORS",
+        "severity": "MEDIUM",
+        "message": "Found 2 hardcoded colors - use CSS variables",
+        "count": 2,
+        "action": "USE_CSS_VARS"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/mes_demandes.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/dashboard.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 10 inline styles - use CSS classes instead",
+        "count": 10,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/profile.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/passeport_pdf.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/notification.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/aide.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 12 inline styles - use CSS classes instead",
+        "count": 12,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/index.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/confidentialite.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 9 inline styles - use CSS classes instead",
+        "count": 9,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/conversation.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 2 inline styles - use CSS classes instead",
+        "count": 2,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/mentor_apply.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/recherche.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 3 inline styles - use CSS classes instead",
+        "count": 3,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/inscription.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/404.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 2 inline styles - use CSS classes instead",
+        "count": 2,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "HARDCODED_COLORS",
+        "severity": "MEDIUM",
+        "message": "Found 21 hardcoded colors - use CSS variables",
+        "count": 21,
+        "action": "USE_CSS_VARS"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/mes_badges.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 1 inline styles - use CSS classes instead",
+        "count": 1,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/nouvelle_demande.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/parametres.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/classement.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/messagerie.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 1 inline styles - use CSS classes instead",
+        "count": 1,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_stagiaire/support.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 2 inline styles - use CSS classes instead",
+        "count": 2,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/mes_competances.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/mes_demandes.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/dashboard.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/notification.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/mes_aides.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 1 inline styles - use CSS classes instead",
+        "count": 1,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/index.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/conversation.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 2 inline styles - use CSS classes instead",
+        "count": 2,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/recherche.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 3 inline styles - use CSS classes instead",
+        "count": 3,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/mes_badges.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 1 inline styles - use CSS classes instead",
+        "count": 1,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/parametres.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/classement.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/messagerie.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 1 inline styles - use CSS classes instead",
+        "count": 1,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_mentor/marketplace.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/catalogue_admin.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/index.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/statistiques_admin.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/tableau_de_bord.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/moderation.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/parametres.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/candidatures_mentor.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 1 inline styles - use CSS classes instead",
+        "count": 1,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/gestion_badges.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 6 inline styles - use CSS classes instead",
+        "count": 6,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "pages_admin/gestion_comptes.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 3 inline styles - use CSS classes instead",
+        "count": 3,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/profile.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/index.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/validation_demande.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/recherche.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/tableau_de_bord.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/catalogue.php": [
+      {
+        "type": "INLINE_STYLES",
+        "severity": "MEDIUM",
+        "message": "Found 3 inline styles - use CSS classes instead",
+        "count": 3,
+        "action": "REFACTOR"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/parametres.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ],
+    "formateur_pages/statistique.php": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "HIGH",
+        "message": "Missing viewport meta tag for responsive design",
+        "action": "ADD"
+      },
+      {
+        "type": "MISSING_LANG",
+        "severity": "LOW",
+        "message": "Missing lang attribute on html tag",
+        "action": "ADD"
+      },
+      {
+        "type": "INFO",
+        "severity": "INFO",
+        "message": "Page structure looks good"
+      }
+    ]
+  },
+  "summary": {
+    "security_issues": 4,
+    "responsive_issues": 52,
+    "accessibility_issues": 0,
+    "consistency_issues": 22
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "title": "ISMO-SkillSwap Functionality Test Report",
+  "timestamp": "2026-06-01T15:55:09.066536",
+  "summary": {
+    "total_tests": 27,
+    "passed": 10,
+    "failed": 17,
+    "duration_ms": 267.43
+  },
+  "results": {
+    "Login Page": {
+      "status": "PASS",
+      "status_code": 200,
+      "duration_ms": 48.55,
+      "size_bytes": 13933,
+      "size_kb": 13.61,
+      "has_title": true,
+      "has_form": true,
+      "has_css": true,
+      "has_js": true
+    },
+    "Registration": {
+      "status": "PASS",
+      "status_code": 200,
+      "duration_ms": 23.38,
+      "size_bytes": 13933,
+      "size_kb": 13.61,
+      "has_title": true,
+      "has_form": true,
+      "has_css": true,
+      "has_js": true
+    },
+    "Stagiaire Dashboard": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 14.420032501220703
+    },
+    "My Skills": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.285833358764648
+    },
+    "My Requests": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 6.949424743652344
+    },
+    "My Badges": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.560253143310547
+    },
+    "Search": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 11.30533218383789
+    },
+    "Profile": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.4329376220703125
+    },
+    "Settings": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.078409194946289
+    },
+    "Help": {
+      "status": "PASS",
+      "status_code": 200,
+      "duration_ms": 3.98,
+      "size_bytes": 9393,
+      "size_kb": 9.17,
+      "has_title": true,
+      "has_form": false,
+      "has_css": true,
+      "has_js": true
+    },
+    "Mentor Dashboard": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 5.92494010925293
+    },
+    "Marketplace": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 5.480527877807617
+    },
+    "My Aids": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.462739944458008
+    },
+    "Admin Dashboard": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 2.51007080078125
+    },
+    "Account Management": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.257699966430664
+    },
+    "Moderation": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.468223571777344
+    },
+    "Statistics": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 8.076906204223633
+    },
+    "Formateur Dashboard": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 8.004426956176758
+    },
+    "Catalogue": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.184267044067383
+    },
+    "Request Validation": {
+      "status": "FAIL",
+      "status_code": 404,
+      "error": "HTTP Error 404",
+      "duration_ms": 7.280588150024414
+    },
+    "CSS: Dashboard": {
+      "status": "PASS",
+      "duration_ms": 2.32,
+      "size_kb": 69.72
+    },
+    "CSS: Login": {
+      "status": "PASS",
+      "duration_ms": 2.17,
+      "size_kb": 24.08
+    },
+    "CSS: Marketplace": {
+      "status": "PASS",
+      "duration_ms": 1.96,
+      "size_kb": 13.97
+    },
+    "CSS: Tableau de Bord": {
+      "status": "PASS",
+      "duration_ms": 1.8,
+      "size_kb": 23.69
+    },
+    "JS: Dashboard": {
+      "status": "PASS",
+      "duration_ms": 2.62,
+      "size_kb": 10.45
+    },
+    "JS: Login": {
+      "status": "PASS",
+      "duration_ms": 1.96,
+      "size_kb": 15.94
+    },
+    "JS: Marketplace": {
+      "status": "PASS",
+      "duration_ms": 1.67,
+      "size_kb": 1.14
+    }
+  }
+}

@@ -64,7 +64,7 @@ requestForm?.addEventListener('submit', (event) => {
     showToast?.('Demande envoyee avec succes.', 'success');
 
     setTimeout(() => {
-        window.location.href = 'mes_demandes.html';
+        window.location.href = 'mes_demandes.php';
     }, 900);
 });
 

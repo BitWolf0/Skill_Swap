@@ -2,7 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
-    initializeRoleButtons();
     initializeValidationActions();
     initializeTaskCheckboxes();
     initializeViewAllButton();
@@ -50,38 +49,6 @@ function handleSectionChange(section) {
             console.log('Loading catalog');
             break;
     }
-}
-
-/**
- * Initialize role button switching
- */
-function initializeRoleButtons() {
-    const roleButtons = document.querySelectorAll('.role-btn');
-    
-    roleButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            roleButtons.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const role = this.textContent.trim();
-            handleRoleChange(role);
-        });
-    });
-}
-
-/**
- * Handle role changes
- */
-function handleRoleChange(role) {
-    console.log('Role changed to:', role);
-    
-    // Store the selected role
-    localStorage.setItem('selectedRole', role);
-    
-    // Here you would typically make an API call to switch roles
-    // and reload the dashboard with the new role's data
 }
 
 /**

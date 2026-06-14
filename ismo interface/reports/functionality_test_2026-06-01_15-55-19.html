@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISMO-SkillSwap Functionality Test Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Inter, -apple-system, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .metadata { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; padding: 30px; background: #f9f9f9; border-bottom: 1px solid #e0e0e0; }
+        .metric { padding: 15px; }
+        .metric label { font-size: 0.85em; color: #666; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .metric value { font-size: 1.5em; font-weight: 700; color: #667eea; }
+        .content { padding: 30px; }
+        .section { margin-bottom: 40px; }
+        .section h2 { font-size: 1.3em; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #667eea; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { background: #f3f4f6; padding: 12px; text-align: left; font-weight: 600; color: #333; }
+        td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+        tr:hover { background: #fafafa; }
+        .status-pass { color: #10b981; font-weight: 600; }
+        .status-fail { color: #ef4444; font-weight: 600; }
+        .footer { background: #f9f9f9; padding: 20px; text-align: center; color: #666; border-top: 1px solid #e0e0e0; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 ISMO-SkillSwap Functionality Test Report</h1>
+            <p>Comprehensive HTTP and API Testing</p>
+        </div>
+        
+        <div class="metadata">
+            <div class="metric">
+                <label>Total Tests</label>
+                <value>27</value>
+            </div>
+            <div class="metric">
+                <label>Passed</label>
+                <value style="color: #10b981;">✓ 10</value>
+            </div>
+            <div class="metric">
+                <label>Failed</label>
+                <value style="color: #ef4444;">✗ 17</value>
+            </div>
+            <div class="metric">
+                <label>Duration</label>
+                <value>165ms</value>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>📋 Test Results</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Status</th>
+                            <th>Duration (ms)</th>
+                            <th>Size (KB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Account Management</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>6.205320358276367</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Admin Dashboard</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>1.9152164459228516</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>CSS: Dashboard</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.56</td>
+                            <td>69.72</td>
+                        </tr>
+
+                        <tr>
+                            <td>CSS: Login</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.59</td>
+                            <td>24.08</td>
+                        </tr>
+
+                        <tr>
+                            <td>CSS: Marketplace</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.42</td>
+                            <td>13.97</td>
+                        </tr>
+
+                        <tr>
+                            <td>CSS: Tableau de Bord</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.28</td>
+                            <td>23.69</td>
+                        </tr>
+
+                        <tr>
+                            <td>Catalogue</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.441188812255859</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Formateur Dashboard</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>6.028652191162109</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Help</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>3.34</td>
+                            <td>9.17</td>
+                        </tr>
+
+                        <tr>
+                            <td>JS: Dashboard</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.44</td>
+                            <td>10.45</td>
+                        </tr>
+
+                        <tr>
+                            <td>JS: Login</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.62</td>
+                            <td>15.94</td>
+                        </tr>
+
+                        <tr>
+                            <td>JS: Marketplace</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>1.73</td>
+                            <td>1.14</td>
+                        </tr>
+
+                        <tr>
+                            <td>Login Page</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>23.21</td>
+                            <td>13.61</td>
+                        </tr>
+
+                        <tr>
+                            <td>Marketplace</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.332231521606445</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Mentor Dashboard</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>6.1511993408203125</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Moderation</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.593538284301758</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>My Aids</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.571603775024414</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>My Badges</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.396127700805664</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>My Requests</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.3920745849609375</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>My Skills</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>6.414890289306641</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Profile</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.616903305053711</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Registration</td>
+                            <td><span class="status-pass">✓ PASS</span></td>
+                            <td>7.39</td>
+                            <td>13.61</td>
+                        </tr>
+
+                        <tr>
+                            <td>Request Validation</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>6.019115447998047</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Search</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.665302276611328</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Settings</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.07664680480957</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Stagiaire Dashboard</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>5.951166152954102</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Statistics</td>
+                            <td><span class="status-fail">✗ FAIL</span></td>
+                            <td>6.150007247924805</td>
+                            <td>-</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Generated on 2026-06-01 15:55:19 | Total execution time: 165ms</p>
+            <p>ISMO-SkillSwap Test Suite v1.0</p>
+        </div>
+    </div>
+</body>
+</html>

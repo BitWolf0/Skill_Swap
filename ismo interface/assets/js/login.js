@@ -270,19 +270,28 @@ if (loginForm) {
 
     if (!valid) return;
 
-    // Simulate async login
     btn.classList.add('loading');
     btn.disabled = true;
 
-    await delay(1600);
+    try {
+      const resp = await fetch(loginForm.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(loginForm))
+      });
+      const result = await resp.json();
+
+      if (result.success && result.redirect) {
+        showToast('Connexion réussie ! Redirection...', 'success');
+        setTimeout(() => { window.location.href = result.redirect; }, 500);
+      } else {
+        showToast(result.error || 'Erreur de connexion', 'error');
+      }
+    } catch (err) {
+      showToast('Erreur de connexion au serveur', 'error');
+    }
 
     btn.classList.remove('loading');
     btn.disabled = false;
-
-    showToast('Connexion réussie ! Bienvenue 🎉', 'success');
-    clearState(emailEl, emailErr);
-    clearState(passwordEl, passwordErr);
-    loginForm.reset();
   });
 }
 
@@ -322,17 +331,27 @@ if (signupForm) {
     btn.classList.add('loading');
     btn.disabled = true;
 
-    await delay(1800);
+    try {
+      const resp = await fetch(signupForm.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(signupForm))
+      });
+      const result = await resp.json();
+
+      if (result.success) {
+        showToast(result.message || 'Compte créé !', 'success');
+        if (result.redirect) {
+          setTimeout(() => { window.location.href = result.redirect; }, 500);
+        }
+      } else {
+        showToast(result.error || 'Erreur lors de l\'inscription', 'error');
+      }
+    } catch (err) {
+      showToast('Erreur de connexion au serveur', 'error');
+    }
 
     btn.classList.remove('loading');
     btn.disabled = false;
-
-    showToast('Compte créé avec succès ! Bienvenue sur ISMO-SkillSwap', 'success');
-    signupForm.reset();
-    document.getElementById('strength-fill').style.width = '0%';
-    document.getElementById('strength-label').textContent = '';
-
-    setTimeout(() => switchTab('login'), 1500);
   });
 }
 

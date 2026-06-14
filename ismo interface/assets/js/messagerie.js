@@ -180,7 +180,7 @@ function renderConversations(list) {
     const unreadBadge = c.unread > 0 ? `<span class="conv-badge">${c.unread}</span>` : '';
     const unreadClass = c.unread > 0 ? 'unread' : '';
     const previewClass = c.unread > 0 ? 'unread-text' : '';
-    const href = `conversation.html?id=${c.id}`;
+    const href = `conversation.php?id=${c.id}`;
 
     return `
       <a href="${href}" class="conv-item ${unreadClass}">
