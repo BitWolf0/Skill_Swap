@@ -1,0 +1,118 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 2" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "2"
+        - listitem [ref=e21]:
+          - link "Mes Badges" [ref=e22] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e24]
+            - generic [ref=e27]: Mes Badges
+        - listitem [ref=e28]:
+          - link "Mes Compétences" [ref=e29] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e31]
+            - generic [ref=e33]: Mes Compétences
+        - listitem [ref=e34]:
+          - link "Passeport PDF" [ref=e35] [cursor=pointer]:
+            - /url: passeport_pdf.php
+            - img [ref=e37]
+            - generic [ref=e40]: Passeport PDF
+        - listitem [ref=e41]:
+          - link "Devenir Mentor" [ref=e42] [cursor=pointer]:
+            - /url: mentor_apply.php
+            - img [ref=e44]
+            - generic [ref=e49]: Devenir Mentor
+    - generic [ref=e51]:
+      - img [ref=e53]
+      - generic [ref=e56]:
+        - generic [ref=e57]: Sophie Martin
+        - generic [ref=e58]: Stagiaire
+  - generic [ref=e59]:
+    - banner [ref=e60]:
+      - button "Ouvrir le menu" [ref=e61] [cursor=pointer]:
+        - img [ref=e62]
+      - generic [ref=e63]:
+        - img [ref=e65]
+        - generic [ref=e69]: ISMO-SkillSwap
+      - generic [ref=e70]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e71]
+        - generic: ⌘K
+      - generic [ref=e72]:
+        - button "Notifications" [ref=e73] [cursor=pointer]:
+          - img [ref=e74]
+        - button "Menu profil" [ref=e77] [cursor=pointer]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: Sophie Martin
+            - generic [ref=e80]: "Points: 10"
+          - img [ref=e82]
+    - main [ref=e85]:
+      - region "Messagerie" [ref=e86]:
+        - generic [ref=e88]:
+          - heading "Messagerie" [level=1] [ref=e89]
+          - paragraph [ref=e90]: Consultez et gérez toutes vos conversations
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - generic:
+              - img
+            - textbox "Rechercher une conversation" [ref=e93]:
+              - /placeholder: Rechercher une conversation...
+          - button "Nouvelle conversation" [ref=e94] [cursor=pointer]:
+            - img [ref=e95]
+            - text: Nouvelle conversation
+        - link "JD Jean Dupont 19:59 Test conversation Merci Sophie, bonne idée ! 1" [ref=e97] [cursor=pointer]:
+          - /url: conversation.php?id=1
+          - generic [ref=e98]: JD
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]: Jean Dupont
+              - generic [ref=e102]: 19:59
+            - generic [ref=e103]: Test conversation
+            - generic [ref=e104]: Merci Sophie, bonne idée !
+          - generic [ref=e105]: "1"
+      - complementary "Statistiques" [ref=e106]:
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - img [ref=e110]
+            - heading "Activité" [level=2] [ref=e112]
+          - generic [ref=e113]:
+            - generic [ref=e114]: 1Conversations
+            - generic [ref=e115]: 1Non lues
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - img [ref=e119]
+            - heading "Conseil" [level=2] [ref=e121]
+          - paragraph [ref=e122]: Les mentors les plus réactifs sont mis en avant. N'hésitez pas à relancer si vous n'avez pas de réponse sous 48h.
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - heading "Nouvelle conversation" [level=3] [ref=e126]
+        - button "Fermer" [ref=e127] [cursor=pointer]:
+          - img [ref=e128]
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - generic [ref=e133]: Destinataire
+          - textbox "Destinataire" [ref=e134]:
+            - /placeholder: Rechercher un utilisateur...
+        - generic [ref=e135]:
+          - generic [ref=e136]: Sujet (optionnel)
+          - textbox "Sujet (optionnel)" [ref=e137]:
+            - /placeholder: Objet de la conversation...
+        - generic [ref=e138]:
+          - generic [ref=e139]: Message
+          - textbox "Message" [ref=e140]:
+            - /placeholder: Écrivez votre message...
+      - generic [ref=e141]:
+        - button "Annuler" [ref=e142] [cursor=pointer]
+        - button "Envoyer" [ref=e143] [cursor=pointer]

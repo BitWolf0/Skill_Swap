@@ -1,0 +1,148 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 2" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "2"
+        - listitem [ref=e21]:
+          - link "Mes Badges" [ref=e22] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e24]
+            - generic [ref=e27]: Mes Badges
+        - listitem [ref=e28]:
+          - link "Mes Compétences" [ref=e29] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e31]
+            - generic [ref=e33]: Mes Compétences
+        - listitem [ref=e34]:
+          - link "Passeport PDF" [ref=e35] [cursor=pointer]:
+            - /url: passeport_pdf.php
+            - img [ref=e37]
+            - generic [ref=e40]: Passeport PDF
+        - listitem [ref=e41]:
+          - link "Devenir Mentor" [ref=e42] [cursor=pointer]:
+            - /url: mentor_apply.php
+            - img [ref=e44]
+            - generic [ref=e49]: Devenir Mentor
+    - generic [ref=e51]:
+      - img [ref=e53]
+      - generic [ref=e56]:
+        - generic [ref=e57]: Sophie Martin
+        - generic [ref=e58]: Stagiaire
+  - generic [ref=e59]:
+    - banner [ref=e60]:
+      - button "Ouvrir le menu" [ref=e61] [cursor=pointer]:
+        - img [ref=e62]
+      - generic [ref=e63]:
+        - img [ref=e65]
+        - generic [ref=e69]: ISMO-SkillSwap
+      - generic [ref=e70]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e71]
+        - generic: ⌘K
+      - generic [ref=e72]:
+        - button "Notifications" [ref=e73] [cursor=pointer]:
+          - img [ref=e74]
+        - button "Menu profil" [ref=e77] [cursor=pointer]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: Sophie Martin
+            - generic [ref=e80]: "Points: 10"
+          - img [ref=e82]
+    - main [ref=e85]:
+      - region "Contenu principal" [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - heading "Bienvenue sur votre tableau de bord" [level=1] [ref=e89]
+            - paragraph [ref=e90]: Publiez une demande ou consultez vos compétences
+          - button "Publier une demande d'aide" [ref=e91] [cursor=pointer]:
+            - img [ref=e92]
+            - text: Publier une demande d'aide
+        - generic "Statistiques rapides" [ref=e93]:
+          - generic [ref=e94]:
+            - img [ref=e96]
+            - generic [ref=e98]:
+              - generic [ref=e99]: Niv.1
+              - generic [ref=e100]: Débutant · 10 pts
+          - generic [ref=e101]:
+            - img [ref=e103]
+            - generic [ref=e105]:
+              - generic [ref=e106]: "10"
+              - generic [ref=e107]: Points de gamification
+          - generic [ref=e108]:
+            - img [ref=e110]
+            - generic [ref=e115]:
+              - generic [ref=e116]: "0"
+              - generic [ref=e117]: Personnes aidées
+          - generic [ref=e118]:
+            - img [ref=e120]
+            - generic [ref=e123]:
+              - generic [ref=e124]: "1"
+              - generic [ref=e125]: Badges obtenus
+        - generic [ref=e126]:
+          - generic [ref=e127]: Niveau 1 — Débutant 10 / 20 pts
+          - paragraph [ref=e128]: Plus que 10 points pour le niveau 2
+        - generic [ref=e129]:
+          - heading "Demandes en cours" [level=2] [ref=e130]
+          - link "Voir tout" [ref=e131] [cursor=pointer]:
+            - /url: mes_demandes.php
+        - list [ref=e132]:
+          - listitem [ref=e133] [cursor=pointer]:
+            - generic [ref=e134]:
+              - heading "Aide projet PHP" [level=3] [ref=e135]
+              - generic [ref=e136]: Ouvert
+            - paragraph [ref=e137]: Je bloque sur un projet PHP
+            - generic [ref=e138]:
+              - generic [ref=e139]: PHP
+              - generic [ref=e140]:
+                - img [ref=e141]
+                - text: 05/06/2026
+          - listitem [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]:
+              - heading "CSS Grid" [level=3] [ref=e146]
+              - generic [ref=e147]: Ouvert
+            - paragraph [ref=e148]: Problème avec CSS Grid layout
+            - generic [ref=e149]:
+              - generic [ref=e150]: HTML/CSS
+              - generic [ref=e151]:
+                - img [ref=e152]
+                - text: 05/06/2026
+      - complementary "Widgets" [ref=e155]:
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - img [ref=e159]
+            - heading "Mon Passeport" [level=2] [ref=e162]
+          - list [ref=e163]:
+            - listitem [ref=e164] [cursor=pointer]:
+              - img [ref=e166]
+              - generic [ref=e168]:
+                - generic [ref=e169]: Python
+                - generic [ref=e170]: Data Science
+              - generic [ref=e171]: Avancé
+            - listitem [ref=e172] [cursor=pointer]:
+              - img [ref=e174]
+              - generic [ref=e176]:
+                - generic [ref=e177]: Machine Learning
+                - generic [ref=e178]: Data Science
+              - generic [ref=e179]: Débutant
+          - button "Télécharger PDF" [ref=e180] [cursor=pointer]:
+            - img [ref=e181]
+            - text: Télécharger PDF
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - img [ref=e187]
+            - heading "Progression" [level=2] [ref=e188]
+          - generic [ref=e189]:
+            - generic [ref=e190]: Compétences validées
+            - generic [ref=e191]: 1/15
+          - progressbar "7% des compétences validées" [ref=e192]
+          - paragraph [ref=e194]: Encore 14 compétences pour compléter votre profil !

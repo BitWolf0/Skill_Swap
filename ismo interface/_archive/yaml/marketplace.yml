@@ -1,0 +1,55 @@
+- main [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - heading "Marketplace d'Entraide" [level=1] [ref=e5]
+        - paragraph [ref=e6]: Trouvez des demandes d'aide ouvertes
+      - button "Publier" [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+        - text: Publier
+    - combobox [ref=e10]:
+      - option "Toutes les compétences" [selected]
+      - option "HTML/CSS"
+      - option "JavaScript"
+      - option "Machine Learning"
+      - option "PHP"
+      - option "Python"
+      - option "React"
+      - option "SQL"
+    - generic [ref=e11]:
+      - generic [ref=e12] [cursor=pointer]:
+        - generic [ref=e13]:
+          - heading "test" [level=3] [ref=e14]
+          - generic [ref=e15]: Demande
+        - paragraph [ref=e16]: test
+        - generic [ref=e17]:
+          - generic [ref=e18]: HTML/CSS
+          - generic [ref=e19]: par Lucas Bernard
+        - button "Proposer mon aide" [ref=e20]
+      - generic [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]:
+          - heading "Débuter Python" [level=3] [ref=e23]
+          - generic [ref=e24]: Demande
+        - paragraph [ref=e25]: Je veux apprendre Python
+        - generic [ref=e26]:
+          - generic [ref=e27]: Python
+          - generic [ref=e28]: par Jean Dupont
+        - button "Proposer mon aide" [ref=e29]
+      - generic [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - heading "Aide projet PHP" [level=3] [ref=e32]
+          - generic [ref=e33]: Demande
+        - paragraph [ref=e34]: Je bloque sur un projet PHP
+        - generic [ref=e35]:
+          - generic [ref=e36]: PHP
+          - generic [ref=e37]: par Sophie Martin
+        - button "Proposer mon aide" [ref=e38]
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]:
+          - heading "CSS Grid" [level=3] [ref=e41]
+          - generic [ref=e42]: Demande
+        - paragraph [ref=e43]: Problème avec CSS Grid layout
+        - generic [ref=e44]:
+          - generic [ref=e45]: HTML/CSS
+          - generic [ref=e46]: par Sophie Martin
+        - button "Proposer mon aide" [ref=e47]

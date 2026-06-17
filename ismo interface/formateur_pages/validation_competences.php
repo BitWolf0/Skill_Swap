@@ -41,7 +41,7 @@ include __DIR__ . '/../backend/includes/topbar.php';
 ?>
 
 <main class="content-area" id="main-content">
-  <section class="content-main" style="max-width: 960px; margin: 0 auto;">
+  <section class="content-main">
 
     <!-- Pending declarations -->
     <div class="page-head">
@@ -74,8 +74,8 @@ include __DIR__ . '/../backend/includes/topbar.php';
           </div>
         </div>
         <div class="validation-actions">
-          <button class="btn-sm btn-primary" onclick="valider(<?= $p['id'] ?>, 'Validé')">Valider</button>
-          <button class="btn-sm btn-secondary" onclick="refuser(<?= $p['id'] ?>)">Refuser</button>
+          <button class="btn-validate btn-validate-ok" onclick="valider(<?= $p['id'] ?>, 'Validé')">Valider</button>
+          <button class="btn-validate btn-validate-no" onclick="refuser(<?= $p['id'] ?>)">Refuser</button>
         </div>
       </div>
       <?php endforeach; ?>
@@ -89,6 +89,7 @@ include __DIR__ . '/../backend/includes/topbar.php';
     <?php if (empty($history)): ?>
     <p class="text-muted">Aucun historique.</p>
     <?php else: ?>
+    <div class="table-wrap">
     <table class="data-table">
       <thead><tr><th>Étudiant</th><th>Compétence</th><th>Niveau</th><th>Statut</th><th>Validé par</th><th>Date</th></tr></thead>
       <tbody>
@@ -104,6 +105,7 @@ include __DIR__ . '/../backend/includes/topbar.php';
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
     <?php endif; ?>
   </section>
 </main>
@@ -121,7 +123,7 @@ include __DIR__ . '/../backend/includes/topbar.php';
       </div>
       <div class="modal-actions">
         <button type="button" class="btn-sm btn-secondary" onclick="document.getElementById('refuse-modal').style.display='none'">Annuler</button>
-        <button type="submit" class="btn-sm btn-primary" style="background:#EF4444;">Confirmer le refus</button>
+        <button type="submit" class="btn-validate btn-validate-no">Confirmer le refus</button>
       </div>
     </form>
   </div>
@@ -170,20 +172,27 @@ async function updateDeclaration(declId, statut, motif) {
 
 <style>
 .pending-list { display: flex; flex-direction: column; gap: 12px; }
-.validation-card { display: flex; justify-content: space-between; align-items: center; background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); gap: 16px; flex-wrap: wrap; }
-.validation-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.user-info { display: flex; align-items: center; gap: 10px; min-width: 160px; }
-.user-info div { line-height: 1.3; }
-.user-info small { display: block; color: #9CA3AF; font-size: 0.8rem; }
-.user-avatar-sm { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
+.validation-card { display: flex; justify-content: space-between; align-items: flex-start; background: var(--white); border-radius: var(--radius-md); padding: 16px 20px; box-shadow: var(--shadow-sm); gap: 12px; border: 1px solid var(--gray-100); transition: box-shadow var(--transition); }
+.validation-card:hover { box-shadow: var(--shadow-md); }
+.validation-left { display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 0; }
+.user-info { display: flex; align-items: center; gap: 10px; }
+.user-info strong { font-size: 0.9rem; color: var(--gray-800); }
+.user-info small { display: block; color: var(--gray-400); font-size: 0.8rem; margin-top: 1px; }
+.user-avatar-sm { width: 38px; height: 38px; border-radius: 50%; background: var(--blue-600); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
 .skill-info { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.skill-info .date { color: #9CA3AF; font-size: 0.8rem; }
-.validation-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.skill-info .date { color: var(--gray-400); font-size: 0.78rem; }
+.validation-actions { display: flex; gap: 8px; flex-shrink: 0; align-items: flex-start; flex-wrap: wrap; }
 .info-card { background: #fff; border-radius: 12px; padding: 24px; color: #6B7280; }
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
 .modal-card { background: #fff; border-radius: 12px; padding: 24px; max-width: 450px; width: 90%; }
 .modal-card h3 { margin-top: 0; }
 .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.data-table th { background: var(--gray-50); padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; color: var(--gray-600); border-bottom: 1px solid var(--gray-200); }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-100); font-size: 0.9rem; }
+.data-table tbody tr:hover { background: var(--gray-50); }
+.badge-closed { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: #FEF2F2; color: #EF4444; }
 </style>
 
 <?php include __DIR__ . '/../backend/includes/footer.php'; ?>

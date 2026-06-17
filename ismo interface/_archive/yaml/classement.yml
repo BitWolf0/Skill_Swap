@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 2" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "2"
+        - listitem [ref=e21]:
+          - link "Mes Aides" [ref=e22] [cursor=pointer]:
+            - /url: mes_aides.php
+            - img [ref=e24]
+            - generic [ref=e29]: Mes Aides
+        - listitem [ref=e30]:
+          - link "Marketplace" [ref=e31] [cursor=pointer]:
+            - /url: marketplace.php
+            - img [ref=e33]
+            - generic [ref=e37]: Marketplace
+        - listitem [ref=e38]:
+          - link "Mes Badges" [ref=e39] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e41]
+            - generic [ref=e44]: Mes Badges
+        - listitem [ref=e45]:
+          - link "Mes Compétences" [ref=e46] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e48]
+            - generic [ref=e50]: Mes Compétences
+        - listitem [ref=e51]:
+          - link "Classement" [ref=e52] [cursor=pointer]:
+            - /url: classement.php
+            - img [ref=e54]
+            - generic [ref=e58]: Classement
+    - generic [ref=e60]:
+      - img [ref=e62]
+      - generic [ref=e65]:
+        - generic [ref=e66]: Admin Admin
+        - generic [ref=e67]: Mentor
+  - generic [ref=e68]:
+    - banner [ref=e69]:
+      - button "Ouvrir le menu" [ref=e70] [cursor=pointer]:
+        - img [ref=e71]
+      - generic [ref=e72]:
+        - img [ref=e74]
+        - generic [ref=e78]: ISMO-SkillSwap
+      - generic [ref=e79]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e80]
+        - generic: ⌘K
+      - generic [ref=e81]:
+        - button "Notifications" [ref=e82] [cursor=pointer]:
+          - img [ref=e83]
+          - generic "Nouvelles notifications" [ref=e86]
+        - button "Menu profil" [ref=e87] [cursor=pointer]:
+          - generic [ref=e88]:
+            - generic [ref=e89]: Admin Admin
+            - generic [ref=e90]: "Points: 0"
+          - img [ref=e92]
+    - main [ref=e95]:
+      - generic [ref=e96]:
+        - generic [ref=e98]:
+          - heading "Classement" [level=1] [ref=e99]
+          - paragraph [ref=e100]: Top des mentors — Les membres les plus actifs de la communauté
+        - generic [ref=e102]:
+          - generic [ref=e103]: "Filière :"
+          - combobox "Filière :" [ref=e104] [cursor=pointer]:
+            - option "Toutes les filières" [selected]
+            - option "Data Science"
+            - option "Développement Web"
+            - option "Informatique"
+        - generic [ref=e105]:
+          - generic [ref=e107]:
+            - generic [ref=e108]: "#1"
+            - generic [ref=e109]:
+              - generic [ref=e110]: JD
+              - img [ref=e113]
+            - generic [ref=e115]: Jean Dupont
+            - generic [ref=e116]: Développement Web
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - img [ref=e122]
+                - generic [ref=e124]: "60"
+                - generic [ref=e125]: Points
+              - generic [ref=e126]:
+                - img [ref=e129]
+                - generic [ref=e133]: "1"
+                - generic [ref=e134]: Aides
+              - generic [ref=e135]:
+                - img [ref=e138]
+                - generic [ref=e140]: "5.0"
+                - generic [ref=e141]: Note
+              - generic [ref=e142]:
+                - img [ref=e145]
+                - generic [ref=e148]: "3"
+                - generic [ref=e149]: Comp.
+            - link "Voir le profil" [ref=e150] [cursor=pointer]:
+              - /url: ../pages_mentor/profile.php?id=1
+              - text: Voir le profil
+              - img [ref=e152]
+          - generic [ref=e155]:
+            - generic [ref=e156]: "#2"
+            - generic [ref=e157]:
+              - generic [ref=e158]: SM
+              - img [ref=e161]
+            - generic [ref=e164]: Sophie Martin
+            - generic [ref=e165]: Data Science
+            - generic [ref=e167]:
+              - generic [ref=e168]:
+                - img [ref=e171]
+                - generic [ref=e173]: "10"
+                - generic [ref=e174]: Points
+              - generic [ref=e175]:
+                - img [ref=e178]
+                - generic [ref=e182]: "0"
+                - generic [ref=e183]: Aides
+              - generic [ref=e184]:
+                - img [ref=e187]
+                - generic [ref=e189]: "0.0"
+                - generic [ref=e190]: Note
+              - generic [ref=e191]:
+                - img [ref=e194]
+                - generic [ref=e197]: "1"
+                - generic [ref=e198]: Comp.
+            - link "Voir le profil" [ref=e199] [cursor=pointer]:
+              - /url: ../pages_mentor/profile.php?id=2
+              - text: Voir le profil
+              - img [ref=e201]
+          - generic [ref=e204]:
+            - generic [ref=e205]: "#3"
+            - generic [ref=e206]:
+              - generic [ref=e207]: LB
+              - img [ref=e210]
+            - generic [ref=e213]: Lucas Bernard
+            - generic [ref=e214]: Informatique
+            - generic [ref=e216]:
+              - generic [ref=e217]:
+                - img [ref=e220]
+                - generic [ref=e222]: "5"
+                - generic [ref=e223]: Points
+              - generic [ref=e224]:
+                - img [ref=e227]
+                - generic [ref=e231]: "0"
+                - generic [ref=e232]: Aides
+              - generic [ref=e233]:
+                - img [ref=e236]
+                - generic [ref=e238]: "0.0"
+                - generic [ref=e239]: Note
+              - generic [ref=e240]:
+                - img [ref=e243]
+                - generic [ref=e246]: "0"
+                - generic [ref=e247]: Comp.
+            - link "Voir le profil" [ref=e248] [cursor=pointer]:
+              - /url: ../pages_mentor/profile.php?id=5
+              - text: Voir le profil
+              - img [ref=e250]
+          - generic [ref=e253]:
+            - generic [ref=e254]: "#4"
+            - generic [ref=e256]: PL
+            - generic [ref=e257]: Pierre Leroy
+            - generic [ref=e259]:
+              - generic [ref=e260]:
+                - img [ref=e263]
+                - generic [ref=e265]: "0"
+                - generic [ref=e266]: Points
+              - generic [ref=e267]:
+                - img [ref=e270]
+                - generic [ref=e274]: "0"
+                - generic [ref=e275]: Aides
+              - generic [ref=e276]:
+                - img [ref=e279]
+                - generic [ref=e281]: "0.0"
+                - generic [ref=e282]: Note
+              - generic [ref=e283]:
+                - img [ref=e286]
+                - generic [ref=e289]: "0"
+                - generic [ref=e290]: Comp.
+            - link "Voir le profil" [ref=e291] [cursor=pointer]:
+              - /url: ../pages_mentor/profile.php?id=3
+              - text: Voir le profil
+              - img [ref=e293]
+          - generic [ref=e296]:
+            - generic [ref=e297]: "#5"
+            - generic [ref=e299]: AA
+            - generic [ref=e300]: Admin Admin
+            - generic [ref=e302]:
+              - generic [ref=e303]:
+                - img [ref=e306]
+                - generic [ref=e308]: "0"
+                - generic [ref=e309]: Points
+              - generic [ref=e310]:
+                - img [ref=e313]
+                - generic [ref=e317]: "0"
+                - generic [ref=e318]: Aides
+              - generic [ref=e319]:
+                - img [ref=e322]
+                - generic [ref=e324]: "0.0"
+                - generic [ref=e325]: Note
+              - generic [ref=e326]:
+                - img [ref=e329]
+                - generic [ref=e332]: "0"
+                - generic [ref=e333]: Comp.
+            - link "Voir le profil" [ref=e334] [cursor=pointer]:
+              - /url: ../pages_mentor/profile.php?id=4
+              - text: Voir le profil
+              - img [ref=e336]

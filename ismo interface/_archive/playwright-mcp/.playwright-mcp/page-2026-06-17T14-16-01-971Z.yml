@@ -1,0 +1,199 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Gestion comptes" [ref=e15] [cursor=pointer]:
+            - /url: gestion_comptes.php
+            - img [ref=e17]
+            - generic [ref=e22]: Gestion comptes
+        - listitem [ref=e23]:
+          - link "Modération" [ref=e24] [cursor=pointer]:
+            - /url: moderation.php
+            - img [ref=e26]
+            - generic [ref=e28]: Modération
+        - listitem [ref=e29]:
+          - link "Badges" [ref=e30] [cursor=pointer]:
+            - /url: gestion_badges.php
+            - img [ref=e32]
+            - generic [ref=e34]: Badges
+        - listitem [ref=e35]:
+          - link "Statistiques" [ref=e36] [cursor=pointer]:
+            - /url: statistiques_admin.php
+            - img [ref=e38]
+            - generic [ref=e39]: Statistiques
+        - listitem [ref=e40]:
+          - link "Catalogue" [ref=e41] [cursor=pointer]:
+            - /url: catalogue_admin.php
+            - img [ref=e43]
+            - generic [ref=e46]: Catalogue
+    - generic [ref=e48]:
+      - img [ref=e50]
+      - generic [ref=e53]:
+        - generic [ref=e54]: Admin Admin
+        - generic [ref=e55]: Administrateur
+  - generic [ref=e56]:
+    - banner [ref=e57]:
+      - button "Ouvrir le menu" [ref=e58] [cursor=pointer]:
+        - img [ref=e59]
+      - generic [ref=e60]:
+        - img [ref=e62]
+        - generic [ref=e66]: ISMO-SkillSwap
+      - generic [ref=e232]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e233]
+        - generic: ⌘K
+      - generic [ref=e67]:
+        - button "Notifications" [ref=e68] [cursor=pointer]:
+          - img [ref=e69]
+          - generic "Nouvelles notifications" [ref=e72]
+        - button "Menu profil" [ref=e73] [cursor=pointer]:
+          - generic [ref=e234]:
+            - generic [ref=e235]: Admin Admin
+            - generic [ref=e236]: "Points: 0"
+          - img [ref=e75]
+    - main [ref=e78]:
+      - generic [ref=e79]:
+        - heading "Statistiques de la Plateforme" [level=1] [ref=e82]
+        - generic [ref=e83]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: "6"
+            - generic [ref=e87]: Total utilisateurs
+          - generic [ref=e89]:
+            - generic [ref=e90]: "3"
+            - generic [ref=e91]: Stagiaires
+          - generic [ref=e93]:
+            - generic [ref=e94]: "1"
+            - generic [ref=e95]: Formateurs
+          - generic [ref=e97]:
+            - generic [ref=e98]: "1"
+            - generic [ref=e99]: Admins
+          - generic [ref=e101]:
+            - generic [ref=e102]: "7"
+            - generic [ref=e103]: Compétences
+          - generic [ref=e105]:
+            - generic [ref=e106]: "9"
+            - generic [ref=e107]: Déclarations
+          - generic [ref=e109]:
+            - generic [ref=e110]: "4"
+            - generic [ref=e111]: Validées
+          - generic [ref=e113]:
+            - generic [ref=e114]: "7"
+            - generic [ref=e115]: Demandes
+          - generic [ref=e117]:
+            - generic [ref=e118]: "1"
+            - generic [ref=e119]: Résolues
+          - generic [ref=e121]:
+            - generic [ref=e122]: "4"
+            - generic [ref=e123]: Propositions
+          - generic [ref=e125]:
+            - generic [ref=e126]: "4"
+            - generic [ref=e127]: Badges actifs
+          - generic [ref=e129]:
+            - generic [ref=e130]: "8"
+            - generic [ref=e131]: Badges attribués
+        - generic [ref=e132]:
+          - heading "Top 10 des compétences déclarées" [level=2] [ref=e133]
+          - table [ref=e134]:
+            - rowgroup [ref=e135]:
+              - row "Compétence Déclarations" [ref=e136]:
+                - columnheader "Compétence" [ref=e137]
+                - columnheader "Déclarations" [ref=e138]
+            - rowgroup [ref=e139]:
+              - row "HTML/CSS 2" [ref=e140]:
+                - cell "HTML/CSS" [ref=e141]
+                - cell "2" [ref=e142]
+              - row "JavaScript 2" [ref=e143]:
+                - cell "JavaScript" [ref=e144]
+                - cell "2" [ref=e145]
+              - row "PHP 2" [ref=e146]:
+                - cell "PHP" [ref=e147]
+                - cell "2" [ref=e148]
+              - row "Python 2" [ref=e149]:
+                - cell "Python" [ref=e150]
+                - cell "2" [ref=e151]
+              - row "Machine Learning 1" [ref=e152]:
+                - cell "Machine Learning" [ref=e153]
+                - cell "1" [ref=e154]
+              - row "React 0" [ref=e155]:
+                - cell "React" [ref=e156]
+                - cell "0" [ref=e157]
+              - row "SQL 0" [ref=e158]:
+                - cell "SQL" [ref=e159]
+                - cell "0" [ref=e160]
+        - generic [ref=e161]:
+          - heading "Top 10 des compétences les plus demandées" [level=2] [ref=e162]
+          - table [ref=e163]:
+            - rowgroup [ref=e164]:
+              - row "Compétence Demandes" [ref=e165]:
+                - columnheader "Compétence" [ref=e166]
+                - columnheader "Demandes" [ref=e167]
+            - rowgroup [ref=e168]:
+              - row "PHP 3" [ref=e169]:
+                - cell "PHP" [ref=e170]
+                - cell "3" [ref=e171]
+              - row "HTML/CSS 3" [ref=e172]:
+                - cell "HTML/CSS" [ref=e173]
+                - cell "3" [ref=e174]
+              - row "Python 1" [ref=e175]:
+                - cell "Python" [ref=e176]
+                - cell "1" [ref=e177]
+              - row "React 0" [ref=e178]:
+                - cell "React" [ref=e179]
+                - cell "0" [ref=e180]
+              - row "Machine Learning 0" [ref=e181]:
+                - cell "Machine Learning" [ref=e182]
+                - cell "0" [ref=e183]
+              - row "JavaScript 0" [ref=e184]:
+                - cell "JavaScript" [ref=e185]
+                - cell "0" [ref=e186]
+              - row "SQL 0" [ref=e187]:
+                - cell "SQL" [ref=e188]
+                - cell "0" [ref=e189]
+        - generic [ref=e190]:
+          - heading "Derniers badges attribués" [level=2] [ref=e191]
+          - table [ref=e192]:
+            - rowgroup [ref=e193]:
+              - row "Badge Utilisateur Date" [ref=e194]:
+                - columnheader "Badge" [ref=e195]
+                - columnheader "Utilisateur" [ref=e196]
+                - columnheader "Date" [ref=e197]
+            - rowgroup [ref=e198]:
+              - row "Expert raiess mohamed 17/06/2026" [ref=e199]:
+                - cell "Expert" [ref=e200]
+                - cell "raiess mohamed" [ref=e201]
+                - cell "17/06/2026" [ref=e202]
+              - row "Mentor raiess mohamed 17/06/2026" [ref=e203]:
+                - cell "Mentor" [ref=e204]
+                - cell "raiess mohamed" [ref=e205]
+                - cell "17/06/2026" [ref=e206]
+              - row "Apprenti raiess mohamed 17/06/2026" [ref=e207]:
+                - cell "Apprenti" [ref=e208]
+                - cell "raiess mohamed" [ref=e209]
+                - cell "17/06/2026" [ref=e210]
+              - row "Débutant raiess mohamed 17/06/2026" [ref=e211]:
+                - cell "Débutant" [ref=e212]
+                - cell "raiess mohamed" [ref=e213]
+                - cell "17/06/2026" [ref=e214]
+              - row "Expert Jean Dupont 14/06/2026" [ref=e215]:
+                - cell "Expert" [ref=e216]
+                - cell "Jean Dupont" [ref=e217]
+                - cell "14/06/2026" [ref=e218]
+              - row "Apprenti Jean Dupont 07/06/2026" [ref=e219]:
+                - cell "Apprenti" [ref=e220]
+                - cell "Jean Dupont" [ref=e221]
+                - cell "07/06/2026" [ref=e222]
+              - row "Débutant Jean Dupont 07/06/2026" [ref=e223]:
+                - cell "Débutant" [ref=e224]
+                - cell "Jean Dupont" [ref=e225]
+                - cell "07/06/2026" [ref=e226]
+              - row "Débutant Sophie Martin 07/06/2026" [ref=e227]:
+                - cell "Débutant" [ref=e228]
+                - cell "Sophie Martin" [ref=e229]
+                - cell "07/06/2026" [ref=e230]

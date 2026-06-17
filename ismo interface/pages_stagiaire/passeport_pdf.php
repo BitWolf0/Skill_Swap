@@ -41,7 +41,7 @@ include __DIR__ . '/../backend/includes/header.php';
 <?php include __DIR__ . '/../backend/includes/sidebar_stagiaire.php'; ?>
 <?php include __DIR__ . '/../backend/includes/topbar.php'; ?>
 
-<main class="content-area" id="main-content">
+<main class="content-area passeport-page" id="main-content">
   <section class="content-main">
     <div class="page-head">
       <div class="page-title-wrap">
@@ -61,60 +61,56 @@ include __DIR__ . '/../backend/includes/header.php';
         <p>Points: <?= (int)$user['points_gamification'] ?> | Aides données: <?= $helps ?></p>
       </div>
 
-      <h3 style="font-size:1rem;font-weight:700;color:#1e293b;margin:0 0 14px;">Compétences</h3>
+      <h3>Compétences</h3>
       <?php if (empty($skills)): ?>
-      <p style="font-size:0.875rem;color:#94a3b8;">Aucune compétence déclarée.</p>
+      <p class="empty-text">Aucune compétence déclarée.</p>
       <?php else: ?>
-      <div style="overflow-x:auto;width:100%;">
-        <table style="width:100%;border-collapse:collapse;">
+      <div class="passeport-table-wrap">
+        <table class="passeport-table">
           <thead>
-            <tr style="background:#f8fafc;">
-              <th style="padding:12px 16px;font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;border-bottom:1px solid #f1f5f9;">Compétence</th>
-              <th style="padding:12px 16px;font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;border-bottom:1px solid #f1f5f9;">Catégorie</th>
-              <th style="padding:12px 16px;font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;border-bottom:1px solid #f1f5f9;">Niveau</th>
-              <th style="padding:12px 16px;font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;border-bottom:1px solid #f1f5f9;">Statut</th>
-              <th style="padding:12px 16px;font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;border-bottom:1px solid #f1f5f9;">Validé par</th>
+            <tr>
+              <th>Compétence</th>
+              <th>Catégorie</th>
+              <th>Niveau</th>
+              <th>Statut</th>
+              <th>Validé par</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($skills as $sk): ?>
-            <tr style="transition:background-color 0.15s ease;">
-              <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;font-weight:600;color:#1e293b;"><?= h($sk['skill_name']) ?></td>
-              <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;"><?= h($sk['skill_category']) ?></td>
-              <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;"><?= h($sk['niveau_estime']) ?></td>
-              <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#334155;white-space:nowrap;">
+            <tr>
+              <td class="cell-name"><?= h($sk['skill_name']) ?></td>
+              <td><?= h($sk['skill_category']) ?></td>
+              <td><?= h($sk['niveau_estime']) ?></td>
+              <td>
                 <?php if ($sk['statut_validation'] === 'Validé'): ?>
-                  <span style="display:inline-flex;align-items:center;gap:6px;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span class="statut-badge valide">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     Validé
                   </span>
                 <?php elseif ($sk['statut_validation'] === 'Refusé'): ?>
-                  <span style="display:inline-flex;align-items:center;gap:6px;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  <span class="statut-badge refuse">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                     Refusé
                   </span>
                 <?php else: ?>
-                  <span style="display:inline-flex;align-items:center;gap:6px;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span class="statut-badge attente">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     En attente
                   </span>
                 <?php endif; ?>
               </td>
-              <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#64748b;font-weight:500;"><?= h($sk['validated_by_name'] ?? '-') ?></td>
+              <td class="cell-validator"><?= h($sk['validated_by_name'] ?? '-') ?></td>
             </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
       </div>
-      <style>
-        .passeport-container table tbody tr:hover { background:rgba(248,250,252,0.4); }
-        .passeport-container table tbody tr:last-child td { border-bottom:none; }
-      </style>
       <?php endif; ?>
 
-      <h3 style="font-size:1rem;font-weight:700;color:#1e293b;margin:24px 0 14px;">Badges obtenus</h3>
+      <h3>Badges obtenus</h3>
       <?php if (empty($badges)): ?>
-      <p style="font-size:0.875rem;color:#94a3b8;">Aucun badge obtenu.</p>
+      <p class="empty-text">Aucun badge obtenu.</p>
       <?php else: ?>
       <div class="badges-list">
         <?php foreach ($badges as $b): ?>

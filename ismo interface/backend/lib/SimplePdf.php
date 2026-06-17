@@ -123,7 +123,7 @@ class SimplePdf {
             'type' => 'line',
             'x1' => $x1, 'y1' => $y1, 'x2' => $x2, 'y2' => $y2,
             'drawColor' => $this->drawColor,
-            'lineWidth' => $this->lineWidth ?? 0.2,
+            'lineWidth' => $this->lineWidth,
         ];
     }
 
@@ -292,6 +292,7 @@ class SimplePdf {
         $pdf = "%PDF-1.4\n";
         $allFonts = ['Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique', 'Helvetica-BoldOblique'];
 
+        $offsets = [];
         $fontObjNums = [];
         $objNum = 1;
 
@@ -299,6 +300,7 @@ class SimplePdf {
         $fontIdx = 1;
         foreach ($allFonts as $fn) {
             $fontObjNums[$fn] = $fontIdx;
+            $offsets[$objNum] = strlen($pdf);
             $pdf .= sprintf("%d 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /%s /Encoding /WinAnsiEncoding >>\nendobj\n",
                 $objNum, $fn);
             $objNum++;
@@ -326,28 +328,26 @@ class SimplePdf {
             $pageH = self::FH * self::MM_TO_PT;
             $pageW = self::FW * self::MM_TO_PT;
 
+            $offsets[$pageObjNum] = strlen($pdf);
             $pdf .= sprintf("%d 0 obj\n<< /Type /Page /Parent %d 0 R /MediaBox [0 0 %.2f %.2f] /Contents %d 0 R /Resources << /Font << %s >> >> >>\nendobj\n",
                 $pageObjNum, $pagesObjNum, $pageW, $pageH, $contentObjNum, $fontResources);
 
+            $offsets[$contentObjNum] = strlen($pdf);
             $pdf .= sprintf("%d 0 obj\n<< /Length %d >>\nstream\n%s\nendstream\nendobj\n",
                 $contentObjNum, $contentLen, $content);
         }
-        
+
+        $offsets[$pagesObjNum] = strlen($pdf);
         $pdf .= sprintf("%d 0 obj\n<< /Type /Pages /Kids [%s] /Count %d >>\nendobj\n",
             $pagesObjNum, implode(' 0 R ', $pageRefs) . ' 0 R', $this->currentPage);
 
         $catalogObjNum = $pagesObjNum + 1;
+        $offsets[$catalogObjNum] = strlen($pdf);
         $pdf .= sprintf("%d 0 obj\n<< /Type /Catalog /Pages %d 0 R >>\nendobj\n",
             $catalogObjNum, $pagesObjNum);
 
         $objectsCount = $catalogObjNum;
-
         $startxref = strlen($pdf);
-        $offsets = [];
-        preg_match_all('/^(\d+) 0 obj/m', $pdf, $matches, PREG_SET_ORDER);
-        foreach ($matches as $m) {
-            $offsets[(int)$m[1]] = strpos($pdf, $m[0]);
-        }
 
         $pdf .= "xref\n";
         $pdf .= sprintf("0 %d\n", $objectsCount + 1);

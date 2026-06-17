@@ -1,0 +1,158 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Validation" [ref=e15] [cursor=pointer]:
+            - /url: validation_demande.php
+            - img [ref=e17]
+            - generic [ref=e19]: Validation
+        - listitem [ref=e20]:
+          - link "Statistiques" [ref=e21] [cursor=pointer]:
+            - /url: statistique.php
+            - img [ref=e23]
+            - generic [ref=e27]: Statistiques
+        - listitem [ref=e28]:
+          - link "Catalogue" [ref=e29] [cursor=pointer]:
+            - /url: catalogue.php
+            - img [ref=e31]
+            - generic [ref=e34]: Catalogue
+    - generic [ref=e36]:
+      - img [ref=e38]
+      - generic [ref=e41]:
+        - generic [ref=e42]: Pierre Leroy
+        - generic [ref=e43]: Formateur
+  - generic [ref=e44]:
+    - banner [ref=e45]:
+      - button "Ouvrir le menu" [ref=e46] [cursor=pointer]:
+        - img [ref=e47]
+      - generic [ref=e48]:
+        - img [ref=e50]
+        - generic [ref=e54]: ISMO-SkillSwap
+      - generic [ref=e55]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e56]
+        - generic: ⌘K
+      - generic [ref=e57]:
+        - button "Notifications" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+          - generic "Nouvelles notifications" [ref=e62]
+        - button "Menu profil" [ref=e63] [cursor=pointer]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Pierre Leroy
+            - generic [ref=e66]: "Points: 0"
+          - img [ref=e68]
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - heading "Tableau de bord Formateur" [level=1] [ref=e75]
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - img [ref=e79]
+            - generic [ref=e82]:
+              - generic [ref=e83]: "5"
+              - generic [ref=e84]: Validations en attente
+          - generic [ref=e85]:
+            - img [ref=e87]
+            - generic [ref=e92]:
+              - generic [ref=e93]: "3"
+              - generic [ref=e94]: Apprenants
+          - generic [ref=e95]:
+            - img [ref=e97]
+            - generic [ref=e100]:
+              - generic [ref=e101]: "6"
+              - generic [ref=e102]: Demandes ouvertes
+          - generic [ref=e103]:
+            - img [ref=e105]
+            - generic [ref=e108]:
+              - generic [ref=e109]: "4"
+              - generic [ref=e110]: Compétences validées
+        - heading "Validations en attente" [level=2] [ref=e111]
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - strong [ref=e115]: Sophie Martin
+              - text: Machine Learning — Débutant
+            - generic [ref=e116]:
+              - button "Valider" [ref=e117] [cursor=pointer]
+              - button "Refuser" [ref=e118] [cursor=pointer]
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - strong [ref=e121]: Lucas Bernard
+              - text: HTML/CSS — Débutant
+            - generic [ref=e122]:
+              - button "Valider" [ref=e123] [cursor=pointer]
+              - button "Refuser" [ref=e124] [cursor=pointer]
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - strong [ref=e127]: Lucas Bernard
+              - text: Python — Débutant
+            - generic [ref=e128]:
+              - button "Valider" [ref=e129] [cursor=pointer]
+              - button "Refuser" [ref=e130] [cursor=pointer]
+          - generic [ref=e131]:
+            - generic [ref=e132]:
+              - strong [ref=e133]: Lucas Bernard
+              - text: PHP — Avancé
+            - generic [ref=e134]:
+              - button "Valider" [ref=e135] [cursor=pointer]
+              - button "Refuser" [ref=e136] [cursor=pointer]
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - strong [ref=e139]: Lucas Bernard
+              - text: JavaScript — Intermédiaire
+            - generic [ref=e140]:
+              - button "Valider" [ref=e141] [cursor=pointer]
+              - button "Refuser" [ref=e142] [cursor=pointer]
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - heading "Récents validations" [level=2] [ref=e145]
+            - table [ref=e147]:
+              - rowgroup [ref=e148]:
+                - row "Apprenant Compétence Date" [ref=e149]:
+                  - columnheader "Apprenant" [ref=e150]
+                  - columnheader "Compétence" [ref=e151]
+                  - columnheader "Date" [ref=e152]
+              - rowgroup [ref=e153]:
+                - row "Jean Dupont PHP 05/06/2026" [ref=e154]:
+                  - cell "Jean Dupont" [ref=e155]
+                  - cell "PHP" [ref=e156]
+                  - cell "05/06/2026" [ref=e157]
+                - row "Jean Dupont JavaScript 05/06/2026" [ref=e158]:
+                  - cell "Jean Dupont" [ref=e159]
+                  - cell "JavaScript" [ref=e160]
+                  - cell "05/06/2026" [ref=e161]
+                - row "Jean Dupont HTML/CSS 05/06/2026" [ref=e162]:
+                  - cell "Jean Dupont" [ref=e163]
+                  - cell "HTML/CSS" [ref=e164]
+                  - cell "05/06/2026" [ref=e165]
+                - row "Sophie Martin Python 05/06/2026" [ref=e166]:
+                  - cell "Sophie Martin" [ref=e167]
+                  - cell "Python" [ref=e168]
+                  - cell "05/06/2026" [ref=e169]
+          - generic [ref=e170]:
+            - heading "Nouveaux apprenants" [level=2] [ref=e171]
+            - table [ref=e173]:
+              - rowgroup [ref=e174]:
+                - row "Nom Filière Inscrit le" [ref=e175]:
+                  - columnheader "Nom" [ref=e176]
+                  - columnheader "Filière" [ref=e177]
+                  - columnheader "Inscrit le" [ref=e178]
+              - rowgroup [ref=e179]:
+                - row "raiess mohamed DEV 16/06/2026" [ref=e180]:
+                  - cell "raiess mohamed" [ref=e181]
+                  - cell "DEV" [ref=e182]
+                  - cell "16/06/2026" [ref=e183]
+                - row "Jean Dupont Développement Web 05/06/2026" [ref=e184]:
+                  - cell "Jean Dupont" [ref=e185]
+                  - cell "Développement Web" [ref=e186]
+                  - cell "05/06/2026" [ref=e187]
+                - row "Sophie Martin Data Science 05/06/2026" [ref=e188]:
+                  - cell "Sophie Martin" [ref=e189]
+                  - cell "Data Science" [ref=e190]
+                  - cell "05/06/2026" [ref=e191]

@@ -63,7 +63,7 @@ body {
 
 /* ── PARTICLE CANVAS ─────────────────────────────────────────── */
 #particles-canvas {
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
@@ -100,6 +100,7 @@ body {
   color: var(--white);
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 /* Decorative glow behind hero content */
@@ -344,6 +345,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 3rem 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .auth-card {

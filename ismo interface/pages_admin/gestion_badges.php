@@ -11,9 +11,9 @@ $basePath = '..';
 // Fetch all badges
 $badges = $db->query("
     SELECT b.*,
-           (SELECT COUNT(*) FROM badges_stagiaire WHERE badge_id = b.id) AS nb_attributions
+            (SELECT COUNT(*) FROM badges_stagiaire WHERE badge_id = b.id) AS nb_attributions
     FROM badges b
-    ORDER BY b.est_actif DESC, b.categorie, b.nom
+    ORDER BY b.est_actif DESC, b.nom
 ")->fetchAll();
 
 // Fetch all users for the assign modal
@@ -38,23 +38,23 @@ include __DIR__ . '/../backend/includes/header.php';
     </div>
 
     <?php if (empty($badges)): ?>
-    <div class="card" style="padding:2rem;text-align:center;">
-      <p style="font-size:1.1rem;color:var(--text-muted);">Aucun badge créé pour le moment.</p>
+    <div class="card badges-empty">
+      <p class="badges-empty-text">Aucun badge créé pour le moment.</p>
     </div>
     <?php else: ?>
-    <div class="badges-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;">
+    <div class="badges-grid">
       <?php foreach ($badges as $b): ?>
-      <div class="card" style="padding:20px;position:relative;opacity:<?= $b['est_actif'] ? '1' : '0.5' ?>;">
-        <div style="display:flex;align-items:flex-start;gap:16px;">
-          <div style="font-size:2rem;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--bg-card-hover);border-radius:12px;flex-shrink:0;">
-            <?php if ($b['icone']): ?><?= h($b['icone']) ?><?php else: ?><span class="icon-medal" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span><?php endif; ?>
+      <div class="card badge-card<?= $b['est_actif'] ? '' : ' badge-card--inactive' ?>">
+        <div class="badge-card-inner">
+          <div class="badge-icon-wrap">
+            <?php if ($b['icone']): ?><?= h($b['icone']) ?><?php else: ?><span class="icon-medal badge-icon-svg" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span><?php endif; ?>
           </div>
-          <div style="flex:1;min-width:0;">
-            <h3 style="margin:0 0 4px;font-size:1rem;"><?= h($b['nom']) ?></h3>
-            <p style="margin:0 0 8px;font-size:0.85rem;color:var(--text-muted);">
+          <div class="badge-body">
+            <h3 class="badge-name"><?= h($b['nom']) ?></h3>
+            <p class="badge-desc">
               <?= h($b['description'] ?: 'Aucune description') ?>
             </p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:0.8rem;">
+            <div class="badge-tags">
               <?php if ($b['categorie']): ?><span class="tag tag-blue"><?= h($b['categorie']) ?></span><?php endif; ?>
               <?php if ($b['points_requis'] > 0): ?><span class="tag tag-orange"><span class="icon-trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span> <?= (int)$b['points_requis'] ?> pts</span><?php endif; ?>
               <span class="tag <?= $b['est_actif'] ? 'tag-green' : 'tag-gray' ?>">
@@ -64,13 +64,13 @@ include __DIR__ . '/../backend/includes/header.php';
             </div>
           </div>
         </div>
-        <div style="margin-top:16px;display:flex;gap:8px;justify-content:flex-end;border-top:1px solid var(--border-color);padding-top:12px;">
-          <button class="btn-sm btn-primary" style="border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.85rem;background:var(--accent-color);color:#fff;"
+        <div class="badge-card-footer">
+          <button class="badge-btn badge-btn--assign"
                   onclick="openAssign(<?= $b['id'] ?>, '<?= h(addslashes($b['nom'])) ?>')">
             Attribuer
           </button>
           <?php if ($b['est_actif']): ?>
-          <button class="btn-sm btn-danger" style="border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.85rem;background:#e74c3c;color:#fff;"
+          <button class="badge-btn badge-btn--deactivate"
                   onclick="confirm('Désactiver ce badge ?') && deleteBadge(<?= $b['id'] ?>)">
             Désactiver
           </button>
@@ -86,7 +86,7 @@ include __DIR__ . '/../backend/includes/header.php';
 <!-- Modal: Add Badge -->
 <div class="modal" id="modal-add-badge" aria-hidden="true">
   <div class="modal-overlay" onclick="this.closest('.modal').classList.remove('open')"></div>
-  <div class="modal-content" style="max-width:500px;">
+  <div class="modal-content badge-modal-content">
     <div class="modal-header">
       <h2>Nouveau badge</h2>
       <button class="modal-close" onclick="this.closest('.modal').classList.remove('open')" aria-label="Fermer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
@@ -127,7 +127,7 @@ include __DIR__ . '/../backend/includes/header.php';
 <!-- Modal: Assign Badge -->
 <div class="modal" id="modal-assign-badge" aria-hidden="true">
   <div class="modal-overlay" onclick="this.closest('.modal').classList.remove('open')"></div>
-  <div class="modal-content" style="max-width:500px;">
+  <div class="modal-content badge-modal-content">
     <div class="modal-header">
       <h2>Attribuer <span id="assign-badge-name"></span></h2>
       <button class="modal-close" onclick="this.closest('.modal').classList.remove('open')" aria-label="Fermer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>

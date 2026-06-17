@@ -61,7 +61,7 @@ include __DIR__ . '/../backend/includes/header.php';
   <?php include __DIR__ . '/../backend/includes/sidebar_stagiaire.php'; ?>
   <?php include __DIR__ . '/../backend/includes/topbar.php'; ?>
 
-  <main class="content-area" id="main-content">
+  <main class="content-area has-sidebar" id="main-content">
     <section class="content-main" aria-label="Contenu principal">
       <div class="page-head">
         <div class="page-title-wrap">
@@ -116,15 +116,15 @@ include __DIR__ . '/../backend/includes/header.php';
         </div>
       </div>
 
-      <div class="level-progress bg-white rounded-xl" style="margin-bottom: 1.5rem; padding: 1rem">
-        <div class="flex justify-between items-center mb-2">
-          <span class="font-semibold">Niveau <?= $levelInfo['level'] ?> — <?= h($levelInfo['name']) ?></span>
-          <span class="text-gray-400 text-sm" style="margin-left: 0.5rem"><?= $levelInfo['points'] ?> / <?= $levelInfo['next_min'] ?> pts</span>
+      <div class="level-progress" style="margin-bottom: 1.5rem; padding: 1rem">
+        <div class="lp-header">
+          <span class="lp-label">Niveau <?= $levelInfo['level'] ?> — <?= h($levelInfo['name']) ?></span>
+          <span class="lp-points"><?= $levelInfo['points'] ?> / <?= $levelInfo['next_min'] ?> pts</span>
         </div>
-        <div class="h-2 bg-gray-100 rounded overflow-hidden">
-          <div class="h-full rounded" style="width:<?= $levelInfo['progress'] ?>%;background:linear-gradient(90deg,#8B5CF6,#6366F1);transition:width .6s ease"></div>
+        <div class="lp-track">
+          <div class="lp-fill" style="width:<?= $levelInfo['progress'] ?>%;background:linear-gradient(90deg,#8B5CF6,#6366F1);transition:width .6s ease"></div>
         </div>
-        <p class="mt-2 text-gray-400 text-sm">
+        <p class="lp-hint">
           <?php if ($levelInfo['progress'] < 100): ?>
           Plus que <?= $levelInfo['next_min'] - $levelInfo['points'] ?> points pour le niveau <?= $levelInfo['level'] + 1 ?>
           <?php else: ?>

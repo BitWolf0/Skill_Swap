@@ -52,9 +52,21 @@ if ($action === 'declarer' && $method === 'POST') {
     $skill = $db->prepare('SELECT nom FROM competences_catalogue WHERE id = ?');
     $skill->execute([$skillId]);
     $skillName = $skill->fetchColumn();
-    $formateurs = $db->query("SELECT id FROM utilisateurs WHERE role = 'formateur' OR role = 'administrateur'");
-    while ($f = $formateurs->fetch()) {
-        ajouterNotification((int)$f['id'], 'declaration', 'Nouvelle déclaration', "{$skillName} déclarée en attente de validation", 'competence', (int)$db->lastInsertId());
+    $formateurs = $db->query("SELECT id FROM utilisateurs WHERE role = 'formateur' OR role = 'administrateur'")->fetchAll();
+    $declarationId = (int)$db->lastInsertId();
+    if (!empty($formateurs)) {
+        $vals = [];
+        $params = [];
+        foreach ($formateurs as $f) {
+            $vals[] = '(?, ?, ?, ?, ?, ?, NOW())';
+            $params[] = (int)$f['id'];
+            $params[] = 'declaration';
+            $params[] = 'Nouvelle déclaration';
+            $params[] = "{$skillName} déclarée en attente de validation";
+            $params[] = 'competence';
+            $params[] = $declarationId;
+        }
+        $db->prepare('INSERT INTO notifications (user_id, notification_type, title, message, reference_type, reference_id, created_at) VALUES ' . implode(',', $vals))->execute($params);
     }
 
     jsonResponse(['success' => true, 'message' => 'Compétence déclarée. En attente de validation.', 'id' => (int)$db->lastInsertId()], 201);

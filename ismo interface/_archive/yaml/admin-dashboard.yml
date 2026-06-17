@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+        - listitem [ref=e13]:
+          - link [ref=e14] [cursor=pointer]:
+            - /url: gestion_comptes.php
+            - img [ref=e16]
+        - listitem [ref=e21]:
+          - link [ref=e22] [cursor=pointer]:
+            - /url: moderation.php
+            - img [ref=e24]
+        - listitem [ref=e26]:
+          - link [ref=e27] [cursor=pointer]:
+            - /url: gestion_badges.php
+            - img [ref=e29]
+        - listitem [ref=e31]:
+          - link [ref=e32] [cursor=pointer]:
+            - /url: statistiques_admin.php
+            - img [ref=e34]
+        - listitem [ref=e35]:
+          - link [ref=e36] [cursor=pointer]:
+            - /url: catalogue_admin.php
+            - img [ref=e38]
+    - generic [ref=e42]:
+      - img [ref=e44]
+      - generic [ref=e47]:
+        - generic [ref=e48]: Admin Admin
+        - generic [ref=e49]: Administrateur
+  - generic [ref=e50]:
+    - banner [ref=e51]:
+      - button "Ouvrir le menu" [ref=e52] [cursor=pointer]:
+        - img [ref=e53]
+      - generic [ref=e54]:
+        - img [ref=e56]
+        - generic [ref=e60]: ISMO
+      - generic [ref=e61]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e62]
+        - generic: ⌘K
+      - generic [ref=e63]:
+        - button "Notifications" [ref=e64] [cursor=pointer]:
+          - img [ref=e65]
+          - generic "Nouvelles notifications" [ref=e68]
+        - button "Menu profil" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]:
+            - generic [ref=e71]: Admin Admin
+            - generic [ref=e72]: "Points: 0"
+          - img [ref=e74]
+    - main [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e80]:
+          - heading "Tableau de bord Admin" [level=1] [ref=e81]
+          - paragraph [ref=e82]: Supervisez la plateforme — 5 utilisateurs, 4 compétences validées
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: "5"
+            - generic [ref=e86]: Utilisateurs
+          - generic [ref=e87]:
+            - generic [ref=e88]: "2"
+            - generic [ref=e89]: Stagiaires
+          - generic [ref=e90]:
+            - generic [ref=e91]: "1"
+            - generic [ref=e92]: Formateurs
+          - generic [ref=e93]:
+            - generic [ref=e94]: "1"
+            - generic [ref=e95]: Validations en attente
+          - generic [ref=e96]:
+            - generic [ref=e97]: "4"
+            - generic [ref=e98]: Compétences validées
+          - generic [ref=e99]:
+            - generic [ref=e100]: "7"
+            - generic [ref=e101]: Compétences au catalogue
+          - generic [ref=e102]:
+            - generic [ref=e103]: "6"
+            - generic [ref=e104]: Demandes ouvertes
+          - generic [ref=e105]:
+            - generic [ref=e106]: "1"
+            - generic [ref=e107]: Demandes résolues
+          - generic [ref=e108]:
+            - generic [ref=e109]: "4"
+            - generic [ref=e110]: Badges actifs
+          - generic [ref=e111]:
+            - generic [ref=e112]: "4"
+            - generic [ref=e113]: Badges attribués
+          - generic [ref=e114]:
+            - generic [ref=e115]: "75"
+            - generic [ref=e116]: Points gamifiés (total)
+          - generic [ref=e117]:
+            - generic [ref=e118]: "4"
+            - generic [ref=e119]: Propositions d'aide
+          - generic [ref=e120]:
+            - generic [ref=e121]: "0"
+            - generic [ref=e122]: En cours
+          - generic [ref=e123]:
+            - generic [ref=e124]: "7"
+            - generic [ref=e125]: Demandes totales
+        - generic [ref=e126]:
+          - heading "Derniers inscrits" [level=2] [ref=e127]
+          - table [ref=e129]:
+            - rowgroup [ref=e130]:
+              - row "Nom Email Rôle Filière Date" [ref=e131]:
+                - columnheader "Nom" [ref=e132]
+                - columnheader "Email" [ref=e133]
+                - columnheader "Rôle" [ref=e134]
+                - columnheader "Filière" [ref=e135]
+                - columnheader "Date" [ref=e136]
+            - rowgroup [ref=e137]:
+              - row "Lucas Bernard lucas@test.com Mentor Informatique 13/06/2026" [ref=e138]:
+                - cell "Lucas Bernard" [ref=e139]
+                - cell "lucas@test.com" [ref=e140]
+                - cell "Mentor" [ref=e141]
+                - cell "Informatique" [ref=e142]
+                - cell "13/06/2026" [ref=e143]
+              - row "Jean Dupont jean@test.com Stagiaire Développement Web 05/06/2026" [ref=e144]:
+                - cell "Jean Dupont" [ref=e145]
+                - cell "jean@test.com" [ref=e146]
+                - cell "Stagiaire" [ref=e147]
+                - cell "Développement Web" [ref=e148]
+                - cell "05/06/2026" [ref=e149]
+              - row "Sophie Martin sophie@test.com Stagiaire Data Science 05/06/2026" [ref=e150]:
+                - cell "Sophie Martin" [ref=e151]
+                - cell "sophie@test.com" [ref=e152]
+                - cell "Stagiaire" [ref=e153]
+                - cell "Data Science" [ref=e154]
+                - cell "05/06/2026" [ref=e155]
+              - row "Pierre Leroy pierre@test.com Formateur - 05/06/2026" [ref=e156]:
+                - cell "Pierre Leroy" [ref=e157]
+                - cell "pierre@test.com" [ref=e158]
+                - cell "Formateur" [ref=e159]
+                - cell "-" [ref=e160]
+                - cell "05/06/2026" [ref=e161]
+              - row "Admin Admin admin@test.com Administrateur - 05/06/2026" [ref=e162]:
+                - cell "Admin Admin" [ref=e163]
+                - cell "admin@test.com" [ref=e164]
+                - cell "Administrateur" [ref=e165]
+                - cell "-" [ref=e166]
+                - cell "05/06/2026" [ref=e167]

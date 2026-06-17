@@ -1,0 +1,142 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 2" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "2"
+        - listitem [ref=e21]:
+          - link "Mes Aides" [ref=e22] [cursor=pointer]:
+            - /url: mes_aides.php
+            - img [ref=e24]
+            - generic [ref=e29]: Mes Aides
+        - listitem [ref=e30]:
+          - link "Marketplace" [ref=e31] [cursor=pointer]:
+            - /url: marketplace.php
+            - img [ref=e33]
+            - generic [ref=e37]: Marketplace
+        - listitem [ref=e38]:
+          - link "Mes Badges" [ref=e39] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e41]
+            - generic [ref=e44]: Mes Badges
+        - listitem [ref=e45]:
+          - link "Mes Compétences" [ref=e46] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e48]
+            - generic [ref=e50]: Mes Compétences
+        - listitem [ref=e51]:
+          - link "Classement" [ref=e52] [cursor=pointer]:
+            - /url: classement.php
+            - img [ref=e54]
+            - generic [ref=e58]: Classement
+    - generic [ref=e60]:
+      - img [ref=e62]
+      - generic [ref=e65]:
+        - generic [ref=e66]: Sophie Martin
+        - generic [ref=e67]: Mentor
+  - generic [ref=e68]:
+    - banner [ref=e69]:
+      - button "Ouvrir le menu" [ref=e70] [cursor=pointer]:
+        - img [ref=e71]
+      - generic [ref=e72]:
+        - img [ref=e74]
+        - generic [ref=e78]: ISMO-SkillSwap
+      - generic [ref=e79]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e80]
+        - generic: ⌘K
+      - generic [ref=e81]:
+        - button "Notifications" [ref=e82] [cursor=pointer]:
+          - img [ref=e83]
+        - button "Menu profil" [ref=e86] [cursor=pointer]:
+          - generic [ref=e87]:
+            - generic [ref=e88]: Sophie Martin
+            - generic [ref=e89]: "Points: 10"
+          - img [ref=e91]
+    - main [ref=e94]:
+      - generic [ref=e95]:
+        - generic [ref=e97]:
+          - heading "Tableau de bord Mentor" [level=1] [ref=e98]
+          - paragraph [ref=e99]: Aidez les autres et développez votre réputation
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - img [ref=e103]
+            - generic [ref=e105]:
+              - generic [ref=e106]: "0"
+              - generic [ref=e107]: Propositions envoyées
+          - generic [ref=e108]:
+            - img [ref=e110]
+            - generic [ref=e113]:
+              - generic [ref=e114]: "0"
+              - generic [ref=e115]: Aides acceptées
+          - generic [ref=e116]:
+            - img [ref=e118]
+            - generic [ref=e120]:
+              - generic [ref=e121]: —
+              - generic [ref=e122]: Note moyenne
+        - heading "Demandes d'aide ouvertes" [level=2] [ref=e123]
+        - generic [ref=e124]:
+          - generic [ref=e125] [cursor=pointer]:
+            - generic [ref=e126]:
+              - heading "test" [level=3] [ref=e127]
+              - generic [ref=e128]: Ouvert
+            - paragraph [ref=e129]: test
+            - generic [ref=e130]:
+              - generic [ref=e131]: HTML/CSS
+              - generic [ref=e132]: par Lucas Bernard
+            - button "Proposer mon aide" [ref=e133]
+          - generic [ref=e134] [cursor=pointer]:
+            - generic [ref=e135]:
+              - heading "Test demande from curl" [level=3] [ref=e136]
+              - generic [ref=e137]: Ouvert
+            - paragraph [ref=e138]: Testing the API
+            - generic [ref=e139]:
+              - generic [ref=e140]: PHP
+              - generic [ref=e141]: par Admin Admin
+            - button "Proposer mon aide" [ref=e142]
+          - generic [ref=e143] [cursor=pointer]:
+            - generic [ref=e144]:
+              - heading "Test demande from curl" [level=3] [ref=e145]
+              - generic [ref=e146]: Ouvert
+            - paragraph [ref=e147]: Testing the API
+            - generic [ref=e148]:
+              - generic [ref=e149]: PHP
+              - generic [ref=e150]: par Admin Admin
+            - button "Proposer mon aide" [ref=e151]
+          - generic [ref=e152] [cursor=pointer]:
+            - generic [ref=e153]:
+              - heading "Aide projet PHP" [level=3] [ref=e154]
+              - generic [ref=e155]: Ouvert
+            - paragraph [ref=e156]: Je bloque sur un projet PHP
+            - generic [ref=e157]:
+              - generic [ref=e158]: PHP
+              - generic [ref=e159]: par Sophie Martin
+            - button "Proposer mon aide" [ref=e160]
+          - generic [ref=e161] [cursor=pointer]:
+            - generic [ref=e162]:
+              - heading "Débuter Python" [level=3] [ref=e163]
+              - generic [ref=e164]: Ouvert
+            - paragraph [ref=e165]: Je veux apprendre Python
+            - generic [ref=e166]:
+              - generic [ref=e167]: Python
+              - generic [ref=e168]: par Jean Dupont
+            - button "Proposer mon aide" [ref=e169]
+          - generic [ref=e170] [cursor=pointer]:
+            - generic [ref=e171]:
+              - heading "CSS Grid" [level=3] [ref=e172]
+              - generic [ref=e173]: Ouvert
+            - paragraph [ref=e174]: Problème avec CSS Grid layout
+            - generic [ref=e175]:
+              - generic [ref=e176]: HTML/CSS
+              - generic [ref=e177]: par Sophie Martin
+            - button "Proposer mon aide" [ref=e178]

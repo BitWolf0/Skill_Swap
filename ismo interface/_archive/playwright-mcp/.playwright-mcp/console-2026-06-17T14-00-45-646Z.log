@@ -1,0 +1,5 @@
+[      17ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/Skill_Swap/assets/css/dashboard.min.css?v=1781704161:0
+[      17ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/Skill_Swap/assets/css/gestion_badges.min.css?v=1781704713:0
+[      49ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/Skill_Swap/assets/js/dashboard.min.js?v=1781465042:0
+[      49ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/Skill_Swap/assets/js/gestion_badges.min.js?v=1781462349:0
+[   37131ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "username"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/Skill_Swap/ismo%20interface/pages_stagiaire/login.php:0

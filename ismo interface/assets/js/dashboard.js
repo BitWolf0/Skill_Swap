@@ -17,6 +17,10 @@ const navItems = document.querySelectorAll('.nav-item');
 const searchInput = document.getElementById('search-input');
 const progressFill = document.getElementById('progress-fill');
 
+// API base: works from any page depth
+const API_PATH = window.location.pathname.includes('/pages_') || window.location.pathname.includes('/formateur_pages/')
+  ? '../backend/api' : 'backend/api';
+
 // Mobile sidebar elements
 const sidebar = document.getElementById('sidebar');
 const btnMenu = document.getElementById('btn-menu');
@@ -200,7 +204,7 @@ function timeAgo(dateStr) {
 
 async function loadNotifs() {
   try {
-    const resp = await fetch('backend/api/notifications.php');
+    const resp = await fetch(API_PATH + '/notifications.php');
     const notifs = await resp.json();
     if (!Array.isArray(notifs)) return;
     const unreadCount = notifs.filter(n => !n.is_read).length;
@@ -227,7 +231,7 @@ async function loadNotifs() {
         e.preventDefault();
         if (!n.is_read) {
           try {
-            await fetch('backend/api/notifications.php?id=' + n.notification_id, { method: 'PUT', headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' } });
+            await fetch(API_PATH + '/notifications.php?id=' + n.notification_id, { method: 'PUT', headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' } });
           } catch (e) { console.warn('Mark read failed', e); }
         }
         notifPanel.hidden = true;
@@ -249,7 +253,7 @@ notifBtn?.addEventListener('click', async function(e) {
 markAllBtn?.addEventListener('click', async function(e) {
   e.stopPropagation();
   try {
-    await fetch('backend/api/notifications.php?all=1', { method: 'PUT', headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' } });
+    await fetch(API_PATH + '/notifications.php?all=1', { method: 'PUT', headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' } });
     const dot = document.querySelector('.notif-dot');
     if (dot) dot.style.display = 'none';
     await loadNotifs();
@@ -297,6 +301,24 @@ function showToast(message, type = 'info', duration = 3000) {
     toast.addEventListener('animationend', () => toast.remove(), { once: true });
   }, duration);
 }
+
+/* ──────────────────────────────────────────────
+   Responsive sidebar: debounced resize handler
+────────────────────────────────────────────── */
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    const w = window.innerWidth;
+    if (w <= 820) {
+      sidebar?.classList.remove('open');
+      sidebarOverlay?.classList.remove('show');
+      document.body.style.overflow = '';
+    } else {
+      sidebar?.classList.add('open');
+    }
+  }, 150);
+});
 
 /* ──────────────────────────────────────────────
    Initialisation

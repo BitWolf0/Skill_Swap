@@ -1,0 +1,170 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+            - text: Tableau de bord
+        - listitem [ref=e13]:
+          - link "Gestion comptes" [ref=e14] [cursor=pointer]:
+            - /url: gestion_comptes.php
+            - img [ref=e16]
+            - text: Gestion comptes
+        - listitem [ref=e21]:
+          - link "Modération" [ref=e22] [cursor=pointer]:
+            - /url: moderation.php
+            - img [ref=e24]
+            - text: Modération
+        - listitem [ref=e26]:
+          - link "Badges" [ref=e27] [cursor=pointer]:
+            - /url: gestion_badges.php
+            - img [ref=e29]
+            - text: Badges
+        - listitem [ref=e31]:
+          - link "Statistiques" [ref=e32] [cursor=pointer]:
+            - /url: statistiques_admin.php
+            - img [ref=e34]
+            - text: Statistiques
+        - listitem [ref=e35]:
+          - link "Catalogue" [ref=e36] [cursor=pointer]:
+            - /url: catalogue_admin.php
+            - img [ref=e38]
+            - text: Catalogue
+    - generic [ref=e42]:
+      - img [ref=e44]
+      - generic [ref=e47]: Jean Dupont Administrateur
+  - generic [ref=e48]:
+    - banner [ref=e49]:
+      - button "Ouvrir le menu" [ref=e50]:
+        - img [ref=e51]
+      - generic [ref=e52]:
+        - img [ref=e54]
+        - generic [ref=e58]: ISMO-SkillSwap
+      - generic [ref=e59]:
+        - img [ref=e61]
+        - searchbox "Rechercher une compétence" [ref=e64]
+        - text: ⌘K
+      - generic [ref=e65]:
+        - button "Notifications" [ref=e66]:
+          - img [ref=e67]
+        - button "Menu profil" [ref=e70]:
+          - generic [ref=e71]: "Jean Dupont Points: 60"
+          - img [ref=e73]
+    - main [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - heading "Gestion des Badges" [level=1] [ref=e80]
+            - paragraph [ref=e81]: Créez, attribuez et gérez les badges de la plateforme
+          - button "+ Nouveau badge" [ref=e83]
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - img [ref=e89]
+              - generic [ref=e92]:
+                - heading "Apprenti" [level=3] [ref=e93]
+                - paragraph [ref=e94]: Vous progressez
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - img [ref=e98]
+                    - text: 30 pts
+                  - text: Actif
+                  - generic [ref=e104]:
+                    - img [ref=e106]
+                    - text: 1 attribution(s)
+            - generic [ref=e111]:
+              - button "Attribuer" [ref=e112]
+              - button "Désactiver" [ref=e113]
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - img [ref=e118]
+              - generic [ref=e121]:
+                - heading "Débutant" [level=3] [ref=e122]
+                - paragraph [ref=e123]: Premiers pas sur la plateforme
+                - generic [ref=e124]:
+                  - generic [ref=e125]:
+                    - img [ref=e127]
+                    - text: 10 pts
+                  - text: Actif
+                  - generic [ref=e133]:
+                    - img [ref=e135]
+                    - text: 2 attribution(s)
+            - generic [ref=e140]:
+              - button "Attribuer" [ref=e141]
+              - button "Désactiver" [ref=e142]
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - img [ref=e147]
+              - generic [ref=e150]:
+                - heading "Expert" [level=3] [ref=e151]
+                - paragraph [ref=e152]: Expert en compétences
+                - generic [ref=e153]:
+                  - generic [ref=e154]:
+                    - img [ref=e156]
+                    - text: 60 pts
+                  - text: Actif
+                  - generic [ref=e162]:
+                    - img [ref=e164]
+                    - text: 1 attribution(s)
+            - generic [ref=e169]:
+              - button "Attribuer" [ref=e170]
+              - button "Désactiver" [ref=e171]
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - img [ref=e176]
+              - generic [ref=e179]:
+                - heading "Mentor" [level=3] [ref=e180]
+                - paragraph [ref=e181]: Vous avez aidé la communauté
+                - generic [ref=e182]:
+                  - generic [ref=e183]:
+                    - img [ref=e185]
+                    - text: 100 pts
+                  - text: Actif
+                  - generic [ref=e191]:
+                    - img [ref=e193]
+                    - text: 0 attribution(s)
+            - generic [ref=e198]:
+              - button "Attribuer" [ref=e199]
+              - button "Désactiver" [ref=e200]
+    - generic [ref=e202]:
+      - generic [ref=e203]:
+        - heading [level=2] [ref=e204]: Nouveau badge
+        - button [ref=e205]:
+          - img [ref=e206]
+      - generic [ref=e209]:
+        - generic [ref=e210]:
+          - generic [ref=e211]:
+            - text: Nom du badge
+            - textbox [ref=e212]
+          - generic [ref=e213]:
+            - text: Description
+            - textbox [ref=e214]
+          - generic [ref=e215]:
+            - generic [ref=e216]:
+              - text: Catégorie
+              - textbox [ref=e217]:
+                - /placeholder: "ex: Entraide, Compétence"
+            - generic [ref=e218]:
+              - text: Points requis
+              - spinbutton [ref=e219]: "0"
+          - generic [ref=e220]:
+            - text: Icône (emoji)
+            - textbox [ref=e221]:
+              - /placeholder: "ex: 🏅"
+        - generic [ref=e222]:
+          - button [ref=e223]: Annuler
+          - button [ref=e224]: Créer le badge
+    - generic [ref=e226]:
+      - generic [ref=e227]:
+        - heading [level=2] [ref=e228]: Attribuer
+        - button [ref=e229]:
+          - img [ref=e230]
+      - generic [ref=e233]:
+        - generic [ref=e235]:
+          - text: Utilisateur
+          - combobox [ref=e236]
+        - generic [ref=e237]:
+          - button [ref=e238]: Annuler
+          - button [ref=e239]: Attribuer

@@ -219,13 +219,15 @@ function verifierBadgesAutomatiques(int $userId): void {
     $points = (int)$stmt->fetchColumn();
 
     $badges = $db->query('SELECT * FROM badges WHERE points_requis > 0 AND est_actif = 1')->fetchAll();
+    if (empty($badges)) return;
+
+    $owned = $db->prepare('SELECT badge_id FROM badges_stagiaire WHERE utilisateur_id = ?');
+    $owned->execute([$userId]);
+    $ownedIds = array_column($owned->fetchAll(), 'badge_id');
 
     foreach ($badges as $badge) {
         if ($points < (int)$badge['points_requis']) continue;
-
-        $check = $db->prepare('SELECT id FROM badges_stagiaire WHERE utilisateur_id = ? AND badge_id = ?');
-        $check->execute([$userId, $badge['id']]);
-        if ($check->fetch()) continue;
+        if (in_array($badge['id'], $ownedIds)) continue;
 
         $db->prepare('INSERT INTO badges_stagiaire (utilisateur_id, badge_id, attribue_par, motif) VALUES (?, ?, "système", ?)')
            ->execute([$userId, $badge['id'], 'Badge débloqué automatiquement']);

@@ -35,6 +35,28 @@ $pending = $db->query('
     LIMIT 10
 ')->fetchAll();
 
+$validated = $db->query('
+    SELECT cs.*, c.nom AS competence_nom, c.categorie AS competence_categorie,
+           u.nom AS utilisateur_nom, u.prenom AS utilisateur_prenom,
+           u.filiere AS utilisateur_filiere
+    FROM competences_stagiaire cs
+    JOIN competences_catalogue c ON cs.competence_id = c.id
+    JOIN utilisateurs u ON cs.utilisateur_id = u.id
+    WHERE cs.statut_validation = "Validé"
+    ORDER BY cs.date_validation DESC
+    LIMIT 5
+')->fetchAll();
+
+$totalValidated = (int)$db->query("SELECT COUNT(*) FROM competences_stagiaire WHERE statut_validation = 'Validé'")->fetchColumn();
+
+$recentStagiaires = $db->query("
+    SELECT id, prenom, nom, filiere, date_inscription
+    FROM utilisateurs
+    WHERE role = 'stagiaire'
+    ORDER BY date_inscription DESC
+    LIMIT 5
+")->fetchAll();
+
 include __DIR__ . '/../backend/includes/header.php';
 ?>
 <?php include __DIR__ . '/../backend/includes/sidebar_formateur.php'; ?>
@@ -60,6 +82,10 @@ include __DIR__ . '/../backend/includes/header.php';
         <div class="qstat-icon qstat-orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
         <div class="qstat-info"><span class="qstat-value"><?= $openRequests ?></span><span class="qstat-label">Demandes ouvertes</span></div>
       </div>
+      <div class="qstat-card">
+        <div class="qstat-icon qstat-purple"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="qstat-info"><span class="qstat-value"><?= $totalValidated ?></span><span class="qstat-label">Compétences validées</span></div>
+      </div>
     </div>
 
     <h2 class="section-label">Validations en attente</h2>
@@ -67,19 +93,77 @@ include __DIR__ . '/../backend/includes/header.php';
     <?php else: ?>
     <div class="validations-list">
       <?php foreach ($pending as $p): ?>
-      <div class="validation-card" style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:12px;padding:16px 20px;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin-bottom:8px;">
+      <div class="formateur-validation-card">
         <div class="validation-info">
           <strong><?= h($p['utilisateur_prenom']) ?> <?= h($p['utilisateur_nom']) ?></strong>
-          <span style="display:block;color:#6B7280;font-size:0.85rem;"><?= h($p['competence_nom']) ?> — <?= h($p['niveau_estime']) ?></span>
+          <span class="validation-meta"><?= h($p['competence_nom']) ?> — <?= h($p['niveau_estime']) ?></span>
         </div>
-        <div class="validation-actions" style="display:flex;gap:8px;">
-          <button class="btn-sm btn-primary btn-validate" data-id="<?= $p['id'] ?>" data-statut="Validé" style="background:#10B981;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;">Valider</button>
-          <button class="btn-sm btn-secondary btn-validate" data-id="<?= $p['id'] ?>" data-statut="Refusé" style="background:#EF4444;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;">Refuser</button>
+        <div class="validation-actions">
+          <button class="btn-validate btn-validate-ok" data-id="<?= $p['id'] ?>" data-statut="Validé">Valider</button>
+          <button class="btn-validate btn-validate-no" data-id="<?= $p['id'] ?>" data-statut="Refusé">Refuser</button>
         </div>
       </div>
       <?php endforeach; ?>
     </div>
     <?php endif; ?>
+
+    <div class="dashboard-grid">
+      <div class="table-card">
+        <h2 class="table-card-title">Récents validations</h2>
+        <?php if (empty($validated)): ?>
+        <p class="text-muted">Aucune validation récente.</p>
+        <?php else: ?>
+        <div class="responsive-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Apprenant</th>
+                <th>Compétence</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($validated as $v): ?>
+              <tr>
+                <td class="cell-name"><?= h($v['utilisateur_prenom']) ?> <?= h($v['utilisateur_nom']) ?></td>
+                <td class="cell-muted"><?= h($v['competence_nom']) ?></td>
+                <td class="cell-date"><?= date('d/m/Y', strtotime($v['date_validation'] ?? $v['date_declaration'])) ?></td>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+        <?php endif; ?>
+      </div>
+
+      <div class="table-card">
+        <h2 class="table-card-title">Nouveaux apprenants</h2>
+        <?php if (empty($recentStagiaires)): ?>
+        <p class="text-muted">Aucun apprenant récent.</p>
+        <?php else: ?>
+        <div class="responsive-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Filière</th>
+                <th>Inscrit le</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($recentStagiaires as $s): ?>
+              <tr>
+                <td class="cell-name"><?= h($s['prenom']) ?> <?= h($s['nom']) ?></td>
+                <td class="cell-muted"><?= h($s['filiere'] ?? '-') ?></td>
+                <td class="cell-date"><?= date('d/m/Y', strtotime($s['date_inscription'])) ?></td>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+        <?php endif; ?>
+      </div>
+    </div>
   </section>
 </main>
 

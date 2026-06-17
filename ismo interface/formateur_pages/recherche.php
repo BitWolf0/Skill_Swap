@@ -53,4 +53,8 @@ include __DIR__ . '/../backend/includes/header.php';
     <?php endif; ?>
   </section>
 </main>
+<style>
+.search-form { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.result-item { padding: 12px 16px; background: #fff; border-radius: 8px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+</style>
 <?php include __DIR__ . '/../backend/includes/footer.php'; ?>

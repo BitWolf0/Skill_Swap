@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 1" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "1"
+        - listitem [ref=e21]:
+          - link "Mes Aides" [ref=e22] [cursor=pointer]:
+            - /url: mes_aides.php
+            - img [ref=e24]
+            - generic [ref=e29]: Mes Aides
+        - listitem [ref=e30]:
+          - link "Marketplace" [ref=e31] [cursor=pointer]:
+            - /url: marketplace.php
+            - img [ref=e33]
+            - generic [ref=e37]: Marketplace
+        - listitem [ref=e38]:
+          - link "Mes Badges" [ref=e39] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e41]
+            - generic [ref=e44]: Mes Badges
+        - listitem [ref=e45]:
+          - link "Mes Compétences" [ref=e46] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e48]
+            - generic [ref=e50]: Mes Compétences
+        - listitem [ref=e51]:
+          - link "Classement" [ref=e52] [cursor=pointer]:
+            - /url: classement.php
+            - img [ref=e54]
+            - generic [ref=e58]: Classement
+    - generic [ref=e60]:
+      - img [ref=e62]
+      - generic [ref=e65]:
+        - generic [ref=e66]: Lucas Bernard
+        - generic [ref=e67]: Mentor
+  - generic [ref=e68]:
+    - banner [ref=e69]:
+      - button "Ouvrir le menu" [ref=e70] [cursor=pointer]:
+        - img [ref=e71]
+      - generic [ref=e72]:
+        - img [ref=e74]
+        - generic [ref=e78]: ISMO-SkillSwap
+      - generic [ref=e79]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e80]
+        - generic: ⌘K
+      - generic [ref=e81]:
+        - button "Notifications" [ref=e82] [cursor=pointer]:
+          - img [ref=e83]
+          - generic "Nouvelles notifications" [ref=e86]
+        - button "Menu profil" [ref=e87] [cursor=pointer]:
+          - generic [ref=e88]:
+            - generic [ref=e89]: Lucas Bernard
+            - generic [ref=e90]: "Points: 5"
+          - img [ref=e92]
+    - main [ref=e95]:
+      - generic [ref=e96]:
+        - generic [ref=e98]:
+          - heading "Tableau de bord Mentor" [level=1] [ref=e99]
+          - paragraph [ref=e100]: Aidez les autres et développez votre réputation
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - img [ref=e104]
+            - generic [ref=e106]:
+              - generic [ref=e107]: "1"
+              - generic [ref=e108]: Propositions envoyées
+          - generic [ref=e109]:
+            - img [ref=e111]
+            - generic [ref=e114]:
+              - generic [ref=e115]: "0"
+              - generic [ref=e116]: Aides acceptées
+          - generic [ref=e117]:
+            - img [ref=e119]
+            - generic [ref=e121]:
+              - generic [ref=e122]: —
+              - generic [ref=e123]: Note moyenne
+        - heading "Demandes d'aide ouvertes" [level=2] [ref=e124]
+        - generic [ref=e125]:
+          - generic [ref=e126] [cursor=pointer]:
+            - generic [ref=e127]:
+              - heading "test" [level=3] [ref=e128]
+              - generic [ref=e129]: Ouvert
+            - paragraph [ref=e130]: test
+            - generic [ref=e131]:
+              - generic [ref=e132]: HTML/CSS
+              - generic [ref=e133]: par Lucas Bernard
+            - button "Proposer mon aide" [ref=e134]
+          - generic [ref=e135] [cursor=pointer]:
+            - generic [ref=e136]:
+              - heading "Test demande from curl" [level=3] [ref=e137]
+              - generic [ref=e138]: Ouvert
+            - paragraph [ref=e139]: Testing the API
+            - generic [ref=e140]:
+              - generic [ref=e141]: PHP
+              - generic [ref=e142]: par Admin Admin
+            - button "Proposer mon aide" [ref=e143]
+          - generic [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]:
+              - heading "Test demande from curl" [level=3] [ref=e146]
+              - generic [ref=e147]: Ouvert
+            - paragraph [ref=e148]: Testing the API
+            - generic [ref=e149]:
+              - generic [ref=e150]: PHP
+              - generic [ref=e151]: par Admin Admin
+            - button "Proposer mon aide" [ref=e152]
+          - generic [ref=e153] [cursor=pointer]:
+            - generic [ref=e154]:
+              - heading "Débuter Python" [level=3] [ref=e155]
+              - generic [ref=e156]: Ouvert
+            - paragraph [ref=e157]: Je veux apprendre Python
+            - generic [ref=e158]:
+              - generic [ref=e159]: Python
+              - generic [ref=e160]: par Jean Dupont
+            - button "Proposer mon aide" [ref=e161]
+          - generic [ref=e162] [cursor=pointer]:
+            - generic [ref=e163]:
+              - heading "Aide projet PHP" [level=3] [ref=e164]
+              - generic [ref=e165]: Ouvert
+            - paragraph [ref=e166]: Je bloque sur un projet PHP
+            - generic [ref=e167]:
+              - generic [ref=e168]: PHP
+              - generic [ref=e169]: par Sophie Martin
+            - button "Proposer mon aide" [ref=e170]
+          - generic [ref=e171] [cursor=pointer]:
+            - generic [ref=e172]:
+              - heading "CSS Grid" [level=3] [ref=e173]
+              - generic [ref=e174]: Ouvert
+            - paragraph [ref=e175]: Problème avec CSS Grid layout
+            - generic [ref=e176]:
+              - generic [ref=e177]: HTML/CSS
+              - generic [ref=e178]: par Sophie Martin
+            - button "Proposer mon aide" [ref=e179]

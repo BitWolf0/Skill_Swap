@@ -69,7 +69,7 @@ include __DIR__ . '/../backend/includes/header.php';
         <div style="position:relative;flex-shrink:0;">
           <div style="width:100px;height:100px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.25);box-shadow:0 8px 32px rgba(0,0,0,0.2);background:var(--blue-600);display:flex;align-items:center;justify-content:center;">
             <?php if ($hasPhoto): ?>
-              <img src="<?= h($profilePhoto) ?>" alt="Photo de profil" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <img src="<?= h($profilePhoto) ?>" alt="Photo de profil" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
             <?php else: ?>
               <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <?php endif; ?>

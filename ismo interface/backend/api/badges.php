@@ -64,13 +64,12 @@ switch ($method) {
         $data = jsonBody();
         if (empty($data['nom'])) jsonResponse(['error' => 'Nom du badge requis'], 400);
 
-        $stmt = $db->prepare('INSERT INTO badges (nom, description, points_requis, icone, categorie) VALUES (?, ?, ?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO badges (nom, description, points_requis, icone) VALUES (?, ?, ?, ?)');
         $stmt->execute([
             $data['nom'],
             $data['description'] ?? '',
             (int)($data['points_requis'] ?? 0),
             $data['icone'] ?? '',
-            $data['categorie'] ?? '',
         ]);
         jsonResponse(['success' => true, 'id' => (int)$db->lastInsertId()], 201);
 

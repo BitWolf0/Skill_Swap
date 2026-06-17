@@ -54,7 +54,7 @@ include __DIR__ . '/../backend/includes/topbar.php';
       <a href="demande_detail.php?id=<?= $req['id'] ?>" class="request-card" style="display:block; text-decoration:none; color:inherit;">
         <div class="request-card-top">
           <h3 class="request-title"><?= h($req['titre']) ?></h3>
-          <span class="badge badge-<?= $req['statut'] === 'Ouvert' ? 'pending' : ($req['statut'] === 'En cours' ? 'active' : 'completed') ?>">
+          <span class="badge badge-<?= $req['statut'] === 'Ouvert' ? 'pending' : ($req['statut'] === 'En cours' ? 'active' : 'resolu') ?>">
             <?= $req['statut'] ?>
           </span>
         </div>

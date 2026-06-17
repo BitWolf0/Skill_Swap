@@ -1,0 +1,69 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+        - listitem [ref=e13]:
+          - link [ref=e14] [cursor=pointer]:
+            - /url: validation_demande.php
+            - img [ref=e16]
+        - listitem [ref=e18]:
+          - link [ref=e19] [cursor=pointer]:
+            - /url: statistique.php
+            - img [ref=e21]
+        - listitem [ref=e25]:
+          - link [ref=e26] [cursor=pointer]:
+            - /url: catalogue.php
+            - img [ref=e28]
+    - generic [ref=e32]:
+      - img [ref=e34]
+      - generic [ref=e37]:
+        - generic [ref=e38]: Pierre Leroy
+        - generic [ref=e39]: Formateur
+  - generic [ref=e40]:
+    - banner [ref=e41]:
+      - button "Ouvrir le menu" [ref=e42] [cursor=pointer]:
+        - img [ref=e43]
+      - generic [ref=e44]:
+        - img [ref=e46]
+        - generic [ref=e50]: ISMO
+      - generic [ref=e51]:
+        - button "Notifications" [ref=e52] [cursor=pointer]:
+          - img [ref=e53]
+          - generic "Nouvelles notifications" [ref=e56]
+        - button "Menu profil" [ref=e57] [cursor=pointer]:
+          - img [ref=e59]
+    - main [ref=e62]:
+      - generic [ref=e63]:
+        - heading "Tableau de bord Formateur" [level=1] [ref=e66]
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - img [ref=e70]
+            - generic [ref=e73]
+          - generic [ref=e76]:
+            - img [ref=e78]
+            - generic [ref=e83]
+          - generic [ref=e86]:
+            - img [ref=e88]
+            - generic [ref=e91]
+          - generic [ref=e94]:
+            - img [ref=e96]
+            - generic [ref=e99]
+        - heading "Validations en attente" [level=2] [ref=e102]
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - strong [ref=e106]: Sophie Martin
+            - text: Machine Learning — Débutant
+          - generic [ref=e107]:
+            - button "Valider" [ref=e108] [cursor=pointer]
+            - button "Refuser" [ref=e109] [cursor=pointer]
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - heading "Récents validations" [level=2] [ref=e112]
+            - table [ref=e114]
+          - generic [ref=e137]:
+            - heading "Nouveaux apprenants" [level=2] [ref=e138]
+            - table [ref=e140]

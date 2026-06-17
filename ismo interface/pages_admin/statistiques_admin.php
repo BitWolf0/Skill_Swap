@@ -56,35 +56,41 @@ include __DIR__ . '/../backend/includes/header.php';
       <div class="qstat-card"><div class="qstat-info"><span class="qstat-value"><?= $totalBadgesAttribues ?></span><span class="qstat-label">Badges attribués</span></div></div>
     </div>
 
-    <h2 class="section-label">Top 10 des compétences déclarées</h2>
-    <table class="data-table">
-      <thead><tr><th>Compétence</th><th>Déclarations</th></tr></thead>
-      <tbody>
-        <?php foreach ($topSkills as $ts): ?>
-        <tr><td><?= h($ts['nom']) ?></td><td><?= (int)$ts['declared'] ?></td></tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+    <div class="data-table-wrap">
+      <h2 class="section-label">Top 10 des compétences déclarées</h2>
+      <table class="data-table">
+        <thead><tr><th>Compétence</th><th>Déclarations</th></tr></thead>
+        <tbody>
+          <?php foreach ($topSkills as $ts): ?>
+          <tr><td><?= h($ts['nom']) ?></td><td><?= (int)$ts['declared'] ?></td></tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
 
-    <h2 class="section-label">Top 10 des compétences les plus demandées</h2>
-    <table class="data-table">
-      <thead><tr><th>Compétence</th><th>Demandes</th></tr></thead>
-      <tbody>
-        <?php foreach ($topRequested as $tr): ?>
-        <tr><td><?= h($tr['nom']) ?></td><td><?= (int)$tr['requested'] ?></td></tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+    <div class="data-table-wrap">
+      <h2 class="section-label">Top 10 des compétences les plus demandées</h2>
+      <table class="data-table">
+        <thead><tr><th>Compétence</th><th>Demandes</th></tr></thead>
+        <tbody>
+          <?php foreach ($topRequested as $tr): ?>
+          <tr><td><?= h($tr['nom']) ?></td><td><?= (int)$tr['requested'] ?></td></tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
 
-    <h2 class="section-label">Derniers badges attribués</h2>
-    <table class="data-table">
-      <thead><tr><th>Badge</th><th>Utilisateur</th><th>Date</th></tr></thead>
-      <tbody>
-        <?php foreach ($recentBadges as $rb): ?>
-        <tr><td><?= h($rb['nom']) ?></td><td><?= h($rb['user_name']) ?></td><td><?= date('d/m/Y', strtotime($rb['obtenu_le'])) ?></td></tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+    <div class="data-table-wrap">
+      <h2 class="section-label">Derniers badges attribués</h2>
+      <table class="data-table">
+        <thead><tr><th>Badge</th><th>Utilisateur</th><th>Date</th></tr></thead>
+        <tbody>
+          <?php foreach ($recentBadges as $rb): ?>
+          <tr><td><?= h($rb['nom']) ?></td><td><?= h($rb['user_name']) ?></td><td><?= date('d/m/Y', strtotime($rb['obtenu_le'])) ?></td></tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </section>
 </main>
 <?php include __DIR__ . '/../backend/includes/footer.php'; ?>

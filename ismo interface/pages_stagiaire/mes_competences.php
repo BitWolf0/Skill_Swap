@@ -140,7 +140,12 @@ document.getElementById('declare-form')?.addEventListener('submit', async functi
       headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '<?= csrfToken() ?>' },
       body: JSON.stringify(data)
     });
-    const result = await resp.json();
+    if (!resp.ok) { showToast('Erreur serveur ' + resp.status, 'error'); return; }
+    let result;
+    try { result = await resp.json(); } catch {
+      showToast('Réponse invalide du serveur (vérifiez que MySQL est démarré)', 'error');
+      return;
+    }
     if (result.success) {
       showToast('Compétence déclarée ! En attente de validation.', 'success');
       setTimeout(() => location.reload(), 1000);
@@ -148,7 +153,7 @@ document.getElementById('declare-form')?.addEventListener('submit', async functi
       showToast(result.error || 'Erreur', 'error');
     }
   } catch (err) {
-    showToast('Erreur de connexion', 'error');
+    showToast('Erreur de connexion : ' + (err.message || 'requête échouée'), 'error');
   }
 });
 </script>

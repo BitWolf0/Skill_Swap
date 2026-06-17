@@ -1,0 +1,135 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+        - listitem [ref=e13]:
+          - link [ref=e14] [cursor=pointer]:
+            - /url: gestion_comptes.php
+            - img [ref=e16]
+        - listitem [ref=e21]:
+          - link [ref=e22] [cursor=pointer]:
+            - /url: moderation.php
+            - img [ref=e24]
+        - listitem [ref=e26]:
+          - link [ref=e27] [cursor=pointer]:
+            - /url: gestion_badges.php
+            - img [ref=e29]
+        - listitem [ref=e31]:
+          - link [ref=e32] [cursor=pointer]:
+            - /url: statistiques_admin.php
+            - img [ref=e34]
+        - listitem [ref=e35]:
+          - link [ref=e36] [cursor=pointer]:
+            - /url: catalogue_admin.php
+            - img [ref=e38]
+    - generic [ref=e42]:
+      - img [ref=e44]
+      - generic [ref=e47]:
+        - generic [ref=e48]: Admin Admin
+        - generic [ref=e49]: Administrateur
+  - generic [ref=e50]:
+    - banner [ref=e51]:
+      - button "Ouvrir le menu" [ref=e52] [cursor=pointer]:
+        - img [ref=e53]
+      - generic [ref=e54]:
+        - img [ref=e56]
+        - generic [ref=e60]: ISMO
+      - generic [ref=e61]:
+        - button "Notifications" [ref=e62] [cursor=pointer]:
+          - img [ref=e63]
+          - generic "Nouvelles notifications" [ref=e66]
+        - button "Menu profil" [ref=e67] [cursor=pointer]:
+          - img [ref=e69]
+    - main [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e75]:
+          - heading "Tableau de bord Admin" [level=1] [ref=e76]
+          - paragraph [ref=e77]: Supervisez la plateforme — 5 utilisateurs, 4 compétences validées
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - generic [ref=e80]: "5"
+            - generic [ref=e81]: Utilisateurs
+          - generic [ref=e82]:
+            - generic [ref=e83]: "2"
+            - generic [ref=e84]: Stagiaires
+          - generic [ref=e85]:
+            - generic [ref=e86]: "1"
+            - generic [ref=e87]: Formateurs
+          - generic [ref=e88]:
+            - generic [ref=e89]: "1"
+            - generic [ref=e90]: Validations en attente
+          - generic [ref=e91]:
+            - generic [ref=e92]: "4"
+            - generic [ref=e93]: Compétences validées
+          - generic [ref=e94]:
+            - generic [ref=e95]: "7"
+            - generic [ref=e96]: Compétences au catalogue
+          - generic [ref=e97]:
+            - generic [ref=e98]: "6"
+            - generic [ref=e99]: Demandes ouvertes
+          - generic [ref=e100]:
+            - generic [ref=e101]: "1"
+            - generic [ref=e102]: Demandes résolues
+          - generic [ref=e103]:
+            - generic [ref=e104]: "4"
+            - generic [ref=e105]: Badges actifs
+          - generic [ref=e106]:
+            - generic [ref=e107]: "4"
+            - generic [ref=e108]: Badges attribués
+          - generic [ref=e109]:
+            - generic [ref=e110]: "75"
+            - generic [ref=e111]: Points gamifiés (total)
+          - generic [ref=e112]:
+            - generic [ref=e113]: "4"
+            - generic [ref=e114]: Propositions d'aide
+          - generic [ref=e115]:
+            - generic [ref=e116]: "0"
+            - generic [ref=e117]: En cours
+          - generic [ref=e118]:
+            - generic [ref=e119]: "7"
+            - generic [ref=e120]: Demandes totales
+        - generic [ref=e121]:
+          - heading "Derniers inscrits" [level=2] [ref=e122]
+          - table [ref=e124]:
+            - rowgroup [ref=e125]:
+              - row "Nom Email Rôle Filière Date" [ref=e126]:
+                - columnheader "Nom" [ref=e127]
+                - columnheader "Email" [ref=e128]
+                - columnheader "Rôle" [ref=e129]
+                - columnheader "Filière" [ref=e130]
+                - columnheader "Date" [ref=e131]
+            - rowgroup [ref=e132]:
+              - row "Lucas Bernard lucas@test.com Mentor Informatique 13/06/2026" [ref=e133]:
+                - cell "Lucas Bernard" [ref=e134]
+                - cell "lucas@test.com" [ref=e135]
+                - cell "Mentor" [ref=e136]
+                - cell "Informatique" [ref=e137]
+                - cell "13/06/2026" [ref=e138]
+              - row "Jean Dupont jean@test.com Stagiaire Développement Web 05/06/2026" [ref=e139]:
+                - cell "Jean Dupont" [ref=e140]
+                - cell "jean@test.com" [ref=e141]
+                - cell "Stagiaire" [ref=e142]
+                - cell "Développement Web" [ref=e143]
+                - cell "05/06/2026" [ref=e144]
+              - row "Sophie Martin sophie@test.com Stagiaire Data Science 05/06/2026" [ref=e145]:
+                - cell "Sophie Martin" [ref=e146]
+                - cell "sophie@test.com" [ref=e147]
+                - cell "Stagiaire" [ref=e148]
+                - cell "Data Science" [ref=e149]
+                - cell "05/06/2026" [ref=e150]
+              - row "Pierre Leroy pierre@test.com Formateur - 05/06/2026" [ref=e151]:
+                - cell "Pierre Leroy" [ref=e152]
+                - cell "pierre@test.com" [ref=e153]
+                - cell "Formateur" [ref=e154]
+                - cell "-" [ref=e155]
+                - cell "05/06/2026" [ref=e156]
+              - row "Admin Admin admin@test.com Administrateur - 05/06/2026" [ref=e157]:
+                - cell "Admin Admin" [ref=e158]
+                - cell "admin@test.com" [ref=e159]
+                - cell "Administrateur" [ref=e160]
+                - cell "-" [ref=e161]
+                - cell "05/06/2026" [ref=e162]

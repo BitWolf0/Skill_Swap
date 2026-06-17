@@ -79,7 +79,7 @@ include __DIR__ . '/../backend/includes/header.php';
           <span class="tag tag-blue"><?= h($req['skill_name'])?></span>
           <span class="tag tag-gray">par <?= h($req['owner_name'])?></span>
         </div>
-        <button class="btn-sm btn-primary" onclick="openDashProposal(<?= $req['id']?>)">Proposer mon aide</button>
+        <button class="btn-sm btn-offer" onclick="openDashProposal(<?= $req['id']?>)">Proposer mon aide</button>
       </div>
       <?php endforeach; ?>
     </div>
@@ -135,6 +135,25 @@ include __DIR__ . '/../backend/includes/header.php';
 .pbtn-primary:hover { background:#2563eb; }
 .pbtn-outline { background:#fff; color:#475569; border:1px solid #e2e8f0; }
 .pbtn-outline:hover { background:#f8fafc; border-color:#cbd5e1; }
+
+.request-card .btn-offer {
+  background: var(--blue-600);
+  color: var(--white);
+  border: none;
+  width: 100%;
+  margin-top: 6px;
+  font-weight: 600;
+  justify-content: center;
+  padding: 9px 14px;
+  font-size: .85rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.request-card .btn-offer:hover {
+  background: var(--blue-700);
+  transform: translateY(-1px);
+}
 </style>
 
 <script>

@@ -3,9 +3,9 @@
  * ISMO-SkillSwap — Footer Include (scripts)
  */
 $basePath = $basePath ?? '..';
-
+$assetBase = __DIR__ . '/../../assets';
 $jsPageMap = [
-    'messagerie' => 'messagerie', 'conversation' => 'messagerie',
+
     'recherche' => 'recherche', 'classement' => 'classement',
     'mes_competences' => 'mes_competences', 'mes_demandes' => 'mes_demandes',
     'mes_badges' => 'mes_badges', 'notification' => 'notification',
@@ -19,11 +19,14 @@ $jsPageMap = [
     'gestion_comptes' => 'gestion_comptes', 'gestion_badges' => 'gestion_badges', 'moderation' => 'moderation',
     'info' => 'dashboard',
 ];
-?>
+$jsVer = file_exists($assetBase . '/js/dashboard.js') ? '?v=' . filemtime($assetBase . '/js/dashboard.js') : '';?>
   <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
-  <script src="<?= $basePath ?>/assets/js/dashboard.js"></script>
-  <?php if (isset($jsPageMap[$currentPage])): ?>
-  <script src="<?= $basePath ?>/assets/js/<?= $jsPageMap[$currentPage] ?>.js"></script>
+  <script src="<?= $basePath ?>/assets/js/dashboard.min.js<?= file_exists($assetBase . '/js/dashboard.min.js') ? '?v=' . filemtime($assetBase . '/js/dashboard.min.js') : '' ?>"></script>
+  <?php if (isset($jsPageMap[$currentPage])):
+    $pageJsFile = $jsPageMap[$currentPage] . '.min.js';
+    $pageJsVer = file_exists($assetBase . '/js/' . $pageJsFile) ? '?v=' . filemtime($assetBase . '/js/' . $pageJsFile) : '';
+  ?>
+  <script src="<?= $basePath ?>/assets/js/<?= $pageJsFile . $pageJsVer ?>"></script>
   <?php endif; ?>
 </body>
 </html>

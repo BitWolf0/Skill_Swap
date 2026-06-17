@@ -1,0 +1,170 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Validation" [ref=e15] [cursor=pointer]:
+            - /url: validation_demande.php
+            - img [ref=e17]
+            - generic [ref=e19]: Validation
+        - listitem [ref=e20]:
+          - link "Statistiques" [ref=e21] [cursor=pointer]:
+            - /url: statistique.php
+            - img [ref=e23]
+            - generic [ref=e27]: Statistiques
+        - listitem [ref=e28]:
+          - link "Catalogue" [ref=e29] [cursor=pointer]:
+            - /url: catalogue.php
+            - img [ref=e31]
+            - generic [ref=e34]: Catalogue
+    - generic [ref=e36]:
+      - img [ref=e38]
+      - generic [ref=e41]:
+        - generic [ref=e42]: Pierre Leroy
+        - generic [ref=e43]: Formateur
+  - generic [ref=e44]:
+    - banner [ref=e45]:
+      - button "Ouvrir le menu" [ref=e46] [cursor=pointer]:
+        - img [ref=e47]
+      - generic [ref=e48]:
+        - img [ref=e50]
+        - generic [ref=e54]: ISMO-SkillSwap
+      - generic [ref=e55]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e56]
+        - generic: ⌘K
+      - generic [ref=e57]:
+        - button "Notifications" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+          - generic "Nouvelles notifications" [ref=e62]
+        - button "Menu profil" [ref=e63] [cursor=pointer]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Pierre Leroy
+            - generic [ref=e66]: "Points: 0"
+          - img [ref=e68]
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e74]:
+          - heading "Validation des Compétences" [level=1] [ref=e75]
+          - paragraph [ref=e76]: 5 déclaration(s) en attente
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: SM
+                - generic [ref=e82]:
+                  - strong [ref=e83]: Sophie Martin
+                  - generic [ref=e84]: Data Science
+              - generic [ref=e85]:
+                - generic [ref=e86]: Machine Learning
+                - generic [ref=e87]: Débutant
+                - generic [ref=e88]: Déclaré le 05/06/2026
+            - generic [ref=e89]:
+              - button "Valider" [ref=e90] [cursor=pointer]
+              - button "Refuser" [ref=e91] [cursor=pointer]
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - generic [ref=e95]: LB
+                - generic [ref=e96]:
+                  - strong [ref=e97]: Lucas Bernard
+                  - generic [ref=e98]: Informatique
+              - generic [ref=e99]:
+                - generic [ref=e100]: HTML/CSS
+                - generic [ref=e101]: Débutant
+                - generic [ref=e102]: Déclaré le 17/06/2026
+            - generic [ref=e103]:
+              - button "Valider" [ref=e104] [cursor=pointer]
+              - button "Refuser" [ref=e105] [cursor=pointer]
+          - generic [ref=e106]:
+            - generic [ref=e107]:
+              - generic [ref=e108]:
+                - generic [ref=e109]: LB
+                - generic [ref=e110]:
+                  - strong [ref=e111]: Lucas Bernard
+                  - generic [ref=e112]: Informatique
+              - generic [ref=e113]:
+                - generic [ref=e114]: Python
+                - generic [ref=e115]: Débutant
+                - generic [ref=e116]: Déclaré le 17/06/2026
+            - generic [ref=e117]:
+              - button "Valider" [ref=e118] [cursor=pointer]
+              - button "Refuser" [ref=e119] [cursor=pointer]
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - generic [ref=e122]:
+                - generic [ref=e123]: LB
+                - generic [ref=e124]:
+                  - strong [ref=e125]: Lucas Bernard
+                  - generic [ref=e126]: Informatique
+              - generic [ref=e127]:
+                - generic [ref=e128]: PHP
+                - generic [ref=e129]: Avancé
+                - generic [ref=e130]: Déclaré le 17/06/2026
+            - generic [ref=e131]:
+              - button "Valider" [ref=e132] [cursor=pointer]
+              - button "Refuser" [ref=e133] [cursor=pointer]
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - generic [ref=e137]: LB
+                - generic [ref=e138]:
+                  - strong [ref=e139]: Lucas Bernard
+                  - generic [ref=e140]: Informatique
+              - generic [ref=e141]:
+                - generic [ref=e142]: JavaScript
+                - generic [ref=e143]: Intermédiaire
+                - generic [ref=e144]: Déclaré le 17/06/2026
+            - generic [ref=e145]:
+              - button "Valider" [ref=e146] [cursor=pointer]
+              - button "Refuser" [ref=e147] [cursor=pointer]
+        - separator [ref=e148]
+        - heading "Historique" [level=2] [ref=e149]
+        - table [ref=e150]:
+          - rowgroup [ref=e151]:
+            - row "Étudiant Compétence Niveau Statut Validé par Date" [ref=e152]:
+              - columnheader "Étudiant" [ref=e153]
+              - columnheader "Compétence" [ref=e154]
+              - columnheader "Niveau" [ref=e155]
+              - columnheader "Statut" [ref=e156]
+              - columnheader "Validé par" [ref=e157]
+              - columnheader "Date" [ref=e158]
+          - rowgroup [ref=e159]:
+            - row "Jean Dupont PHP Avancé Validé Pierre Leroy 05/06/2026" [ref=e160]:
+              - cell "Jean Dupont" [ref=e161]
+              - cell "PHP" [ref=e162]
+              - cell "Avancé" [ref=e163]
+              - cell "Validé" [ref=e164]:
+                - generic [ref=e165]: Validé
+              - cell "Pierre Leroy" [ref=e166]
+              - cell "05/06/2026" [ref=e167]
+            - row "Jean Dupont JavaScript Intermédiaire Validé Pierre Leroy 05/06/2026" [ref=e168]:
+              - cell "Jean Dupont" [ref=e169]
+              - cell "JavaScript" [ref=e170]
+              - cell "Intermédiaire" [ref=e171]
+              - cell "Validé" [ref=e172]:
+                - generic [ref=e173]: Validé
+              - cell "Pierre Leroy" [ref=e174]
+              - cell "05/06/2026" [ref=e175]
+            - row "Jean Dupont HTML/CSS Expert Validé Pierre Leroy 05/06/2026" [ref=e176]:
+              - cell "Jean Dupont" [ref=e177]
+              - cell "HTML/CSS" [ref=e178]
+              - cell "Expert" [ref=e179]
+              - cell "Validé" [ref=e180]:
+                - generic [ref=e181]: Validé
+              - cell "Pierre Leroy" [ref=e182]
+              - cell "05/06/2026" [ref=e183]
+            - row "Sophie Martin Python Avancé Validé Pierre Leroy 05/06/2026" [ref=e184]:
+              - cell "Sophie Martin" [ref=e185]
+              - cell "Python" [ref=e186]
+              - cell "Avancé" [ref=e187]
+              - cell "Validé" [ref=e188]:
+                - generic [ref=e189]: Validé
+              - cell "Pierre Leroy" [ref=e190]
+              - cell "05/06/2026" [ref=e191]

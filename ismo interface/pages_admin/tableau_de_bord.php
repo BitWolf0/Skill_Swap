@@ -47,86 +47,86 @@ include __DIR__ . '/../backend/includes/header.php';
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalUsers ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Utilisateurs</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalUsers ?></div>
+        <div class="stat-label">Utilisateurs</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalStagiaires ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Stagiaires</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalStagiaires ?></div>
+        <div class="stat-label">Stagiaires</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalFormateurs ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Formateurs</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalFormateurs ?></div>
+        <div class="stat-label">Formateurs</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $pendingSkills ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Validations en attente</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $pendingSkills ?></div>
+        <div class="stat-label">Validations en attente</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $validatedSkills ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Compétences validées</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $validatedSkills ?></div>
+        <div class="stat-label">Compétences validées</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalSkills ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Compétences au catalogue</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalSkills ?></div>
+        <div class="stat-label">Compétences au catalogue</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $openRequests ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Demandes ouvertes</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $openRequests ?></div>
+        <div class="stat-label">Demandes ouvertes</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $resolvedRequests ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Demandes résolues</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $resolvedRequests ?></div>
+        <div class="stat-label">Demandes résolues</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalBadges ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Badges actifs</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalBadges ?></div>
+        <div class="stat-label">Badges actifs</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $assignedBadges ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Badges attribués</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $assignedBadges ?></div>
+        <div class="stat-label">Badges attribués</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalPoints ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Points gamifiés (total)</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalPoints ?></div>
+        <div class="stat-label">Points gamifiés (total)</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalPropositions ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Propositions d'aide</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalPropositions ?></div>
+        <div class="stat-label">Propositions d'aide</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $inProgress ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">En cours</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $inProgress ?></div>
+        <div class="stat-label">En cours</div>
       </div>
-      <div style="background:#fff;padding:20px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1.2;"><?= $totalRequests ?></div>
-        <div style="font-size:0.82rem;font-weight:500;color:#475569;line-height:1.4;">Demandes totales</div>
+      <div class="stat-card">
+        <div class="stat-number"><?= $totalRequests ?></div>
+        <div class="stat-label">Demandes totales</div>
       </div>
     </div>
 
-    <div style="background:#fff;padding:24px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);">
-      <h2 style="font-size:1.05rem;font-weight:700;color:#1e293b;margin:0 0 16px 0;">Derniers inscrits</h2>
-      <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+    <div class="table-card">
+      <h2 class="table-card-title">Derniers inscrits</h2>
+      <div class="responsive-table-wrap">
+        <table class="admin-table">
           <thead>
-            <tr style="background:#f8fafc;">
-              <th style="padding:12px 16px;font-size:0.7rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;">Nom</th>
-              <th style="padding:12px 16px;font-size:0.7rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;">Email</th>
-              <th style="padding:12px 16px;font-size:0.7rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;">Rôle</th>
-              <th style="padding:12px 16px;font-size:0.7rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;">Filière</th>
-              <th style="padding:12px 16px;font-size:0.7rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;text-align:left;">Date</th>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Rôle</th>
+              <th>Filière</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($recentUsers as $u): ?>
-            <tr style="border-bottom:1px solid #f1f5f9;transition:background 0.15s ease;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background=''">
-              <td style="padding:14px 16px;font-weight:600;color:#1e293b;"><?= h($u['prenom'] . ' ' . $u['nom']) ?></td>
-              <td style="padding:14px 16px;color:#64748b;"><?= h($u['email']) ?></td>
-              <td style="padding:14px 16px;color:#475569;"><?= roleLabel($u['role']) ?></td>
-              <td style="padding:14px 16px;color:#475569;"><?= h($u['filiere'] ?? '-') ?></td>
-              <td style="padding:14px 16px;color:#94a3b8;font-weight:500;"><?= date('d/m/Y', strtotime($u['date_inscription'])) ?></td>
+            <tr>
+              <td class="cell-name"><?= h($u['prenom'] . ' ' . $u['nom']) ?></td>
+              <td class="cell-muted"><?= h($u['email']) ?></td>
+              <td class="cell-role"><?= roleLabel($u['role']) ?></td>
+              <td class="cell-muted"><?= h($u['filiere'] ?? '-') ?></td>
+              <td class="cell-date"><?= date('d/m/Y', strtotime($u['date_inscription'])) ?></td>
             </tr>
             <?php endforeach; ?>
           </tbody>

@@ -72,4 +72,11 @@ include __DIR__ . '/../backend/includes/header.php';
     </table>
   </section>
 </main>
+<style>
+.data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.data-table th { background: var(--gray-50); padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; color: var(--gray-600); border-bottom: 1px solid var(--gray-200); }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-100); font-size: 0.9rem; }
+.data-table tbody tr:hover { background: var(--gray-50); }
+.search-form { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+</style>
 <?php include __DIR__ . '/../backend/includes/footer.php'; ?>

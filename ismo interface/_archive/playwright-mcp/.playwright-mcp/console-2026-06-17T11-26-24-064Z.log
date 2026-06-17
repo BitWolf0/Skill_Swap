@@ -1,0 +1,6 @@
+[      69ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "username"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/Skill_Swap/ismo%20interface/pages_stagiaire/login.php:0
+[   23273ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "username"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/Skill_Swap/ismo%20interface/pages_stagiaire/login.php:0
+[   38314ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "username"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/Skill_Swap/ismo%20interface/pages_stagiaire/login.php?_=1781695622328:0
+[   60006ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "username"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/Skill_Swap/ismo%20interface/pages_stagiaire/login.php:0
+[   60524ms] Identifier 'THEME_COLORS' has already been declared
+[   83924ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "username"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/Skill_Swap/ismo%20interface/pages_stagiaire/login.php:0

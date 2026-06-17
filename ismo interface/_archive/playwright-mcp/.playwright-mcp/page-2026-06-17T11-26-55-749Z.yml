@@ -1,0 +1,78 @@
+- generic [ref=e2]:
+  - region "Présentation de ISMO-SkillSwap" [ref=e3]:
+    - generic [ref=e4]:
+      - img [ref=e6]
+      - generic [ref=e10]: ISMO-SkillSwap
+    - generic [ref=e11]:
+      - heading "L'entraide réinventée." [level=1] [ref=e12]:
+        - text: L'entraide
+        - text: réinventée.
+      - paragraph [ref=e13]: La plateforme qui transforme chaque étudiant en expert et chaque question en opportunité d'apprentissage.
+    - list "Fonctionnalités principales" [ref=e14]:
+      - listitem [ref=e15]:
+        - img [ref=e17]
+        - generic [ref=e20]:
+          - strong [ref=e21]: Peer-to-Peer Help
+          - text: Posez vos questions, obtenez des réponses d'autres étudiants en temps réel.
+      - listitem [ref=e22]:
+        - img [ref=e24]
+        - generic [ref=e30]:
+          - strong [ref=e31]: Badges & Skills
+          - text: Gagnez des badges reconnus et valorisez vos compétences acquises.
+      - listitem [ref=e32]:
+        - img [ref=e34]
+        - generic [ref=e39]:
+          - strong [ref=e40]: Digital Passport
+          - text: Un portfolio vivant qui trace votre parcours et impressionne les recruteurs.
+    - generic "Statistiques de la plateforme" [ref=e41]:
+      - paragraph [ref=e42]: Rejoignez la communauté
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: "342"
+          - generic [ref=e46]: Utilisateurs
+        - generic [ref=e48]:
+          - generic [ref=e49]: "1247"
+          - generic [ref=e50]: Aides données
+        - generic [ref=e52]:
+          - generic [ref=e53]: 87%
+          - generic [ref=e54]: Taux de résolution
+      - generic "Utilisateurs en ligne" [ref=e55]:
+        - generic [ref=e57]: 0 étudiants actifs maintenant
+  - region "Authentification" [ref=e58]:
+    - generic [ref=e59]:
+      - tablist "Mode d'authentification" [ref=e61]:
+        - tab "Connexion" [selected] [ref=e62] [cursor=pointer]
+        - tab "Inscription" [ref=e63] [cursor=pointer]
+      - tabpanel "Connexion" [ref=e64]:
+        - generic [ref=e65]:
+          - heading "Bon retour" [level=2] [ref=e66]
+          - paragraph [ref=e67]: Connectez-vous pour continuer à apprendre et à aider.
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Adresse e-mail
+            - generic [ref=e71]:
+              - generic:
+                - img
+              - textbox "Adresse e-mail" [ref=e72]:
+                - /placeholder: votre@email.com
+                - text: sophie@test.com
+            - alert [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Mot de passe
+            - generic [ref=e76]:
+              - generic:
+                - img
+              - textbox "Mot de passe" [ref=e77]:
+                - /placeholder: ••••••••
+                - text: password123
+              - button "Afficher le mot de passe" [ref=e78] [cursor=pointer]:
+                - img [ref=e79]
+            - alert [ref=e82]
+          - generic [ref=e83]:
+            - generic [ref=e84] [cursor=pointer]:
+              - checkbox "Se souvenir de moi"
+              - text: Se souvenir de moi
+            - link "Mot de passe oublié ?" [ref=e86] [cursor=pointer]:
+              - /url: "#password-reset"
+          - button "Se connecter" [ref=e87] [cursor=pointer]:
+            - generic [ref=e88]: Se connecter

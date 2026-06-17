@@ -52,12 +52,11 @@ if (isLoggedIn()) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/tailwind.css" />
-  <link rel="stylesheet" href="../assets/css/login.css" />
+  <link rel="stylesheet" href="../assets/css/login.css?v=<?= filemtime(__DIR__ . '/../assets/css/login.css') ?>" />
 </head>
 <body>
-  <canvas id="particles-canvas"></canvas>
   <div class="page-wrapper">
+    <canvas id="particles-canvas"></canvas>
     <!-- LEFT HERO -->
     <section class="hero" aria-label="Présentation de ISMO-SkillSwap">
       <div class="brand">
@@ -232,6 +231,6 @@ if (isLoggedIn()) {
     </section>
   </div>
   <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
-  <script src="../assets/js/login.js"></script>
+  <script src="../assets/js/login.js?v=<?= filemtime(__DIR__ . '/../assets/js/login.js') ?>"></script>
 </body>
 </html>

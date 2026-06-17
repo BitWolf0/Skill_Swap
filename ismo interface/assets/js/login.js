@@ -14,10 +14,12 @@ const THEME_COLORS = {
 (function initParticles() {
   const canvas = document.getElementById('particles-canvas');
   const ctx    = canvas.getContext('2d');
-  let W, H, particles;
+  let W, H, particles, mouse;
 
-  const COUNT = 55;
-  const MAX_DIST = 130;
+  const COUNT = 180;
+  const MAX_DIST = 180;
+
+  mouse = { x: -9999, y: -9999 };
 
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -26,11 +28,12 @@ const THEME_COLORS = {
 
   function createParticles() {
     particles = Array.from({ length: COUNT }, () => ({
-      x:  Math.random() * W,
-      y:  Math.random() * H,
-      vx: (Math.random() - .5) * .35,
-      vy: (Math.random() - .5) * .35,
-      r:  Math.random() * 2 + 1,
+      x:     Math.random() * W,
+      y:     Math.random() * H,
+      vx:    (Math.random() - .5) * .35,
+      vy:    (Math.random() - .5) * .35,
+      r:     Math.random() * 1.5 + .8,
+      alpha: Math.random() * .15 + .25,
     }));
   }
 
@@ -44,9 +47,10 @@ const THEME_COLORS = {
         const dy = particles[i].y - particles[j].y;
         const d  = Math.sqrt(dx * dx + dy * dy);
         if (d < MAX_DIST) {
+          const alpha = .12 * (1 - d / MAX_DIST);
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(255,255,255,${.15 * (1 - d / MAX_DIST)})`;
-          ctx.lineWidth   = .6;
+          ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+          ctx.lineWidth   = .5;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();
@@ -56,10 +60,30 @@ const THEME_COLORS = {
 
     // Dots
     particles.forEach(p => {
+      // Glow
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
+      grad.addColorStop(0, 'rgba(255,255,255,0.12)');
+      grad.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Core dot
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,255,255,0.45)';
+      ctx.fillStyle = 'rgba(255,255,255,' + p.alpha + ')';
       ctx.fill();
+
+      // Mouse repulsion
+      const mdx = p.x - mouse.x;
+      const mdy = p.y - mouse.y;
+      const md  = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (md < 100 && md > 0) {
+        const force = (100 - md) / 100 * 0.5;
+        p.x += (mdx / md) * force;
+        p.y += (mdy / md) * force;
+      }
 
       p.x += p.vx;
       p.y += p.vy;
@@ -70,6 +94,8 @@ const THEME_COLORS = {
     requestAnimationFrame(draw);
   }
 
+  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  document.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
   window.addEventListener('resize', () => { resize(); createParticles(); });
   resize();
   createParticles();
@@ -102,16 +128,22 @@ window.addEventListener('load', () => {
     const helps = document.getElementById('stat-helps');
     const rate  = document.getElementById('stat-rate');
 
-    if (users) animateCounter(users, 342, 1600);
-    if (helps) animateCounter(helps, 1247, 2000);
-    if (rate)  {
-      // rate has a <small> inside, handle differently
+    if (users) {
+      const target = parseInt(users.dataset.target, 10) || 0;
+      animateCounter(users, target, 1600);
+    }
+    if (helps) {
+      const target = parseInt(helps.dataset.target, 10) || 0;
+      animateCounter(helps, target, 2000);
+    }
+    if (rate) {
+      const target = parseInt(rate.dataset.target, 10) || 0;
       let start = performance.now();
       const duration = 1800;
       function stepRate(now) {
         const elapsed = Math.min((now - start) / duration, 1);
         const eased   = 1 - Math.pow(1 - elapsed, 3);
-        const current = Math.round(eased * 87);
+        const current = Math.round(eased * target);
         rate.innerHTML = `${current}<small>%</small>`;
         if (elapsed < 1) requestAnimationFrame(stepRate);
       }

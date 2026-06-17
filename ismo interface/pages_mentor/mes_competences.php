@@ -105,7 +105,12 @@ document.getElementById('declare-form')?.addEventListener('submit', async functi
       headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '<?= csrfToken() ?>' },
       body: JSON.stringify(data)
     });
-    const result = await resp.json();
+    if (!resp.ok) { showToast('Erreur serveur ' + resp.status, 'error'); return; }
+    let result;
+    try { result = await resp.json(); } catch {
+      showToast('Réponse invalide du serveur (vérifiez que MySQL est démarré)', 'error');
+      return;
+    }
     if (result.success) {
       showToast('Compétence déclarée !', 'success');
       setTimeout(() => location.reload(), 1000);
@@ -113,9 +118,27 @@ document.getElementById('declare-form')?.addEventListener('submit', async functi
       showToast(result.error || 'Erreur', 'error');
     }
   } catch (err) {
-    showToast('Erreur de connexion', 'error');
+    showToast('Erreur de connexion : ' + (err.message || 'requête échouée'), 'error');
   }
 });
 </script>
 
+<style>
+.skills-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.skill-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.skill-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.skill-card-header h3 { margin: 0; font-size: 1.05rem; }
+.skill-category { color: #9CA3AF; font-size: 0.85rem; margin: 4px 0; }
+.skill-meta { display: flex; gap: 16px; font-size: 0.9rem; color: #4B5563; margin: 8px 0; }
+.skill-validated-by { font-size: 0.82rem; color: #6B7280; }
+.skill-rejection-reason { font-size: 0.82rem; color: #EF4444; }
+.modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; }
+.modal:not([hidden]) { display: flex; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+.modal-content { position: relative; background: #fff; border-radius: 12px; padding: 24px; max-width: 460px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+.modal-content h2 { margin-top: 0; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-weight: 600; font-size: 0.85rem; color: var(--gray-700); }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+</style>
 <?php include __DIR__ . '/../backend/includes/footer.php'; ?>

@@ -137,9 +137,20 @@ switch ($method) {
         $skill = $db->prepare('SELECT nom FROM competences_catalogue WHERE id = ?');
         $skill->execute([(int)$data['competence_id']]);
         $skillName = $skill->fetchColumn();
-        $formateurs = $db->query("SELECT id FROM utilisateurs WHERE role = 'formateur' OR role = 'administrateur'");
-        while ($f = $formateurs->fetch()) {
-            ajouterNotification((int)$f['id'], 'nouvelle_demande', 'Nouvelle demande d\'aide', "Demande publiée : {$data['titre']} ({$skillName})", 'demande', $newId);
+        $formateurs = $db->query("SELECT id FROM utilisateurs WHERE role = 'formateur' OR role = 'administrateur'")->fetchAll();
+        if (!empty($formateurs)) {
+            $vals = [];
+            $params = [];
+            foreach ($formateurs as $f) {
+                $vals[] = '(?, ?, ?, ?, ?, ?, NOW())';
+                $params[] = (int)$f['id'];
+                $params[] = 'nouvelle_demande';
+                $params[] = 'Nouvelle demande d\'aide';
+                $params[] = "Demande publiée : {$data['titre']} ({$skillName})";
+                $params[] = 'demande';
+                $params[] = $newId;
+            }
+            $db->prepare('INSERT INTO notifications (user_id, notification_type, title, message, reference_type, reference_id, created_at) VALUES ' . implode(',', $vals))->execute($params);
         }
 
         jsonResponse(['success' => true, 'id' => $newId, 'message' => 'Demande publiée'], 201);

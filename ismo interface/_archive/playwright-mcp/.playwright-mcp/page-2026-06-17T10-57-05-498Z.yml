@@ -1,0 +1,97 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 2" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "2"
+        - listitem [ref=e21]:
+          - link "Mes Badges" [ref=e22] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e24]
+            - generic [ref=e27]: Mes Badges
+        - listitem [ref=e28]:
+          - link "Mes Compétences" [ref=e29] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e31]
+            - generic [ref=e33]: Mes Compétences
+        - listitem [ref=e34]:
+          - link "Passeport PDF" [ref=e35] [cursor=pointer]:
+            - /url: passeport_pdf.php
+            - img [ref=e37]
+            - generic [ref=e40]: Passeport PDF
+        - listitem [ref=e41]:
+          - link "Devenir Mentor" [ref=e42] [cursor=pointer]:
+            - /url: mentor_apply.php
+            - img [ref=e44]
+            - generic [ref=e49]: Devenir Mentor
+    - generic [ref=e51]:
+      - img [ref=e53]
+      - generic [ref=e56]:
+        - generic [ref=e57]: Sophie Martin
+        - generic [ref=e58]: Stagiaire
+  - generic [ref=e59]:
+    - banner [ref=e60]:
+      - button "Ouvrir le menu" [ref=e61] [cursor=pointer]:
+        - img [ref=e62]
+      - generic [ref=e63]:
+        - img [ref=e65]
+        - generic [ref=e69]: ISMO-SkillSwap
+      - generic [ref=e70]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e71]
+        - generic: ⌘K
+      - generic [ref=e72]:
+        - button "Notifications" [ref=e73] [cursor=pointer]:
+          - img [ref=e74]
+        - button "Menu profil" [ref=e77] [cursor=pointer]:
+          - img [ref=e79]
+    - main [ref=e82]:
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - heading "Mon Passeport de Compétences" [level=1] [ref=e86]
+            - paragraph [ref=e87]: Récapitulatif de vos compétences et réalisations
+          - link "Télécharger PDF" [ref=e88] [cursor=pointer]:
+            - /url: ../backend/generate_pdf.php?user_id=2
+            - img [ref=e89]
+            - text: Télécharger PDF
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - heading "Sophie Martin" [level=2] [ref=e94]
+            - paragraph [ref=e95]: "sophie@test.com | Rôle: Stagiaire"
+            - paragraph [ref=e96]: "Points: 10 | Aides données: 0"
+          - heading "Compétences" [level=3] [ref=e97]
+          - table [ref=e99]:
+            - rowgroup [ref=e100]:
+              - row "Compétence Catégorie Niveau Statut Validé par" [ref=e101]:
+                - columnheader "Compétence" [ref=e102]
+                - columnheader "Catégorie" [ref=e103]
+                - columnheader "Niveau" [ref=e104]
+                - columnheader "Statut" [ref=e105]
+                - columnheader "Validé par" [ref=e106]
+            - rowgroup [ref=e107]:
+              - row "Python Data Science Avancé Validé Pierre Leroy" [ref=e108]:
+                - cell "Python" [ref=e109]
+                - cell "Data Science" [ref=e110]
+                - cell "Avancé" [ref=e111]
+                - cell "Validé" [ref=e112]:
+                  - generic [ref=e113]:
+                    - img [ref=e114]
+                    - text: Validé
+                - cell "Pierre Leroy" [ref=e117]
+          - heading "Badges obtenus" [level=3] [ref=e118]
+          - generic [ref=e120]:
+            - img [ref=e122]
+            - generic [ref=e125]:
+              - strong [ref=e126]: Débutant
+              - generic [ref=e127]: 07/06/2026

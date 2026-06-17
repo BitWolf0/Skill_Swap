@@ -61,4 +61,16 @@ include __DIR__ . '/../backend/includes/header.php';
   </section>
 </main>
 
+<style>
+.badges-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.badge-card { background: #fff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 2px solid var(--gray-200); transition: transform var(--transition), box-shadow var(--transition); }
+.badge-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.badge-card.earned { border-color: var(--blue-200); background: rgba(var(--blue-500-rgb), .06); }
+.badge-card.locked { opacity: .7; }
+.badge-card h3 { font-size: 1rem; margin: 8px 0 4px; color: var(--gray-900); }
+.badge-card p { font-size: .85rem; color: var(--gray-500); margin: 0; }
+.badge-card small { font-size: .78rem; color: var(--gray-400); display: block; margin-top: 8px; }
+.badge-icon { width: 48px; height: 48px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+.badge-points { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 999px; background: var(--blue-600); color: #fff; font-size: .75rem; font-weight: 700; }
+</style>
 <?php include __DIR__ . '/../backend/includes/footer.php'; ?>

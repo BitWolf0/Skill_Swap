@@ -1,0 +1,147 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: dashboard.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Mes Demandes 2" [ref=e15] [cursor=pointer]:
+            - /url: mes_demandes.php
+            - img [ref=e17]
+            - generic [ref=e19]: Mes Demandes
+            - generic [ref=e20]: "2"
+        - listitem [ref=e21]:
+          - link "Mes Badges" [ref=e22] [cursor=pointer]:
+            - /url: mes_badges.php
+            - img [ref=e24]
+            - generic [ref=e27]: Mes Badges
+        - listitem [ref=e28]:
+          - link "Mes Compétences" [ref=e29] [cursor=pointer]:
+            - /url: mes_competences.php
+            - img [ref=e31]
+            - generic [ref=e33]: Mes Compétences
+        - listitem [ref=e34]:
+          - link "Passeport PDF" [ref=e35] [cursor=pointer]:
+            - /url: passeport_pdf.php
+            - img [ref=e37]
+            - generic [ref=e40]: Passeport PDF
+        - listitem [ref=e41]:
+          - link "Devenir Mentor" [ref=e42] [cursor=pointer]:
+            - /url: mentor_apply.php
+            - img [ref=e44]
+            - generic [ref=e49]: Devenir Mentor
+    - generic [ref=e51]:
+      - img [ref=e53]
+      - generic [ref=e56]:
+        - generic [ref=e57]: Sophie Martin
+        - generic [ref=e58]: Stagiaire
+  - generic [ref=e59]:
+    - banner [ref=e60]:
+      - button "Ouvrir le menu" [ref=e61] [cursor=pointer]:
+        - img [ref=e62]
+      - generic [ref=e63]:
+        - img [ref=e65]
+        - generic [ref=e69]: ISMO-SkillSwap
+      - generic [ref=e70]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e71]
+        - generic: ⌘K
+      - generic [ref=e72]:
+        - button "Notifications" [ref=e73] [cursor=pointer]:
+          - img [ref=e74]
+        - button "Menu profil" [ref=e77] [cursor=pointer]:
+          - img [ref=e79]
+    - main [ref=e82]:
+      - region "Contenu principal" [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - heading "Bienvenue sur votre tableau de bord" [level=1] [ref=e86]
+            - paragraph [ref=e87]: Publiez une demande ou consultez vos compétences
+          - button "Publier une demande d'aide" [ref=e88] [cursor=pointer]:
+            - img [ref=e89]
+            - text: Publier une demande d'aide
+        - generic "Statistiques rapides" [ref=e90]:
+          - generic [ref=e91]:
+            - img [ref=e93]
+            - generic [ref=e95]:
+              - generic [ref=e96]: Niv.1
+              - generic [ref=e97]: Débutant · 10 pts
+          - generic [ref=e98]:
+            - img [ref=e100]
+            - generic [ref=e102]:
+              - generic [ref=e103]: "10"
+              - generic [ref=e104]: Points de gamification
+          - generic [ref=e105]:
+            - img [ref=e107]
+            - generic [ref=e112]:
+              - generic [ref=e113]: "0"
+              - generic [ref=e114]: Personnes aidées
+          - generic [ref=e115]:
+            - img [ref=e117]
+            - generic [ref=e120]:
+              - generic [ref=e121]: "1"
+              - generic [ref=e122]: Badges obtenus
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: Niveau 1 — Débutant
+            - generic [ref=e126]: 10 / 20 pts
+          - paragraph [ref=e129]: Plus que 10 points pour le niveau 2
+        - generic [ref=e130]:
+          - heading "Demandes en cours" [level=2] [ref=e131]
+          - link "Voir tout" [ref=e132] [cursor=pointer]:
+            - /url: mes_demandes.php
+        - list [ref=e133]:
+          - listitem [ref=e134] [cursor=pointer]:
+            - generic [ref=e135]:
+              - heading "Aide projet PHP" [level=3] [ref=e136]
+              - generic [ref=e137]: Ouvert
+            - paragraph [ref=e138]: Je bloque sur un projet PHP
+            - generic [ref=e139]:
+              - generic [ref=e140]: PHP
+              - generic [ref=e141]:
+                - img [ref=e142]
+                - text: 05/06/2026
+          - listitem [ref=e145] [cursor=pointer]:
+            - generic [ref=e146]:
+              - heading "CSS Grid" [level=3] [ref=e147]
+              - generic [ref=e148]: Ouvert
+            - paragraph [ref=e149]: Problème avec CSS Grid layout
+            - generic [ref=e150]:
+              - generic [ref=e151]: HTML/CSS
+              - generic [ref=e152]:
+                - img [ref=e153]
+                - text: 05/06/2026
+      - complementary "Widgets" [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - img [ref=e160]
+            - heading "Mon Passeport" [level=2] [ref=e163]
+          - list [ref=e164]:
+            - listitem [ref=e165] [cursor=pointer]:
+              - img [ref=e167]
+              - generic [ref=e169]:
+                - generic [ref=e170]: Python
+                - generic [ref=e171]: Data Science
+              - generic [ref=e172]: Avancé
+            - listitem [ref=e173] [cursor=pointer]:
+              - img [ref=e175]
+              - generic [ref=e177]:
+                - generic [ref=e178]: Machine Learning
+                - generic [ref=e179]: Data Science
+              - generic [ref=e180]: Débutant
+          - button "Télécharger PDF" [ref=e181] [cursor=pointer]:
+            - img [ref=e182]
+            - text: Télécharger PDF
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - img [ref=e188]
+            - heading "Progression" [level=2] [ref=e189]
+          - generic [ref=e190]:
+            - generic [ref=e191]: Compétences validées
+            - generic [ref=e192]: 1/15
+          - progressbar "7% des compétences validées" [ref=e193]
+          - paragraph [ref=e195]: Encore 14 compétences pour compléter votre profil !

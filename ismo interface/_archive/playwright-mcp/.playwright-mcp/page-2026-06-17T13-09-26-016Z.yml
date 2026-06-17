@@ -1,0 +1,111 @@
+- generic [active] [ref=e1]:
+  - complementary "Navigation principale" [ref=e2]:
+    - navigation "Menu principal" [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Tableau de bord" [ref=e6] [cursor=pointer]:
+            - /url: tableau_de_bord.php
+            - img [ref=e8]
+            - generic [ref=e13]: Tableau de bord
+        - listitem [ref=e14]:
+          - link "Validation" [ref=e15] [cursor=pointer]:
+            - /url: validation_demande.php
+            - img [ref=e17]
+            - generic [ref=e19]: Validation
+        - listitem [ref=e20]:
+          - link "Statistiques" [ref=e21] [cursor=pointer]:
+            - /url: statistique.php
+            - img [ref=e23]
+            - generic [ref=e27]: Statistiques
+        - listitem [ref=e28]:
+          - link "Catalogue" [ref=e29] [cursor=pointer]:
+            - /url: catalogue.php
+            - img [ref=e31]
+            - generic [ref=e34]: Catalogue
+    - generic [ref=e36]:
+      - img [ref=e38]
+      - generic [ref=e41]:
+        - generic [ref=e42]: Pierre Leroy
+        - generic [ref=e43]: Formateur
+  - generic [ref=e44]:
+    - banner [ref=e45]:
+      - button "Ouvrir le menu" [ref=e46] [cursor=pointer]:
+        - img [ref=e47]
+      - generic [ref=e48]:
+        - img [ref=e50]
+        - generic [ref=e54]: ISMO-SkillSwap
+      - generic [ref=e55]:
+        - generic:
+          - img
+        - searchbox "Rechercher une compétence" [ref=e56]
+        - generic: ⌘K
+      - generic [ref=e57]:
+        - button "Notifications" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+          - generic "Nouvelles notifications" [ref=e62]
+        - button "Menu profil" [ref=e63] [cursor=pointer]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Pierre Leroy
+            - generic [ref=e66]: "Points: 0"
+          - img [ref=e68]
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - heading "Catalogue des Compétences" [level=1] [ref=e75]
+        - generic [ref=e76]:
+          - searchbox "Rechercher..." [ref=e77]
+          - combobox [ref=e78]:
+            - option "Toutes catégories" [selected]
+            - option "Base de données"
+            - option "Data Science"
+            - option "Développement Web"
+          - button "Filtrer" [ref=e79] [cursor=pointer]
+        - table [ref=e80]:
+          - rowgroup [ref=e81]:
+            - row "Compétence Catégorie Déclarations Statut" [ref=e82]:
+              - columnheader "Compétence" [ref=e83]
+              - columnheader "Catégorie" [ref=e84]
+              - columnheader "Déclarations" [ref=e85]
+              - columnheader "Statut" [ref=e86]
+          - rowgroup [ref=e87]:
+            - row "SQL Base de données 0 Actif" [ref=e88]:
+              - cell "SQL" [ref=e89]
+              - cell "Base de données" [ref=e90]
+              - cell "0" [ref=e91]
+              - cell "Actif" [ref=e92]:
+                - generic [ref=e93]: Actif
+            - row "Machine Learning Data Science 1 Actif" [ref=e94]:
+              - cell "Machine Learning" [ref=e95]
+              - cell "Data Science" [ref=e96]
+              - cell "1" [ref=e97]
+              - cell "Actif" [ref=e98]:
+                - generic [ref=e99]: Actif
+            - row "Python Data Science 2 Actif" [ref=e100]:
+              - cell "Python" [ref=e101]
+              - cell "Data Science" [ref=e102]
+              - cell "2" [ref=e103]
+              - cell "Actif" [ref=e104]:
+                - generic [ref=e105]: Actif
+            - row "HTML/CSS Développement Web 2 Actif" [ref=e106]:
+              - cell "HTML/CSS" [ref=e107]
+              - cell "Développement Web" [ref=e108]
+              - cell "2" [ref=e109]
+              - cell "Actif" [ref=e110]:
+                - generic [ref=e111]: Actif
+            - row "JavaScript Développement Web 2 Actif" [ref=e112]:
+              - cell "JavaScript" [ref=e113]
+              - cell "Développement Web" [ref=e114]
+              - cell "2" [ref=e115]
+              - cell "Actif" [ref=e116]:
+                - generic [ref=e117]: Actif
+            - row "PHP Développement Web 2 Actif" [ref=e118]:
+              - cell "PHP" [ref=e119]
+              - cell "Développement Web" [ref=e120]
+              - cell "2" [ref=e121]
+              - cell "Actif" [ref=e122]:
+                - generic [ref=e123]: Actif
+            - row "React Développement Web 0 Actif" [ref=e124]:
+              - cell "React" [ref=e125]
+              - cell "Développement Web" [ref=e126]
+              - cell "0" [ref=e127]
+              - cell "Actif" [ref=e128]:
+                - generic [ref=e129]: Actif
