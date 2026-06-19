@@ -164,7 +164,7 @@ class SimplePdf {
         return $out;
     }
 
-    private function textWidth(string $text, string $font, float $size): float {
+    public function textWidth(string $text, string $font, float $size): float {
         static $cw = [
             'Helvetica' => [
                 ' '=>278,'!'=>278,'"'=>355,'#'=>469,'$'=>556,'%'=>889,'&'=>667,'\''=>222,

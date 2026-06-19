@@ -5,6 +5,7 @@ requireCsrf();
 $user = getCurrentUser();
 $currentUserId = (int)$user['id'];
 $currentRole = $user['role'];
+
 $targetUserId = isset($_GET['user_id']) ? (int)$_GET['user_id'] : $currentUserId;
 if ($targetUserId !== $currentUserId && !in_array($currentRole, ['administrateur', 'formateur'], true)) {
     header('HTTP/1.1 403 Forbidden');
@@ -46,36 +47,45 @@ $helpsStmt->execute([$targetUserId]);
 $helpsCount = (int)$helpsStmt->fetchColumn();
 $levelInfo = getUserLevel((int)$targetUser['points_gamification']);
 
-// ─── LIGHT MODE PALETTE ─────────────────────────────────────────────────────
-$blue      = [37,  99,  235];   // #2563EB primary
-$dark      = [15,  23,  42];    // text
-$midGray   = [100, 116, 139];   // muted text
-$lightGray = [248, 249, 252];   // card / page bg
-$borderGray= [226, 232, 240];   // borders
+// ─── OCEAN DEPTHS PALETTE ────────────────────────────────────────────────────
+$navy      = [15,  43,  70];   // #0F2B46 deep navy — hero, headings
+$ocean     = [30,  111, 159];  // #1E6F9F mid ocean — accents, borders
+$teal      = [22,  160, 133];  // #16A085 teal — stats, progress
+$lightBg   = [240, 244, 248];  // #F0F4F8 subtle page background
+$dark      = [26,  42,  58];   // #1A2A3A body text
+$midGray   = [93,  109, 126];  // #5D6D7E muted text
+$border    = [213, 220, 228];  // #D5DCE4 borders
 $white     = [255, 255, 255];
-$rowAlt    = [248, 250, 252];   // alternating row
-$amber     = [217, 119, 6];     // stat numbers
-$red       = [220, 38, 38];
-$blueDark  = [29, 78, 216];
+$rowAlt    = [247, 249, 252];  // #F7F9FC alternating rows
+$sand      = [232, 168, 124];  // #E8A87C warm accent for numbers
+$coral     = [192, 57, 43];    // #C0392B expert level
 
 $pdf = new SimplePdf();
 $pdf->AddPage();
 $pageW = $pdf->GetPageWidth() - $pdf->GetLeftMargin() - 20;
 $lm    = $pdf->GetLeftMargin();
 
+// ── Subtle page background ──
+$pdf->SetFillColor($lightBg[0], $lightBg[1], $lightBg[2]);
+$pdf->Rect(0, 0, $pdf->GetPageWidth(), $pdf->GetPageHeight(), 'F');
+
 // ════════════════════════════════════════════════════════════════════════════
-// HERO — blue bar
+// HERO — deep navy bar with bottom accent
 // ════════════════════════════════════════════════════════════════════════════
 $heroH = 36;
-$pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+$pdf->SetFillColor($navy[0], $navy[1], $navy[2]);
 $pdf->Rect($lm, $pdf->GetY(), $pageW, $heroH, 'F');
 
-// ── Logo (replicating topbar SVG: blue bg, white arc + dot) ──
+// Teal accent line at bottom of hero
+$pdf->SetFillColor($teal[0], $teal[1], $teal[2]);
+$pdf->Rect($lm, $pdf->GetY() + $heroH - 2, $pageW, 2, 'F');
+
+// ── Logo (replicating topbar SVG: navy bg, white arc + dot) ──
 $logoX = $lm + 5;
 $logoY = $pdf->GetY() + 6;
 $logoSize = 16;
 
-$pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+$pdf->SetFillColor($navy[0], $navy[1], $navy[2]);
 $pdf->Rect($logoX, $logoY, $logoSize, $logoSize, 'F');
 
 $cx = $logoX + $logoSize / 2;
@@ -129,10 +139,10 @@ $pdf->Ln(6);
 $col1W = $pageW * 0.22;
 $col2W = $pageW - $col1W;
 
-$pdf->SetDrawColor($borderGray[0], $borderGray[1], $borderGray[2]);
+$pdf->SetDrawColor($border[0], $border[1], $border[2]);
 $pdf->SetLineWidth(0.3);
 
-$pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+$pdf->SetFillColor($navy[0], $navy[1], $navy[2]);
 $pdf->SetTextColor($white[0], $white[1], $white[2]);
 $pdf->SetFont('B', 8);
 $pdf->Cell($col1W, 7, '  Champ', 1, 0, 'L', true);
@@ -152,9 +162,9 @@ foreach ($rows as $i => [$label, $val]) {
     $pdf->Cell($col1W, 7, '  ' . $label, 1, 0, 'L', true);
     $pdf->SetFont('', 9);
     $pdf->SetTextColor(
-        $i === 3 ? $blue[0] : $dark[0],
-        $i === 3 ? $blue[1] : $dark[1],
-        $i === 3 ? $blue[2] : $dark[2]
+        $i === 3 ? $ocean[0] : $dark[0],
+        $i === 3 ? $ocean[1] : $dark[1],
+        $i === 3 ? $ocean[2] : $dark[2]
     );
     $pdf->Cell($col2W, 7, '  ' . $val, 1, 1, 'L', true);
 }
@@ -181,11 +191,11 @@ foreach ($statsData as $idx => [$label, $val]) {
     $gap = 2;
     $pdf->SetFillColor($white[0], $white[1], $white[2]);
     $pdf->Rect($tx + $gap / 2, $tileY, $tileW - $gap, $tileH, 'F');
-    $pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+    $pdf->SetFillColor($teal[0], $teal[1], $teal[2]);
     $pdf->Rect($tx + $gap / 2, $tileY, $tileW - $gap, 1.5, 'F');
     $pdf->SetXY($tx, $tileY + 2);
     $pdf->SetFont('B', 16);
-    $pdf->SetTextColor($amber[0], $amber[1], $amber[2]);
+    $pdf->SetTextColor($sand[0], $sand[1], $sand[2]);
     $pdf->Cell($tileW, 10, (string)$val, 0, 0, 'C');
     $pdf->SetXY($tx, $tileY + 13);
     $pdf->SetFont('', 6);
@@ -198,8 +208,8 @@ $pdf->Ln(6);
 // ════════════════════════════════════════════════════════════════════════════
 // SECTION HEADER HELPER
 // ════════════════════════════════════════════════════════════════════════════
-function sectionHeader($pdf, $lm, $pageW, $text, $blue, $white) {
-    $pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+function sectionHeader($pdf, $lm, $pageW, $text, $navy, $white) {
+    $pdf->SetFillColor($navy[0], $navy[1], $navy[2]);
     $pdf->Rect($lm, $pdf->GetY(), $pageW, 10, 'F');
     $pdf->SetFont('B', 10);
     $pdf->SetTextColor($white[0], $white[1], $white[2]);
@@ -212,34 +222,29 @@ function sectionHeader($pdf, $lm, $pageW, $text, $blue, $white) {
 // ════════════════════════════════════════════════════════════════════════════
 sectionHeader($pdf, $lm, $pageW,
     'Competences validees (' . count($skills) . ')',
-    $blue, $white);
+    $navy, $white);
 
 if (empty($skills)) {
     $pdf->SetFont('', 10);
     $pdf->SetTextColor($midGray[0], $midGray[1], $midGray[2]);
     $pdf->Cell($pageW, 8, 'Aucune competence validee pour le moment.', 0, 1, 'L');
 } else {
-    $headers = ['Competence', 'Categorie', 'Niveau', 'Validee le'];
-    $hW      = [$pageW * 0.35, $pageW * 0.28, $pageW * 0.18, $pageW * 0.19];
+    $headers = [' Competence', ' Categorie', 'Niveau', ' Validee le'];
+    $hW      = [$pageW * 0.35, $pageW * 0.24, $pageW * 0.22, $pageW * 0.19];
+    $hAlign  = ['L', 'L', 'C', 'L'];
 
-    $pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+    $pdf->SetFillColor($navy[0], $navy[1], $navy[2]);
     $pdf->SetTextColor($white[0], $white[1], $white[2]);
-    $pdf->SetDrawColor($borderGray[0], $borderGray[1], $borderGray[2]);
+    $pdf->SetDrawColor($border[0], $border[1], $border[2]);
     $pdf->SetFont('B', 8);
     foreach ($headers as $i => $h) {
-        $pdf->Cell($hW[$i], 7, $h, 1, 0, 'C', true);
+        $pdf->Cell($hW[$i], 7, $h, 1, 0, $hAlign[$i], true);
     }
     $pdf->Ln();
 
     $rowCount = 0;
     foreach ($skills as $sk) {
-        $levelLabel = match ($sk['niveau_estime']) {
-            'Débutant'      => 'Debutant',
-            'Intermédiaire' => 'Intermediaire',
-            'Avancé'        => 'Avance',
-            'Expert'        => 'Expert',
-            default         => $sk['niveau_estime'],
-        };
+        $levelLabel = $sk['niveau_estime'];
         $validatedDate = !empty($sk['date_validation'])
             ? date('d/m/Y', strtotime($sk['date_validation']))
             : date('d/m/Y', strtotime($sk['date_declaration']));
@@ -250,7 +255,7 @@ if (empty($skills)) {
         } else {
             $pdf->SetFillColor($white[0], $white[1], $white[2]);
         }
-        $pdf->SetDrawColor($borderGray[0], $borderGray[1], $borderGray[2]);
+        $pdf->SetDrawColor($border[0], $border[1], $border[2]);
         $pdf->SetTextColor($dark[0], $dark[1], $dark[2]);
         $pdf->SetFont('', 8);
         $pdf->Cell($hW[0], 7, ' ' . h($sk['skill_name']), 1, 0, 'L', $fillRow);
@@ -259,9 +264,9 @@ if (empty($skills)) {
         $c = $sk['niveau_estime'] ?? '';
         $levelColor = match (true) {
             str_contains($c, 'Debut') || str_contains($c, 'Début') => [160, 160, 160],
-            str_contains($c, 'Inter') || str_contains($c, 'Inter') => $blue,
-            str_contains($c, 'Avance') || str_contains($c, 'Avancé') => [217, 119, 6],
-            str_contains($c, 'Expert') || str_contains($c, 'expert') => [220, 38, 38],
+            str_contains($c, 'Inter') || str_contains($c, 'Inter') => $ocean,
+            str_contains($c, 'Avance') || str_contains($c, 'Avancé') => $sand,
+            str_contains($c, 'Expert') || str_contains($c, 'expert') => $coral,
             default => $dark,
         };
         $pdf->SetFont('B', 8);
@@ -281,22 +286,23 @@ $pdf->Ln(6);
 // ════════════════════════════════════════════════════════════════════════════
 sectionHeader($pdf, $lm, $pageW,
     'Badges obtenus (' . count($badges) . ')',
-    $blue, $white);
+    $navy, $white);
 
 if (empty($badges)) {
     $pdf->SetFont('', 10);
     $pdf->SetTextColor($midGray[0], $midGray[1], $midGray[2]);
     $pdf->Cell($pageW, 8, 'Aucun badge obtenu pour le moment.', 0, 1, 'L');
 } else {
-    $bHeaders = ['Badge', 'Description', 'Points', 'Obtenu le'];
-    $bW       = [$pageW * 0.28, $pageW * 0.40, $pageW * 0.13, $pageW * 0.19];
+    $bHeaders = [' Badge', ' Description', 'Points', ' Obtenu le'];
+    $bW       = [$pageW * 0.28, $pageW * 0.38, $pageW * 0.15, $pageW * 0.19];
+    $bAlign   = ['L', 'L', 'C', 'L'];
 
-    $pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+    $pdf->SetFillColor($navy[0], $navy[1], $navy[2]);
     $pdf->SetTextColor($white[0], $white[1], $white[2]);
-    $pdf->SetDrawColor($borderGray[0], $borderGray[1], $borderGray[2]);
+    $pdf->SetDrawColor($border[0], $border[1], $border[2]);
     $pdf->SetFont('B', 8);
     foreach ($bHeaders as $i => $h) {
-        $pdf->Cell($bW[$i], 7, $h, 1, 0, 'C', true);
+        $pdf->Cell($bW[$i], 7, $h, 1, 0, $bAlign[$i], true);
     }
     $pdf->Ln();
 
@@ -308,15 +314,15 @@ if (empty($badges)) {
         } else {
             $pdf->SetFillColor($white[0], $white[1], $white[2]);
         }
-        $pdf->SetDrawColor($borderGray[0], $borderGray[1], $borderGray[2]);
+        $pdf->SetDrawColor($border[0], $border[1], $border[2]);
         $pdf->SetTextColor($dark[0], $dark[1], $dark[2]);
 
         $pdf->SetFont('B', 8);
         $pdf->Cell($bW[0], 7, ' ' . h($b['nom']), 1, 0, 'L', $fillRow);
         $pdf->SetFont('', 7);
-        $pdf->Cell($bW[1], 7, ' ' . h(mb_substr($b['description'] ?? '-', 0, 60)), 1, 0, 'L', $fillRow);
+        $pdf->Cell($bW[1], 7, ' ' . h(mb_substr($b['description'] ?? '-', 0, 50)), 1, 0, 'L', $fillRow);
         $pdf->SetFont('B', 8);
-        $pdf->SetTextColor($amber[0], $amber[1], $amber[2]);
+        $pdf->SetTextColor($sand[0], $sand[1], $sand[2]);
         $pdf->Cell($bW[2], 7, (string)(int)$b['points_requis'], 1, 0, 'C', $fillRow);
         $pdf->SetTextColor($dark[0], $dark[1], $dark[2]);
         $pdf->SetFont('', 8);
@@ -331,7 +337,7 @@ $pdf->Ln(6);
 // PROGRESSION
 // ════════════════════════════════════════════════════════════════════════════
 sectionHeader($pdf, $lm, $pageW,
-    'Progression', $blue, $white);
+    'Progression', $navy, $white);
 
 $progress = $levelInfo['progress'];
 $barW     = $pageW;
@@ -347,16 +353,16 @@ if ($levelInfo['next_min'] > $levelInfo['current_min']) {
     $pdf->Ln(1);
 
     $barY = $pdf->GetY();
-    $pdf->SetFillColor($borderGray[0], $borderGray[1], $borderGray[2]);
+    $pdf->SetFillColor($border[0], $border[1], $border[2]);
     $pdf->Rect($lm, $barY, $barW, $barH, 'F');
 
     $fillW = max(1, $barW * $progress / 100);
-    $pdf->SetFillColor($blue[0], $blue[1], $blue[2]);
+    $pdf->SetFillColor($teal[0], $teal[1], $teal[2]);
     $pdf->Rect($lm, $barY, $fillW, $barH, 'F');
 
     $pdf->SetXY($lm, $barY);
     $pdf->SetFont('B', 8);
-    $pdf->SetTextColor($white[0], $white[1], $white[2]);
+    $pdf->SetTextColor($dark[0], $dark[1], $dark[2]);
     $pdf->Cell($barW, $barH, round($progress) . '% — vers le niveau ' . ($levelInfo['level'] + 1), 0, 1, 'C');
 
     $pdf->Ln(2);
@@ -365,7 +371,7 @@ if ($levelInfo['next_min'] > $levelInfo['current_min']) {
     $pdf->Cell($barW, 4, 'Progression: ' . round($progress) . '%', 0, 1, 'R');
 } else {
     $pdf->SetFont('B', 11);
-    $pdf->SetTextColor($amber[0], $amber[1], $amber[2]);
+    $pdf->SetTextColor($sand[0], $sand[1], $sand[2]);
     $pdf->Cell($barW, 8, 'Niveau maximum atteint — ' . $levelInfo['name'] . ' !', 0, 1, 'C');
 }
 
@@ -374,18 +380,26 @@ $pdf->Ln(10);
 // ════════════════════════════════════════════════════════════════════════════
 // FOOTER
 // ════════════════════════════════════════════════════════════════════════════
-$pdf->SetDrawColor($borderGray[0], $borderGray[1], $borderGray[2]);
-$pdf->Line($lm, $pdf->GetY(), $lm + $pageW, $pdf->GetY());
+$pdf->SetDrawColor($border[0], $border[1], $border[2]);
+$pdf->Line(0, $pdf->GetY(), $pdf->GetPageWidth(), $pdf->GetY());
 
-$pdf->Ln(3);
+$pdf->Ln(6);
+$pageCenter = $pdf->GetPageWidth() / 2;
+
 $pdf->SetFont('', 7);
 $pdf->SetTextColor($midGray[0], $midGray[1], $midGray[2]);
-$pdf->Cell($pageW, 4,
-    'Document genere le ' . date('d/m/Y \a H:i') . '  |  ISMO-SkillSwap',
-    0, 1, 'C');
-$pdf->Cell($pageW, 4,
+
+// Centrer le texte en positionnant X manuellement pour éviter
+// que Cell(ln=1) ne réinitialise X à la marge gauche
+$lines = [
+    'Document généré le ' . date('d/m/Y \a H:i') . '  |  ISMO-SkillSwap',
     'Ce document est un recapitulatif officiel des competences et realisations.',
-    0, 1, 'C');
+];
+foreach ($lines as $text) {
+    $twMm = $pdf->textWidth($text, 'Helvetica', 7) / 2.83464567;
+    $pdf->SetXY($pageCenter - $twMm / 2, $pdf->GetY());
+    $pdf->Cell($twMm + 2, 4, $text, 0, 1, 'L');
+}
 
 // ════════════════════════════════════════════════════════════════════════════
 // OUTPUT
