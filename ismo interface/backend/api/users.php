@@ -61,6 +61,7 @@ switch ($method) {
                 jsonResponse(['error' => 'Non autorisé'], 403);
             }
             if (!$targetId) jsonResponse(['error' => 'ID requis'], 400);
+            if ($targetId === $currentId) jsonResponse(['error' => 'Vous ne pouvez pas vous suspendre vous-même'], 400);
 
             $stmt = $db->prepare("SELECT est_actif FROM utilisateurs WHERE id = ?");
             $stmt->execute([$targetId]);
@@ -78,6 +79,46 @@ switch ($method) {
             }
 
             jsonResponse(['success' => true, 'est_actif' => (bool)$newVal, 'message' => $newVal ? 'Compte activé' : 'Compte suspendu']);
+        }
+
+        // ─── Admin: promote user to admin ─────────────────
+        if ($action === 'promote_admin') {
+            if ($_SESSION['user_role'] !== 'administrateur') {
+                jsonResponse(['error' => 'Non autorisé'], 403);
+            }
+            if (!$targetId) jsonResponse(['error' => 'ID requis'], 400);
+
+            $stmt = $db->prepare("SELECT role FROM utilisateurs WHERE id = ?");
+            $stmt->execute([$targetId]);
+            $curRole = $stmt->fetchColumn();
+            if ($curRole === false) jsonResponse(['error' => 'Utilisateur non trouvé'], 404);
+            if ($curRole === 'administrateur') jsonResponse(['error' => 'Cet utilisateur est déjà administrateur'], 400);
+
+            $db->prepare("UPDATE utilisateurs SET role = 'administrateur' WHERE id = ?")
+               ->execute([$targetId]);
+
+            jsonResponse(['success' => true, 'message' => 'Utilisateur promu administrateur']);
+        }
+
+        // ─── Admin: demote admin back to stagiaire ──────────
+        if ($action === 'demote_admin') {
+            if ($_SESSION['user_role'] !== 'administrateur') {
+                jsonResponse(['error' => 'Non autorisé'], 403);
+            }
+            if (!$targetId) jsonResponse(['error' => 'ID requis'], 400);
+            if ($targetId === $currentId) jsonResponse(['error' => 'Vous ne pouvez pas vous rétrograder vous-même'], 400);
+
+            $stmt = $db->prepare("SELECT role FROM utilisateurs WHERE id = ?");
+            $stmt->execute([$targetId]);
+            $curRole = $stmt->fetchColumn();
+            if ($curRole === false) jsonResponse(['error' => 'Utilisateur non trouvé'], 404);
+            if ($curRole !== 'administrateur') jsonResponse(['error' => 'Cet utilisateur n\'est pas administrateur'], 400);
+
+            // No history of previous role stored — reset to stagiaire by default
+            $db->prepare("UPDATE utilisateurs SET role = 'stagiaire' WHERE id = ?")
+               ->execute([$targetId]);
+
+            jsonResponse(['success' => true, 'message' => 'Administrateur rétrogradé au rôle Stagiaire']);
         }
 
         if ($targetId !== $currentId && $_SESSION['user_role'] !== 'administrateur') {

@@ -27,6 +27,9 @@ if (empty($nom) || empty($prenom)) {
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     jsonResponse(['error' => 'Email invalide'], 400);
 }
+if ($role !== 'administrateur' && !str_ends_with($email, '@ofppt-edu.ma')) {
+    jsonResponse(['error' => 'Seuls les emails @ofppt-edu.ma sont autorisés'], 400);
+}
 if (strlen($password) < 8) {
     jsonResponse(['error' => 'Le mot de passe doit contenir au moins 8 caractères'], 400);
 }

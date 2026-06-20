@@ -44,7 +44,12 @@ No build, lint, typecheck, or test commands exist. Open any `.html` file directl
 ## Known quirks
 
 - `pages_stagiere/` is a misspelling (should be `pages_stagiaire`). Some files use `stagiere` vs `stagiaire` inconsistently. Don't fix unless asked.
+- `login.php` moved from `pages_stagiaire/login.php` to project root. The old path is a 301 redirect. All references updated in 14 files.
 - `tableu_de_bord` and `statisque_adm` are misspelled filenames. Don't rename unless asked.
+
+
+
+
 - `inscription.html` immediately redirects to `login.html?show=signup`.
 - No backend — all pages are static. Client-side JS simulates interactions (toasts, dropdowns, modals).
 - `project_overview.json` lists files but may be slightly stale.

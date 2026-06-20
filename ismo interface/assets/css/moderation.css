@@ -156,7 +156,34 @@
   background: var(--red-600);
 }
 
+/* ── Flash Message ────────────────────────────────────── */
+.mod-flash {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.mod-flash-success {
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+
+.mod-flash-error {
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
 /* ── Form Inline ─────────────────────────────────────── */
 .mod-form-inline {
   display: inline;
+}
+
+.mod-form-offset {
+  margin-left: 6px;
 }

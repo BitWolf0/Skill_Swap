@@ -19,9 +19,12 @@
   --orange-500: #F97316;
   --orange-600: #EA580C;
   --orange-100: #FFEDD5;
+  --green-50: #F0FDF4;
+  --green-100: #DCFCE7;
+  --green-200: #BBF7D0;
   --green-500: #22C55E;
   --green-600: #16A34A;
-  --green-100: #DCFCE7;
+  --green-700: #15803D;
   --green-900: #065F46;
   --pink-500: #EC4899;
   --red-500: #EF4444;
@@ -448,6 +451,10 @@ code {
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.search-wrap--hidden {
+  display: none;
 }
 
 .search-icon {
@@ -1606,7 +1613,7 @@ code {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 999;
+  z-index: 99999;
 }
 
 .toast {

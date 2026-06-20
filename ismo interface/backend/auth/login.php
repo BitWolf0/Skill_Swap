@@ -31,6 +31,11 @@ if (!$user || !password_verify($password, $user['mot_de_passe'])) {
     jsonResponse(['error' => 'Email ou mot de passe incorrect'], 401);
 }
 
+// Domain check — skip for administrators
+if ($user['role'] !== 'administrateur' && !str_ends_with($email, '@ofppt-edu.ma')) {
+    jsonResponse(['error' => 'Seuls les emails @ofppt-edu.ma sont autorisés'], 400);
+}
+
 // Check if account is active
 if (isset($user['est_actif']) && !$user['est_actif']) {
     if ($user['derniere_connexion'] === null) {

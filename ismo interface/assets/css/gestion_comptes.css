@@ -371,6 +371,76 @@
   border-color: var(--red-200);
 }
 
+/* ── Promote Admin Button ─────────────────────────────── */
+.btn-promote-admin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #C084FC;
+  background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
+  color: #6B21A8;
+  cursor: pointer;
+  transition: all .2s ease;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(107,33,168,.15);
+  letter-spacing: .01em;
+}
+
+.btn-promote-admin:hover {
+  background: linear-gradient(135deg, #E9D5FF 0%, #D8B4FE 100%);
+  border-color: #A855F7;
+  box-shadow: 0 2px 6px rgba(107,33,168,.25);
+  transform: translateY(-1px);
+}
+
+.btn-promote-admin:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(107,33,168,.15);
+}
+
+.btn-promote-admin svg {
+  stroke: #7E22CE;
+}
+
+/* ── Demote Admin Button ──────────────────────────────── */
+.btn-demote-admin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #FCA5A5;
+  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  color: #B91C1C;
+  cursor: pointer;
+  transition: all .2s ease;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(185,28,28,.15);
+  letter-spacing: .01em;
+}
+
+.btn-demote-admin:hover {
+  background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+  border-color: #EF4444;
+  box-shadow: 0 2px 6px rgba(185,28,28,.25);
+  transform: translateY(-1px);
+}
+
+.btn-demote-admin:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(185,28,28,.15);
+}
+
+.btn-demote-admin svg {
+  stroke: #DC2626;
+}
+
 /* ── Empty State ──────────────────────────────────────── */
 .empty-state {
   text-align: center;

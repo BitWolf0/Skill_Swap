@@ -17,7 +17,9 @@ function isLoggedIn(): bool {
  */
 function requireAuth(): void {
     if (!isLoggedIn()) {
-        header('Location: ' . BASE_URL . '/pages_stagiaire/login.php');
+header('Location: ' . BASE_URL . '/login.php');
+
+
         exit;
     }
 }
@@ -36,7 +38,7 @@ function requireRole(array|string $roles): void {
             'formateur'      => 'formateur_pages/tableau_de_bord.php',
             'administrateur' => 'pages_admin/tableau_de_bord.php',
         ];
-        $target = $dashboardMap[$userRole] ?? 'pages_stagiaire/login.php';
+        $target = $dashboardMap[$userRole] ?? 'login.php';
         header('Location: ' . BASE_URL . '/' . $target);
         exit;
     }

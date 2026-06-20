@@ -111,6 +111,7 @@ switch ($method) {
         $message = trim($data['message'] ?? '');
 
         if (!$reqId) jsonResponse(['error' => 'Demande requise'], 400);
+        if (!$message) jsonResponse(['error' => 'Le message ne peut pas être vide'], 400);
 
         // Validate request exists and is open
         $check = $db->prepare('SELECT id, auteur_id, statut FROM demandes_aide WHERE id = ?');

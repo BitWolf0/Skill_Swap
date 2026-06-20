@@ -96,10 +96,12 @@ include __DIR__ . '/../backend/includes/header.php';
                 <div style="color:rgba(255,255,255,0.6);font-size:0.7rem;line-height:1.2;"><?= $level['points'] ?> pts</div>
               </div>
             </div>
+            <?php if ($profileUser['role'] !== 'administrateur'): ?>
             <span style="display:flex;align-items:center;gap:6px;color:#fff;font-size:0.9rem;">
               <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:<?= $profileUser['disponible'] ? '#22c55e' : '#6b7280' ?>;"></span>
               <?= $profileUser['disponible'] ? 'Disponible' : 'Non disponible' ?>
             </span>
+            <?php endif; ?>
           </div>
           <?php if ($level['progress'] < 100): ?>
           <div style="margin-top:16px;max-width:400px;">
@@ -169,10 +171,12 @@ include __DIR__ . '/../backend/includes/header.php';
             </div>
             <!-- Action Footer -->
             <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #e2e8f0;margin-top:1.5rem;flex-wrap:wrap;gap:0.75rem;">
+              <?php if ($profileUser['role'] !== 'administrateur'): ?>
               <label style="display:flex;align-items:center;gap:0.625rem;cursor:pointer;user-select:none;">
                 <input type="checkbox" id="edit-disponible" name="disponible" value="1" <?= $profileUser['disponible'] ? 'checked' : '' ?> style="width:16px;height:16px;border-radius:4px;accent-color:#4f46e5;" />
                 <span style="font-size:0.82rem;color:#475569;">Disponible pour aider</span>
               </label>
+              <?php endif; ?>
               <button type="submit" style="height:40px;padding:0 1.25rem;background:#4f46e5;color:#fff;font-size:0.82rem;font-weight:500;border:none;border-radius:8px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
                 Enregistrer
               </button>

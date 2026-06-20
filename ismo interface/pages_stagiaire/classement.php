@@ -17,7 +17,7 @@ $sql = '
            (SELECT COALESCE(ROUND(AVG(note_mentor), 1), 0) FROM demandes_aide WHERE mentor_id = u.id AND note_mentor IS NOT NULL) AS note_moyenne,
            (SELECT COUNT(*) FROM competences_stagiaire WHERE utilisateur_id = u.id AND statut_validation = \'Validé\') AS competences_validees
     FROM utilisateurs u
-    WHERE 1=1';
+    WHERE u.role NOT IN ("administrateur", "formateur")';
 
 $params = [];
 if ($filiereFilter) {

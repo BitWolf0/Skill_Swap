@@ -143,10 +143,13 @@ class SimplePdf {
     }
 
     private function fixEncoding(string $text): string {
-        $converted = @iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $text);
-        if ($converted !== false && $converted !== '') {
-            $text = $converted;
-        } elseif (function_exists('mb_convert_encoding')) {
+        if (function_exists('iconv')) {
+            $converted = @iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $text);
+            if ($converted !== false && $converted !== '') {
+                $text = $converted;
+            }
+        }
+        if (function_exists('mb_convert_encoding')) {
             $text = mb_convert_encoding($text, 'ISO-8859-1', 'UTF-8');
         }
         $out = '';

@@ -169,8 +169,9 @@ document.addEventListener('keydown', function(e) {
 });
 document.getElementById('proposal-submit')?.addEventListener('click', async () => {
   const demandeId = document.getElementById('proposal-request-id').value;
-  const message = document.getElementById('proposal-text').value;
+  const message = document.getElementById('proposal-text').value.trim();
   if (!demandeId) return;
+  if (!message) { showToast('Veuillez écrire votre solution avant d\'envoyer', 'error'); return; }
   try {
     const resp = await fetch('../backend/api/propositions.php', {
       method: 'POST',

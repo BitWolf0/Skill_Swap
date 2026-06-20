@@ -37,7 +37,7 @@ function clearFieldError(field) {
 }
 
 function validateEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.endsWith('@ofppt-edu.ma');
 }
 
 function validateForm() {
@@ -55,7 +55,7 @@ function validateForm() {
     });
 
     if (fields.email && fields.email.value && !validateEmail(fields.email.value)) {
-        setFieldError(fields.email, 'Email invalide');
+        setFieldError(fields.email, 'Email @ofppt-edu.ma requis');
         isValid = false;
     }
 
@@ -90,6 +90,6 @@ signupForm?.addEventListener('submit', (event) => {
     setAlert('Compte cree avec succes. Redirection...', 'success');
 
     setTimeout(() => {
-        window.location.href = 'login.php';
+        window.location.href = '../login.php';
     }, 1200);
 });

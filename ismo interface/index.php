@@ -11,5 +11,5 @@ if (isset($_SESSION['user_id'])) {
     header('Location: ' . $redirect);
     exit;
 }
-header('Location: pages_stagiaire/login.php');
+header('Location: login.php');
 exit;

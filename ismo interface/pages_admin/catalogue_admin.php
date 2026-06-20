@@ -24,7 +24,7 @@ include __DIR__ . '/../backend/includes/header.php';
         <h1 class="page-title">Gestion du Catalogue</h1>
         <p class="page-sub">Ajoutez, modifiez ou désactivez des compétences</p>
       </div>
-      <button class="btn-publish" onclick="document.getElementById('add-skill-modal').removeAttribute('hidden')">
+      <button class="btn-publish" onclick="document.getElementById('add-skill-modal').classList.add('active')">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         Ajouter
       </button>
@@ -49,25 +49,30 @@ include __DIR__ . '/../backend/includes/header.php';
       </tbody>
     </table>
 
-    <div class="modal" id="add-skill-modal" hidden>
-      <div class="modal-backdrop" onclick="this.closest('.modal').hidden=true"></div>
+    <div class="modal-overlay" id="add-skill-modal">
+      <div class="modal-overlay-bg" onclick="document.getElementById('add-skill-modal').classList.remove('active')"></div>
       <div class="modal-content">
-        <h2>Ajouter une compétence</h2>
+        <div class="modal-header">
+          <h2>Ajouter une compétence</h2>
+          <button type="button" class="modal-close" onclick="document.getElementById('add-skill-modal').classList.remove('active')">&times;</button>
+        </div>
         <form method="post" action="../backend/api/competences.php?action=ajouter" id="add-skill-form">
-          <div class="form-group">
-            <label for="skill-name">Nom</label>
-            <input type="text" id="skill-name" name="nom" class="form-input" required />
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="skill-name">Nom</label>
+              <input type="text" id="skill-name" name="nom" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="skill-cat">Catégorie</label>
+              <input type="text" id="skill-cat" name="categorie" class="form-input" placeholder="Ex: Programmation, Base de données..." />
+            </div>
+            <div class="form-group">
+              <label for="skill-desc">Description</label>
+              <textarea id="skill-desc" name="description" class="form-input" rows="3"></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="skill-cat">Catégorie</label>
-            <input type="text" id="skill-cat" name="categorie" class="form-input" placeholder="Ex: Programmation, Base de données..." />
-          </div>
-          <div class="form-group">
-            <label for="skill-desc">Description</label>
-            <textarea id="skill-desc" name="description" class="form-input" rows="3"></textarea>
-          </div>
-          <div class="modal-actions">
-            <button type="button" class="btn-sm btn-secondary" onclick="document.getElementById('add-skill-modal').hidden=true">Annuler</button>
+          <div class="modal-footer">
+            <button type="button" class="btn-sm btn-secondary" onclick="document.getElementById('add-skill-modal').classList.remove('active')">Annuler</button>
             <button type="submit" class="btn-sm btn-primary">Ajouter</button>
           </div>
         </form>

@@ -172,6 +172,8 @@ include __DIR__ . '/../backend/includes/header.php';
                 <?= $u['derniere_connexion'] ? date('d/m/Y H:i', strtotime($u['derniere_connexion'])) : 'Jamais' ?>
               </td>
               <td style="text-align:center;">
+                <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+                <?php if ((int)$_SESSION['user_id'] !== (int)$u['id']): ?>
                 <button class="toggle-status btn-toggle <?= $u['est_actif'] ? 'btn-toggle--suspend' : 'btn-toggle--activate' ?>"
                   data-id="<?= $u['id'] ?>" data-current="<?= $u['est_actif'] ?>">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -183,6 +185,19 @@ include __DIR__ . '/../backend/includes/header.php';
                   </svg>
                   <?= $u['est_actif'] ? 'Suspendre' : 'Activer' ?>
                 </button>
+                <?php endif; ?>
+                <?php if ($u['role'] !== 'administrateur'): ?>
+                <button class="btn-promote-admin" data-id="<?= $u['id'] ?>">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                  Admin
+                </button>
+                <?php elseif ((int)$_SESSION['user_id'] !== (int)$u['id']): ?>
+                <button class="btn-demote-admin" data-id="<?= $u['id'] ?>">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+                  Rétrograder
+                </button>
+                <?php endif; ?>
+                </div>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -207,6 +222,44 @@ document.querySelectorAll('.toggle-status').forEach(btn => {
     this.textContent = '...';
     try {
       const r = await fetch('../backend/api/users.php?id=' + id + '&action=toggle-status', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '<?= csrfToken() ?>' }
+      });
+      const res = await r.json();
+      if (res.success) { showToast(res.message, 'success'); setTimeout(() => location.reload(), 600); }
+      else showToast(res.error || 'Erreur', 'error');
+    } catch(e) { showToast('Erreur de connexion', 'error'); }
+    this.disabled = false;
+  });
+});
+
+document.querySelectorAll('.btn-promote-admin').forEach(btn => {
+  btn.addEventListener('click', async function() {
+    const id = this.dataset.id;
+    if (!confirm('Promouvoir cet utilisateur au rôle Administrateur ?\n\nCette action est irréversible.')) return;
+    this.disabled = true;
+    this.textContent = '...';
+    try {
+      const r = await fetch('../backend/api/users.php?id=' + id + '&action=promote_admin', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '<?= csrfToken() ?>' }
+      });
+      const res = await r.json();
+      if (res.success) { showToast(res.message, 'success'); setTimeout(() => location.reload(), 600); }
+      else showToast(res.error || 'Erreur', 'error');
+    } catch(e) { showToast('Erreur de connexion', 'error'); }
+    this.disabled = false;
+  });
+});
+
+document.querySelectorAll('.btn-demote-admin').forEach(btn => {
+  btn.addEventListener('click', async function() {
+    const id = this.dataset.id;
+    if (!confirm('Rétrograder cet administrateur au rôle Stagiaire ?\n\nCette action est irréversible.')) return;
+    this.disabled = true;
+    this.textContent = '...';
+    try {
+      const r = await fetch('../backend/api/users.php?id=' + id + '&action=demote_admin', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '<?= csrfToken() ?>' }
       });

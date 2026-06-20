@@ -270,7 +270,7 @@ function clearState(inputEl, errorEl) {
 }
 
 function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.endsWith('@ofppt-edu.ma');
 }
 
 
@@ -288,7 +288,7 @@ if (loginForm) {
     let valid = true;
 
     if (!validateEmail(emailEl.value.trim())) {
-      setError(emailEl, emailErr, 'Veuillez entrer une adresse e-mail valide.');
+      setError(emailEl, emailErr, 'Utilisez un email @ofppt-edu.ma valide.');
       valid = false;
     } else {
       setSuccess(emailEl, emailErr);
@@ -343,7 +343,7 @@ if (signupForm) {
     let valid = true;
 
     if (!validateEmail(emailEl.value.trim())) {
-      setError(emailEl, emailErr, 'Veuillez entrer une adresse e-mail valide.');
+      setError(emailEl, emailErr, 'Utilisez un email @ofppt-edu.ma valide.');
       valid = false;
     } else {
       setSuccess(emailEl, emailErr);
@@ -396,7 +396,7 @@ if (signupForm) {
   if (!el) return;
   el.addEventListener('blur', () => {
     if (el.value && !validateEmail(el.value)) {
-      setError(el, err, 'Adresse e-mail invalide.');
+      setError(el, err, 'Seul l\'email @ofppt-edu.ma est accepté.');
     } else if (el.value) {
       setSuccess(el, err);
     }

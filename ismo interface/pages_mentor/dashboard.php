@@ -26,6 +26,14 @@ $stmt = $db->prepare("SELECT d.*, c.nom AS skill_name, CONCAT(u.prenom, ' ', u.n
 $stmt->execute();
 $openRequests = $stmt->fetchAll();
 
+// IDs where current user already proposed
+$proposedIds = [];
+$stmt = $db->prepare("SELECT demande_id FROM propositions_aide WHERE proposant_id = ?");
+$stmt->execute([$userId]);
+while ($row = $stmt->fetch()) {
+    $proposedIds[] = (int)$row['demande_id'];
+}
+
 include __DIR__ . '/../backend/includes/header.php';
 ?>
 <?php include __DIR__ . '/../backend/includes/sidebar_mentor.php'; ?>
@@ -79,7 +87,16 @@ include __DIR__ . '/../backend/includes/header.php';
           <span class="tag tag-blue"><?= h($req['skill_name'])?></span>
           <span class="tag tag-gray">par <?= h($req['owner_name'])?></span>
         </div>
+        <?php
+        $isOwner = (int)$req['auteur_id'] === $userId;
+        $alreadyProposed = in_array((int)$req['id'], $proposedIds);
+        if ($isOwner): ?>
+        <button class="btn-sm btn-offer btn-offer--own" disabled>Votre demande</button>
+        <?php elseif ($alreadyProposed): ?>
+        <button class="btn-sm btn-offer btn-offer--done" disabled>Déjà proposé</button>
+        <?php else: ?>
         <button class="btn-sm btn-offer" onclick="openDashProposal(<?= $req['id']?>)">Proposer mon aide</button>
+        <?php endif; ?>
       </div>
       <?php endforeach; ?>
     </div>
@@ -154,6 +171,19 @@ include __DIR__ . '/../backend/includes/header.php';
   background: var(--blue-700);
   transform: translateY(-1px);
 }
+.request-card .btn-offer:disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+.request-card .btn-offer--own {
+  background: var(--gray-300);
+  color: var(--gray-600);
+}
+.request-card .btn-offer--done {
+  background: var(--green-100);
+  color: var(--green-700);
+  border: 1px solid var(--green-300);
+}
 </style>
 
 <script>
@@ -189,6 +219,7 @@ document.addEventListener('keydown', function(e) {
 document.getElementById('dash-submit-solution')?.addEventListener('click', async () => {
   if (!dashProposalId) return;
   const message = document.getElementById('dash-solution-text').value.trim();
+  if (!message) { showToast('Veuillez écrire votre solution avant d\'envoyer', 'error'); return; }
   try {
     const resp = await fetch('../backend/api/propositions.php', {
       method: 'POST',

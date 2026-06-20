@@ -29,6 +29,12 @@ $userName = $user ? ($user['prenom'] . ' ' . $user['nom']) : 'Formateur';
           <span class="nav-label">Catalogue</span>
         </a>
       </li>
+      <li>
+        <a href="recherche.php" class="nav-item <?= $currentPage === 'recherche' ? 'active' : '' ?>" id="nav-recherche" <?= $currentPage === 'recherche' ? 'aria-current="page"' : '' ?>>
+          <span class="nav-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+          <span class="nav-label">Recherche</span>
+        </a>
+      </li>
     </ul>
   </nav>
   <div class="sidebar-footer">

@@ -83,6 +83,13 @@ switch ($method) {
         if ($newStatut === 'Approuvé') {
             $db->prepare("UPDATE utilisateurs SET role = 'mentor' WHERE id = ?")
                ->execute([$app['utilisateur_id']]);
+            // Assigner automatiquement le badge Ambassadeur
+            $badgeCheck = $db->prepare("SELECT id FROM badges_stagiaire WHERE utilisateur_id = ? AND badge_id = 4");
+            $badgeCheck->execute([$app['utilisateur_id']]);
+            if (!$badgeCheck->fetch()) {
+                $db->prepare("INSERT INTO badges_stagiaire (utilisateur_id, badge_id, attribue_par, motif) VALUES (?, 4, 'système', 'Mentor approuvé')")
+                   ->execute([$app['utilisateur_id']]);
+            }
             ajouterNotification((int)$app['utilisateur_id'], 'mentor_approuve', 'Félicitations !', 'Votre candidature mentor a été approuvée', 'mentor', $applicationId);
         } else {
             ajouterNotification((int)$app['utilisateur_id'], 'mentor_refuse', 'Candidature refusée', 'Votre candidature mentor a été refusée', 'mentor', $applicationId);

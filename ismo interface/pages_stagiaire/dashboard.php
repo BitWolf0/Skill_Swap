@@ -3,7 +3,7 @@ require_once __DIR__ . '/../backend/config.php';
 requireAuth();
 
 $user = getCurrentUser();
-if (!$user) redirect('../pages_stagiaire/login.php');
+if (!$user) redirect('../login.php');
 
 $userId = (int)$user['id'];
 $pageTitle = 'ISMO-SkillSwap — Tableau de bord';

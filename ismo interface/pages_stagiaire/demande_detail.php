@@ -344,6 +344,9 @@ if (proposeForm) {
     e.preventDefault();
     const formData = new FormData(proposeForm);
     const data = Object.fromEntries(formData);
+    const message = (data.message || '').trim();
+    if (!message) { showToast('Veuillez écrire votre solution avant d\'envoyer', 'error'); return; }
+    data.message = message;
 
     try {
       const res = await fetch('../backend/api/propositions.php', {
@@ -372,6 +375,9 @@ if (solutionForm) {
     e.preventDefault();
     const formData = new FormData(solutionForm);
     const data = Object.fromEntries(formData);
+    const message = (data.message || '').trim();
+    if (!message) { showToast('Veuillez écrire votre solution avant d\'envoyer', 'error'); return; }
+    data.message = message;
 
     try {
       const res = await fetch('../backend/api/propositions.php?action=update_solution', {
