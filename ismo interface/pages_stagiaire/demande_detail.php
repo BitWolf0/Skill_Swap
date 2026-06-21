@@ -61,10 +61,12 @@ foreach ($propositions as $p) {
 
 // Check if the assigned mentor has submitted a solution
 $mentorHasSolution = false;
+$mentorSolution = '';
 if ($demande['mentor_id']) {
     $solCheck = $db->prepare("SELECT message FROM propositions_aide WHERE demande_id = ? AND proposant_id = ? AND statut = 'Acceptée' AND message IS NOT NULL AND message != '' LIMIT 1");
     $solCheck->execute([$reqId, $demande['mentor_id']]);
-    $mentorHasSolution = (bool)$solCheck->fetchColumn();
+    $mentorSolution = $solCheck->fetchColumn();
+    $mentorHasSolution = (bool)$mentorSolution;
 }
 
 $pageTitle   = 'ISMO-SkillSwap — ' . $demande['titre'];
@@ -127,9 +129,15 @@ include __DIR__ . '/../backend/includes/topbar.php';
           <small>À aidé sur cette demande</small>
         </div>
       </div>
+      <?php if ($mentorHasSolution): ?>
+      <div class="solution-box" style="margin-top:16px">
+        <strong class="solution-label">Solution du mentor :</strong>
+        <p class="proposal-message" style="margin-top:8px"><?= nl2br(h($mentorSolution)) ?></p>
+      </div>
+      <?php endif; ?>
       <?php if ($isAuthor): ?>
         <?php if ($mentorHasSolution): ?>
-        <button class="btn-primary" onclick="resolveRequest()">Marquer comme résolu</button>
+        <button class="btn-primary" onclick="resolveRequest()" style="margin-top:16px">Marquer comme résolu</button>
         <?php else: ?>
         <p class="text-muted" style="margin-top:12px">En attente de la solution du mentor…</p>
         <?php endif; ?>
@@ -143,12 +151,18 @@ include __DIR__ . '/../backend/includes/topbar.php';
       <h3>Demande résolue</h3>
       <p>Résolue le <?= date('d/m/Y à H:i', strtotime($demande['date_resolution'])) ?></p>
       <?php if ($demande['mentor_id']): ?>
-      <div class="author-info">
+      <div class="author-info" style="margin-top:12px">
         <span class="avatar-initials"><?= mb_substr(h($demande['mentor_prenom']), 0, 1) ?><?= mb_substr(h($demande['mentor_nom']), 0, 1) ?></span>
         <div>
           <strong><?= h($demande['mentor_prenom']) ?> <?= h($demande['mentor_nom']) ?></strong>
         </div>
       </div>
+      <?php if ($mentorHasSolution): ?>
+      <div class="solution-box" style="margin-top:14px">
+        <strong class="solution-label">Solution apportée :</strong>
+        <p class="proposal-message" style="margin-top:8px"><?= nl2br(h($mentorSolution)) ?></p>
+      </div>
+      <?php endif; ?>
       <?php endif; ?>
       <?php if ($demande['note_mentor']): ?>
       <div class="rating-display">

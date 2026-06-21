@@ -47,14 +47,21 @@ include __DIR__ . '/../backend/includes/header.php';
   <section class="content-main">
 
     <!-- Page Header -->
-    <div class="flex items-center justify-between mb-6">
-      <div>
-        <h1 class="page-title gc-page-title">Gestion des Comptes</h1>
-        <p class="page-sub"><?= count($users) ?> utilisateur(s) · Gérez les comptes de la plateforme</p>
+    <div class="page-head gc-head">
+      <div class="gc-head-left">
+        <div class="gc-head-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4.354a4 4 0 110 5.292M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <h1 class="gc-head-title">Gestion des Comptes</h1>
+          <p class="gc-head-sub"><strong><?= count($users) ?></strong> utilisateur(s) · Gérez les comptes de la plateforme</p>
+        </div>
       </div>
-      <div class="flex items-center gap-2 text-sm text-gray-400">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-        <span>Dernière synchro il y a 1 min</span>
+      <div class="gc-head-right">
+        <div class="gc-sync-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>Synchro il y a 1 min</span>
+        </div>
       </div>
     </div>
 

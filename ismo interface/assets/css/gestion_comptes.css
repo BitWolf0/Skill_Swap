@@ -3,6 +3,106 @@
    Consistent with dashboard.css design system
    ============================================================ */
 
+/* ── Page Header ──────────────────────────────────────── */
+.gc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #F8FAFC 100%);
+  padding: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 1px 4px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06);
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gc-head::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--blue-500), var(--blue-700));
+}
+
+.gc-head-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px 22px 28px;
+  flex: 1;
+  border-right: 1px solid var(--gray-100);
+}
+
+.gc-head-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #EFF6FF 0%, #BFDBFE 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-700);
+  flex-shrink: 0;
+  border: 1px solid rgba(59,130,246,.2);
+  box-shadow: 0 1px 3px rgba(59,130,246,.1);
+}
+
+.gc-head-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -.5px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.gc-head-sub {
+  font-size: .85rem;
+  color: var(--gray-400);
+  margin: 4px 0 0;
+  font-weight: 400;
+}
+
+.gc-head-sub strong {
+  color: var(--gray-600);
+  font-weight: 600;
+}
+
+.gc-head-right {
+  flex-shrink: 0;
+  padding: 22px 24px;
+}
+
+.gc-sync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  background: var(--white);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gray-200);
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+.gc-sync-badge svg {
+  color: var(--gray-400);
+  animation: gc-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gc-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
 /* ── Filter Bar ────────────────────────────────────────── */
 .filter-bar {
   display: flex;
@@ -205,7 +305,7 @@
 .gc-table-wrap {
   background: var(--white);
   border-radius: var(--radius-md);
-  border: 1px solid var(--gray-100);
+  border: 1px solid var(--gray-200);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
