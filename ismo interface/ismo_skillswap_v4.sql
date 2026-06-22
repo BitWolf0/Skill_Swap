@@ -27,6 +27,7 @@ CREATE TABLE `badges` (
   `nom` varchar(200) NOT NULL,
   `description` text DEFAULT NULL,
   `icone` varchar(50) DEFAULT NULL,
+  `categorie` varchar(100) DEFAULT NULL,
   `points_requis` int(11) NOT NULL DEFAULT 0,
   `est_actif` tinyint(1) NOT NULL DEFAULT 1,
   `creee_le` datetime NOT NULL DEFAULT current_timestamp(),
@@ -40,7 +41,7 @@ CREATE TABLE `badges` (
 
 LOCK TABLES `badges` WRITE;
 /*!40000 ALTER TABLE `badges` DISABLE KEYS */;
-INSERT INTO `badges` VALUES (1,'Débutant','Premiers pas sur la plateforme',NULL,10,1,'2026-06-05 01:11:39'),(2,'Apprenti','Vous progressez',NULL,30,1,'2026-06-05 01:11:39'),(3,'Expert','Expert en compétences',NULL,60,1,'2026-06-05 01:11:39'),(4,'Mentor','Membre actif de la communauté ayant été approuvé en tant que mentor',NULL,0,1,'2026-06-05 01:11:39');
+INSERT INTO `badges` VALUES (1,'Débutant','Premiers pas sur la plateforme',NULL,NULL,10,1,'2026-06-05 01:11:39'),(2,'Apprenti','Vous progressez',NULL,NULL,30,1,'2026-06-05 01:11:39'),(3,'Expert','Expert en compétences',NULL,NULL,60,1,'2026-06-05 01:11:39'),(4,'Mentor','Membre actif de la communauté ayant été approuvé en tant que mentor',NULL,NULL,0,1,'2026-06-05 01:11:39');
 /*!40000 ALTER TABLE `badges` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,6 +325,84 @@ LOCK TABLES `propositions_aide` WRITE;
 /*!40000 ALTER TABLE `propositions_aide` DISABLE KEYS */;
 INSERT INTO `propositions_aide` VALUES (1,1,1,'Je peux t\'aider, j\'ai 3 ans d\'expérience en PHP','En attente','2026-06-05 01:11:39',NULL),(2,3,1,'Je maîtrise CSS Grid, je te propose mon aide','En attente','2026-06-05 01:11:39',NULL),(3,7,1,'Je peux vous aider avec ce problème, voici ma solution détaillée étape par étape.','Acceptée','2026-06-14 00:51:10','2026-06-14 00:52:45'),(4,5,5,'tu dois','En attente','2026-06-14 17:01:53',NULL),(5,4,5,'ssss','En attente','2026-06-19 19:23:40',NULL);
 /*!40000 ALTER TABLE `propositions_aide` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_cases`
+--
+
+DROP TABLE IF EXISTS `service_cases`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `service_cases` (
+  `case_id` int(11) NOT NULL AUTO_INCREMENT,
+  `case_type` varchar(50) NOT NULL DEFAULT 'support',
+  `created_by_user_id` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `target_user_id` int(11) DEFAULT NULL,
+  `target_content_type` varchar(50) DEFAULT NULL,
+  `target_content_id` int(11) DEFAULT NULL,
+  `status` enum('open','in_progress','resolved','closed','dismissed') NOT NULL DEFAULT 'open',
+  `priority` varchar(20) DEFAULT NULL,
+  `severity_level` varchar(20) DEFAULT NULL,
+  `assigned_to_user_id` int(11) DEFAULT NULL,
+  `action_taken` text DEFAULT NULL,
+  `resolution_notes` text DEFAULT NULL,
+  `reviewed_by_user_id` int(11) DEFAULT NULL,
+  `resolved_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`case_id`),
+  KEY `idx_case_type` (`case_type`),
+  KEY `idx_created_by` (`created_by_user_id`),
+  KEY `idx_status` (`status`),
+  KEY `idx_target_user` (`target_user_id`),
+  KEY `idx_assigned_to` (`assigned_to_user_id`),
+  CONSTRAINT `service_cases_ibfk_1` FOREIGN KEY (`created_by_user_id`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `service_cases_ibfk_2` FOREIGN KEY (`target_user_id`) REFERENCES `utilisateurs` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `service_cases_ibfk_3` FOREIGN KEY (`assigned_to_user_id`) REFERENCES `utilisateurs` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_cases`
+--
+
+LOCK TABLES `service_cases` WRITE;
+/*!40000 ALTER TABLE `service_cases` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service_cases` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `case_replies`
+--
+
+DROP TABLE IF EXISTS `case_replies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `case_replies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `case_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `is_staff` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_case` (`case_id`),
+  KEY `idx_user` (`user_id`),
+  CONSTRAINT `case_replies_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `service_cases` (`case_id`) ON DELETE CASCADE,
+  CONSTRAINT `case_replies_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `case_replies`
+--
+
+LOCK TABLES `case_replies` WRITE;
+/*!40000 ALTER TABLE `case_replies` DISABLE KEYS */;
+/*!40000 ALTER TABLE `case_replies` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
