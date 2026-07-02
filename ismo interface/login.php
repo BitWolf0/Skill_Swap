@@ -4,7 +4,7 @@
  */
 require_once __DIR__ . '/backend/config.php';
 
-// Platform stats (v4 — try-catch so missing tables don't crash)
+// Platform stats 
 try {
     $stmt = $db->query("SELECT COUNT(*) FROM utilisateurs");
     $totalUsers = (int) $stmt->fetchColumn();
@@ -24,6 +24,18 @@ try {
     $stmt = $db->query("SELECT COUNT(*) FROM utilisateurs WHERE derniere_connexion >= NOW() - INTERVAL 30 MINUTE");
     $onlineCount = (int) $stmt->fetchColumn();
 } catch (Exception $e) { $onlineCount = 0; }
+
+// Read remember_credentials cookie
+$rememberedEmail = '';
+$rememberedPassword = '';
+$hasRemembered = false;
+if (isset($_COOKIE['remember_credentials'])) {
+    $decoded = base64_decode($_COOKIE['remember_credentials']);
+    if ($decoded !== false && str_contains($decoded, '|')) {
+        [$rememberedEmail, $rememberedPassword] = explode('|', $decoded, 2);
+        $hasRemembered = true;
+    }
+}
 
 // Redirect if already logged in
 if (isLoggedIn()) {
@@ -127,7 +139,7 @@ if (isLoggedIn()) {
               <label for="login-email">Adresse e-mail</label>
               <div class="input-wrapper">
                 <span class="input-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-                <input type="email" id="login-email" name="email" placeholder="votre@email.com" autocomplete="email" required />
+                <input type="email" id="login-email" name="email" placeholder="votre@email.com" autocomplete="email" required value="<?= h($rememberedEmail) ?>" />
               </div>
               <span class="field-error" id="login-email-error" role="alert"></span>
             </div>
@@ -135,14 +147,14 @@ if (isLoggedIn()) {
               <label for="login-password">Mot de passe</label>
               <div class="input-wrapper">
                 <span class="input-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-                <input type="password" id="login-password" name="password" placeholder="••••••••" autocomplete="current-password" required />
+                <input type="password" id="login-password" name="password" placeholder="••••••••" autocomplete="current-password" required value="<?= h($rememberedPassword) ?>" />
                 <button type="button" class="toggle-pw" id="toggle-login-pw" aria-label="Afficher le mot de passe" onclick="togglePassword('login-password', this)"><svg class="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
               </div>
               <span class="field-error" id="login-password-error" role="alert"></span>
             </div>
             <div class="form-row">
               <label class="checkbox-label" for="remember-me">
-                <input type="checkbox" id="remember-me" name="remember" />
+                <input type="checkbox" id="remember-me" name="remember" <?= $hasRemembered ? 'checked' : '' ?> />
                 <span class="checkbox-custom" aria-hidden="true"></span>
                 Se souvenir de moi
               </label>
@@ -220,7 +232,7 @@ if (isLoggedIn()) {
             <label class="checkbox-label terms-label" for="terms">
               <input type="checkbox" id="terms" name="terms" required />
               <span class="checkbox-custom" aria-hidden="true"></span>
-              J'accepte les <a href="termes.php">Conditions d'utilisation</a> et la <a href="confidentialite.php">Politique de confidentialité</a>
+              J'accepte les <a href="./pages_stagiaire/termes.php">Conditions d'utilisation</a> et la <a href="./pages_stagiaire/confidentialite.php">Politique de confidentialité</a>
             </label>
             <button type="submit" class="btn-primary" id="btn-signup">
               <span class="btn-text">Créer mon compte</span>

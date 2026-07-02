@@ -58,6 +58,16 @@ $_SESSION['user_email'] = $user['email'];
 $db->prepare('UPDATE utilisateurs SET derniere_connexion = NOW() WHERE id = ?')
    ->execute([$user['id']]);
 
+// Remember me — store credentials in a cookie
+if ($remember) {
+    $cookieValue = base64_encode($email . '|' . $password);
+    $cookieExpiry = time() + 86400 * 30;
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+            || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
+    setcookie('remember_credentials', $cookieValue, $cookieExpiry, '/', '', $isHttps, true);
+}
+
 // Redirect target based on role
 $redirect = match ($user['role']) {
     'stagiaire'      => BASE_URL . '/pages_stagiaire/dashboard.php',

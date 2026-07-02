@@ -79,4 +79,3 @@ Aucun build — ouvrir les fichiers `.php` directement via Apache ou Live Server
 code "ismo interface" && start http://localhost:5501
 ```
 
-Voir `AGENTS.md` pour les conventions et `DESIGN_SYSTEM.md` pour le guide de style.
